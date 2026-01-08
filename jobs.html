@@ -230,6 +230,46 @@
 
   <script src="i18n.js"></script>
   <script src="gamification.js"></script>
+  <script src="scripts/studios.js"></script>
+  <script>
+    // Dynamic Job Ticker Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check if 'studios' data is available from studios.js
+      if (typeof studios !== 'undefined') {
+        const tickerTrack = document.querySelector('.job-ticker-track');
+        if (tickerTrack) {
+          // Filter for hiring studios
+          const hiringStudios = studios.filter(s => s.hiring);
+
+          if (hiringStudios.length > 0) {
+            tickerTrack.innerHTML = ''; // Clear placeholders
+
+            // Create ticker items
+            hiringStudios.forEach(studio => {
+              const item = document.createElement('a');
+              item.href = studio.url;
+              item.target = '_blank';
+              item.className = 'job-ticker-item';
+              item.innerHTML = `🔥 ${studio.name} (${studio.country}) is Hiring!`;
+              tickerTrack.appendChild(item);
+            });
+
+            // Duplicate for infinite scroll loop if needed
+            if (hiringStudios.length < 5) {
+              hiringStudios.forEach(studio => {
+                const item = document.createElement('a');
+                item.href = studio.url;
+                item.target = '_blank';
+                item.className = 'job-ticker-item';
+                item.innerHTML = `🔥 ${studio.name} (${studio.country}) is Hiring!`;
+                tickerTrack.appendChild(item);
+              });
+            }
+          }
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>
