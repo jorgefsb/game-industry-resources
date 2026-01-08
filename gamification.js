@@ -152,15 +152,84 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Konami Code
+  // Konami Code - ENHANCED VERSION
   let kKeys = [];
   const konami = "ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,b,a";
   document.addEventListener('keydown', (e) => {
     kKeys.push(e.key);
     if (kKeys.toString().indexOf(konami) >= 0) {
+      // EPIC CELEBRATION MODE
       addXP(500, { clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 });
       updateBotMessage(vocab[gameState.lang].konamiSuccess);
-      document.body.style.animation = "shake 0.5s";
+
+      // Create fullscreen overlay
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        animation: fadeIn 0.3s;
+      `;
+
+      overlay.innerHTML = `
+        <div style="text-align: center; animation: scaleIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);">
+          <h1 style="font-family: 'Press Start 2P', monospace; font-size: 3rem; color: #00ffff; text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff; margin-bottom: 2rem; animation: rainbow 2s infinite;">
+            🚀 GOD MODE 🚀
+          </h1>
+          <p style="font-size: 1.5rem; color: #ff2d95; font-weight: bold; margin-bottom: 1rem;">
+            ¡KONAMI CODE ACTIVADO!
+          </p>
+          <p style="font-size: 1rem; color: #fff; opacity: 0.8;">
+            +500 XP • Achievement Unlocked
+          </p>
+        </div>
+      `;
+
+      document.body.appendChild(overlay);
+
+      // Rainbow effect on body
+      document.body.style.animation = 'rainbow 2s infinite, shake 0.5s';
+
+      // Particle explosion
+      for (let i = 0; i < 50; i++) {
+        setTimeout(() => {
+          const particle = document.createElement('div');
+          particle.style.cssText = `
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: ${['#00ffff', '#ff2d95', '#ffd700'][Math.floor(Math.random() * 3)]};
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            left: 50%;
+            top: 50%;
+            animation: explode 2s forwards;
+          `;
+          particle.style.setProperty('--angle', Math.random() * 360 + 'deg');
+          particle.style.setProperty('--distance', 200 + Math.random() * 300 + 'px');
+          document.body.appendChild(particle);
+          setTimeout(() => particle.remove(), 2000);
+        }, i * 20);
+      }
+
+      // Remove overlay after 5 seconds
+      setTimeout(() => {
+        overlay.style.animation = 'fadeOut 0.5s';
+        setTimeout(() => {
+          overlay.remove();
+          document.body.style.animation = '';
+        }, 500);
+      }, 5000);
+
       kKeys = [];
     }
   });
