@@ -306,11 +306,11 @@
     <!-- Stats Dashboard -->
     <div class="db-stats-grid">
       <div class="db-stat-card">
-        <div class="db-stat-value">142</div>
+        <div class="db-stat-value" id="stat-active">-</div>
         <div class="db-stat-label">ESTUDIOS ACTIVOS</div>
       </div>
       <div class="db-stat-card">
-        <div class="db-stat-value">12</div>
+        <div class="db-stat-value" id="stat-hiring">-</div>
         <div class="db-stat-label">HIRING NOW</div>
       </div>
       <div class="db-stat-card">
@@ -321,92 +321,7 @@
 
     <!-- Studios List (Mock Data for now, will fetch JSON) -->
     <div class="grid studio-grid" id="studiosGrid">
-
-      <!-- Studio Card: Amber -->
-      <a href="https://amberstudio.com" target="_blank" class="card studio-card hiring">
-        <div class="hiring-badge">HIRING</div>
-        <div class="card-icon">🏢</div>
-        <h3 class="card-title">Amber Studio <span class="flag">🇲🇽</span></h3>
-        <p class="card-description">
-          Servicios de desarrollo completo y co-dev para AAA. Oficinas en Guadalajara y Montreal.
-        </p>
-        <div class="card-tags">
-          <span class="tag">Unity</span>
-          <span class="tag">Unreal</span>
-          <span class="tag">AAA</span>
-        </div>
-      </a>
-
-      <!-- Studio Card: Halberd -->
-      <a href="https://halberdstudios.com/" target="_blank" class="card studio-card">
-        <div class="card-icon">⚔️</div>
-        <h3 class="card-title">Halberd Studios <span class="flag">🇲🇽</span></h3>
-        <p class="card-description">
-          Creadores de '9 Years of Shadows'. Especialistas en Pixel Art de alta calidad y Metroidvanias.
-        </p>
-        <div class="card-tags">
-          <span class="tag">Indie</span>
-          <span class="tag">Pixel Art</span>
-          <span class="tag">Unity</span>
-        </div>
-      </a>
-
-      <!-- Studio Card: Navegante -->
-      <a href="https://navegante.games/" target="_blank" class="card studio-card">
-        <div class="card-icon">🌊</div>
-        <h3 class="card-title">Navegante <span class="flag">🇲🇽</span></h3>
-        <p class="card-description">
-          El equipo detrás de 'Greak: Memories of Azur'. Arte dibujado a mano y narrativa profunda.
-        </p>
-        <div class="card-tags">
-          <span class="tag">Indie</span>
-          <span class="tag">Hand-Drawn</span>
-          <span class="tag">Unity</span>
-        </div>
-      </a>
-
-      <!-- Studio Card: Teravision -->
-      <a href="https://www.teravisiongames.com/" target="_blank" class="card studio-card">
-        <div class="card-icon">🤡</div>
-        <h3 class="card-title">Teravision Games <span class="flag">🇨🇴</span></h3>
-        <p class="card-description">
-          Desarrolladores de 'Killer Klowns from Outer Space'. Co-dev y juegos multiplayer asimétricos.
-        </p>
-        <div class="card-tags">
-          <span class="tag">Unreal</span>
-          <span class="tag">Multiplayer</span>
-          <span class="tag">AAA</span>
-        </div>
-      </a>
-
-      <!-- Studio Card: Nimble Giant -->
-      <a href="https://nimblegiant.com/" target="_blank" class="card studio-card">
-        <div class="card-icon">👣</div>
-        <h3 class="card-title">Nimble Giant <span class="flag">🇦🇷</span></h3>
-        <p class="card-description">
-          Uno de los estudios más grandes de LATAM. Creadores de 'Quantum League' y trabajo en 'Star Trek'.
-        </p>
-        <div class="card-tags">
-          <span class="tag">Strategy</span>
-          <span class="tag">Shooter</span>
-          <span class="tag">AA/AAA</span>
-        </div>
-      </a>
-
-      <!-- Studio Card: Lienzo -->
-      <a href="https://www.lienzo.mx/" target="_blank" class="card studio-card">
-        <div class="card-icon">🌵</div>
-        <h3 class="card-title">Lienzo <span class="flag">🇲🇽</span></h3>
-        <p class="card-description">
-          Famosos por 'Mulaka' y 'Aztech'. Enfocados en cultura mexicana y juegos de acción.
-        </p>
-        <div class="card-tags">
-          <span class="tag">Unreal</span>
-          <span class="tag">Culture</span>
-          <span class="tag">Action</span>
-        </div>
-      </a>
-
+      <!-- Content populated by JS -->
     </div>
   </section>
 
@@ -415,7 +330,7 @@
     <div class="cta-banner-content">
       <h2 class="cta-banner-title">📡 ¿Falta tu estudio?</h2>
       <p class="cta-banner-text">
-        Esta base de datos es open-source colaborativa (vía Indi-es). Manda un PR o contáctanos para agregarte.
+        Esta base de datos es open-source colaborativa. Manda un PR o contáctanos para agregarte.
       </p>
       <a href="https://github.com/indi-es/estudios" target="_blank" rel="noopener" class="btn">
         Subir Data al Mainframe
