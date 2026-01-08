@@ -27,29 +27,6 @@
   <meta property="twitter:description" content="Recursos gratuitos para game devs latinoamericanos">
   <meta property="twitter:creator" content="@jorgefsb">
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    "name": "Game Industry Resources",
-    "description": "Recursos para desarrolladores de videojuegos en Latinoamérica",
-    "url": "https://gamedev.jorgesuarez.com.mx/",
-    "founder": {
-      "@type": "Person",
-      "name": "Jorge Suarez",
-      "url": "https://jorgesuarez.com.mx"
-    },
-    "sameAs": [
-      "https://jorgesuarez.com.mx",
-      "https://amberstudio.com",
-      "https://uetc.mx",
-      "https://comunidad.uetc.mx",
-      "https://x.com/jorgefsb"
-    ]
-  }
-  </script>
-
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,23 +37,12 @@
   <!-- Design System (NEW) -->
   <link rel="stylesheet" href="styles/design-system.css">
 
-  <!-- Legacy Styles (will be deprecated) -->
-  <link rel="stylesheet" href="styles/main.css">
-
   <!-- Favicon - Pixel controller -->
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
 </head>
 
 <body>
-  <!-- Gamification: XP Bar -->
-  <div class="xp-container">
-    <div class="level-badge">LVL <span id="level-display">1</span></div>
-    <div class="xp-bar-bg">
-      <div class="xp-bar-fill" id="xp-bar-fill"></div>
-    </div>
-  </div>
-
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav__container container">
@@ -87,10 +53,11 @@
 
       <!-- Desktop Menu -->
       <ul class="nav__menu">
-        <li><a href="#resources" class="nav__link nav__link--active">Recursos</a></li>
-        <li><a href="jobs.html" class="nav__link">Jobs & Career</a></li>
-        <li><a href="database.html" class="nav__link">Studios DB</a></li>
-        <li><a href="https://comunidad.uetc.mx" target="_blank" class="nav__link">Comunidad</a></li>
+        <li><a href="#resources" class="nav__link nav__link--active" data-i18n="nav.resources">Recursos</a></li>
+        <li><a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs & Career</a></li>
+        <li><a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a></li>
+        <li><a href="https://comunidad.uetc.mx" target="_blank" class="nav__link"
+            data-i18n="nav.community">Comunidad</a></li>
       </ul>
 
       <div class="nav__cta">
@@ -100,7 +67,7 @@
           <a href="#" class="lang-btn" data-lang="en">🇺🇸 EN</a>
         </div>
 
-        <a href="https://comunidad.uetc.mx" target="_blank" rel="noopener" class="btn btn-primary">
+        <a href="https://comunidad.uetc.mx" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="nav.cta">
           🎮 Únete a EGDC
         </a>
       </div>
@@ -119,180 +86,74 @@
       <div class="hero__content">
         <div class="hero__badge">
           <span class="hero__badge-dot"></span>
-          <span>🆓 Recursos 100% gratuitos para LATAM</span>
+          <span data-i18n="hero.badge.free">🆓 Recursos 100% gratuitos para LATAM</span>
         </div>
 
-        <h1 class="hero__title">
+        <h1 class="hero__title" data-i18n="hero.title.home">
           Level up tu carrera en
           <span class="gradient-text">Game Development</span> 🚀
         </h1>
 
-        <p class="hero__subtitle">
+        <p class="hero__subtitle" data-i18n="hero.subtitle.home">
           Templates, guías, ofertas de trabajo y herramientas creadas por profesionales de la industria.
           <strong>¡Consigue chamba</strong> y funda tu estudio rentable!
         </p>
 
         <div class="hero__actions">
-          <a href="#resources" class="btn btn-primary">
+          <a href="#resources" class="btn btn-primary" data-i18n="hero.cta.explore">
             🕹️ Explorar Recursos
           </a>
-          <a href="https://x.com/jorgefsb" target="_blank" rel="noopener" class="btn btn-secondary">
+          <a href="https://x.com/jorgefsb" target="_blank" rel="noopener" class="btn btn-secondary"
+            data-i18n="hero.cta.jobs">
             💼 Ver Ofertas Diarias
           </a>
         </div>
 
-        <!-- Easter egg quote -->
-        <p class="hero__quote">
+        <p class="hero__quote" data-i18n="footer.tagline.small">
           "It's dangerous to go alone! Take this." - Old Man, Zelda
         </p>
       </div>
     </div>
   </header>
 
-  <!-- 💼 Jobs Section - HIGH PRIORITY -->
-  <section class="section" id="jobs"
-    style="background: linear-gradient(180deg, rgba(255, 107, 0, 0.05) 0%, transparent 100%);">
-    <div class="container">
-      <!-- 🎰 Job Ticker (Industry-wide) -->
-      <div class="job-ticker-container">
-        <div class="job-ticker-label">LIVE JOBS:</div>
-        <div class="job-ticker">
-          <div class="job-ticker-track">
-            <span class="job-ticker-item">🔥 [Amber Studio] Game Producer (Remote)</span>
-            <span class="job-ticker-item">👾 [Indie Dev] Unity Developer (LATAM)</span>
-            <span class="job-ticker-item">🎨 [Studio X] Senior 3D Artist</span>
-            <span class="job-ticker-item">🚀 [Amber Studio] QA Lead</span>
-            <span class="job-ticker-item">💎 [Gaming Co] Level Designer</span>
-            <span class="job-ticker-item">🔥 [Amber Studio] Game Producer (Remote)</span>
-            <span class="job-ticker-item">👾 [Indie Dev] Unity Developer (LATAM)</span>
-            <span class="job-ticker-item">🎨 [Studio X] Senior 3D Artist</span>
-          </div>
-        </div>
-      </div>
-
-      <header class="section-header">
-        <span class="section-badge" style="border-color: var(--neon-orange); color: var(--neon-orange);">🔥 Lo más
-          buscado</span>
-        <h2 class="section-title">¿Buscando Chamba en Game Dev? 💼</h2>
-        <p class="section-description">
-          En <a href="https://x.com/jorgefsb" target="_blank" rel="noopener">@jorgefsb</a> publico
-          <strong>10 ofertas de trabajo diarias</strong>. Tips, vacantes y la realidad del mercado.
-        </p>
-      </header>
-
-      <div class="grid grid-2">
-        <article class="card">
-          <div class="card-icon">📢</div>
-          <span class="card-status status-hot">🔥 Activo</span>
-          <h3 class="card-title">Ofertas de Trabajo Diarias</h3>
-          <p class="card-description">
-            Sígueme en X/Twitter para ver las vacantes que publico cada día. Programadores, artistas, diseñadores, y
-            más.
-          </p>
-          <a href="https://x.com/jorgefsb" target="_blank" rel="noopener" class="btn btn-primary" style="width: 100%;">
-            🐦 Seguir @jorgefsb
-          </a>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">📋</div>
-          <span class="card-status status-coming">Próximamente</span>
-          <h3 class="card-title">Tips para Conseguir Chamba</h3>
-          <p class="card-description">
-            Portfolio que destaque, qué buscan los recruiters, errores en entrevistas, y cómo aplicar a studios
-            internacionales.
-          </p>
-          <a href="#" class="btn btn-ghost">Ver Guía Pronto →</a>
-        </article>
-      </div>
-
-      <!-- Reality check card -->
-      <div class="card" style="margin-top: var(--space-xl); text-align: center; border-color: var(--neon-purple);">
-        <p style="font-size: 1.1rem; color: var(--text-secondary);">
-          💡 <strong style="color: var(--neon-purple);">Realidad del mercado:</strong>
-          "Siempre estamos reclutando, pero no siempre contratando." — El hiring depende del mercado y el bizdev del
-          studio.
-        </p>
-      </div>
-    </div>
-  </section>
-
   <!-- Resources Grid Section -->
   <section class="section" id="resources">
     <div class="container">
-      <header class="section-header">
-        <span class="section-badge">⚔️ Arsenal del Game Dev</span>
-        <h2 class="section-title">Herramientas para cada etapa de tu studio</h2>
-        <p class="section-description">
-          Desde tu primer pitch hasta escalar tu estudio. Todo curado por devs con XP real en la industria.
-        </p>
-      </header>
+      <div class="section__header">
+        <span class="section__badge" data-i18n="nav.resources">Recursos</span>
+        <h2 class="section__title" data-i18n="hero.cta.explore">Herramientas para cada etapa</h2>
+      </div>
 
       <div class="grid grid-3">
         <!-- Card 1: Production Tools -->
-        <a href="tools.html" class="card animate-fade-in">
-          <div class="card-icon">🛠️</div>
-          <h3 class="card-title">Production Tools</h3>
-          <p class="card-description">
-            Templates de GDD, hojas de cálculo para presupuestos y checklists de publicación. Ahorra semanas de trabajo.
+        <a href="tools.html" class="card">
+          <div class="card__icon">🛠️</div>
+          <h3 class="card__title">Production Tools</h3>
+          <p class="card__description" data-i18n="hero.subtitle.tools">
+            Templates de GDD, presupuestos y checklists.
           </p>
-          <div class="card-status status-new">✨ Nuevo</div>
+          <span class="card__badge card__badge--new">New</span>
         </a>
 
-        <!-- Card 2: Founder's Wizard -->
-        <article class="card animate-fade-in animate-delay-1" id="wizard">
-          <div class="card-icon">🤝</div>
-          <span class="card-status status-new">✨ Nuevo</span>
-          <h3 class="card-title">Wizard de Fundadores</h3>
-          <p class="card-description">
-            Define roles, equity y responsabilidades con tus co-fundadores. Genera un acuerdo inicial listo para firmar.
+        <!-- Card 2: Jobs -->
+        <a href="jobs.html" class="card">
+          <div class="card__icon">💼</div>
+          <h3 class="card__title">Jobs & Career</h3>
+          <p class="card__description" data-i18n="hero.subtitle.jobs">
+            CVs, Portafolios y ofertas de empleo.
           </p>
-          <a href="#wizard-page" class="btn btn-ghost">Crear Acuerdo →</a>
-        </article>
+          <span class="card__badge card__badge--hot">Hot</span>
+        </a>
 
-        <!-- Card 3: LATAM Database -->
-        <article class="card animate-fade-in animate-delay-2" id="database">
-          <div class="card-icon">🌎</div>
-          <span class="card-status status-coming">Próximamente</span>
-          <h3 class="card-title">Base de Datos LATAM</h3>
-          <p class="card-description">
-            Publishers, grants, eventos y studios de la región. Filtrable y actualizada constantemente.
+        <!-- Card 3: Database -->
+        <a href="database.html" class="card">
+          <div class="card__icon">🌎</div>
+          <h3 class="card__title">Studios DB</h3>
+          <p class="card__description" data-i18n="hero.subtitle.database">
+            Mapa de la industria en Latinoamérica.
           </p>
-          <a href="#database-page" class="btn btn-ghost">Explorar DB →</a>
-        </article>
-
-        <!-- Card 4: Zero to Studio Guide -->
-        <article class="card animate-fade-in animate-delay-3" id="guide">
-          <div class="card-icon">🚀</div>
-          <span class="card-status status-coming">Próximamente</span>
-          <h3 class="card-title">De Zero a Studio Rentable</h3>
-          <p class="card-description">
-            Roadmap completo con las etapas para crear un estudio sustentable. Incluye errores comunes y métricas clave.
-          </p>
-          <a href="#guide-page" class="btn btn-ghost">Ver Roadmap →</a>
-        </article>
-
-        <!-- Card 5: Marketing Playbook -->
-        <article class="card animate-fade-in animate-delay-4">
-          <div class="card-icon">📢</div>
-          <span class="card-status status-coming">Próximamente</span>
-          <h3 class="card-title">Marketing Playbook</h3>
-          <p class="card-description">
-            Cómo promocionar tu juego sin presupuesto. Estrategias de lanzamiento, influencers y community building.
-          </p>
-          <a href="#playbook-page" class="btn btn-ghost">Ver Playbook →</a>
-        </article>
-
-        <!-- Card 6: External Resources -->
-        <article class="card animate-fade-in animate-delay-5">
-          <div class="card-icon">🎬</div>
-          <span class="card-status status-coming">Próximamente</span>
-          <h3 class="card-title">Recursos Externos Top</h3>
-          <p class="card-description">
-            Los mejores canales de YouTube, blogs, y Top 10s por disciplina. Curados de toda la industria.
-          </p>
-          <a href="#external-page" class="btn btn-ghost">Ver Recursos →</a>
-        </article>
+          <span class="card__badge card__badge--new">New</span>
+        </a>
       </div>
     </div>
   </section>
@@ -302,83 +163,12 @@
     <div class="container">
       <div class="cta-banner">
         <div class="cta-banner-content">
-          <h2 class="cta-banner-title">🎮 ¿Quieres ir al siguiente nivel?</h2>
-          <p class="cta-banner-text">
-            Únete al <strong>Echo Gamedev Club (EGDC)</strong> — nuestra comunidad exclusiva con mentorías,
-            networking con la industria, y recursos premium que no encontrarás en ningún otro lugar.
+          <h2 class="cta-banner-title" data-i18n="nav.cta">🎮 ¿Quieres ir al siguiente nivel?</h2>
+          <p class="cta-banner-text" data-i18n="modal.subtitle">
+            Únete al <strong>Echo Gamedev Club (EGDC)</strong> — nuestra comunidad exclusiva.
           </p>
-          <a href="https://comunidad.uetc.mx" target="_blank" rel="noopener" class="btn">
+          <a href="https://comunidad.uetc.mx" target="_blank" rel="noopener" class="btn" data-i18n="nav.cta">
             🕹️ Unirme al EGDC
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About / Credibility Section -->
-  <section class="section">
-    <div class="container">
-      <header class="section-header">
-        <span class="section-badge">🏆 Credenciales Desbloqueadas</span>
-        <h2 class="section-title">Creado por veteranos de la industria</h2>
-        <p class="section-description">
-          No es teoría. Es XP real ganada en las trincheras del game dev.
-        </p>
-      </header>
-
-      <div class="jobs-grid">
-        <div class="jobs-info">
-          <h3>🔥 Consigue Chamba en la Industria</h3>
-          <p>Expertos de la industria comparten sus secretos para que consigas tu primer empleo o mejores tu posición
-            actual.</p>
-          <ul class="jobs-list">
-            <li>📝 Cómo armar un CV de alto nivel</li>
-            <li>🎨 Tips de portafolio para Artistas y Devs</li>
-            <li>🤝 Guía de Networking en eventos (GCMX, Pixelatl)</li>
-            <li>💼 "Realidad del Mercado" (Datos duros de LATAM)</li>
-          </ul>
-          <a href="jobs.html" class="btn" style="margin-top: var(--space-md);">Ver Tablero de Empleos</a>
-        </div>
-        <div class="stats-grid">
-          <div class="stat-card">
-            <span class="stat-icon">🏢</span>
-            <div class="stat-value">15+</div>
-            <div class="stat-label">años en la industria</div>
-          </div>
-          <div class="stat-card">
-            <span class="stat-icon">🎮</span>
-            <div class="stat-value">50+</div>
-            <div class="stat-label">juegos desarrollados</div>
-          </div>
-          <div class="stat-card">
-            <span class="stat-icon">🌟</span>
-            <div class="stat-value">AAA</div>
-            <div class="stat-label">Disney, Marvel, Epic</div>
-          </div>
-          <div class="stat-card">
-            <span class="stat-icon">🎓</span>
-            <div class="stat-value">1000+</div>
-            <div class="stat-label">alumnos formados</div>
-          </div>
-        </div>
-      </div>
-  </section>
-
-  <!-- VIP Courses CTA -->
-  <section class="section">
-    <div class="container">
-      <div class="card" style="text-align: center; padding: var(--space-3xl); border-color: var(--gold);">
-        <span class="section-badge" style="border-color: var(--gold); color: var(--gold);">🎓 Formación Pro</span>
-        <h3 style="margin: var(--space-lg) 0;">¿Listo para el <span class="gradient-text">BOSS FIGHT</span>?</h3>
-        <p class="text-secondary" style="max-width: 500px; margin: 0 auto var(--space-xl);">
-          Masterclasses, cursos intensivos y mentorías 1:1 para acelerar tu carrera en game dev.
-        </p>
-        <div class="flex justify-center gap-md" style="flex-wrap: wrap;">
-          <a href="https://vip.jorgesuarez.com.mx" target="_blank" rel="noopener" class="btn btn-primary">
-            ⭐ Ver Cursos VIP
-          </a>
-          <a href="https://uetc.mx" target="_blank" rel="noopener" class="btn btn-secondary">
-            🏫 Conocer UETC
           </a>
         </div>
       </div>
@@ -389,172 +179,77 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
-        <!-- Brand Column -->
         <div class="footer__brand">
           <div class="footer__logo">
             <span class="footer__logo-icon">🎮</span>
             <span>Game<span class="text-neon-pink">Dev</span> Resources</span>
           </div>
-          <p class="footer__tagline">
-            Recursos premium para game devs en LATAM. Gratis, profesionales, y con onda gamer.
+          <p class="footer__tagline" data-i18n="footer.tagline">
+            Recursos premium para game devs en LATAM.
           </p>
-          <div class="footer__social">
-            <a href="https://x.com/jorgefsb" target="_blank" rel="noopener" aria-label="Twitter/X">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a>
-            <a href="https://linkedin.com/in/jorgefsb" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
-              </svg>
-            </a>
-            <a href="https://github.com/jorgefsb" target="_blank" rel="noopener" aria-label="GitHub">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-              </svg>
-            </a>
-          </div>
         </div>
-
-        <!-- Resources Column -->
         <div class="footer__column">
-          <h4 class="footer__title">🎒 Recursos</h4>
+          <h4 class="footer__title" data-i18n="footer.resources">🎒 Recursos</h4>
           <ul class="footer__links">
-            <li><a href="jobs.html">💼 Ofertas de Trabajo</a></li>
+            <li><a href="jobs.html" data-i18n="nav.jobs">💼 Jobs & Career</a></li>
             <li><a href="tools.html">🛠️ Production Tools</a></li>
-            <li><a href="marketing.html">📢 Marketing Playbook</a></li>
-            <li><a href="database.html">🌎 LATAM Database</a></li>
-            <li><a href="guides/cv.html">📝 Guía de CV</a></li>
+            <li><a href="marketing.html">📢 Marketing</a></li>
           </ul>
         </div>
-
-        <!-- Ecosystem Column -->
         <div class="footer__column">
-          <h4 class="footer__title">🌐 Ecosistema</h4>
+          <h4 class="footer__title" data-i18n="footer.ecosystem">🌐 Ecosistema</h4>
           <ul class="footer__links">
-            <li><a href="https://jorgesuarez.com.mx" target="_blank" rel="noopener">🏠 Jorge Suarez</a></li>
-            <li><a href="https://comunidad.uetc.mx" target="_blank" rel="noopener">🎮 EGDC Club</a></li>
-            <li><a href="https://vip.jorgesuarez.com.mx" target="_blank" rel="noopener">⭐ Cursos VIP</a></li>
-            <li><a href="https://uetc.mx" target="_blank" rel="noopener">🏫 UETC</a></li>
-            <li><a href="https://amberstudio.com" target="_blank" rel="noopener">🏢 Amber Studio</a></li>
+            <li><a href="https://jorgesuarez.com.mx" target="_blank">🏠 Jorge Suarez</a></li>
+            <li><a href="https://comunidad.uetc.mx" target="_blank">🎮 EGDC Club</a></li>
           </ul>
         </div>
-
-        <!-- Connect Column -->
         <div class="footer__column">
-          <h4 class="footer__title">🔗 Conecta</h4>
+          <h4 class="footer__title" data-i18n="footer.connect">🔗 Conecta</h4>
           <ul class="footer__links">
-            <li><a href="https://x.com/jorgefsb" target="_blank" rel="noopener">Twitter/X (10 ofertas/día)</a></li>
+            <li><a href="https://x.com/jorgefsb" target="_blank">Twitter/X</a></li>
             <li><a href="mailto:contacto@amberstudio.com">Contacto</a></li>
-            <li><a href="https://github.com/jorgefsb/game-industry-resources" target="_blank" rel="noopener">GitHub
-                Repo</a></li>
           </ul>
         </div>
       </div>
 
-      <!-- Ecosystem Links Banner -->
-      <div class="footer__ecosystem">
-        <a href="https://jorgesuarez.com.mx" target="_blank" rel="noopener" class="ecosystem-badge">
-          🏠 jorgesuarez.com.mx
-        </a>
-        <a href="https://comunidad.uetc.mx" target="_blank" rel="noopener"
-          class="ecosystem-badge ecosystem-badge--highlight">
-          🎮 EGDC Club
-        </a>
-        <a href="https://uetc.mx" target="_blank" rel="noopener" class="ecosystem-badge">
-          🏫 UETC
-        </a>
-        <a href="https://vip.jorgesuarez.com.mx" target="_blank" rel="noopener" class="ecosystem-badge">
-          ⭐ Cursos VIP
-        </a>
-      </div>
-
-      <!-- Copyright -->
       <div class="footer__bottom">
-        <p data-i18n="footer.copyright">
-          © 2026 Game Industry Resources. Hecho con 💙 por
-          <a href="https://jorgesuarez.com.mx" target="_blank" rel="noopener">Jorge Suarez</a>
+        <p data-i18n="footer.copyright">© 2026 Game Industry Resources. Hecho con 💙 por Jorge Suarez</p>
+        <p class="footer__tagline-small" data-i18n="footer.tagline.small">"It's dangerous to go alone! Take this." 🗡️
         </p>
-        <p class="footer__tagline-small" data-i18n="footer.tagline.small">
-          "It's dangerous to go alone! Take this." 🗡️
-        </p>
-        <div class="footer__secret-hint">
-          Hint: ↑ ↑ ↓ ↓ ← → ← → B A ... XP +500
-        </div>
+        <div class="footer__secret-hint">Hint: ↑ ↑ ↓ ↓ ← → ← → B A ... XP +500</div>
       </div>
     </div>
   </footer>
-
-  <!-- Scripts -->
-  <script>
-    // Mobile nav toggle
-    document.querySelector('.nav-toggle').addEventListener('click', function () {
-      const navLinks = document.querySelector('.nav-links');
-      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    console.log('%c🎮 GAME INDUSTRY RESOURCES', 'font-size: 24px; font-weight: bold; color: #00ffff; text-shadow: 0 0 10px #00ffff;');
-    console.log('%c¡Bienvenido dev! Hay un easter egg escondido... 👀', 'font-size: 14px; color: #ff2d95;');
-  </script>
-
-  <!-- Guide Bot -->
-  <div class="guide-bot-container" id="guideBot">
-    <div class="guide-bot"></div>
-    <div class="guide-speech-bubble" id="guideBubble">
-      ¡Hola! Soy tu guía. Click en elementos para ganar XP 🎮
-    </div>
-  </div>
-
-  <!-- Sound Toggle -->
-  <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound">
-    <span class="sound-icon sound-on">🔊</span>
-    <span class="sound-icon sound-off" style="display: none;">🔇</span>
-  </button>
 
   <!-- Auth / Lead Capture Modal -->
   <div class="modal-overlay" id="authModal">
     <div class="modal-card">
       <button class="modal-close" id="closeModal">&times;</button>
       <div class="modal-header">
-        <h2 class="modal-title">👾 CREATE ACCOUNT</h2>
-        <p class="modal-subtitle">Join the elite game dev community and save your XP!</p>
+        <h2 class="modal-title" data-i18n="modal.title">👾 CREATE ACCOUNT</h2>
+        <p class="modal-subtitle" data-i18n="modal.subtitle">Join the elite game dev community!</p>
       </div>
       <form class="modal-form" id="registrationForm">
         <div class="form-group">
-          <label for="name">Name / Nombre</label>
-          <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+          <label for="name" data-i18n="modal.label.name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Name" required>
         </div>
         <div class="form-group">
-          <label for="lastname">Last Name / Apellido</label>
-          <input type="text" id="lastname" name="lastname" placeholder="Tu apellido" required>
+          <label for="lastname" data-i18n="modal.label.lastname">Last Name</label>
+          <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" id="email" name="email" placeholder="dev@studio.com" required>
         </div>
         <div class="form-group">
-          <label for="phone">Phone / WhatsApp</label>
+          <label for="phone" data-i18n="modal.label.phone">Phone</label>
           <input type="tel" id="phone" name="phone" placeholder="+52 ..." required>
         </div>
-        <button type="submit" class="btn btn-primary btn-full">🚀 JOIN THE NEXUS</button>
+        <button type="submit" class="btn btn-primary btn-full" data-i18n="modal.btn">🚀 JOIN THE NEXUS</button>
       </form>
-      <p class="modal-footer-text">
-        Al unirte, aceptas que te contactemos con recursos y ofertas épicas.
+      <p class="modal-footer-text" data-i18n="modal.footer">
+        Al unirte, aceptas que te contactemos.
       </p>
     </div>
   </div>

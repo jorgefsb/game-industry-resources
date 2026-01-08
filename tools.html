@@ -23,17 +23,19 @@
         <span>Game<span class="text-neon-pink">Dev</span> Resources</span>
       </a>
       <ul class="nav__menu">
-        <li><a href="index.html#resources" class="nav__link">Recursos</a></li>
-        <li><a href="jobs.html" class="nav__link">Jobs & Career</a></li>
-        <li><a href="database.html" class="nav__link">Studios DB</a></li>
-        <li><a href="https://comunidad.uetc.mx" target="_blank" class="nav__link">Comunidad</a></li>
+        <li><a href="index.html#resources" class="nav__link" data-i18n="nav.resources">Recursos</a></li>
+        <li><a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs & Career</a></li>
+        <li><a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a></li>
+        <li><a href="https://comunidad.uetc.mx" target="_blank" class="nav__link"
+            data-i18n="nav.community">Comunidad</a></li>
       </ul>
       <div class="nav__cta">
         <div class="lang-switch">
           <a href="#" class="lang-btn active" data-lang="es">🇲🇽 ES</a>
           <a href="#" class="lang-btn" data-lang="en">🇺🇸 EN</a>
         </div>
-        <a href="https://comunidad.uetc.mx" target="_blank" rel="noopener" class="btn btn-primary">🎮 Únete a EGDC</a>
+        <a href="https://comunidad.uetc.mx" target="_blank" rel="noopener" class="btn btn-primary"
+          data-i18n="nav.cta">🎮 Únete a EGDC</a>
       </div>
     </div>
   </nav>
@@ -43,14 +45,15 @@
       <div class="hero__content">
         <div class="hero__badge">
           <span class="hero__badge-dot"></span>
-          <span>🛠️ Production Ready</span>
+          <span data-i18n="hero.badge.tools">🛠️ Production Ready</span>
         </div>
-        <h1 class="hero__title glitch-text" data-text="PRODUCTION TOOLS">PRODUCTION TOOLS</h1>
-        <p class="hero__subtitle">Templates probados en estudios AA/AAA. No reinventes la rueda, usa lo que ya funciona
-          en la industria profesional.</p>
+        <h1 class="hero__title glitch-text" data-text="PRODUCTION TOOLS" data-i18n="hero.title.tools">PRODUCTION TOOLS
+        </h1>
+        <p class="hero__subtitle" data-i18n="hero.subtitle.tools">Templates probados profesionales.</p>
         <div class="hero__actions">
-          <a href="#templates" class="btn btn-primary">🕹️ Ver Templates</a>
-          <a href="https://comunidad.uetc.mx" class="btn btn-secondary">🤝 Mentoría Directa</a>
+          <a href="#templates" class="btn btn-primary" data-i18n="hero.cta.explore">🕹️ Ver Templates</a>
+          <a href="https://comunidad.uetc.mx" class="btn btn-secondary" data-i18n="nav.community">🤝 Mentoría
+            Directa</a>
         </div>
       </div>
     </div>
@@ -58,36 +61,35 @@
 
   <section class="section container" id="templates">
     <div class="section__header">
-      <span class="section__badge">📋 Standard Docs</span>
-      <h2 class="section__title">GDD & Blueprinting</h2>
+      <span class="section__badge" data-i18n="section.tools.badge">📋 Standard Docs</span>
+      <h2 class="section__title" data-i18n="section.tools.title">GDD & Blueprinting</h2>
     </div>
     <div class="grid grid-3">
       <article class="card">
         <div class="card__icon">📝</div>
         <span class="card__badge card__badge--new">Premium</span>
         <h3 class="card__title">Standard GDD</h3>
-        <p class="card__description">Template completo de Game Design Document. Estructura profesional AAA.</p>
-        <div class="card__actions"><a href="#" class="btn btn-ghost btn-sm">Download (ES)</a></div>
+        <p class="card__description" data-i18n="card.cv.desc">Template AAA.</p>
+        <div class="card__actions"><a href="#" class="btn btn-ghost btn-sm" data-i18n="card.download">Download</a></div>
       </article>
       <article class="card">
         <div class="card__icon">💰</div>
         <span class="card__badge card__badge--new">Premium</span>
         <h3 class="card__title">Project Budget</h3>
-        <p class="card__description">Excel dinámico para calcular costos de desarrollo, salarios y runway.</p>
-        <div class="card__actions"><a href="#" class="btn btn-ghost btn-sm">Download (.xlsx)</a></div>
+        <p class="card__description" data-i18n="card.portfolio.desc">Excel dinámico.</p>
+        <div class="card__actions"><a href="#" class="btn btn-ghost btn-sm" data-i18n="card.download">Download</a></div>
       </article>
       <article class="card">
         <div class="card__icon">📊</div>
         <span class="card__badge card__badge--new">New</span>
         <h3 class="card__title">Release Checklist</h3>
-        <p class="card__description">Todo lo que necesitas antes de subir a Steam, App Store o Play Store.</p>
-        <div class="card__actions"><a href="#" class="btn btn-ghost btn-sm">Download</a></div>
+        <p class="card__description" data-i18n="card.interview.desc">Todo lo necesario para Steam.</p>
+        <div class="card__actions"><a href="#" class="btn btn-ghost btn-sm" data-i18n="card.download">Download</a></div>
       </article>
     </div>
   </section>
 
   <footer class="footer">
-    <!-- Repetición del footer centralizado para consistencia -->
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
@@ -95,59 +97,42 @@
             <span class="footer__logo-icon">🎮</span>
             <span>Game<span class="text-neon-pink">Dev</span> Resources</span>
           </div>
-          <p class="footer__tagline">Recursos premium para game devs en LATAM.</p>
+          <p class="footer__tagline" data-i18n="footer.tagline">Recursos premium para game devs en LATAM.</p>
         </div>
         <div class="footer__column">
-          <h4 class="footer__title">🎒 Recursos</h4>
+          <h4 class="footer__title" data-i18n="footer.resources">🎒 Recursos</h4>
           <ul class="footer__links">
-            <li><a href="jobs.html">💼 Jobs & Career</a></li>
+            <li><a href="jobs.html" data-i18n="nav.jobs">💼 Jobs & Career</a></li>
             <li><a href="tools.html">🛠️ Production Tools</a></li>
             <li><a href="marketing.html">📢 Marketing Playbook</a></li>
             <li><a href="database.html">🌎 LATAM Database</a></li>
           </ul>
         </div>
         <div class="footer__column">
-          <h4 class="footer__title">🌐 Ecosistema</h4>
+          <h4 class="footer__title" data-i18n="footer.ecosystem">🌐 Ecosistema</h4>
           <ul class="footer__links">
             <li><a href="https://jorgesuarez.com.mx" target="_blank">🏠 Jorge Suarez</a></li>
             <li><a href="https://comunidad.uetc.mx" target="_blank">🎮 EGDC Club</a></li>
-            <li><a href="https://uetc.mx" target="_blank">🏫 UETC</a></li>
           </ul>
         </div>
         <div class="footer__column">
-          <h4 class="footer__title">🔗 Conecta</h4>
+          <h4 class="footer__title" data-i18n="footer.connect">🔗 Conecta</h4>
           <ul class="footer__links">
             <li><a href="https://x.com/jorgefsb" target="_blank">Twitter/X</a></li>
             <li><a href="mailto:contacto@amberstudio.com">Contacto</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer__ecosystem">
-        <a href="https://jorgesuarez.com.mx" target="_blank" class="ecosystem-badge">🏠 jorgesuarez.com.mx</a>
-        <a href="https://comunidad.uetc.mx" target="_blank" class="ecosystem-badge ecosystem-badge--highlight">🎮 EGDC
-          Club</a>
-        <a href="https://uetc.mx" target="_blank" class="ecosystem-badge">🏫 UETC</a>
-      </div>
       <div class="footer__bottom">
-        <p>© 2026 Game Industry Resources. Hecho con 💙 por Jorge Suarez</p>
-        <p class="footer__tagline-small">"It's dangerous to go alone! Take this." 🗡️</p>
-        <div class="footer__secret-hint">Hint: ↑ ↑ ↓ ↓ ← → ← → B A ... XP +500</div>
+        <p data-i18n="footer.copyright">© 2026 Game Industry Resources. Hecho con 💙 por Jorge Suarez</p>
+        <p class="footer__tagline-small" data-i18n="footer.tagline.small">"It's dangerous to go alone! Take this." 🗡️
+        </p>
       </div>
     </div>
   </footer>
 
   <script src="i18n.js"></script>
   <script src="gamification.js"></script>
-
-  <div class="guide-bot-container" id="guideBot">
-    <div class="guide-bot"></div>
-    <div class="guide-speech-bubble" id="guideBubble">Templates aprobados por la industria. 🛠️</div>
-  </div>
-
-  <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound">
-    <span class="sound-icon sound-on">🔊</span>
-    <span class="sound-icon sound-off" style="display: none;">🔇</span>
-  </button>
 </body>
 
 </html>

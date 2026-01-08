@@ -31,10 +31,11 @@
 
       <!-- Desktop Menu -->
       <ul class="nav__menu">
-        <li><a href="index.html#resources" class="nav__link">Recursos</a></li>
-        <li><a href="jobs.html" class="nav__link nav__link--active">Jobs & Career</a></li>
-        <li><a href="database.html" class="nav__link">Studios DB</a></li>
-        <li><a href="https://comunidad.uetc.mx" target="_blank" class="nav__link">Comunidad</a></li>
+        <li><a href="index.html#resources" class="nav__link" data-i18n="nav.resources">Recursos</a></li>
+        <li><a href="jobs.html" class="nav__link nav__link--active" data-i18n="nav.jobs">Jobs & Career</a></li>
+        <li><a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a></li>
+        <li><a href="https://comunidad.uetc.mx" target="_blank" class="nav__link"
+            data-i18n="nav.community">Comunidad</a></li>
       </ul>
 
       <div class="nav__cta">
@@ -42,7 +43,7 @@
           <a href="#" class="lang-btn active" data-lang="es">🇲🇽 ES</a>
           <a href="#" class="lang-btn" data-lang="en">🇺🇸 EN</a>
         </div>
-        <a href="https://comunidad.uetc.mx" target="_blank" rel="noopener" class="btn btn-primary">
+        <a href="https://comunidad.uetc.mx" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="nav.cta">
           🎮 Únete a EGDC
         </a>
       </div>
@@ -55,15 +56,17 @@
       <div class="hero__content">
         <div class="hero__badge">
           <span class="hero__badge-dot"></span>
-          <span>💼 Career Boost Active</span>
+          <span data-i18n="hero.badge.career">💼 Career Boost Active</span>
         </div>
-        <h1 class="hero__title glitch-text" data-text="LEVEL UP YOUR CAREER">LEVEL UP YOUR CAREER</h1>
-        <p class="hero__subtitle">Tu guía definitiva para trabajar en la industria de videojuegos en LATAM. Tips de
-          nivel senior para devs que buscan entrar a estudios AA/AAA.</p>
+        <h1 class="hero__title glitch-text" data-text="LEVEL UP YOUR CAREER" data-i18n="hero.title.jobs">LEVEL UP YOUR
+          CAREER</h1>
+        <p class="hero__subtitle" data-i18n="hero.subtitle.jobs">Tu guía definitiva para trabajar en la industria de
+          videojuegos en LATAM. Tips de nivel senior.</p>
 
         <div class="hero__actions">
-          <a href="https://x.com/jorgefsb" target="_blank" class="btn btn-primary">🐦 10 Ofertas Diarias</a>
-          <a href="#guides" class="btn btn-secondary">📝 Leer Guías</a>
+          <a href="https://x.com/jorgefsb" target="_blank" class="btn btn-primary" data-i18n="hero.cta.jobs">🐦 10
+            Ofertas Diarias</a>
+          <a href="#guides" class="btn btn-secondary" data-i18n="card.read_guide">📝 Leer Guías</a>
         </div>
       </div>
     </div>
@@ -75,8 +78,7 @@
       <div class="job-ticker-label">LIVE JOBS</div>
       <div class="job-ticker">
         <div class="job-ticker-track" id="tickerTrack">
-          <!-- Populated by JS -->
-          <span class="job-ticker-item">Loading live opportunities... 🚀</span>
+          <span class="job-ticker-item" data-i18n="ui.loading">Loading live opportunities... 🚀</span>
         </div>
       </div>
     </div>
@@ -85,48 +87,39 @@
   <!-- Career Guides -->
   <section class="section container" id="guides">
     <div class="section__header">
-      <span class="section__badge">🎒 Training</span>
-      <h2 class="section__title">Guías de Carrera</h2>
-      <p class="section__description">Inspirado en los recursos de clase mundial de Amir Satvat, adaptados a LATAM.</p>
+      <span class="section__badge" data-i18n="hero.badge.career">🎒 Training</span>
+      <h2 class="section__title" data-i18n="section.guides.title">Guías de Carrera</h2>
+      <p class="section__description" data-i18n="section.guides.desc">Inspirado en recursos de clase mundial.</p>
     </div>
 
     <div class="grid grid-3">
-      <!-- CV Guide -->
       <article class="card">
         <div class="card__icon">📝</div>
         <span class="card__badge card__badge--new">Essential</span>
-        <h3 class="card__title">El CV Perfecto</h3>
-        <p class="card__description">
-          Plantillas y consejos para que tu currículum destaque ante reclutadores AA/AAA.
-        </p>
+        <h3 class="card__title" data-i18n="card.cv.title">El CV Perfecto</h3>
+        <p class="card__description" data-i18n="card.cv.desc">Plantillas y consejos para destacar.</p>
         <div class="card__actions">
-          <a href="guides/cv.html" class="btn btn-ghost btn-sm">Leer Guía</a>
+          <a href="guides/cv.html" class="btn btn-ghost btn-sm" data-i18n="card.read_guide">Leer Guía</a>
         </div>
       </article>
 
-      <!-- Portfolio Guide -->
       <article class="card">
         <div class="card__icon">🎨</div>
-        <span class="card__badge card__badge--coming">WIP</span>
-        <h3 class="card__title">Portafolio que Vende</h3>
-        <p class="card__description">
-          Cómo presentar tu trabajo para Arte, Programación o Diseño.
-        </p>
+        <span class="card__badge card__badge--coming" data-i18n="card.coming_soon">WIP</span>
+        <h3 class="card__title" data-i18n="card.portfolio.title">Portafolio que Vende</h3>
+        <p class="card__description" data-i18n="card.portfolio.desc">Cómo presentar tu trabajo.</p>
         <div class="card__actions">
-          <button class="btn btn-ghost btn-sm disabled">Coming Soon</button>
+          <button class="btn btn-ghost btn-sm disabled" data-i18n="card.coming_soon">Coming Soon</button>
         </div>
       </article>
 
-      <!-- Interview Prep -->
       <article class="card">
         <div class="card__icon">🤝</div>
-        <span class="card__badge card__badge--coming">WIP</span>
-        <h3 class="card__title">Interview Prep</h3>
-        <p class="card__description">
-          Preguntas comunes y cómo negociar tu salario sin morir en el intento.
-        </p>
+        <span class="card__badge card__badge--coming" data-i18n="card.coming_soon">WIP</span>
+        <h3 class="card__title" data-i18n="card.interview.title">Interview Prep</h3>
+        <p class="card__description" data-i18n="card.interview.desc">Preguntas comunes y negociación.</p>
         <div class="card__actions">
-          <button class="btn btn-ghost btn-sm disabled">Coming Soon</button>
+          <button class="btn btn-ghost btn-sm disabled" data-i18n="card.coming_soon">Coming Soon</button>
         </div>
       </article>
     </div>
@@ -136,29 +129,30 @@
   <section class="section container bg-glass mt-xl p-xl"
     style="border-radius: var(--radius-xl); border: 1px solid var(--border-neon);">
     <div class="section__header">
-      <h2 class="section__title">DÓNDE BUSCAR CHAMBA</h2>
-      <p class="section__description">Los mejores lugares para encontrar vacantes reales y filtradas.</p>
+      <h2 class="section__title" data-i18n="section.jobs_where.title">DÓNDE BUSCAR CHAMBA</h2>
+      <p class="section__description" data-i18n="section.jobs_where.desc">Los mejores lugares para encontrar vacantes.
+      </p>
     </div>
     <div class="grid grid-4">
       <a href="https://amberstudio.com/careers" target="_blank" class="card">
         <div class="card__icon">🏢</h2>
           <h3 class="card__title">Amber Studio</h3>
-          <p class="card__description">Hiring in MX & Globally.</p>
+          <p class="card__description">Hiring MX & Global.</p>
       </a>
       <a href="https://hitmarker.net/" target="_blank" class="card">
         <div class="card__icon">🎯</h2>
           <h3 class="card__title">Hitmarker</h3>
-          <p class="card__description">The industry standard.</p>
+          <p class="card__description">Industry standard.</p>
       </a>
       <a href="https://remotegamejobs.com/" target="_blank" class="card">
         <div class="card__icon">🏠</h2>
           <h3 class="card__title">Remote Jobs</h3>
-          <p class="card__description">100% Remote Gaming.</p>
+          <p class="card__description">100% Remote.</p>
       </a>
       <a href="https://www.linkedin.com/jobs/" target="_blank" class="card">
         <div class="card__icon">💼</h2>
           <h3 class="card__title">LinkedIn</h3>
-          <p class="card__description">Filtered Gamedev Jobs.</p>
+          <p class="card__description">Filtered Jobs.</p>
       </a>
     </div>
   </section>
@@ -172,27 +166,25 @@
             <span class="footer__logo-icon">🎮</span>
             <span>Game<span class="text-neon-pink">Dev</span> Resources</span>
           </div>
-          <p class="footer__tagline">Recursos premium para game devs en LATAM.</p>
+          <p class="footer__tagline" data-i18n="footer.tagline">Recursos premium para game devs.</p>
         </div>
         <div class="footer__column">
-          <h4 class="footer__title">🎒 Recursos</h4>
+          <h4 class="footer__title" data-i18n="footer.resources">🎒 Recursos</h4>
           <ul class="footer__links">
-            <li><a href="jobs.html">💼 Jobs & Career</a></li>
+            <li><a href="jobs.html" data-i18n="nav.jobs">💼 Jobs & Career</a></li>
             <li><a href="tools.html">🛠️ Production Tools</a></li>
-            <li><a href="marketing.html">📢 Marketing Playbook</a></li>
-            <li><a href="database.html">🌎 LATAM Database</a></li>
+            <li><a href="marketing.html">📢 Marketing</a></li>
           </ul>
         </div>
         <div class="footer__column">
-          <h4 class="footer__title">🌐 Ecosistema</h4>
+          <h4 class="footer__title" data-i18n="footer.ecosystem">🌐 Ecosistema</h4>
           <ul class="footer__links">
             <li><a href="https://jorgesuarez.com.mx" target="_blank">🏠 Jorge Suarez</a></li>
             <li><a href="https://comunidad.uetc.mx" target="_blank">🎮 EGDC Club</a></li>
-            <li><a href="https://uetc.mx" target="_blank">🏫 UETC</a></li>
           </ul>
         </div>
         <div class="footer__column">
-          <h4 class="footer__title">🔗 Conecta</h4>
+          <h4 class="footer__title" data-i18n="footer.connect">🔗 Conecta</h4>
           <ul class="footer__links">
             <li><a href="https://x.com/jorgefsb" target="_blank">Twitter/X</a></li>
             <li><a href="mailto:contacto@amberstudio.com">Contacto</a></li>
@@ -200,22 +192,14 @@
         </div>
       </div>
 
-      <div class="footer__ecosystem">
-        <a href="https://jorgesuarez.com.mx" target="_blank" class="ecosystem-badge">🏠 jorgesuarez.com.mx</a>
-        <a href="https://comunidad.uetc.mx" target="_blank" class="ecosystem-badge ecosystem-badge--highlight">🎮 EGDC
-          Club</a>
-        <a href="https://uetc.mx" target="_blank" class="ecosystem-badge">🏫 UETC</a>
-      </div>
-
       <div class="footer__bottom">
-        <p>© 2026 Game Industry Resources. Hecho con 💙 por Jorge Suarez</p>
-        <p class="footer__tagline-small">"It's dangerous to go alone! Take this." 🗡️</p>
-        <div class="footer__secret-hint">Hint: ↑ ↑ ↓ ↓ ← → ← → B A ... XP +500</div>
+        <p data-i18n="footer.copyright">© 2026 Game Industry Resources. Hecho con 💙 por Jorge Suarez</p>
+        <p class="footer__tagline-small" data-i18n="footer.tagline.small">"It's dangerous to go alone! Take this." 🗡️
+        </p>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="i18n.js"></script>
   <script src="gamification.js"></script>
   <script src="scripts/studios.js"></script>
@@ -226,23 +210,11 @@
         const hiring = studios.filter(s => s.hiring);
         if (hiring.length > 0) {
           track.innerHTML = hiring.map(s => `<a href="${s.url}" target="_blank" class="job-ticker-item">🔥 ${s.name} (${s.country}) is Hiring!</a>`).join('');
-          // Duplicate for loop
           track.innerHTML += track.innerHTML;
         }
       }
     });
   </script>
-
-  <!-- Bot & UI Elements injected by gamification.js -->
-  <div class="guide-bot-container" id="guideBot">
-    <div class="guide-bot"></div>
-    <div class="guide-speech-bubble" id="guideBubble">¡Muestra tus side projects! 🚀</div>
-  </div>
-
-  <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound">
-    <span class="sound-icon sound-on">🔊</span>
-    <span class="sound-icon sound-off" style="display: none;">🔇</span>
-  </button>
 </body>
 
 </html>

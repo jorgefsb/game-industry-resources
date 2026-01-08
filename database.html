@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studios DB | Game Industry Resources 🌎</title>
-  <meta name="description"
-    content="Base de datos de estudios de videojuegos en Latinoamérica. Encuentra dónde trabajar o a quién contactar.">
+  <meta name="description" content="Base de datos de estudios de videojuegos en Latinoamérica.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -23,17 +22,19 @@
         <span>Game<span class="text-neon-pink">Dev</span> Resources</span>
       </a>
       <ul class="nav__menu">
-        <li><a href="index.html#resources" class="nav__link">Recursos</a></li>
-        <li><a href="jobs.html" class="nav__link">Jobs & Career</a></li>
-        <li><a href="database.html" class="nav__link nav__link--active">Studios DB</a></li>
-        <li><a href="https://comunidad.uetc.mx" target="_blank" class="nav__link">Comunidad</a></li>
+        <li><a href="index.html#resources" class="nav__link" data-i18n="nav.resources">Recursos</a></li>
+        <li><a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs & Career</a></li>
+        <li><a href="database.html" class="nav__link nav__link--active" data-i18n="nav.studios">Studios DB</a></li>
+        <li><a href="https://comunidad.uetc.mx" target="_blank" class="nav__link"
+            data-i18n="nav.community">Comunidad</a></li>
       </ul>
       <div class="nav__cta">
         <div class="lang-switch">
           <a href="#" class="lang-btn active" data-lang="es">🇲🇽 ES</a>
           <a href="#" class="lang-btn" data-lang="en">🇺🇸 EN</a>
         </div>
-        <a href="https://comunidad.uetc.mx" target="_blank" rel="noopener" class="btn btn-primary">🎮 Únete a EGDC</a>
+        <a href="https://comunidad.uetc.mx" target="_blank" rel="noopener" class="btn btn-primary"
+          data-i18n="nav.cta">🎮 Únete a EGDC</a>
       </div>
     </div>
   </nav>
@@ -43,15 +44,16 @@
       <div class="hero__content">
         <div class="hero__badge">
           <span class="hero__badge-dot"></span>
-          <span>🌎 LATAM Power</span>
+          <span data-i18n="hero.badge.studios">🌎 LATAM Power</span>
         </div>
-        <h1 class="hero__title glitch-text" data-text="LATAM STUDIOS DB">LATAM STUDIOS DB</h1>
-        <p class="hero__subtitle">El mapa más completo de la industria de videojuegos en Latinoamérica. Encuentra
-          estudios, su tecnología y vacantes activas.</p>
+        <h1 class="hero__title glitch-text" data-text="LATAM STUDIOS DB" data-i18n="hero.title.database">LATAM STUDIOS
+          DB</h1>
+        <p class="hero__subtitle" data-i18n="hero.subtitle.database">El mapa más completo de la industria en
+          Latinoamérica.</p>
         <div class="hero__actions">
-          <a href="#directory" class="btn btn-primary">🕹️ Explorar Directorio</a>
-          <a href="https://github.com/jorgefsb/game-industry-resources" target="_blank" class="btn btn-secondary">⭐
-            Contribuir en GitHub</a>
+          <a href="#directory" class="btn btn-primary" data-i18n="hero.cta.explore">🕹️ Explorar Directorio</a>
+          <a href="https://github.com/jorgefsb/game-industry-resources" target="_blank" class="btn btn-secondary"
+            data-i18n="nav.community">⭐ Contribuir</a>
         </div>
       </div>
     </div>
@@ -60,11 +62,10 @@
   <section class="section container" id="directory">
     <div class="section__header">
       <span class="section__badge">🔍 Search</span>
-      <h2 class="section__title">Directorio de Estudios</h2>
+      <h2 class="section__title" data-i18n="section.studios.title">Directorio de Estudios</h2>
     </div>
     <div class="grid grid-3" id="studiosGrid">
-      <!-- Populated by studios.js -->
-      <p class="text-center">Loading production studios... 🚀</p>
+      <p class="text-center" data-i18n="ui.loading">Loading production studios... 🚀</p>
     </div>
   </section>
 
@@ -76,43 +77,35 @@
             <span class="footer__logo-icon">🎮</span>
             <span>Game<span class="text-neon-pink">Dev</span> Resources</span>
           </div>
-          <p class="footer__tagline">Recursos premium para game devs en LATAM.</p>
+          <p class="footer__tagline" data-i18n="footer.tagline">Recursos premium para game devs en LATAM.</p>
         </div>
         <div class="footer__column">
-          <h4 class="footer__title">🎒 Recursos</h4>
+          <h4 class="footer__title" data-i18n="footer.resources">🎒 Recursos</h4>
           <ul class="footer__links">
-            <li><a href="jobs.html">💼 Jobs & Career</a></li>
+            <li><a href="jobs.html" data-i18n="nav.jobs">💼 Jobs & Career</a></li>
             <li><a href="tools.html">🛠️ Production Tools</a></li>
-            <li><a href="marketing.html">📢 Marketing Playbook</a></li>
-            <li><a href="database.html">🌎 LATAM Database</a></li>
+            <li><a href="marketing.html">📢 Marketing</a></li>
           </ul>
         </div>
         <div class="footer__column">
-          <h4 class="footer__title">🌐 Ecosistema</h4>
+          <h4 class="footer__title" data-i18n="footer.ecosystem">🌐 Ecosistema</h4>
           <ul class="footer__links">
             <li><a href="https://jorgesuarez.com.mx" target="_blank">🏠 Jorge Suarez</a></li>
             <li><a href="https://comunidad.uetc.mx" target="_blank">🎮 EGDC Club</a></li>
-            <li><a href="https://uetc.mx" target="_blank">🏫 UETC</a></li>
           </ul>
         </div>
         <div class="footer__column">
-          <h4 class="footer__title">🔗 Conecta</h4>
+          <h4 class="footer__title" data-i18n="footer.connect">🔗 Conecta</h4>
           <ul class="footer__links">
             <li><a href="https://x.com/jorgefsb" target="_blank">Twitter/X</a></li>
             <li><a href="mailto:contacto@amberstudio.com">Contacto</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer__ecosystem">
-        <a href="https://jorgesuarez.com.mx" target="_blank" class="ecosystem-badge">🏠 jorgesuarez.com.mx</a>
-        <a href="https://comunidad.uetc.mx" target="_blank" class="ecosystem-badge ecosystem-badge--highlight">🎮 EGDC
-          Club</a>
-        <a href="https://uetc.mx" target="_blank" class="ecosystem-badge">🏫 UETC</a>
-      </div>
       <div class="footer__bottom">
-        <p>© 2026 Game Industry Resources. Hecho con 💙 por Jorge Suarez</p>
-        <p class="footer__tagline-small">"It's dangerous to go alone! Take this." 🗡️</p>
-        <div class="footer__secret-hint">Hint: ↑ ↑ ↓ ↓ ← → ← → B A ... XP +500</div>
+        <p data-i18n="footer.copyright">© 2026 Game Industry Resources. Hecho con 💙 por Jorge Suarez</p>
+        <p class="footer__tagline-small" data-i18n="footer.tagline.small">"It's dangerous to go alone! Take this." 🗡️
+        </p>
       </div>
     </div>
   </footer>
@@ -138,16 +131,6 @@
       }
     });
   </script>
-
-  <div class="guide-bot-container" id="guideBot">
-    <div class="guide-bot"></div>
-    <div class="guide-speech-bubble" id="guideBubble">¡Encuentra el estudio de tus sueños! 🌎</div>
-  </div>
-
-  <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound">
-    <span class="sound-icon sound-on">🔊</span>
-    <span class="sound-icon sound-off" style="display: none;">🔇</span>
-  </button>
 </body>
 
 </html>
