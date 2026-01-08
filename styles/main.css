@@ -1379,14 +1379,16 @@ h4 {
   font-size: 1.2rem;
 }
 
-display: flex;
-align-items: center;
-background: var(--bg-secondary);
-border: 2px solid var(--neon-orange);
-border-radius: var(--radius-md);
-margin-bottom: var(--space-2xl);
-overflow: hidden;
-box-shadow: 0 0 15px rgba(255, 107, 0, 0.2);
+/* === Job Ticker === */
+.job-ticker-container {
+  display: flex;
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 2px solid var(--neon-orange);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2xl);
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 107, 0, 0.2);
 }
 
 .job-ticker-label {
