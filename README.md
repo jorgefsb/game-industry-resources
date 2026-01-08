@@ -48,7 +48,7 @@ Este proyecto es parte de un ecosistema más amplio para impulsar a game devs:
 
 | Plataforma | Descripción |
 |------------|-------------|
-| [🎮 EGDC - Elite Game Dev Club](https://comunidad.uetc.mx) | Comunidad exclusiva de desarrolladores |
+| [🎮 EGDC - Echo Gamedev Club](https://comunidad.uetc.mx) | Comunidad exclusiva de desarrolladores |
 | [🎓 Cursos VIP](https://vip.jorgesuarez.com.mx) | Masterclasses y mentorías premium |
 | [🏫 UETC](https://uetc.mx) | Formación profesional completa |
 | [🏢 Amber Studio](https://amberstudio.com) | Estudio de desarrollo profesional |
