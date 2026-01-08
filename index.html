@@ -57,7 +57,10 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap"
     rel="stylesheet">
 
-  <!-- Styles -->
+  <!-- Design System (NEW) -->
+  <link rel="stylesheet" href="styles/design-system.css">
+
+  <!-- Legacy Styles (will be deprecated) -->
   <link rel="stylesheet" href="styles/main.css">
 
   <!-- Favicon - Pixel controller -->
@@ -66,21 +69,31 @@
 </head>
 
 <body>
+  <!-- Gamification: XP Bar -->
+  <div class="xp-container">
+    <div class="level-badge">LVL <span id="level-display">1</span></div>
+    <div class="xp-bar-bg">
+      <div class="xp-bar-fill" id="xp-bar-fill"></div>
+    </div>
+  </div>
+
   <!-- Navigation -->
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="container nav-container">
-      <a href="/" class="nav-logo">
-        <span class="nav-logo-icon">🎮</span>
+  <nav class="nav">
+    <div class="nav__container container">
+      <a href="/" class="nav__logo">
+        <span class="nav__logo-icon">🎮</span>
         <span>Game<span class="text-neon-pink">Dev</span> Resources</span>
       </a>
+
       <!-- Desktop Menu -->
-      <ul class="nav-menu">
-        <li><a href="#resources" class="nav-link">Recursos</a></li>
-        <li><a href="jobs.html" class="nav-link">Jobs & Career</a></li>
-        <li><a href="https://comunidad.uetc.mx" target="_blank" class="nav-link">Comunidad</a></li>
+      <ul class="nav__menu">
+        <li><a href="#resources" class="nav__link nav__link--active">Recursos</a></li>
+        <li><a href="jobs.html" class="nav__link">Jobs & Career</a></li>
+        <li><a href="database.html" class="nav__link">Studios DB</a></li>
+        <li><a href="https://comunidad.uetc.mx" target="_blank" class="nav__link">Comunidad</a></li>
       </ul>
 
-      <div class="nav-cta">
+      <div class="nav__cta">
         <!-- Language Switcher -->
         <div class="lang-switch">
           <a href="/" class="active">🇲🇽 ES</a>
@@ -103,23 +116,23 @@
   <!-- Hero Section -->
   <header class="hero">
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge animate-fade-in">
-          <span class="hero-badge-dot"></span>
+      <div class="hero__content">
+        <div class="hero__badge">
+          <span class="hero__badge-dot"></span>
           <span>🆓 Recursos 100% gratuitos para LATAM</span>
         </div>
 
-        <h1 class="hero-title animate-fade-in animate-delay-1">
+        <h1 class="hero__title">
           Level up tu carrera en
           <span class="gradient-text">Game Development</span> 🚀
         </h1>
 
-        <p class="hero-subtitle animate-fade-in animate-delay-2">
+        <p class="hero__subtitle">
           Templates, guías, ofertas de trabajo y herramientas creadas por profesionales de la industria.
           <strong>¡Consigue chamba</strong> y funda tu estudio rentable!
         </p>
 
-        <div class="hero-actions animate-fade-in animate-delay-3">
+        <div class="hero__actions">
           <a href="#resources" class="btn btn-primary">
             🕹️ Explorar Recursos
           </a>
@@ -129,7 +142,7 @@
         </div>
 
         <!-- Easter egg quote -->
-        <p class="hero-quote animate-fade-in animate-delay-5">
+        <p class="hero__quote">
           "It's dangerous to go alone! Take this." - Old Man, Zelda
         </p>
       </div>
