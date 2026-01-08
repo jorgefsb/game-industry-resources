@@ -1151,16 +1151,76 @@ h4 {
   }
 }
 
-/* === Job Ticker === */
-.job-ticker-container {
+/* === Gamification: XP System === */
+.xp-container {
+  position: fixed;
+  top: 80px;
+  /* Below Navbar */
+  left: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--neon-cyan);
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  z-index: 900;
   display: flex;
   align-items: center;
-  background: var(--bg-secondary);
-  border: 2px solid var(--neon-orange);
-  border-radius: var(--radius-md);
-  margin-bottom: var(--space-2xl);
+  gap: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  font-family: var(--font-pixel);
+  font-size: 0.7rem;
+}
+
+.level-badge {
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.xp-bar-bg {
+  width: 100px;
+  height: 8px;
+  background: #333;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 0 15px rgba(255, 107, 0, 0.2);
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green));
+  width: 0%;
+  transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.float-xp {
+  position: absolute;
+  color: var(--gold);
+  font-family: var(--font-pixel);
+  font-size: 1rem;
+  pointer-events: none;
+  animation: floatUp 1s forwards;
+  z-index: 1001;
+  text-shadow: 2px 2px 0 #000;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-30px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+display: flex;
+align-items: center;
+background: var(--bg-secondary);
+border: 2px solid var(--neon-orange);
+border-radius: var(--radius-md);
+margin-bottom: var(--space-2xl);
+overflow: hidden;
+box-shadow: 0 0 15px rgba(255, 107, 0, 0.2);
 }
 
 .job-ticker-label {

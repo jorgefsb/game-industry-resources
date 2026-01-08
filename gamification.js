@@ -1,106 +1,174 @@
-// Gamification Logic & Sound FX
+// Gamification System 2.0: XP, Progression & Bilingual Bot
 
-// Simple Synth using Web Audio API for Retro Sounds
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+// Game State
+const gameState = {
+  xp: 0,
+  level: 1,
+  xpToNextLevel: 100,
+  achievements: [],
+  lang: 'es' // Default language
+};
 
-function playSound(type) {
-  if (audioCtx.state === 'suspended') {
-    audioCtx.resume();
+// Vocabulary (Bilingual)
+const vocab = {
+  es: {
+    level: "NIVEL",
+    xpObj: "XP",
+    welcome: "¡Psst! Bienvenido al Nexus para Game Devs. 🕹️",
+    konamiHint: "Dicen que los verdaderos gamers intentan ↑↑↓↓...",
+    clickSecret: "¡Haz click en todo! Hay secretos escondidos.",
+    jobsHint: "Los mejores trabajos están en la sección Jobs.",
+    konamiSuccess: "¡MODO DIOS ACTIVADO! 🚀 (Konami Code)",
+    levelUp: "¡LEVEL UP! Ahora eres Nivel",
+    achievements: {
+      explorer: "Explorador (Visitaste todas las secciones)",
+      hunter: "Cazador de Bugs (Encontraste el secreto)"
+    }
+  },
+  en: {
+    level: "LEVEL",
+    xpObj: "XP",
+    welcome: "Psst! Welcome to the Game Dev Nexus. 🕹️",
+    konamiHint: "They say real gamers try ↑↑↓↓...",
+    clickSecret: "Click everything! Secrets are hidden everywhere.",
+    jobsHint: "Top tier jobs are waiting in the Jobs section.",
+    konamiSuccess: "GOD MODE ACTIVATED! 🚀 (Konami Code)",
+    levelUp: "LEVEL UP! You are now Level",
+    achievements: {
+      explorer: "Explorer (Visited all sections)",
+      hunter: "Bug Hunter (Found the secret)"
+    }
   }
-  const oscillator = audioCtx.createOscillator();
-  const gainNode = audioCtx.createGain();
+};
 
-  oscillator.connect(gainNode);
-  gainNode.connect(audioCtx.destination);
+// Initialize UI
+function initGamification() {
+  // Load saved state
+  const savedState = localStorage.getItem('gamedev_rpg_state');
+  if (savedState) Object.assign(gameState, JSON.parse(savedState));
 
-  if (type === 'hover') {
-    oscillator.type = 'square';
-    oscillator.frequency.setValueAtTime(400, audioCtx.currentTime);
-    oscillator.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.05);
-    gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
-    oscillator.start();
-    oscillator.stop(audioCtx.currentTime + 0.05);
-  } else if (type === 'click') {
-    oscillator.type = 'triangle';
-    oscillator.frequency.setValueAtTime(600, audioCtx.currentTime);
-    oscillator.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 0.1);
-    gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
-    oscillator.start();
-    oscillator.stop(audioCtx.currentTime + 0.1);
-  } else if (type === 'success') {
-    // Zelda Secret Sound-ish
-    const now = audioCtx.currentTime;
-    
-    // Note 1
-    const osc1 = audioCtx.createOscillator();
-    const g1 = audioCtx.createGain();
-    osc1.connect(g1);
-    g1.connect(audioCtx.destination);
-    osc1.frequency.value = 783.99; // G5
-    g1.gain.setValueAtTime(0.1, now);
-    g1.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
-    osc1.start(now);
-    osc1.stop(now + 0.15);
+  // Create XP UI
+  const xpUI = document.createElement('div');
+  xpUI.className = 'xp-container';
+  xpUI.innerHTML = `
+    <span class="level-badge">${vocab[gameState.lang].level} <span id="lvlNum">${gameState.level}</span></span>
+    <div class="xp-bar-bg">
+      <div class="xp-bar-fill" id="xpFill" style="width: ${(gameState.xp / gameState.xpToNextLevel) * 100}%"></div>
+    </div>
+  `;
+  document.body.appendChild(xpUI);
 
-    // Note 2
-    const osc2 = audioCtx.createOscillator();
-    const g2 = audioCtx.createGain();
-    osc2.connect(g2);
-    g2.connect(audioCtx.destination);
-    osc2.frequency.value = 880.00; // A5
-    g2.gain.setValueAtTime(0.1, now + 0.15);
-    g2.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
-    osc2.start(now + 0.15);
-    osc2.stop(now + 0.3);
-    
-    // Note 3 etc... simplified for brevity
+  updateBotMessage(vocab[gameState.lang].welcome);
+}
+
+function addXP(amount, event) {
+  const oldLevel = gameState.level;
+  gameState.xp += amount;
+
+  // Level Up Logic
+  if (gameState.xp >= gameState.xpToNextLevel) {
+    gameState.xp -= gameState.xpToNextLevel;
+    gameState.level++;
+    gameState.xpToNextLevel = Math.floor(gameState.xpToNextLevel * 1.5);
+    playSound('success');
+    updateBotMessage(`${vocab[gameState.lang].levelUp} ${gameState.level}! 🎉`);
+  }
+
+  // Visual Update
+  document.getElementById('lvlNum').innerText = gameState.level;
+  document.getElementById('xpFill').style.width = `${(gameState.xp / gameState.xpToNextLevel) * 100}%`;
+
+  // Floating Text (Particle)
+  if (event && event.clientX) {
+    showFloatingXP(amount, event.clientX, event.clientY);
+  }
+
+  saveState();
+}
+
+function showFloatingXP(amount, x, y) {
+  const floatEl = document.createElement('div');
+  floatEl.className = 'float-xp';
+  floatEl.innerText = `+${amount} XP`;
+  floatEl.style.left = `${x}px`;
+  floatEl.style.top = `${y}px`;
+  document.body.appendChild(floatEl);
+  setTimeout(() => floatEl.remove(), 1000);
+}
+
+function updateBotMessage(msg) {
+  const bubble = document.getElementById('guideBubble');
+  const bot = document.getElementById('guideBot');
+  if (bubble && bot) {
+    bubble.innerText = msg;
+    bot.classList.remove('active');
+    void bot.offsetWidth; // trigger reflow
+    bot.classList.add('active');
   }
 }
 
-// Attach sounds to interactables
+function saveState() {
+  localStorage.setItem('gamedev_rpg_state', JSON.stringify(gameState));
+}
+
+// Sound System (Simplified)
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+function playSound(type) {
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+
+  if (type === 'hover') {
+    osc.frequency.setValueAtTime(200, audioCtx.currentTime);
+    gain.gain.setValueAtTime(0.02, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+    osc.start(); osc.stop(audioCtx.currentTime + 0.05);
+  } else if (type === 'click') {
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+    gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+    osc.start(); osc.stop(audioCtx.currentTime + 0.1);
+  } else if (type === 'success') {
+    osc.type = 'square';
+    osc.frequency.setValueAtTime(500, audioCtx.currentTime);
+    osc.frequency.linearRampToValueAtTime(1000, audioCtx.currentTime + 0.1);
+    gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+    osc.start(); osc.stop(audioCtx.currentTime + 0.3);
+  }
+}
+
+// Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
-  const interactables = document.querySelectorAll('a, button, .card, .guide-bot-container');
-  
-  interactables.forEach(el => {
+  initGamification();
+
+  // Basic Interactions
+  document.querySelectorAll('a, button, .card').forEach(el => {
     el.addEventListener('mouseenter', () => playSound('hover'));
-    el.addEventListener('click', () => playSound('click'));
+    el.addEventListener('click', (e) => {
+      playSound('click');
+      addXP(10, e);
+    });
   });
 
-  // Guide Bot Logic
-  const bot = document.getElementById('guideBot');
-  const bubble = document.getElementById('guideBubble');
-  const messages = [
-    "¡Psst! ¿Ya probaste el Konami Code? ⬆️⬆️⬇️⬇️...",
-    "Haz click en el logo para un secreto...",
-    "Los mejores trabajos están en la sección Jobs.",
-    "¿Sabías que Amber Studio está contratando?",
-    "¡Sigue explorando para desbloquear logros!"
-  ];
+  // Konami Code
+  let kKeys = [];
+  const konami = "ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,b,a";
+  document.addEventListener('keydown', (e) => {
+    kKeys.push(e.key);
+    if (kKeys.toString().indexOf(konami) >= 0) {
+      addXP(500, { clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 });
+      updateBotMessage(vocab[gameState.lang].konamiSuccess);
+      document.body.style.animation = "shake 0.5s";
+      kKeys = [];
+    }
+  });
 
-  let msgIndex = 0;
-
-  if(bot) {
-    bot.addEventListener('click', () => {
-      msgIndex = (msgIndex + 1) % messages.length;
-      bubble.textContent = messages[msgIndex];
-      playSound('click');
-      
-      // Trigger animation
-      bot.classList.remove('active');
-      void bot.offsetWidth; // trigger reflow
-      bot.classList.add('active');
-    });
-
-    // Random message every 10 seconds
-    setInterval(() => {
-      if (Math.random() > 0.7) {
-        msgIndex = Math.floor(Math.random() * messages.length);
-        bubble.textContent = messages[msgIndex];
-        bot.classList.add('active');
-        setTimeout(() => bot.classList.remove('active'), 4000);
-      }
-    }, 10000);
-  }
+  // Guide Bot Click
+  document.getElementById('guideBot')?.addEventListener('click', (e) => {
+    addXP(5, e);
+    const hints = [vocab[gameState.lang].konamiHint, vocab[gameState.lang].jobsHint, vocab[gameState.lang].clickSecret];
+    updateBotMessage(hints[Math.floor(Math.random() * hints.length)]);
+  });
 });
