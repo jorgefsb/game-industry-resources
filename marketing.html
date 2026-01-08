@@ -106,270 +106,111 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge animate-fade-in">
-          <span class="hero-badge-dot"></span>
-          <span>🆓 Recursos 100% gratuitos para LATAM</span>
-        </div>
 
-        <h1 class="hero-title animate-fade-in animate-delay-1">
-          Level up tu carrera en
-          <span class="gradient-text">Game Development</span> 🚀
-        </h1>
+  <!-- Hero Section: Marketing Command Center -->
+  <section class="hero-section"
+    style="min-height: 50vh; background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('assets/images/hero-marketing.png'); background-size: cover; background-position: center;">
+    <div class="hero-content">
+      <div class="pixel-decoration pixel-decoration-1"></div>
+      <div class="pixel-decoration pixel-decoration-2"></div>
+      <h1 class="glitch-text" data-text="MARKETING_OPS">MARKETING_OPS</h1>
+      <p class="hero-subtitle">Protocolos de visibilidad y adquisición de usuarios para Indie Devs.</p>
 
-        <p class="hero-subtitle animate-fade-in animate-delay-2">
-          Templates, guías, ofertas de trabajo y herramientas creadas por profesionales de la industria.
-          <strong>¡Consigue chamba</strong> y funda tu estudio rentable!
-        </p>
-
-        <div class="hero-actions animate-fade-in animate-delay-3">
-          <a href="#resources" class="btn btn-primary">
-            🕹️ Explorar Recursos
-          </a>
-          <a href="https://x.com/jorgefsb" target="_blank" rel="noopener" class="btn btn-secondary">
-            💼 Ver Ofertas Diarias
-          </a>
-        </div>
-
-        <!-- Easter egg quote -->
-        <p class="hero-quote animate-fade-in animate-delay-5">
-          "It's dangerous to go alone! Take this." - Old Man, Zelda
-        </p>
-      </div>
-    </div>
-  </header>
-
-  <!-- 💼 Jobs Section - HIGH PRIORITY -->
-  <section class="section" id="jobs"
-    style="background: linear-gradient(180deg, rgba(255, 107, 0, 0.05) 0%, transparent 100%);">
-    <div class="container">
-      <!-- 🎰 Job Ticker (Industry-wide) -->
-      <div class="job-ticker-container">
-        <div class="job-ticker-label">LIVE JOBS:</div>
-        <div class="job-ticker">
-          <div class="job-ticker-track">
-            <span class="job-ticker-item">🔥 [Amber Studio] Game Producer (Remote)</span>
-            <span class="job-ticker-item">👾 [Indie Dev] Unity Developer (LATAM)</span>
-            <span class="job-ticker-item">🎨 [Studio X] Senior 3D Artist</span>
-            <span class="job-ticker-item">🚀 [Amber Studio] QA Lead</span>
-            <span class="job-ticker-item">💎 [Gaming Co] Level Designer</span>
-            <span class="job-ticker-item">🔥 [Amber Studio] Game Producer (Remote)</span>
-            <span class="job-ticker-item">👾 [Indie Dev] Unity Developer (LATAM)</span>
-            <span class="job-ticker-item">🎨 [Studio X] Senior 3D Artist</span>
-          </div>
-        </div>
-      </div>
-
-      <header class="section-header">
-        <span class="section-badge" style="border-color: var(--neon-orange); color: var(--neon-orange);">🔥 Lo más
-          buscado</span>
-        <h2 class="section-title">¿Buscando Chamba en Game Dev? 💼</h2>
-        <p class="section-description">
-          En <a href="https://x.com/jorgefsb" target="_blank" rel="noopener">@jorgefsb</a> publico
-          <strong>10 ofertas de trabajo diarias</strong>. Tips, vacantes y la realidad del mercado.
-        </p>
-      </header>
-
-      <div class="grid grid-2">
-        <article class="card">
-          <div class="card-icon">📢</div>
-          <span class="card-status status-hot">🔥 Activo</span>
-          <h3 class="card-title">Ofertas de Trabajo Diarias</h3>
-          <p class="card-description">
-            Sígueme en X/Twitter para ver las vacantes que publico cada día. Programadores, artistas, diseñadores, y
-            más.
-          </p>
-          <a href="https://x.com/jorgefsb" target="_blank" rel="noopener" class="btn btn-primary" style="width: 100%;">
-            🐦 Seguir @jorgefsb
-          </a>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">📋</div>
-          <span class="card-status status-coming">Próximamente</span>
-          <h3 class="card-title">Tips para Conseguir Chamba</h3>
-          <p class="card-description">
-            Portfolio que destaque, qué buscan los recruiters, errores en entrevistas, y cómo aplicar a studios
-            internacionales.
-          </p>
-          <a href="#" class="btn btn-ghost">Ver Guía Pronto →</a>
-        </article>
-      </div>
-
-      <!-- Reality check card -->
-      <div class="card" style="margin-top: var(--space-xl); text-align: center; border-color: var(--neon-purple);">
-        <p style="font-size: 1.1rem; color: var(--text-secondary);">
-          💡 <strong style="color: var(--neon-purple);">Realidad del mercado:</strong>
-          "Siempre estamos reclutando, pero no siempre contratando." — El hiring depende del mercado y el bizdev del
-          studio.
-        </p>
+      <!-- Quick Actions -->
+      <div class="hero-buttons">
+        <a href="#presskit" class="btn">DESCARGAR PRESSKIT</a>
+        <a href="#influencers" class="btn btn-outline">CONTACTAR STREAMERS</a>
       </div>
     </div>
   </section>
 
-  <!-- Resources Grid Section -->
-  <section class="section" id="resources">
-    <div class="container">
-      <header class="section-header">
-        <span class="section-badge">⚔️ Arsenal del Game Dev</span>
-        <h2 class="section-title">Herramientas para cada etapa de tu studio</h2>
-        <p class="section-description">
-          Desde tu primer pitch hasta escalar tu estudio. Todo curado por devs con XP real en la industria.
+  <!-- Content Grid -->
+  <section class="container" style="position: relative; z-index: 10;">
+
+    <!-- Strategy modules -->
+    <div class="grid">
+
+      <!-- Module 1: Press Kit -->
+      <article class="card" id="presskit">
+        <div class="card-icon">📁</div>
+        <h3 class="card-title">Press Kit 101</h3>
+        <p class="card-description">
+          Si no tienes Press Kit, no existes. Aprende qué debe llevar y usa nuestra plantilla de Notion/Drive.
         </p>
-      </header>
+        <ul class="jobs-list" style="margin-top: 1rem; font-size: 0.9rem;">
+          <li>✅ Screenshots (300dpi)</li>
+          <li>✅ Trailer (YouTube + MP4)</li>
+          <li>✅ Fact Sheet (Fecha, Precio, Plataformas)</li>
+        </ul>
+        <button class="btn btn-sm btn-ghost" style="margin-top:1rem;">Ver Plantilla</button>
+      </article>
 
-      <div class="grid grid-3">
-        <!-- Card 1: Templates -->
-        <article class="card animate-fade-in">
-          <div class="card-icon">📋</div>
-          <span class="card-status status-coming">Próximamente</span>
-          <h3 class="card-title">Studio Business Templates</h3>
-          <p class="card-description">
-            Pitch deck, GDD, finance tracker, y más. Templates probados con publishers AAA y listos para usar.
-          </p>
-          <a href="#templates" class="btn btn-ghost">Desbloquear →</a>
-        </article>
-
-        <!-- Card 2: Founder's Wizard -->
-        <article class="card animate-fade-in animate-delay-1" id="wizard">
-          <div class="card-icon">🤝</div>
-          <span class="card-status status-new">✨ Nuevo</span>
-          <h3 class="card-title">Wizard de Fundadores</h3>
-          <p class="card-description">
-            Define roles, equity y responsabilidades con tus co-fundadores. Genera un acuerdo inicial listo para firmar.
-          </p>
-          <a href="#wizard-page" class="btn btn-ghost">Crear Acuerdo →</a>
-        </article>
-
-        <!-- Card 3: LATAM Database -->
-        <article class="card animate-fade-in animate-delay-2" id="database">
-          <div class="card-icon">🌎</div>
-          <span class="card-status status-coming">Próximamente</span>
-          <h3 class="card-title">Base de Datos LATAM</h3>
-          <p class="card-description">
-            Publishers, grants, eventos y studios de la región. Filtrable y actualizada constantemente.
-          </p>
-          <a href="#database-page" class="btn btn-ghost">Explorar DB →</a>
-        </article>
-
-        <!-- Card 4: Zero to Studio Guide -->
-        <article class="card animate-fade-in animate-delay-3" id="guide">
-          <div class="card-icon">🚀</div>
-          <span class="card-status status-coming">Próximamente</span>
-          <h3 class="card-title">De Zero a Studio Rentable</h3>
-          <p class="card-description">
-            Roadmap completo con las etapas para crear un estudio sustentable. Incluye errores comunes y métricas clave.
-          </p>
-          <a href="#guide-page" class="btn btn-ghost">Ver Roadmap →</a>
-        </article>
-
-        <!-- Hero Section: Marketing Command Center -->
-        <section class="hero-section"
-          style="min-height: 50vh; background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('assets/images/hero-marketing.png'); background-size: cover; background-position: center;">
-          <div class="hero-content">
-            <div class="pixel-decoration pixel-decoration-1"></div>
-            <div class="pixel-decoration pixel-decoration-2"></div>
-            <h1 class="glitch-text" data-text="MARKETING_OPS">MARKETING_OPS</h1>
-            <p class="hero-subtitle">Protocolos de visibilidad y adquisición de usuarios para Indie Devs.</p>
-
-            <!-- Quick Actions -->
-            <div class="hero-buttons">
-              <a href="#presskit" class="btn">DESCARGAR PRESSKIT</a>
-              <a href="#influencers" class="btn btn-outline">CONTACTAR STREAMERS</a>
-            </div>
-          </div>
-        </section>
-
-        <!-- Content Grid -->
-        <section class="container" style="position: relative; z-index: 10;">
-
-          <!-- Strategy modules -->
-          <div class="grid">
-
-            <!-- Module 1: Press Kit -->
-            <article class="card" id="presskit">
-              <div class="card-icon">📁</div>
-              <h3 class="card-title">Press Kit 101</h3>
-              <p class="card-description">
-                Si no tienes Press Kit, no existes. Aprende qué debe llevar y usa nuestra plantilla de Notion/Drive.
-              </p>
-              <ul class="jobs-list" style="margin-top: 1rem; font-size: 0.9rem;">
-                <li>✅ Screenshots (300dpi)</li>
-                <li>✅ Trailer (YouTube + MP4)</li>
-                <li>✅ Fact Sheet (Fecha, Precio, Plataformas)</li>
-              </ul>
-              <button class="btn btn-sm btn-ghost" style="margin-top:1rem;">Ver Plantilla</button>
-            </article>
-
-            <!-- Module 2: Influencer Outreach -->
-            <article class="card" id="influencers">
-              <div class="card-icon">📹</div>
-              <h3 class="card-title">Influencer Ops</h3>
-              <p class="card-description">
-                Cómo escribir emails que los YouTubers SÍ lean. Templates de correo frío y lista de seguimiento.
-              </p>
-              <div class="terminal-body"
-                style="background:#111; padding:10px; border-radius:4px; margin-top:10px; font-size:0.8rem; font-family:monospace; color:#aaa;">
-                Subject: Key Request for [GAME_NAME] - Similar to [POPULAR_GAME]<br>
-                <span style="color:var(--neon-green)">> Hey [NAME], loved your video on...</span>
-              </div>
-              <button class="btn btn-sm btn-ghost" style="margin-top:1rem;">Copiar Template</button>
-            </article>
-
-            <!-- Module 3: Social Media -->
-            <article class="card">
-              <div class="card-icon">🐦</div>
-              <h3 class="card-title">Social Grid</h3>
-              <p class="card-description">
-                Calendario de contenidos para TikTok, Twitter y Reddit. ¿Qué postear cuando no tienes nada nuevo?
-              </p>
-              <div class="card-tags">
-                <span class="tag">#ScreenshotSaturday</span>
-                <span class="tag">#WishlistWednesday</span>
-              </div>
-            </article>
-
-            <!-- Module 4: Launch Day -->
-            <article class="card">
-              <div class="card-icon">🚀</div>
-              <h3 class="card-title">Launch Protocol</h3>
-              <p class="card-description">
-                Checklist de 24 horas para el lanzamiento. Desde el botón de "Release" hasta el monitoreo de bugs.
-              </p>
-              <div class="card-status status-soon">LOCKED (LVL 5)</div>
-            </article>
-
-          </div>
-        </section>
-
-        <!-- Community CTA -->
-        <section class="cta-banner container">
-          <div class="cta-banner-content">
-            <h2 class="cta-banner-title">📡 Asesoría Táctica</h2>
-            <p class="cta-banner-text">
-              ¿Necesitas feedback de tu trailer? En el Discord del <strong>Echo Gamedev Club</strong> tenemos canales
-              dedicados a review de marketing.
-            </p>
-            <a href="https://comunidad.uetc.mx" target="_blank" rel="noopener" class="btn">
-              Solicitar Feedback
-            </a>
-          </div>
-        </section>
-
-        <!-- Guide Bot Companion -->
-        <div class="guide-bot-container" id="guideBot">
-          <div class="guide-speech-bubble" id="guideBubble">
-            ¿Sabías que un buen GIF en Twitter vale más que 1000 palabras? 🐦
-          </div>
-          <div class="guide-bot"></div>
+      <!-- Module 2: Influencer Outreach -->
+      <article class="card" id="influencers">
+        <div class="card-icon">📹</div>
+        <h3 class="card-title">Influencer Ops</h3>
+        <p class="card-description">
+          Cómo escribir emails que los YouTubers SÍ lean. Templates de correo frío y lista de seguimiento.
+        </p>
+        <div class="terminal-body"
+          style="background:#111; padding:10px; border-radius:4px; margin-top:10px; font-size:0.8rem; font-family:monospace; color:#aaa;">
+          Subject: Key Request for [GAME_NAME] - Similar to [POPULAR_GAME]<br>
+          <span style="color:var(--neon-green)">> Hey [NAME], loved your video on...</span>
         </div>
+        <button class="btn btn-sm btn-ghost" style="margin-top:1rem;">Copiar Template</button>
+      </article>
 
-        <script src="i18n.js"></script>
-        <script src="gamification.js"></script>
-        <!-- No studios script needed here -->
+      <!-- Module 3: Social Media -->
+      <article class="card">
+        <div class="card-icon">🐦</div>
+        <h3 class="card-title">Social Grid</h3>
+        <p class="card-description">
+          Calendario de contenidos para TikTok, Twitter y Reddit. ¿Qué postear cuando no tienes nada nuevo?
+        </p>
+        <div class="card-tags">
+          <span class="tag">#ScreenshotSaturday</span>
+          <span class="tag">#WishlistWednesday</span>
+        </div>
+      </article>
+
+      <!-- Module 4: Launch Day -->
+      <article class="card">
+        <div class="card-icon">🚀</div>
+        <h3 class="card-title">Launch Protocol</h3>
+        <p class="card-description">
+          Checklist de 24 horas para el lanzamiento. Desde el botón de "Release" hasta el monitoreo de bugs.
+        </p>
+        <div class="card-status status-soon">LOCKED (LVL 5)</div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Community CTA -->
+  <section class="cta-banner container">
+    <div class="cta-banner-content">
+      <h2 class="cta-banner-title">📡 Asesoría Táctica</h2>
+      <p class="cta-banner-text">
+        ¿Necesitas feedback de tu trailer? En el Discord del <strong>Echo Gamedev Club</strong> tenemos canales
+        dedicados a review de marketing.
+      </p>
+      <a href="https://comunidad.uetc.mx" target="_blank" rel="noopener" class="btn">
+        Solicitar Feedback
+      </a>
+    </div>
+  </section>
+
+  <!-- Guide Bot Companion -->
+  <div class="guide-bot-container" id="guideBot">
+    <div class="guide-speech-bubble" id="guideBubble">
+      ¿Sabías que un buen GIF en Twitter vale más que 1000 palabras? 🐦
+    </div>
+    <div class="guide-bot"></div>
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="gamification.js"></script>
+  <!-- No studios script needed here -->
 </body>
 
 </html>
