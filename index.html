@@ -339,7 +339,7 @@
           </ul>
           <a href="jobs.html" class="btn" style="margin-top: var(--space-md);">Ver Tablero de Empleos</a>
         </div>
-        <div class="jobs-visual">
+        <div class="stats-grid">
           <div class="stat-card">
             <span class="stat-icon">🏢</span>
             <div class="stat-value">15+</div>
@@ -507,6 +507,23 @@
       console.log('%c🎮 GAME INDUSTRY RESOURCES', 'font-size: 24px; font-weight: bold; color: #00ffff; text-shadow: 0 0 10px #00ffff;');
       console.log('%c¡Bienvenido dev! Hay un easter egg escondido... 👀', 'font-size: 14px; color: #ff2d95;');
     </script>
+
+    <!-- Guide Bot -->
+    <div class="guide-bot-container" id="guideBot">
+      <div class="guide-bot"></div>
+      <div class="guide-speech-bubble" id="guideBubble">
+        ¡Hola! Soy tu guía. Click en elementos para ganar XP 🎮
+      </div>
+    </div>
+
+    <!-- Sound Toggle -->
+    <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound">
+      <span class="sound-icon sound-on">🔊</span>
+      <span class="sound-icon sound-off" style="display: none;">🔇</span>
+    </button>
+
+    <script src="i18n.js"></script>
+    <script src="gamification.js"></script>
 </body>
 
 </html>
