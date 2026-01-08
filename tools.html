@@ -70,7 +70,8 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap"
     rel="stylesheet">
 
-  <!-- Styles -->
+  <!-- Design System -->
+  <link rel="stylesheet" href="styles/design-system.css">
   <link rel="stylesheet" href="styles/main.css">
 
   <!-- Favicon - Pixel controller -->
@@ -122,22 +123,31 @@
   </nav>
 
 
-  <!-- Hero Section: Engineering Bay -->
-  <section class="hero-section"
-    style="min-height: 50vh; background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('assets/images/hero-tools.png'); background-size: cover; background-position: center;">
-    <div class="hero-content">
-      <div class="pixel-decoration pixel-decoration-1"></div>
-      <div class="pixel-decoration pixel-decoration-2"></div>
-      <h1 class="glitch-text" data-text="PRODUCTION_TOOLS" style="color: var(--neon-cyan);">PRODUCTION_TOOLS</h1>
-      <p class="hero-subtitle">Blueprints, GDDs y hojas de cálculo para sobrevivir la producción.</p>
+  <!-- Hero Section: Production Tools -->
+  <header class="hero hero--tools">
+    <div class="container">
+      <div class="hero__content">
+        <div class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          <span>🛠️ Herramientas de Producción</span>
+        </div>
 
-      <!-- Quick Actions -->
-      <div class="hero-buttons">
-        <a href="#gdd" class="btn">DESCARGAR GDD</a>
-        <a href="#budget" class="btn btn-outline">CALCULAR PRESUPUESTO</a>
+        <h1 class="hero__title glitch-text" data-text="PRODUCTION_TOOLS">
+          <span class="text-neon-cyan">PRODUCTION</span>_TOOLS
+        </h1>
+
+        <p class="hero__subtitle">
+          Blueprints, GDDs y hojas de cálculo para sobrevivir la producción.
+          <strong>Templates probados</strong> en proyectos AAA.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#gdd" class="btn btn-primary">📐 Descargar GDD</a>
+          <a href="#budget" class="btn btn-secondary">💵 Calcular Presupuesto</a>
+        </div>
       </div>
     </div>
-  </section>
+  </header>
 
   <!-- Content Grid -->
   <section class="container" style="position: relative; z-index: 10;">
