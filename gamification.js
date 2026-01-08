@@ -171,4 +171,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const hints = [vocab[gameState.lang].konamiHint, vocab[gameState.lang].jobsHint, vocab[gameState.lang].clickSecret];
     updateBotMessage(hints[Math.floor(Math.random() * hints.length)]);
   });
+
+  // Typing Sounds for Inputs
+  document.querySelectorAll('input, textarea').forEach(el => {
+    el.addEventListener('keydown', () => playSound('type'));
+  });
 });
+
+function playSound(type) {
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+
+  if (type === 'hover') {
+    osc.frequency.setValueAtTime(200, audioCtx.currentTime);
+    gain.gain.setValueAtTime(0.02, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+    osc.start(); osc.stop(audioCtx.currentTime + 0.05);
+  } else if (type === 'click') {
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+    gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+    osc.start(); osc.stop(audioCtx.currentTime + 0.1);
+  } else if (type === 'success') {
+    osc.type = 'square';
+    osc.frequency.setValueAtTime(500, audioCtx.currentTime);
+    osc.frequency.linearRampToValueAtTime(1000, audioCtx.currentTime + 0.1);
+    gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+    osc.start(); osc.stop(audioCtx.currentTime + 0.3);
+  } else if (type === 'type') {
+    // Mechanical keyboard sound simulation (short click)
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(800 + Math.random() * 200, audioCtx.currentTime);
+    gain.gain.setValueAtTime(0.03, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.03);
+    osc.start(); osc.stop(audioCtx.currentTime + 0.03);
+  }
+}
