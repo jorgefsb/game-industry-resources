@@ -800,24 +800,36 @@ code {
    🎮 GAMIFICATION COMPONENTS
    ============================================ */
 
-/* === XP CONTAINER === */
+/* === XP CONTAINER (BOTTOM FLOATING) === */
 .xp-container {
     position: fixed;
-    top: 80px;
-    left: 20px;
-    background: rgba(0, 0, 0, 0.9);
-    border: 2px solid var(--neon-cyan);
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-md);
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-glass);
+    border: 1px solid var(--border-neon);
+    border-bottom: none;
+    padding: var(--space-xs) var(--space-xl);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     z-index: var(--z-gamification);
     display: flex;
     align-items: center;
     gap: var(--space-md);
-    box-shadow: var(--glow-cyan);
+    box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.2);
     font-family: var(--font-heading);
     font-size: var(--text-xs);
-    backdrop-filter: blur(10px);
-    animation: slideInLeft 0.5s ease-out;
+    backdrop-filter: blur(15px);
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translate(-50%, 100%);
+    }
+
+    to {
+        transform: translate(-50%, 0);
+    }
 }
 
 .level-badge {
@@ -1107,20 +1119,25 @@ code {
 .footer {
     background: var(--bg-secondary);
     border-top: 2px solid var(--border-neon);
-    padding: var(--space-3xl) 0 var(--space-xl);
+    padding: var(--space-3xl) 0 80px;
+    /* Extra space for floating bar */
     margin-top: var(--space-3xl);
     position: relative;
+    overflow: hidden;
 }
 
-.footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--gradient-primary);
-    animation: pulse 3s ease-in-out infinite;
+/* XP Reactive Footer Glow */
+.footer.level-2::after {
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+}
+
+.footer.level-5::after {
+    box-shadow: 0 0 60px rgba(255, 45, 149, 0.3);
+}
+
+.footer.level-10::after {
+    box-shadow: 0 0 100px rgba(57, 255, 20, 0.4);
+    animation: rainbow 5s infinite;
 }
 
 .footer__grid {
@@ -1128,7 +1145,27 @@ code {
     grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: var(--space-2xl);
     margin-bottom: var(--space-2xl);
+    position: relative;
+    z-index: 2;
 }
+
+.footer__secret-hint {
+    font-family: var(--font-heading);
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    opacity: 0.05;
+    transition: opacity 0.3s;
+    cursor: default;
+    user-select: none;
+    text-align: center;
+    margin-top: var(--space-md);
+}
+
+.footer__secret-hint:hover {
+    opacity: 0.8;
+    color: var(--neon-pink);
+}
+
 
 .footer__brand {
     max-width: 350px;
@@ -1426,8 +1463,119 @@ code {
     }
 }
 
-.neon-border {
-    animation: neonBorder 2s ease-in-out infinite;
+/* === MODALS === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: var(--z-modal);
+    display: none;
+    /* Shown via JS */
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--neon-cyan);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 450px;
+    padding: var(--space-2xl);
+    position: relative;
+    box-shadow: var(--glow-cyan);
+    animation: scaleIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.modal-close {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s;
+}
+
+.modal-close:hover {
+    color: var(--neon-pink);
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.modal-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    color: var(--neon-cyan);
+    margin-bottom: var(--space-sm);
+}
+
+.modal-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.form-group label {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
+.form-group input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    outline: none;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.modal-footer-text {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: var(--space-xl);
+    line-height: 1.4;
 }
 
 /* ============================================
