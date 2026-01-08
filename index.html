@@ -2,42 +2,17 @@
 <html lang="es">
 
 <head>
-  <!-- Primary Meta Tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game Industry Resources 🎮 | Recursos para Game Devs LATAM</title>
   <meta name="description"
-    content="Guías, templates y herramientas gratuitas para desarrolladores de videojuegos en Latinoamérica. Consigue chamba, aprende a crear un estudio rentable, y conecta con la industria.">
-  <meta name="keywords"
-    content="conseguir trabajo videojuegos, ofertas empleo game dev, game dev latam, estudio de videojuegos, indie, desarrollo de juegos, crear estudio, publishers videojuegos, trabajo gamedev">
-  <meta name="author" content="Jorge Suarez">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://gamedev.jorgesuarez.com.mx/">
-  <meta property="og:title" content="Game Industry Resources 🎮 | Recursos para Game Devs LATAM">
-  <meta property="og:description"
-    content="Guías, templates y herramientas gratuitas para game devs. ¡Consigue chamba y funda tu estudio!">
-  <meta property="og:image" content="assets/images/og-image.png">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://gamedev.jorgesuarez.com.mx/">
-  <meta property="twitter:title" content="Game Industry Resources 🎮">
-  <meta property="twitter:description" content="Recursos gratuitos para game devs latinoamericanos">
-  <meta property="twitter:creator" content="@jorgefsb">
-
-  <!-- Fonts -->
+    content="Guías, templates y herramientas gratuitas para desarrolladores de videojuegos en Latinoamérica.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap"
     rel="stylesheet">
-
-  <!-- Design System (NEW) -->
   <link rel="stylesheet" href="styles/design-system.css">
-
-  <!-- Favicon - Pixel controller -->
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
 </head>
@@ -46,12 +21,10 @@
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav__container container">
-      <a href="/" class="nav__logo">
+      <a href="index.html" class="nav__logo">
         <span class="nav__logo-icon">🎮</span>
-        <span>Game<span class="text-neon-pink">Dev</span> Resources</span>
+        <span>Game<span style="color:var(--neon-pink)">Dev</span> Resources</span>
       </a>
-
-      <!-- Desktop Menu -->
       <ul class="nav__menu">
         <li><a href="#resources" class="nav__link nav__link--active" data-i18n="nav.resources">Recursos</a></li>
         <li><a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs & Career</a></li>
@@ -59,119 +32,59 @@
         <li><a href="https://comunidad.uetc.mx" target="_blank" class="nav__link"
             data-i18n="nav.community">Comunidad</a></li>
       </ul>
-
       <div class="nav__cta">
-        <!-- Language Switcher -->
         <div class="lang-switch">
-          <a href="#" class="lang-btn active" data-lang="es">🇲🇽 ES</a>
-          <a href="#" class="lang-btn" data-lang="en">🇺🇸 EN</a>
+          <a href="#" class="btn btn-ghost btn-sm lang-btn" data-lang="es">ES</a>
+          <a href="#" class="btn btn-ghost btn-sm lang-btn" data-lang="en">EN</a>
         </div>
-
-        <a href="https://comunidad.uetc.mx" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="nav.cta">
-          🎮 Únete a EGDC
-        </a>
+        <a href="https://comunidad.uetc.mx" target="_blank" class="btn btn-primary" data-i18n="nav.cta">🎮 Unirme</a>
       </div>
-
-      <button class="nav-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <header class="hero">
     <div class="container">
       <div class="hero__content">
-        <div class="hero__badge">
-          <span class="hero__badge-dot"></span>
-          <span data-i18n="hero.badge.free">🆓 Recursos 100% gratuitos para LATAM</span>
-        </div>
-
-        <h1 class="hero__title" data-i18n="hero.title.home">
-          Level up tu carrera en
-          <span class="gradient-text">Game Development</span> 🚀
-        </h1>
-
-        <p class="hero__subtitle" data-i18n="hero.subtitle.home">
-          Templates, guías, ofertas de trabajo y herramientas creadas por profesionales de la industria.
-          <strong>¡Consigue chamba</strong> y funda tu estudio rentable!
-        </p>
-
+        <span class="hero__badge" data-i18n="hero.badge.free">🆓 Recursos 100% gratuitos para LATAM</span>
+        <h1 class="hero__title" data-i18n="hero.title.home">Level up tu carrera en <span
+            style="background:var(--neon-cyan); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Game
+            Dev</span> 🚀</h1>
+        <p class="hero__subtitle" data-i18n="hero.subtitle.home">Templates, guías, ofertas de trabajo y herramientas
+          creadas por profesionales de la industria.</p>
         <div class="hero__actions">
-          <a href="#resources" class="btn btn-primary" data-i18n="hero.cta.explore">
-            🕹️ Explorar Recursos
-          </a>
-          <a href="https://x.com/jorgefsb" target="_blank" rel="noopener" class="btn btn-secondary"
-            data-i18n="hero.cta.jobs">
-            💼 Ver Ofertas Diarias
-          </a>
+          <a href="#resources" class="btn btn-primary" data-i18n="hero.cta.explore">🕹️ Explorar Recursos</a>
+          <a href="https://x.com/jorgefsb" target="_blank" class="btn btn-secondary" data-i18n="hero.cta.jobs">💼 Ver
+            Ofertas</a>
         </div>
-
-        <p class="hero__quote" data-i18n="footer.tagline.small">
-          "It's dangerous to go alone! Take this." - Old Man, Zelda
-        </p>
       </div>
     </div>
   </header>
 
-  <!-- Resources Grid Section -->
-  <section class="section" id="resources">
-    <div class="container">
-      <div class="section__header">
-        <span class="section__badge" data-i18n="nav.resources">Recursos</span>
-        <h2 class="section__title" data-i18n="hero.cta.explore">Herramientas para cada etapa</h2>
-      </div>
-
-      <div class="grid grid-3">
-        <!-- Card 1: Production Tools -->
-        <a href="tools.html" class="card">
-          <div class="card__icon">🛠️</div>
-          <h3 class="card__title">Production Tools</h3>
-          <p class="card__description" data-i18n="hero.subtitle.tools">
-            Templates de GDD, presupuestos y checklists.
-          </p>
-          <span class="card__badge card__badge--new">New</span>
-        </a>
-
-        <!-- Card 2: Jobs -->
-        <a href="jobs.html" class="card">
-          <div class="card__icon">💼</div>
-          <h3 class="card__title">Jobs & Career</h3>
-          <p class="card__description" data-i18n="hero.subtitle.jobs">
-            CVs, Portafolios y ofertas de empleo.
-          </p>
-          <span class="card__badge card__badge--hot">Hot</span>
-        </a>
-
-        <!-- Card 3: Database -->
-        <a href="database.html" class="card">
-          <div class="card__icon">🌎</div>
-          <h3 class="card__title">Studios DB</h3>
-          <p class="card__description" data-i18n="hero.subtitle.database">
-            Mapa de la industria en Latinoamérica.
-          </p>
-          <span class="card__badge card__badge--new">New</span>
-        </a>
-      </div>
+  <!-- Resources Grid -->
+  <section class="section container" id="resources">
+    <div class="section__header">
+      <h2 class="section__title" data-i18n="hero.cta.explore">Herramientas para cada etapa</h2>
     </div>
-  </section>
-
-  <!-- EGDC Community CTA -->
-  <section class="section">
-    <div class="container">
-      <div class="cta-banner">
-        <div class="cta-banner-content">
-          <h2 class="cta-banner-title" data-i18n="nav.cta">🎮 ¿Quieres ir al siguiente nivel?</h2>
-          <p class="cta-banner-text" data-i18n="modal.subtitle">
-            Únete al <strong>Echo Gamedev Club (EGDC)</strong> — nuestra comunidad exclusiva.
-          </p>
-          <a href="https://comunidad.uetc.mx" target="_blank" rel="noopener" class="btn" data-i18n="nav.cta">
-            🕹️ Unirme al EGDC
-          </a>
-        </div>
-      </div>
+    <div class="grid grid-3">
+      <a href="tools.html" class="card">
+        <span class="card__icon">🛠️</span>
+        <h3 class="card__title">Production Tools</h3>
+        <p class="card__description" data-i18n="hero.subtitle.tools">Templates de GDD, presupuestos y checklists.</p>
+        <span class="card__badge card__badge--new">New</span>
+      </a>
+      <a href="jobs.html" class="card">
+        <span class="card__icon">💼</span>
+        <h3 class="card__title">Jobs & Career</h3>
+        <p class="card__description" data-i18n="hero.subtitle.jobs">CVs, Portafolios y ofertas de empleo.</p>
+        <span class="card__badge card__badge--hot">Hot</span>
+      </a>
+      <a href="database.html" class="card">
+        <span class="card__icon">🌎</span>
+        <h3 class="card__title">Studios DB</h3>
+        <p class="card__description" data-i18n="hero.subtitle.database">Mapa de la industria en Latinoamérica.</p>
+        <span class="card__badge card__badge--new">New</span>
+      </a>
     </div>
   </section>
 
@@ -180,79 +93,12 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <div class="footer__logo">
-            <span class="footer__logo-icon">🎮</span>
-            <span>Game<span class="text-neon-pink">Dev</span> Resources</span>
-          </div>
-          <p class="footer__tagline" data-i18n="footer.tagline">
-            Recursos premium para game devs en LATAM.
-          </p>
+          <div class="footer__logo">🎮 GameDev Resources</div>
+          <p class="footer__tagline">Recursos premium gratuitos para LATAM.</p>
         </div>
-        <div class="footer__column">
-          <h4 class="footer__title" data-i18n="footer.resources">🎒 Recursos</h4>
-          <ul class="footer__links">
-            <li><a href="jobs.html" data-i18n="nav.jobs">💼 Jobs & Career</a></li>
-            <li><a href="tools.html">🛠️ Production Tools</a></li>
-            <li><a href="marketing.html">📢 Marketing</a></li>
-          </ul>
-        </div>
-        <div class="footer__column">
-          <h4 class="footer__title" data-i18n="footer.ecosystem">🌐 Ecosistema</h4>
-          <ul class="footer__links">
-            <li><a href="https://jorgesuarez.com.mx" target="_blank">🏠 Jorge Suarez</a></li>
-            <li><a href="https://comunidad.uetc.mx" target="_blank">🎮 EGDC Club</a></li>
-          </ul>
-        </div>
-        <div class="footer__column">
-          <h4 class="footer__title" data-i18n="footer.connect">🔗 Conecta</h4>
-          <ul class="footer__links">
-            <li><a href="https://x.com/jorgefsb" target="_blank">Twitter/X</a></li>
-            <li><a href="mailto:contacto@amberstudio.com">Contacto</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer__bottom">
-        <p data-i18n="footer.copyright">© 2026 Game Industry Resources. Hecho con 💙 por Jorge Suarez</p>
-        <p class="footer__tagline-small" data-i18n="footer.tagline.small">"It's dangerous to go alone! Take this." 🗡️
-        </p>
-        <div class="footer__secret-hint">Hint: ↑ ↑ ↓ ↓ ← → ← → B A ... XP +500</div>
       </div>
     </div>
   </footer>
-
-  <!-- Auth / Lead Capture Modal -->
-  <div class="modal-overlay" id="authModal">
-    <div class="modal-card">
-      <button class="modal-close" id="closeModal">&times;</button>
-      <div class="modal-header">
-        <h2 class="modal-title" data-i18n="modal.title">👾 CREATE ACCOUNT</h2>
-        <p class="modal-subtitle" data-i18n="modal.subtitle">Join the elite game dev community!</p>
-      </div>
-      <form class="modal-form" id="registrationForm">
-        <div class="form-group">
-          <label for="name" data-i18n="modal.label.name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Name" required>
-        </div>
-        <div class="form-group">
-          <label for="lastname" data-i18n="modal.label.lastname">Last Name</label>
-          <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="dev@studio.com" required>
-        </div>
-        <div class="form-group">
-          <label for="phone" data-i18n="modal.label.phone">Phone</label>
-          <input type="tel" id="phone" name="phone" placeholder="+52 ..." required>
-        </div>
-        <button type="submit" class="btn btn-primary btn-full" data-i18n="modal.btn">🚀 JOIN THE NEXUS</button>
-      </form>
-      <p class="modal-footer-text" data-i18n="modal.footer">
-        Al unirte, aceptas que te contactemos.
-      </p>
-    </div>
-  </div>
 
   <script src="i18n.js"></script>
   <script src="gamification.js"></script>
