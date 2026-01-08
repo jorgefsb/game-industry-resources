@@ -1088,6 +1088,67 @@ h4 {
   box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
 }
 
+/* === Job Ticker === */
+.job-ticker-container {
+  display: flex;
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 2px solid var(--neon-orange);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2xl);
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 107, 0, 0.2);
+}
+
+.job-ticker-label {
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--neon-orange);
+  color: var(--bg-primary);
+  font-family: var(--font-pixel);
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.job-ticker {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.job-ticker-track {
+  display: flex;
+  white-space: nowrap;
+  padding: var(--space-sm) 0;
+  animation: ticker 30s linear infinite;
+}
+
+.job-ticker-item {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0 var(--space-xl);
+  display: inline-block;
+}
+
+.job-ticker-item:hover {
+  color: var(--neon-orange);
+  text-shadow: 0 0 10px var(--neon-orange);
+  cursor: pointer;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* === Responsive === */
 @media (max-width: 1024px) {
 
