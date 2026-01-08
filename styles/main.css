@@ -1088,6 +1088,69 @@ h4 {
   box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
 }
 
+/* === Guide Bot & Gamification === */
+.guide-bot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.guide-bot-container:hover {
+  transform: scale(1.1);
+}
+
+.guide-bot {
+  width: 64px;
+  height: 64px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="16" y="16" width="32" height="32" fill="%2300ffff"/><rect x="20" y="24" width="8" height="8" fill="black"/><rect x="36" y="24" width="8" height="8" fill="black"/><rect x="24" y="40" width="16" height="4" fill="black"/></svg>');
+  animation: float 3s ease-in-out infinite;
+  image-rendering: pixelated;
+}
+
+.guide-speech-bubble {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  background: var(--bg-secondary);
+  border: 2px solid var(--neon-cyan);
+  padding: 1rem;
+  border-radius: var(--radius-md) var(--radius-md) 0 var(--radius-md);
+  width: 200px;
+  font-size: 0.8rem;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+
+.guide-bot-container:hover .guide-speech-bubble,
+.guide-bot-container.active .guide-speech-bubble {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Achievements === */
+.hero-stats {
+  cursor: pointer;
+  /* Hint that stats might be clickable */
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 /* === Job Ticker === */
 .job-ticker-container {
   display: flex;
