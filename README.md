@@ -1,14 +1,10 @@
-# ⭐ 🚧 Game Industry Resources (Trabajo en Construcción) 🎮
-
 <div align="center">
 
-![Status](https://img.shields.io/badge/status-active-brightgreen)
-![LATAM](https://img.shields.io/badge/focus-LATAM-blue)
-![License](https://img.shields.io/badge/license-MIT-yellow)
+<img src="./assets/readme-banner.svg" width="1000" alt="Game Industry Resources — level up tu carrera en videojuegos en Latinoamérica." />
 
-**El hub definitivo de recursos para desarrolladores de videojuegos en Latinoamérica.**
+[🚀 Explorar el sitio](https://gamedev.jorgesuarez.com.mx) · [🐙 Ver código](https://github.com/jorgefsb/game-industry-resources) · **Estado:** activo / trabajo en progreso
 
-[🚀 Ver Sitio Live](https://jorgefsb.github.io/game-industry-resources/) • [🎮 EGDC Club](https://comunidad.uetc.mx) • [🎓 Cursos VIP](https://vip.jorgesuarez.com.mx)
+**Un hub abierto para compartir herramientas, guías y rutas de carrera con la comunidad de videojuegos en Latinoamérica.**
 
 </div>
 
@@ -16,7 +12,7 @@
 
 ## 🌟 ¿Qué es esto?
 
-Una colección curada de recursos, templates, guías y herramientas diseñadas para ayudar a **desarrolladores de videojuegos en LATAM** a:
+Una colección en crecimiento de recursos, templates, guías y herramientas para ayudar a **desarrolladores de videojuegos en LATAM** a:
 
 - 🚀 **Fundar studios rentables** desde cero
 - 📋 **Acceder a templates profesionales** probados con publishers AAA
@@ -52,18 +48,13 @@ Este proyecto es parte de un ecosistema más amplio para impulsar a game devs:
 | [🎓 Cursos VIP](https://vip.jorgesuarez.com.mx) | Masterclasses y mentorías premium |
 | [🏫 UETC](https://uetc.mx) | Formación profesional completa |
 | [🏢 Amber Studio](https://amberstudio.com) | Estudio de desarrollo profesional |
-| [🎯 PlayPitch](https://playpitch.games) | Conecta juegos con influencers |
+| [🎯 PlayPitch](https://playpitch.com) | Conecta juegos con influencers |
 
 ---
 
-## 💡 ¿Por qué confiar?
+## 💡 ¿De dónde viene?
 
-Estos recursos vienen de **+15 años de experiencia** en la industria, incluyendo:
-
-- 🎮 **50+ juegos** desarrollados
-- 🏢 **Trabajo con AAA**: Disney, Marvel, Epic Games, Ubisoft, Bandai Namco
-- 🎓 **1000+ alumnos** formados en UETC
-- 🌎 **Enfoque LATAM**: Entendemos el contexto de la región
+El proyecto reúne aprendizajes de más de dos décadas construyendo videojuegos, estudios y comunidad desde México. No pretende tener la última palabra: es un mapa abierto que mejora con la experiencia de quienes hacen juegos en la región.
 
 ---
 
@@ -73,12 +64,6 @@ Estos recursos vienen de **+15 años de experiencia** en la industria, incluyend
 
 1. Abre un **Issue** describiendo el recurso
 2. O envía un **Pull Request** con tu adición
-
----
-
-## 📄 Licencia
-
-Este proyecto está bajo licencia MIT. Siéntete libre de usar estos recursos para crecer en tu carrera.
 
 ---
 
