@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directorio de IA para indie game devs | Jorge Suárez</title>
+  <meta name="description"
+    content="Catálogo bilingüe de herramientas de IA para hacer videojuegos: código, sprites, 3D, audio, voces, localización y marketing. Destacados para quienes fabrican las herramientas.">
+  <link rel="canonical" href="https://gamedev.jorgesuarez.com.mx/ia/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Directorio de IA para indie game devs">
+  <meta property="og:description"
+    content="Herramientas de IA reales para indie game developers. Filtra por categoría, lee en español o inglés, y cita el catálogo en JSON o llms.txt.">
+  <meta property="og:url" content="https://gamedev.jorgesuarez.com.mx/ia/">
+  <meta property="og:image" content="https://gamedev.jorgesuarez.com.mx/ia/assets/moki-parche-derecho.png">
+  <meta property="og:image:alt" content="Moki, astronauta de cartón naranja. Parche en su oreja derecha. Visor oscuro.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" type="application/json" href="tools.json" title="Catálogo machine-readable">
+  <link rel="alternate" type="text/plain" href="llms.txt" title="llms.txt">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Outfit:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="ia.css">
+  <script type="application/ld+json" id="ia-jsonld">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Directorio de IA para indie game developers",
+    "url": "https://gamedev.jorgesuarez.com.mx/ia/"
+  }
+  </script>
+</head>
+
+<body class="ia-page">
+  <a class="ia-btn ia-btn--secondary" href="#catalogo" style="position:absolute;left:-999px;top:0">Ir al catálogo</a>
+  <header class="ia-nav">
+    <div class="ia-wrap ia-nav__inner">
+      <a class="ia-nav__brand" href="../index.html">
+        <img src="assets/jorgesuarez-wordmark-a.svg" alt="JorgeSuarez.com.mx" width="220" height="48">
+      </a>
+      <nav aria-label="Principal">
+        <ul class="ia-nav__menu">
+          <li><a class="ia-nav__link" href="../index.html" data-i18n="nav.resources">Recursos</a></li>
+          <li><a class="ia-nav__link is-active" href="./" data-i18n="nav.ia">IA</a></li>
+          <li><a class="ia-nav__link" href="../jobs.html" data-i18n="nav.jobs">Jobs & Career</a></li>
+          <li><a class="ia-nav__link" href="../database.html" data-i18n="nav.studios">Studios DB</a></li>
+          <li><a class="ia-nav__link" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.community">Comunidad</a></li>
+        </ul>
+      </nav>
+      <div class="ia-nav__cta">
+        <div class="ia-lang lang-switch">
+          <a href="#" class="lang-btn" data-lang="es">ES</a>
+          <a href="#" class="lang-btn" data-lang="en">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="ia-wrap ia-hero">
+      <div>
+        <p class="ia-kicker" data-i18n="ia.kicker">Directorio · indie + IA</p>
+        <h1 data-i18n="ia.title">Herramientas de IA para hacer tu juego</h1>
+        <p class="ia-lead" data-i18n="ia.lead">Una lista viva, en español primero. Moki te acompaña a filtrar. Sin ratings inventados: nombre, para qué sirve y el sitio oficial.</p>
+        <div class="ia-hero__actions">
+          <a class="ia-btn ia-btn--primary" href="#catalogo" data-i18n="ia.cta.browse">Ver el catálogo</a>
+          <a class="ia-btn ia-btn--secondary" href="patrocina/" data-i18n="ia.cta.feature">Pon tu herramienta aquí</a>
+        </div>
+      </div>
+      <figure class="ia-moki-slot">
+        <picture>
+          <source srcset="assets/moki-parche-derecho.webp" type="image/webp">
+          <img class="ia-moki ia-moki--hero" src="assets/moki-parche-derecho.png" width="720" height="767" alt="Moki, astronauta de cartón naranja. Casco crema, visor oscuro sin cara, parche MOKI en su oreja derecha. No espejado.">
+        </picture>
+        <figcaption class="ia-moki-caption">Moki · referencia oficial del brandkit. Parche en su oreja derecha. Visor sin cara.</figcaption>
+      </figure>
+    </header>
+
+    <section class="ia-wrap ia-featured" aria-labelledby="destacados-title">
+      <article class="ia-featured__card">
+        <picture>
+          <source srcset="assets/moki-parche-derecho.webp" type="image/webp">
+          <img src="assets/moki-parche-derecho.png" alt="Moki señala el espacio Destacado, todavía vacío.">
+        </picture>
+        <div>
+          <p class="ia-kicker" data-i18n="ia.featured.kicker">Destacados</p>
+          <h2 id="destacados-title" data-i18n="ia.featured.title">Este slot está vacío. A propósito.</h2>
+          <p data-i18n="ia.featured.body">Las herramientas de este directorio se listan porque existen y sirven para hacer juegos. Destacado / Featured es un lugar pagado, todavía sin precio público.</p>
+        </div>
+        <a class="ia-btn ia-btn--primary" href="patrocina/" data-i18n="ia.featured.cta">Pon tu herramienta aquí / Feature your tool</a>
+      </article>
+    </section>
+
+    <section class="ia-wrap" id="catalogo" data-ia-app aria-labelledby="catalogo-title">
+      <h2 id="catalogo-title" class="ia-kicker" data-i18n="ia.catalog.kicker">Catálogo</h2>
+      <div class="ia-toolbar">
+        <label class="visually-hidden" for="ia-search" data-i18n="ia.search.label">Buscar herramientas</label>
+        <input class="ia-search" id="ia-search" type="search" data-ia-search placeholder="Busca por nombre o uso…" autocomplete="off">
+        <div class="ia-chips" data-ia-chips role="group" aria-label="Categorías"></div>
+        <p class="ia-count" data-ia-count></p>
+      </div>
+      <div class="ia-grid" data-ia-grid>
+        <div class="ia-empty" data-ia-empty>
+          <picture>
+            <source srcset="assets/moki-parche-derecho.webp" type="image/webp">
+            <img src="assets/moki-parche-derecho.png" alt="Moki no encontró coincidencias. Visor oscuro, sin cara.">
+          </picture>
+          <h2 data-i18n="ia.empty.title">Moki no encontró eso</h2>
+          <p data-i18n="ia.empty.body">Prueba otra categoría o una palabra más corta. Si falta una herramienta real, escríbenos desde Patrocina.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ia-wrap ia-newsletter" aria-labelledby="news-title">
+      <picture>
+        <source srcset="assets/moki-parche-derecho.webp" type="image/webp">
+        <img src="assets/moki-parche-derecho.png" alt="Moki espera el boletín, todavía no conectado.">
+      </picture>
+      <div>
+        <h2 id="news-title" data-i18n="ia.news.title">Boletín del directorio</h2>
+        <p data-i18n="ia.news.body">Cuando haya herramientas nuevas o un Destacado real, lo mandamos aquí. Todavía no está conectado.</p>
+        <!-- TODO: conectar Resend (API key + audience). No integrar todavía. -->
+        <form aria-disabled="true" onsubmit="return false;">
+          <input type="email" disabled placeholder="Próximamente" aria-label="Correo (próximamente)">
+          <button class="ia-btn" type="button" disabled data-i18n="ia.news.cta">Próximamente</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="ia-wrap ia-machine" aria-labelledby="machine-title">
+      <h2 id="machine-title" data-i18n="ia.machine.title">Para agentes y citas</h2>
+      <p>
+        <a href="tools.json">/ia/tools.json</a>
+        ·
+        <a href="llms.txt">/ia/llms.txt</a>
+      </p>
+      <div data-ia-machine>
+        <noscript>
+          <p>Abre <a href="tools.json">tools.json</a> o <a href="llms.txt">llms.txt</a> para el catálogo completo.</p>
+        </noscript>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ia-footer">
+    <div class="ia-wrap">
+      <p data-i18n="ia.footer">Hecho para indie game devs que ya usan IA. Marca personal Jorge Suárez. Moki no se espeja.</p>
+    </div>
+  </footer>
+
+  <style>
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
+  <script src="../i18n.js"></script>
+  <script src="ia.js"></script>
+</body>
+
+</html>

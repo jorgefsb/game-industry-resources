@@ -1,0 +1,469 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-10-15",
+  "url": "https://gamedev.jorgesuarez.com.mx/ia/",
+  "json": "https://gamedev.jorgesuarez.com.mx/ia/tools.json",
+  "llms": "https://gamedev.jorgesuarez.com.mx/ia/llms.txt",
+  "featured": [],
+  "categories": [
+    {
+      "id": "codigo",
+      "es": "Código / agentes",
+      "en": "Code / agents"
+    },
+    {
+      "id": "sprites",
+      "es": "Sprites y 2D",
+      "en": "Sprites & 2D"
+    },
+    {
+      "id": "modelos3d",
+      "es": "3D y modelos",
+      "en": "3D & models"
+    },
+    {
+      "id": "animacion",
+      "es": "Animación",
+      "en": "Animation"
+    },
+    {
+      "id": "audio",
+      "es": "Audio y música",
+      "en": "Audio & music"
+    },
+    {
+      "id": "voces",
+      "es": "Voces",
+      "en": "Voices"
+    },
+    {
+      "id": "texturas",
+      "es": "Texturas",
+      "en": "Textures"
+    },
+    {
+      "id": "traduccion",
+      "es": "Traducción / localización",
+      "en": "Translation / localization"
+    },
+    {
+      "id": "qa",
+      "es": "Testing / QA",
+      "en": "Testing / QA"
+    },
+    {
+      "id": "marketing",
+      "es": "Marketing / tráiler",
+      "en": "Marketing / trailer"
+    }
+  ],
+  "pricingLabels": {
+    "gratis": { "es": "Gratis", "en": "Free" },
+    "freemium": { "es": "Freemium", "en": "Freemium" },
+    "pago": { "es": "De pago", "en": "Paid" }
+  },
+  "tools": [
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "url": "https://cursor.com",
+      "category": "codigo",
+      "pricing": "freemium",
+      "pricingSource": "https://cursor.com/pricing",
+      "description": {
+        "es": "Editor con agentes de IA para escribir, editar y revisar el código del juego.",
+        "en": "AI editor with agents for writing, editing, and reviewing game code."
+      }
+    },
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot",
+      "url": "https://github.com/features/copilot",
+      "category": "codigo",
+      "pricing": "freemium",
+      "pricingSource": "https://github.com/features/copilot/plans",
+      "description": {
+        "es": "Asistente de código de GitHub que sugiere y completa en el editor.",
+        "en": "GitHub's coding assistant that suggests and completes code in your editor."
+      }
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "url": "https://claude.com/product/claude-code",
+      "category": "codigo",
+      "description": {
+        "es": "Agente de Anthropic que trabaja en tu repo desde la terminal o el IDE.",
+        "en": "Anthropic agent that works in your repo from the terminal or IDE."
+      }
+    },
+    {
+      "id": "windsurf",
+      "name": "Windsurf",
+      "url": "https://windsurf.com",
+      "category": "codigo",
+      "description": {
+        "es": "IDE con agente de IA (Cognition / Devin) para programar en el escritorio.",
+        "en": "AI-agent IDE from Cognition / Devin for desktop coding."
+      }
+    },
+    {
+      "id": "continue",
+      "name": "Continue",
+      "url": "https://continue.dev",
+      "category": "codigo",
+      "pricing": "gratis",
+      "pricingSource": "https://continue.dev",
+      "description": {
+        "es": "Asistente de código abierto que se conecta a tu editor; el código sigue disponible.",
+        "en": "Open-source coding assistant for your editor; the codebase remains available."
+      }
+    },
+    {
+      "id": "aider",
+      "name": "Aider",
+      "url": "https://aider.chat",
+      "category": "codigo",
+      "pricing": "gratis",
+      "pricingSource": "https://aider.chat",
+      "description": {
+        "es": "Pair programming por terminal con LLMs sobre tu repo Git.",
+        "en": "Terminal pair-programming with LLMs over your Git repo."
+      }
+    },
+    {
+      "id": "gemini-code-assist",
+      "name": "Gemini Code Assist",
+      "url": "https://developers.google.com/gemini-code-assist",
+      "category": "codigo",
+      "description": {
+        "es": "Asistente de código de Google Gemini para editores y flujos de desarrollo.",
+        "en": "Google Gemini coding assistant for editors and development workflows."
+      }
+    },
+    {
+      "id": "scenario",
+      "name": "Scenario",
+      "url": "https://www.scenario.com",
+      "category": "sprites",
+      "description": {
+        "es": "Generación de assets 2D entrenada para estilo consistente de videojuegos.",
+        "en": "2D asset generation trained for consistent video-game art styles."
+      }
+    },
+    {
+      "id": "leonardo",
+      "name": "Leonardo.Ai",
+      "url": "https://leonardo.ai",
+      "category": "sprites",
+      "description": {
+        "es": "Generador de imágenes con flujos usados para concept art y assets de juego.",
+        "en": "Image generator with workflows used for game concept art and assets."
+      }
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "url": "https://www.midjourney.com",
+      "category": "sprites",
+      "description": {
+        "es": "Generador de imágenes por Discord o web, habitual para concept art.",
+        "en": "Image generator via Discord or web, commonly used for concept art."
+      }
+    },
+    {
+      "id": "recraft",
+      "name": "Recraft",
+      "url": "https://www.recraft.ai",
+      "category": "sprites",
+      "description": {
+        "es": "Ilustración e iconos vectoriales con control de estilo para UI y props 2D.",
+        "en": "Vector illustration and icons with style control for UI and 2D props."
+      }
+    },
+    {
+      "id": "krea",
+      "name": "Krea",
+      "url": "https://www.krea.ai",
+      "category": "sprites",
+      "description": {
+        "es": "Generación y edición de imágenes en tiempo real para iterar arte 2D.",
+        "en": "Realtime image generation and editing for iterating on 2D art."
+      }
+    },
+    {
+      "id": "adobe-firefly",
+      "name": "Adobe Firefly",
+      "url": "https://www.adobe.com/products/firefly.html",
+      "category": "sprites",
+      "description": {
+        "es": "IA generativa de Adobe para imágenes, integrada en herramientas creativas.",
+        "en": "Adobe generative AI for images, integrated into creative tools."
+      }
+    },
+    {
+      "id": "pixellab",
+      "name": "PixelLab",
+      "url": "https://www.pixellab.ai",
+      "category": "sprites",
+      "description": {
+        "es": "Generador de pixel art y sprites pensado para videojuegos.",
+        "en": "Pixel-art and sprite generator built for video games."
+      }
+    },
+    {
+      "id": "meshy",
+      "name": "Meshy",
+      "url": "https://www.meshy.ai",
+      "category": "modelos3d",
+      "description": {
+        "es": "Texto o imagen a modelo 3D, con texturizado, para props y personajes.",
+        "en": "Text or image to 3D models, with texturing, for props and characters."
+      }
+    },
+    {
+      "id": "luma-ai",
+      "name": "Luma AI",
+      "url": "https://lumalabs.ai",
+      "category": "modelos3d",
+      "description": {
+        "es": "Modelos 3D y video generativo (Dream Machine / Genie) desde captura o texto.",
+        "en": "3D models and generative video (Dream Machine / Genie) from capture or text."
+      }
+    },
+    {
+      "id": "spline",
+      "name": "Spline",
+      "url": "https://spline.design",
+      "category": "modelos3d",
+      "description": {
+        "es": "Diseño 3D en el navegador, con herramientas de IA para escenas e interfaces.",
+        "en": "In-browser 3D design with AI tools for scenes and interfaces."
+      }
+    },
+    {
+      "id": "sloyd",
+      "name": "Sloyd",
+      "url": "https://www.sloyd.ai",
+      "category": "modelos3d",
+      "description": {
+        "es": "Generador de modelos 3D paramétricos para prototipar assets de juego.",
+        "en": "Parametric 3D model generator for prototyping game assets."
+      }
+    },
+    {
+      "id": "hyper3d",
+      "name": "Hyper3D Rodin",
+      "url": "https://hyper3d.ai",
+      "category": "modelos3d",
+      "description": {
+        "es": "Generación de mallas 3D (Rodin) a partir de texto o imagen.",
+        "en": "3D mesh generation (Rodin) from text or image."
+      }
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "url": "https://runway.com",
+      "category": "animacion",
+      "description": {
+        "es": "Video generativo y edición con IA, útil para cinemáticas y motion.",
+        "en": "Generative video and AI editing, useful for cinematics and motion."
+      }
+    },
+    {
+      "id": "cascadeur",
+      "name": "Cascadeur",
+      "url": "https://cascadeur.com",
+      "category": "animacion",
+      "description": {
+        "es": "Animación 3D con física asistida por IA para keyframes de personajes.",
+        "en": "3D animation with AI-assisted physics for character keyframes."
+      }
+    },
+    {
+      "id": "deepmotion",
+      "name": "DeepMotion",
+      "url": "https://www.deepmotion.com",
+      "category": "animacion",
+      "description": {
+        "es": "Motion capture por video (Animate 3D) para animar personajes.",
+        "en": "Video-based motion capture (Animate 3D) for character animation."
+      }
+    },
+    {
+      "id": "pika",
+      "name": "Pika",
+      "url": "https://pika.art",
+      "category": "animacion",
+      "description": {
+        "es": "Generador de video corto a partir de texto o imagen.",
+        "en": "Short-form video generator from text or image."
+      }
+    },
+    {
+      "id": "suno",
+      "name": "Suno",
+      "url": "https://suno.com",
+      "category": "audio",
+      "pricing": "freemium",
+      "pricingSource": "https://suno.com",
+      "description": {
+        "es": "Genera canciones originales con IA a partir de un prompt.",
+        "en": "Generates original songs with AI from a prompt."
+      }
+    },
+    {
+      "id": "udio",
+      "name": "Udio",
+      "url": "https://www.udio.com",
+      "category": "audio",
+      "description": {
+        "es": "Generador de música con control de estilo, letras y variaciones.",
+        "en": "Music generator with control over style, lyrics, and variations."
+      }
+    },
+    {
+      "id": "aiva",
+      "name": "AIVA",
+      "url": "https://www.aiva.ai",
+      "category": "audio",
+      "description": {
+        "es": "Compositor de IA orientado a bandas sonoras y música de escena.",
+        "en": "AI composer aimed at soundtracks and scene music."
+      }
+    },
+    {
+      "id": "soundraw",
+      "name": "Soundraw",
+      "url": "https://soundraw.io",
+      "category": "audio",
+      "description": {
+        "es": "Música generativa editable por mood, duración e instrumentos.",
+        "en": "Generative music you can edit by mood, length, and instruments."
+      }
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "url": "https://elevenlabs.io",
+      "category": "voces",
+      "description": {
+        "es": "Texto a voz y clonación de voces para diálogos y narración.",
+        "en": "Text-to-speech and voice cloning for dialogue and narration."
+      }
+    },
+    {
+      "id": "resemble",
+      "name": "Resemble AI",
+      "url": "https://www.resemble.ai",
+      "category": "voces",
+      "description": {
+        "es": "Voces generativas y voice design para localización y NPCs.",
+        "en": "Generative voices and voice design for localization and NPCs."
+      }
+    },
+    {
+      "id": "blockade-labs",
+      "name": "Blockade Labs",
+      "url": "https://www.blockadelabs.com",
+      "category": "texturas",
+      "description": {
+        "es": "Skybox AI: entornos 360° y fondos generativos para escenas de juego.",
+        "en": "Skybox AI: 360° environments and generative backdrops for game scenes."
+      }
+    },
+    {
+      "id": "deepl",
+      "name": "DeepL",
+      "url": "https://www.deepl.com",
+      "category": "traduccion",
+      "pricing": "freemium",
+      "pricingSource": "https://www.deepl.com/pro",
+      "description": {
+        "es": "Traducción automática de texto y documentos, con plan Pro aparte.",
+        "en": "Machine translation for text and documents, with a separate Pro plan."
+      }
+    },
+    {
+      "id": "crowdin",
+      "name": "Crowdin",
+      "url": "https://crowdin.com",
+      "category": "traduccion",
+      "description": {
+        "es": "Plataforma de localización con sugerencias de IA para strings del juego.",
+        "en": "Localization platform with AI suggestions for game strings."
+      }
+    },
+    {
+      "id": "lokalise",
+      "name": "Lokalise",
+      "url": "https://lokalise.com",
+      "category": "traduccion",
+      "description": {
+        "es": "TMS para traducir y gestionar copys de producto y videojuegos.",
+        "en": "TMS for translating and managing product and game copy."
+      }
+    },
+    {
+      "id": "applitools",
+      "name": "Applitools",
+      "url": "https://applitools.com",
+      "category": "qa",
+      "description": {
+        "es": "Testing visual con IA (Eyes) para detectar regresiones de UI.",
+        "en": "AI visual testing (Eyes) to catch UI regressions."
+      }
+    },
+    {
+      "id": "testsprite",
+      "name": "TestSprite",
+      "url": "https://www.testsprite.com",
+      "category": "qa",
+      "description": {
+        "es": "Agente que genera y corre pruebas automáticas a partir del producto.",
+        "en": "Agent that generates and runs automated tests from the product."
+      }
+    },
+    {
+      "id": "opus-clip",
+      "name": "Opus Clip",
+      "url": "https://www.opus.pro",
+      "category": "marketing",
+      "description": {
+        "es": "Corta videos largos en clips verticales para redes y tráilers cortos.",
+        "en": "Cuts long videos into vertical clips for social and short trailers."
+      }
+    },
+    {
+      "id": "descript",
+      "name": "Descript",
+      "url": "https://www.descript.com",
+      "category": "marketing",
+      "description": {
+        "es": "Edición de video y audio por transcripción, con Overdub y recortes de IA.",
+        "en": "Transcript-based video and audio editing, with Overdub and AI cuts."
+      }
+    },
+    {
+      "id": "capcut",
+      "name": "CapCut",
+      "url": "https://www.capcut.com",
+      "category": "marketing",
+      "description": {
+        "es": "Editor de video con subtítulos, recortes y efectos asistidos por IA.",
+        "en": "Video editor with AI-assisted captions, cuts, and effects."
+      }
+    },
+    {
+      "id": "heygen",
+      "name": "HeyGen",
+      "url": "https://www.heygen.com",
+      "category": "marketing",
+      "description": {
+        "es": "Avatares y locuciones con IA para spots, demos y anuncios del juego.",
+        "en": "AI avatars and voiceovers for spots, demos, and game ads."
+      }
+    }
+  ]
+}

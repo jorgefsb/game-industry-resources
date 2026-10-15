@@ -1,0 +1,21 @@
+Official Jorge Suárez brandkit assets (v0.6), downloaded 2026-10-15 from
+https://brandkit.jorgesuarez.com.mx/
+
+- moki-parche-derecho.png
+  https://brandkit.jorgesuarez.com.mx/assets/moki-parche-derecho.png
+  Approved character reference. Patch on Moki's anatomical right ear.
+  Do not mirror. Visor is dark; do not draw a face in the visor.
+
+- moki-parche-derecho.webp
+  Same official PNG, resized with ffmpeg for faster display. Geometry unchanged.
+
+- moki-ia-leccion.webp
+  https://brandkit.jorgesuarez.com.mx/assets/release-0.6/12-moki-ia-verificar-leccion.webp
+  Selected social application 12 · «Generar no es verificar».
+
+- jorgesuarez-wordmark-a.svg
+  https://brandkit.jorgesuarez.com.mx/assets/masters-1.0/signature/JorgeSuarez-A-oscuro-bicolor.svg
+  Signature A · bicolor for dark backgrounds.
+
+Tokens: ../tokens.css copied from
+https://brandkit.jorgesuarez.com.mx/assets/brand-kit-0.3/tokens.css
