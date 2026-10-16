@@ -86,7 +86,7 @@ def main() -> None:
         lines.append(f"## {cat['es']} / {cat['en']}")
         for tool in by_cat[cat["id"]]:
             price = f" [{tool['pricing']}]" if tool.get("pricing") else ""
-            lines.append(f"- {tool['name']}{price}: {tool['description']['es']} — {tool['url']}")
+            lines.append(f"- {tool['name']}{price}: {tool['description']['es']} ({tool['url']})")
         lines.append("")
     lines.append("## Destacados / Featured")
     lines.append("- Featured slot open. Makers can request it at https://gamedev.jorgesuarez.com.mx/ia/patrocina/ (USD 49 per month, cancel anytime).")
