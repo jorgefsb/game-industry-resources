@@ -165,7 +165,33 @@ a.home-card {
     max-width: 100%;
   }
 
-  .home-page .js-wordmark {
-    font-size: 14px;
+  .home-page .hud .js-wordmark {
+    font-size: 13px;
+  }
+
+  .home-page .hud__right {
+    flex-shrink: 0;
+  }
+
+  .home-page .lang-switcher {
+    gap: 0;
+  }
+
+  .home-page .lang-switcher a {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+    flex: none;
+  }
+
+  .home-page .ia-socials {
+    gap: 0 4px;
+  }
+
+  .home-page .ia-socials a {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px 8px;
+    flex: none;
   }
 }
