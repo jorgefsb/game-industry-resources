@@ -1,4 +1,29 @@
 /* Directory UI: category chips + text search. Data from tools.json. */
+
+/*
+ * Sponsor (Destacado) checkout config. Single source of truth.
+ * SPONSOR_CHECKOUT_URL is currently the Stripe TEST link. While SPONSOR_LIVE is false,
+ * public buttons never point at it: they keep the mailto below.
+ * When Jorge activates Stripe live: swap in the live payment link here and set SPONSOR_LIVE = true.
+ */
+const SPONSOR_CHECKOUT_URL = 'https://buy.stripe.com/test_3cI8wQ3nJ4Vg358a4F9sk00';
+const SPONSOR_LIVE = false;
+const SPONSOR_MAILTO = 'mailto:jorgefsb@jorgesuarez.com.mx?subject=Destacado%20Directorio%20IA';
+
+(function () {
+  const ctas = document.querySelectorAll('[data-sponsor-cta]');
+  ctas.forEach((el) => {
+    if (SPONSOR_LIVE) {
+      el.href = SPONSOR_CHECKOUT_URL;
+      el.setAttribute('data-i18n', 'ia.sponsor.cta.buy');
+      el.setAttribute('rel', 'noopener');
+      if (typeof t === 'function') el.innerHTML = t('ia.sponsor.cta.buy');
+    } else {
+      el.href = SPONSOR_MAILTO;
+      el.setAttribute('data-i18n', 'ia.sponsor.cta.mail');
+    }
+  });
+})();
 (function () {
   const root = document.querySelector('[data-ia-app]');
   if (!root) return;

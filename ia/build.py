@@ -84,7 +84,7 @@ def main() -> None:
             lines.append(f"- {tool['name']}{price}: {tool['description']['es']} — {tool['url']}")
         lines.append("")
     lines.append("## Destacados / Featured")
-    lines.append("- Slot empty. Makers can request a featured listing at /ia/patrocina/")
+    lines.append("- Slot empty. Makers can request a featured listing at /ia/patrocina/ (USD 49 per month, cancel anytime).")
     lines.append("")
     (ROOT / "llms.txt").write_text("\n".join(lines), encoding="utf-8")
     print(f"OK: {len(tools)} tools, llms.txt written")
