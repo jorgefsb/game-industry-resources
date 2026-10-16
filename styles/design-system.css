@@ -2,6 +2,14 @@
    🎮 GAME INDUSTRY RESOURCES - DESIGN SYSTEM 3.0
    ============================================ */
 
+@font-face {
+    font-family: Outfit;
+    src: url('../ia/fonts/outfit-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     /* === NEON COLORS === */
     --neon-cyan: #00ffff;
@@ -144,20 +152,52 @@ body::after {
 
 /* === NAVIGATION === */
 .nav {
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: var(--z-nav);
     background: rgba(5, 5, 16, 0.95);
     backdrop-filter: blur(15px);
     border-bottom: 2px solid var(--neon-cyan);
-    padding: 1rem 0;
+    padding: 0 0 1rem;
+}
+
+.nav__home {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 1.5rem;
+    background: #0A0A0A;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-home {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-family: Outfit, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.site-home span {
+    color: #FF6B35;
+}
+
+.site-home:hover,
+.site-home:focus-visible {
+    color: #FF6B35;
 }
 
 .nav__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-top: 1rem;
 }
 
 .nav__logo {
@@ -332,7 +372,7 @@ body::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 100px;
+    padding-top: 48px;
     text-align: center;
 }
 
@@ -496,6 +536,7 @@ body::after {
 
 /* Mobile */
 @media (max-width: 768px) {
+    .site-home { font-size: 15px; }
     .nav__menu {
         display: none;
     }
