@@ -41,3 +41,6 @@ opus-clip.png  <-  https://cdn.prod.website-files.com/6388604483b03a9ecb34d695/6
 descript.png  <-  https://static-cdn.descript.com/web/icons/apple-touch-icon.png
 capcut.png  <-  https://sf16-web-tos-buz.capcutcdn-us.com/obj/capcut-web-buz-tx/common/images/lv_web-2.ico
 heygen.png  <-  https://www.heygen.com/favicon.ico?favicon.2m321y0geyyfh.ico
+summer-engine.png  <-  https://www.summerengine.com/icon/apple-icon.png  (downloaded 2026-10-16)
+ludo-ai.png  <-  https://ludo.ai/apple-touch-icon.png  (downloaded 2026-10-16)
+bake3d.png  <-  https://bake3d.ai/apple-touch-icon.png  (downloaded 2026-10-16)

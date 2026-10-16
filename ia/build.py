@@ -25,8 +25,8 @@ def main() -> None:
     data = json.loads((ROOT / "tools.json").read_text(encoding="utf-8"))
     tools = data.get("tools") or []
     cats = {c["id"] for c in data.get("categories") or []}
-    if not 25 <= len(tools) <= 40:
-        fail(f"need 25–40 tools, got {len(tools)}")
+    if not 25 <= len(tools) <= 60:
+        fail(f"need 25–60 tools, got {len(tools)}")
     ids = set()
     for tool in tools:
         for key in NEEDED:

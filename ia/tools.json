@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated": "2026-10-15",
+  "updated": "2026-10-16",
   "url": "https://gamedev.jorgesuarez.com.mx/ia/",
   "json": "https://gamedev.jorgesuarez.com.mx/ia/tools.json",
   "llms": "https://gamedev.jorgesuarez.com.mx/ia/llms.txt",
@@ -162,6 +162,20 @@
       }
     },
     {
+      "id": "summer-engine",
+      "name": "Summer Engine",
+      "url": "https://www.summerengine.com",
+      "logo": "logos/summer-engine.png",
+      "category": "codigo",
+      "description": {
+        "es": "Motor compatible con Godot 4 hecho para agentes de IA: arman el juego, crean sus assets y lo publican.",
+        "en": "Godot 4-compatible engine built for AI agents: they build the game, make its assets, and publish it."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.summerengine.com/pricing",
+      "pricing_checked": "2026-10-16"
+    },
+    {
       "id": "scenario",
       "name": "Scenario",
       "url": "https://www.scenario.com",
@@ -257,6 +271,20 @@
       "pricing_checked": "2026-10-15"
     },
     {
+      "id": "ludo-ai",
+      "name": "Ludo.ai",
+      "url": "https://ludo.ai",
+      "logo": "logos/ludo-ai.png",
+      "category": "sprites",
+      "description": {
+        "es": "Sprites animados y hojas de sprites para tu juego, ahora con el mismo personaje en 8 direcciones.",
+        "en": "Animated sprites and sprite sheets for your game, now with one consistent character in 8 directions."
+      },
+      "pricing": "pago",
+      "pricing_source": "https://ludo.ai/pricing",
+      "pricing_checked": "2026-10-16"
+    },
+    {
       "id": "meshy",
       "name": "Meshy",
       "url": "https://www.meshy.ai",
@@ -325,6 +353,20 @@
       "pricing": "freemium",
       "pricing_source": "https://hyper3d.ai/pricing",
       "pricing_checked": "2026-10-15"
+    },
+    {
+      "id": "bake3d",
+      "name": "Bake3D",
+      "url": "https://bake3d.ai",
+      "logo": "logos/bake3d.png",
+      "category": "modelos3d",
+      "description": {
+        "es": "Convierte una imagen en un personaje 3D con texturas, rig y animación para Unity, Unreal, Godot y Blender.",
+        "en": "Turns one image into a textured, rigged, and animated 3D character for Unity, Unreal, Godot, and Blender."
+      },
+      "pricing": "pago",
+      "pricing_source": "https://bake3d.ai/pricing",
+      "pricing_checked": "2026-10-16"
     },
     {
       "id": "runway",
