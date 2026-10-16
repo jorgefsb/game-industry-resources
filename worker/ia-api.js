@@ -6,6 +6,9 @@
  *
  *   POST /ia/api/subscribe  { email, lang, company(honeypot) }            -> KV key: <email>
  *   POST /ia/api/featured   { name, site, email, lang, company(honeypot) } -> KV key: featured:<host>:<email>
+ *   POST /ia/api/submit     { name, site, email, lang, company(honeypot) } -> KV key: submit:<host>:<email>
+ *
+ * /ia/llms.txt and /ia/tools.json run through the Worker first (assets run_worker_first) to add charset=utf-8.
  *
  * KV binding IA_KV = namespace "ia-newsletter". Nothing is emailed or sent anywhere.
  * Rate limit: 5 submissions per IP per hour (KV counter "rl:<ip>:<hour>" with TTL).
@@ -88,7 +91,7 @@ async function handleForm(kind, request, env) {
   if (!name || name.length > 80) return json({ ok: false, error: 'name' }, 400);
   const site = cleanSite(data.site);
   if (!site) return json({ ok: false, error: 'site' }, 400);
-  const key = `featured:${site.hostname.toLowerCase()}:${email}`;
+  const key = `${kind}:${site.hostname.toLowerCase()}:${email}`;
   await env.IA_KV.put(key, JSON.stringify({ ts, lang, name, site: site.href, email }));
   return json({ ok: true });
 }
@@ -98,6 +101,16 @@ export default {
     const { pathname } = new URL(request.url);
     if (pathname === '/ia/api/subscribe') return handleForm('subscribe', request, env);
     if (pathname === '/ia/api/featured') return handleForm('featured', request, env);
-    return env.ASSETS.fetch(request);
+    if (pathname === '/ia/api/submit') return handleForm('submit', request, env);
+    const response = await env.ASSETS.fetch(request);
+    if (pathname === '/ia/llms.txt' || pathname === '/ia/tools.json') {
+      const type = response.headers.get('content-type') || '';
+      if (type && !/charset=/i.test(type)) {
+        const headers = new Headers(response.headers);
+        headers.set('content-type', type + '; charset=utf-8');
+        return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+      }
+    }
+    return response;
   }
 };

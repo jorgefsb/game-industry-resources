@@ -44,8 +44,8 @@ def main() -> None:
             fail(f"{tool['id']} needs es+en description")
         if tool.get("logo") and not (ROOT / tool["logo"]).exists():
             fail(f"{tool['id']} logo file missing: {tool['logo']}")
-        if "pricing" in tool and not tool.get("pricingSource"):
-            fail(f"{tool['id']} pricing without source")
+        if "pricing" in tool and not (tool.get("pricing_source", "").startswith("https://") and tool.get("pricing_checked")):
+            fail(f"{tool['id']} pricing without pricing_source/pricing_checked")
         blob = json.dumps(tool, ensure_ascii=False)
         if FORBIDDEN.search(blob):
             fail(f"{tool['id']} contains a forbidden brand")
@@ -60,8 +60,7 @@ def main() -> None:
         ROOT / "assets" / "moki-parche-derecho.webp",
         ROOT / "fonts" / "outfit-700.woff2",
         ROOT / "fonts" / "inter-400.woff2",
-        ROOT / "assets" / "moki-ia-leccion.webp",
-        ROOT / "assets" / "jorgesuarez-wordmark-a.svg",
+                ROOT / "assets" / "jorgesuarez-wordmark-a.svg",
     ]
     for path in pages:
         if not path.exists():
@@ -127,10 +126,15 @@ def render_index(data: dict) -> None:
                 f'<a class="ia-card__link" href="{esc(t["url"])}" target="_blank" rel="noopener">Sitio oficial '
                 f'<span aria-hidden="true">↗</span><span class="sr-only"> {esc(t["name"])} (abre en otra pestaña)</span></a></article>'
             )
+        collapsible = len(tools) > 3
+        more = ""
+        if collapsible:
+            more = (f'<button type="button" class="btn btn--ghost ia-more" data-more="{esc(cat["id"])}" aria-expanded="false" '
+                    f'aria-controls="grid-{esc(cat["id"])}">Ver más ({len(tools) - 3})</button>')
         parts.append(
-            f'<section class="ia-cat" id="{esc(cat["id"])}" aria-labelledby="cat-{esc(cat["id"])}">'
+            f'<section class="ia-cat{" is-collapsed" if collapsible else ""}" id="{esc(cat["id"])}" aria-labelledby="cat-{esc(cat["id"])}">'
             f'<h3 class="ia-cat__title" id="cat-{esc(cat["id"])}">{esc(cat["es"])} <span>{len(tools)}</span></h3>'
-            f'<div class="ia-grid">{"".join(cards)}</div></section>'
+            f'<div class="ia-grid" id="grid-{esc(cat["id"])}">{"".join(cards)}</div>{more}</section>'
         )
     sections = "\n".join(parts)
     page, n = re.subn(
