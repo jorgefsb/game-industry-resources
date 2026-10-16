@@ -143,6 +143,7 @@ const studios = [
 
 function renderStudios(filter = "TODO", searchQuery = "") {
     const grid = document.getElementById("studiosGrid");
+    if (!grid) return;
     grid.innerHTML = "";
 
     const filtered = studios.filter(s => {
@@ -179,8 +180,10 @@ function renderStudios(filter = "TODO", searchQuery = "") {
     });
 
     // Update Stats
-    document.getElementById('stat-active').innerText = studios.length;
-    document.getElementById('stat-hiring').innerText = studios.filter(s => s.hiring).length;
+    const statActive = document.getElementById('stat-active');
+    const statHiring = document.getElementById('stat-hiring');
+    if (statActive) statActive.innerText = studios.length;
+    if (statHiring) statHiring.innerText = studios.filter(s => s.hiring).length;
 }
 
 function getIcon(type) {
@@ -208,7 +211,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Search Logic
-    document.querySelector('.terminal-input').addEventListener('input', (e) => {
-        renderStudios("TODO", e.target.value);
-    });
+    const searchInput = document.querySelector('.terminal-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            renderStudios("TODO", e.target.value);
+        });
+    }
 });
