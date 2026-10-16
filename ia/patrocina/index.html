@@ -37,13 +37,13 @@
       <a href="/jobs" data-i18n="nav.jobs">Jobs &amp; Career</a>
       <a href="/database" data-i18n="nav.studios">Studios DB</a>
       <a href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.community">Comunidad</a>
-      <a class="hud__nav-cta" href="mailto:jorgefsb@jorgesuarez.com.mx?subject=Nueva%20herramienta%20Directorio%20IA" data-t="submit.cta">¿Falta una? Envíala gratis</a>
+      <button class="hud__nav-cta" type="button" data-submit-open data-t="submit.cta">¿Falta una? Envíala gratis</button>
     </nav>
     <div class="hud__right">
       <div class="lang-switcher" role="group" aria-label="Idioma" data-t-aria="lang.label">
         <a href="#" class="lang-btn" data-lang="es" lang="es">ES</a><span aria-hidden="true">|</span><a href="#" class="lang-btn" data-lang="en" lang="en">EN</a>
       </div>
-      <a class="btn btn--primary btn--sm hud__cta" href="mailto:jorgefsb@jorgesuarez.com.mx?subject=Nueva%20herramienta%20Directorio%20IA" data-t="submit.cta">¿Falta una? Envíala gratis</a>
+      <button class="btn btn--primary btn--sm hud__cta" type="button" data-submit-open data-t="submit.cta">¿Falta una? Envíala gratis</button>
       <button class="hud__burger" type="button" aria-expanded="false" aria-controls="hud-nav" aria-label="Menú" data-t-aria="nav.menu"><span></span><span></span></button>
     </div>
   </header>
@@ -52,10 +52,11 @@
     <section class="ia-sponsor__copy" aria-labelledby="sponsor-title">
       <p class="eyebrow"><span class="ia-badge" data-t="featured.badge">Destacado</span></p>
       <h1 id="sponsor-title" data-t="featured.title">Pon tu herramienta frente a gamedevs de Latinoamérica</h1>
+      <p class="lead" data-t="featured.seen">Te ven los devs justo cuando están eligiendo herramientas para su juego.</p>
       <ul class="ia-plan">
-        <li><span class="ia-plan__tag" data-t="sp.freeTag">Gratis</span><p data-t="sp.free">Gratis para devs: directorio, búsqueda, filtros y boletín. Pagan las herramientas.</p></li>
-        <li class="is-main"><span class="ia-plan__tag" data-t="featured.badge">Destacado</span><p data-t="sp.featured">Destacado: arriba de todo, con tu logo y una línea. USD 49 al mes. Cancelas cuando quieras.</p></li>
-        <li><span class="ia-plan__tag" data-t="sp.soonTag">Pronto</span><p data-t="sp.soon">Pronto: revisión rápida para listarte antes.</p></li>
+        <li><span class="ia-plan__tag" data-t="sp.freeTag">Gratis</span><p data-t="sp.free">Directorio, búsqueda, filtros y boletín. Pagan las herramientas.</p></li>
+        <li class="is-main"><span class="ia-plan__tag" data-t="featured.badge">Destacado</span><p data-t="sp.featured">Arriba de todo, con tu logo y una línea. USD 49 al mes. Cancelas cuando quieras.</p></li>
+        <li><span class="ia-plan__tag" data-t="sp.soonTag">Pronto</span><p data-t="sp.soon">Revisión rápida para listarte antes.</p></li>
       </ul>
       <div class="ia-preview" aria-label="Así se ve el destacado" data-t-aria="sp.previewLabel">
         <p class="ia-preview__label" data-t="sp.previewLabel">Así se ve el destacado</p>
@@ -108,6 +109,26 @@
       <p><a href="../llms.txt" data-t="footer.llms">Para ChatGPT, Claude y Grok</a></p>
     </div>
   </footer>
+
+
+  <dialog class="ia-modal" id="ia-submit-modal" aria-labelledby="submit-modal-title">
+    <form class="ia-form" data-ia-form="submit" novalidate>
+      <div class="ia-modal__head">
+        <h2 id="submit-modal-title" data-t="submit.modalTitle">Envía una herramienta</h2>
+        <button class="ia-modal__close" type="button" data-submit-close aria-label="Cerrar" data-t-aria="modal.close">×</button>
+      </div>
+      <p class="ia-modal__lead" data-t="submit.body">Listar es gratis. Revisamos que exista y que sirva para hacer juegos.</p>
+      <label for="s-name" data-t="sp.nameAny">Nombre de la herramienta</label>
+      <input id="s-name" name="name" type="text" required maxlength="80">
+      <label for="s-site" data-t="sp.site">Sitio web</label>
+      <input id="s-site" name="site" type="url" required maxlength="200" inputmode="url" placeholder="https://">
+      <label for="s-email" data-t="sp.email">Tu correo</label>
+      <input id="s-email" name="email" type="email" required maxlength="254" autocomplete="email" inputmode="email">
+      <div class="ia-hp" aria-hidden="true"><label for="s-company">Company</label><input id="s-company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+      <button class="btn btn--primary btn--block" type="submit" data-t="submit.send">Enviar herramienta</button>
+      <p class="ia-form__status" role="status" aria-live="polite" data-status></p>
+    </form>
+  </dialog>
 
   <script src="../../i18n.js"></script>
   <script src="../ia.js"></script>

@@ -38,8 +38,8 @@
     },
     {
       "id": "texturas",
-      "es": "Texturas",
-      "en": "Textures"
+      "es": "Entornos y texturas",
+      "en": "Environments & textures"
     },
     {
       "id": "traduccion",
@@ -78,12 +78,13 @@
       "url": "https://cursor.com",
       "logo": "logos/cursor.png",
       "category": "codigo",
-      "pricing": "freemium",
-      "pricingSource": "https://cursor.com/pricing",
       "description": {
         "es": "Editor con agentes de IA para escribir, editar y revisar el código del juego.",
         "en": "AI editor with agents for writing, editing, and reviewing game code."
-      }
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://cursor.com/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "github-copilot",
@@ -91,12 +92,13 @@
       "url": "https://github.com/features/copilot",
       "logo": "logos/github-copilot.png",
       "category": "codigo",
-      "pricing": "freemium",
-      "pricingSource": "https://github.com/features/copilot/plans",
       "description": {
         "es": "Asistente de código de GitHub que sugiere y completa en el editor.",
         "en": "GitHub's coding assistant that suggests and completes code in your editor."
-      }
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://github.com/features/copilot/plans",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "claude-code",
@@ -105,9 +107,12 @@
       "logo": "logos/claude-code.png",
       "category": "codigo",
       "description": {
-        "es": "Agente de Anthropic que trabaja en tu repo desde la terminal o el IDE.",
-        "en": "Anthropic agent that works in your repo from the terminal or IDE."
-      }
+        "es": "Agente de Anthropic que programa contigo en tu proyecto, desde la terminal o tu editor.",
+        "en": "Anthropic agent that codes with you in your project, from the terminal or your editor."
+      },
+      "pricing": "pago",
+      "pricing_source": "https://claude.com/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "windsurf",
@@ -116,9 +121,12 @@
       "logo": "logos/windsurf.png",
       "category": "codigo",
       "description": {
-        "es": "IDE con agente de IA (Cognition / Devin) para programar en el escritorio.",
-        "en": "AI-agent IDE from Cognition / Devin for desktop coding."
-      }
+        "es": "Editor de código con agente de IA para programar en tu computadora.",
+        "en": "Code editor with an AI agent for coding on your computer."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://devin.ai/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "continue",
@@ -126,11 +134,9 @@
       "url": "https://continue.dev",
       "logo": "logos/continue.png",
       "category": "codigo",
-      "pricing": "gratis",
-      "pricingSource": "https://continue.dev",
       "description": {
-        "es": "Asistente de código abierto que se conecta a tu editor; el código sigue disponible.",
-        "en": "Open-source coding assistant for your editor; the codebase remains available."
+        "es": "Asistente de código abierto que se conecta a tu editor.",
+        "en": "Open-source coding assistant that plugs into your editor."
       }
     },
     {
@@ -139,11 +145,9 @@
       "url": "https://aider.chat",
       "logo": "logos/aider.png",
       "category": "codigo",
-      "pricing": "gratis",
-      "pricingSource": "https://aider.chat",
       "description": {
-        "es": "Pair programming por terminal con LLMs sobre tu repo Git.",
-        "en": "Terminal pair-programming with LLMs over your Git repo."
+        "es": "Programa en pareja con IA desde la terminal, sobre tu repo de Git.",
+        "en": "Pair-program with AI from the terminal, on your Git repo."
       }
     },
     {
@@ -153,8 +157,8 @@
       "logo": "logos/gemini-code-assist.png",
       "category": "codigo",
       "description": {
-        "es": "Asistente de código de Google Gemini para editores y flujos de desarrollo.",
-        "en": "Google Gemini coding assistant for editors and development workflows."
+        "es": "Asistente de código de Google Gemini para tu editor.",
+        "en": "Google Gemini coding assistant for your editor."
       }
     },
     {
@@ -164,9 +168,12 @@
       "logo": "logos/scenario.png",
       "category": "sprites",
       "description": {
-        "es": "Generación de assets 2D entrenada para estilo consistente de videojuegos.",
-        "en": "2D asset generation trained for consistent video-game art styles."
-      }
+        "es": "Genera arte 2D para tu juego manteniendo el mismo estilo en todos los assets.",
+        "en": "Generates 2D art for your game, keeping one style across all assets."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.scenario.com/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "leonardo",
@@ -175,9 +182,12 @@
       "logo": "logos/leonardo.png",
       "category": "sprites",
       "description": {
-        "es": "Generador de imágenes con flujos usados para concept art y assets de juego.",
-        "en": "Image generator with workflows used for game concept art and assets."
-      }
+        "es": "Generador de imágenes para concept art y assets de juego.",
+        "en": "Image generator for concept art and game assets."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://leonardo.ai/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "midjourney",
@@ -188,7 +198,10 @@
       "description": {
         "es": "Generador de imágenes por Discord o web, habitual para concept art.",
         "en": "Image generator via Discord or web, commonly used for concept art."
-      }
+      },
+      "pricing": "pago",
+      "pricing_source": "https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "recraft",
@@ -199,7 +212,10 @@
       "description": {
         "es": "Ilustración e iconos vectoriales con control de estilo para UI y props 2D.",
         "en": "Vector illustration and icons with style control for UI and 2D props."
-      }
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.recraft.ai/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "krea",
@@ -210,7 +226,10 @@
       "description": {
         "es": "Generación y edición de imágenes en tiempo real para iterar arte 2D.",
         "en": "Realtime image generation and editing for iterating on 2D art."
-      }
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.krea.ai/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "adobe-firefly",
@@ -232,7 +251,10 @@
       "description": {
         "es": "Generador de pixel art y sprites pensado para videojuegos.",
         "en": "Pixel-art and sprite generator built for video games."
-      }
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.pixellab.ai/",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "meshy",
@@ -243,7 +265,10 @@
       "description": {
         "es": "Texto o imagen a modelo 3D, con texturizado, para props y personajes.",
         "en": "Text or image to 3D models, with texturing, for props and characters."
-      }
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.meshy.ai/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "luma-ai",
@@ -252,9 +277,12 @@
       "logo": "logos/luma-ai.png",
       "category": "modelos3d",
       "description": {
-        "es": "Modelos 3D y video generativo (Dream Machine / Genie) desde captura o texto.",
-        "en": "3D models and generative video (Dream Machine / Genie) from capture or text."
-      }
+        "es": "Video y modelos 3D generados con IA a partir de texto o imágenes.",
+        "en": "AI-generated video and 3D models from text or images."
+      },
+      "pricing": "pago",
+      "pricing_source": "https://lumalabs.ai/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "spline",
@@ -265,7 +293,10 @@
       "description": {
         "es": "Diseño 3D en el navegador, con herramientas de IA para escenas e interfaces.",
         "en": "In-browser 3D design with AI tools for scenes and interfaces."
-      }
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://spline.design/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "sloyd",
@@ -274,9 +305,12 @@
       "logo": "logos/sloyd.png",
       "category": "modelos3d",
       "description": {
-        "es": "Generador de modelos 3D paramétricos para prototipar assets de juego.",
-        "en": "Parametric 3D model generator for prototyping game assets."
-      }
+        "es": "Generador de modelos 3D ajustables para prototipar assets de juego.",
+        "en": "Adjustable 3D model generator for prototyping game assets."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.sloyd.ai/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "hyper3d",
@@ -285,9 +319,12 @@
       "logo": "logos/hyper3d.png",
       "category": "modelos3d",
       "description": {
-        "es": "Generación de mallas 3D (Rodin) a partir de texto o imagen.",
-        "en": "3D mesh generation (Rodin) from text or image."
-      }
+        "es": "Crea modelos 3D (Rodin) a partir de texto o una imagen.",
+        "en": "Creates 3D models (Rodin) from text or an image."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://hyper3d.ai/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "runway",
@@ -296,9 +333,12 @@
       "logo": "logos/runway.png",
       "category": "animacion",
       "description": {
-        "es": "Video generativo y edición con IA, útil para cinemáticas y motion.",
-        "en": "Generative video and AI editing, useful for cinematics and motion."
-      }
+        "es": "Video generativo y edición con IA, útil para cinemáticas y animación.",
+        "en": "Generative video and AI editing, useful for cutscenes and animation."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://runway.com/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "cascadeur",
@@ -307,9 +347,12 @@
       "logo": "logos/cascadeur.png",
       "category": "animacion",
       "description": {
-        "es": "Animación 3D con física asistida por IA para keyframes de personajes.",
-        "en": "3D animation with AI-assisted physics for character keyframes."
-      }
+        "es": "Animación 3D de personajes con física asistida por IA.",
+        "en": "3D character animation with AI-assisted physics."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://cascadeur.com/plans",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "deepmotion",
@@ -318,8 +361,8 @@
       "logo": "logos/deepmotion.png",
       "category": "animacion",
       "description": {
-        "es": "Motion capture por video (Animate 3D) para animar personajes.",
-        "en": "Video-based motion capture (Animate 3D) for character animation."
+        "es": "Captura de movimiento a partir de un video para animar personajes.",
+        "en": "Motion capture from a video to animate characters."
       }
     },
     {
@@ -331,7 +374,10 @@
       "description": {
         "es": "Generador de video corto a partir de texto o imagen.",
         "en": "Short-form video generator from text or image."
-      }
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://pika.art/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "suno",
@@ -339,12 +385,13 @@
       "url": "https://suno.com",
       "logo": "logos/suno.png",
       "category": "audio",
-      "pricing": "freemium",
-      "pricingSource": "https://suno.com",
       "description": {
-        "es": "Genera canciones originales con IA a partir de un prompt.",
-        "en": "Generates original songs with AI from a prompt."
-      }
+        "es": "Genera canciones originales con IA a partir de una descripción.",
+        "en": "Generates original songs with AI from a description."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://suno.com/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "udio",
@@ -355,7 +402,10 @@
       "description": {
         "es": "Generador de música con control de estilo, letras y variaciones.",
         "en": "Music generator with control over style, lyrics, and variations."
-      }
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.udio.com/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "aiva",
@@ -366,7 +416,10 @@
       "description": {
         "es": "Compositor de IA orientado a bandas sonoras y música de escena.",
         "en": "AI composer aimed at soundtracks and scene music."
-      }
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.aiva.ai/",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "soundraw",
@@ -375,9 +428,12 @@
       "logo": "logos/soundraw.png",
       "category": "audio",
       "description": {
-        "es": "Música generativa editable por mood, duración e instrumentos.",
-        "en": "Generative music you can edit by mood, length, and instruments."
-      }
+        "es": "Música generativa que ajustas por ambiente, duración e instrumentos.",
+        "en": "Generative music you adjust by vibe, length, and instruments."
+      },
+      "pricing": "pago",
+      "pricing_source": "https://soundraw.io/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "elevenlabs",
@@ -388,7 +444,10 @@
       "description": {
         "es": "Texto a voz y clonación de voces para diálogos y narración.",
         "en": "Text-to-speech and voice cloning for dialogue and narration."
-      }
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://elevenlabs.io/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "resemble",
@@ -397,9 +456,12 @@
       "logo": "logos/resemble.png",
       "category": "voces",
       "description": {
-        "es": "Voces generativas y voice design para localización y NPCs.",
-        "en": "Generative voices and voice design for localization and NPCs."
-      }
+        "es": "Voces generadas con IA para doblaje, localización y personajes (NPCs).",
+        "en": "AI-generated voices for dubbing, localization, and characters (NPCs)."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.resemble.ai/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "blockade-labs",
@@ -408,8 +470,8 @@
       "logo": "logos/blockade-labs.png",
       "category": "texturas",
       "description": {
-        "es": "Skybox AI: entornos 360° y fondos generativos para escenas de juego.",
-        "en": "Skybox AI: 360° environments and generative backdrops for game scenes."
+        "es": "Skybox AI: entornos 360° y fondos generados para escenas de juego.",
+        "en": "Skybox AI: 360° environments and generated backdrops for game scenes."
       }
     },
     {
@@ -418,12 +480,13 @@
       "url": "https://www.deepl.com",
       "logo": "logos/deepl.png",
       "category": "traduccion",
-      "pricing": "freemium",
-      "pricingSource": "https://www.deepl.com/pro",
       "description": {
-        "es": "Traducción automática de texto y documentos, con plan Pro aparte.",
-        "en": "Machine translation for text and documents, with a separate Pro plan."
-      }
+        "es": "Traducción automática de textos y documentos.",
+        "en": "Machine translation for texts and documents."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.deepl.com/pro",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "crowdin",
@@ -432,9 +495,12 @@
       "logo": "logos/crowdin.png",
       "category": "traduccion",
       "description": {
-        "es": "Plataforma de localización con sugerencias de IA para strings del juego.",
-        "en": "Localization platform with AI suggestions for game strings."
-      }
+        "es": "Plataforma para traducir los textos de tu juego, con sugerencias de IA.",
+        "en": "Platform to translate your game's text, with AI suggestions."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://crowdin.com/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "lokalise",
@@ -443,9 +509,12 @@
       "logo": "logos/lokalise.png",
       "category": "traduccion",
       "description": {
-        "es": "TMS para traducir y gestionar copys de producto y videojuegos.",
-        "en": "TMS for translating and managing product and game copy."
-      }
+        "es": "Plataforma para traducir y ordenar los textos de tu juego.",
+        "en": "Platform to translate and organize your game's text."
+      },
+      "pricing": "pago",
+      "pricing_source": "https://lokalise.com/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "applitools",
@@ -454,9 +523,12 @@
       "logo": "logos/applitools.png",
       "category": "qa",
       "description": {
-        "es": "Testing visual con IA (Eyes) para detectar regresiones de UI.",
-        "en": "AI visual testing (Eyes) to catch UI regressions."
-      }
+        "es": "Pruebas visuales con IA para detectar cuando algo se rompe en la interfaz.",
+        "en": "AI visual testing that catches when something breaks in your UI."
+      },
+      "pricing": "pago",
+      "pricing_source": "https://applitools.com/platform-pricing/",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "testsprite",
@@ -465,9 +537,12 @@
       "logo": "logos/testsprite.png",
       "category": "qa",
       "description": {
-        "es": "Agente que genera y corre pruebas automáticas a partir del producto.",
-        "en": "Agent that generates and runs automated tests from the product."
-      }
+        "es": "Agente que crea y corre pruebas automáticas de tu producto.",
+        "en": "Agent that creates and runs automated tests for your product."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.testsprite.com/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "opus-clip",
@@ -478,7 +553,10 @@
       "description": {
         "es": "Corta videos largos en clips verticales para redes y tráilers cortos.",
         "en": "Cuts long videos into vertical clips for social and short trailers."
-      }
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.opus.pro/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "descript",
@@ -487,9 +565,12 @@
       "logo": "logos/descript.png",
       "category": "marketing",
       "description": {
-        "es": "Edición de video y audio por transcripción, con Overdub y recortes de IA.",
-        "en": "Transcript-based video and audio editing, with Overdub and AI cuts."
-      }
+        "es": "Edita video y audio editando el texto de la transcripción, con recortes de IA.",
+        "en": "Edit video and audio by editing the transcript text, with AI cuts."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.descript.com/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "capcut",
@@ -500,7 +581,10 @@
       "description": {
         "es": "Editor de video con subtítulos, recortes y efectos asistidos por IA.",
         "en": "Video editor with AI-assisted captions, cuts, and effects."
-      }
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.capcut.com/pricing",
+      "pricing_checked": "2026-10-15"
     },
     {
       "id": "heygen",
@@ -511,7 +595,10 @@
       "description": {
         "es": "Avatares y locuciones con IA para spots, demos y anuncios del juego.",
         "en": "AI avatars and voiceovers for spots, demos, and game ads."
-      }
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.heygen.com/pricing",
+      "pricing_checked": "2026-10-15"
     }
   ]
 }

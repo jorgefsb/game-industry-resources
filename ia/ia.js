@@ -22,14 +22,22 @@ const SPONSOR_LIVE = false;
       'lang.label': 'Idioma',
       'hero.kicker': 'Directorio · IA para gamedev',
       'hero.title': 'Las herramientas de IA que sí sirven para hacer tu juego',
-      'hero.sub': '{n} herramientas para arte, código, audio y diseño. En español y gratis',
+      'hero.sub': '{n} herramientas para arte, código, audio y diseño. En español y gratis.',
       'hero.bubble': '¿Qué buscamos hoy?',
       'search.label': 'Buscar herramientas',
       'search.ph': 'Busca: sprites, voces, música, código…',
       'proof.label': 'Datos del directorio',
       'proof.tools': 'herramientas',
       'proof.cats': 'categorías',
-      'proof.lang': 'Español e inglés',
+      'proof.free': 'Gratis para devs',
+      'featured.seen': 'Te ven los devs justo cuando están eligiendo herramientas para su juego.',
+      'more.show': 'Ver más ({n})',
+      'more.hide': 'Ver menos',
+      'submit.modalTitle': 'Envía una herramienta',
+      'submit.send': 'Enviar herramienta',
+      'submit.ok': 'Recibido. La revisamos y la agregamos si encaja.',
+      'sp.nameAny': 'Nombre de la herramienta',
+      'modal.close': 'Cerrar',
       'featured.badge': 'Destacado',
       'featured.price': 'USD 49 al mes',
       'featured.slot': 'Tu logo',
@@ -61,10 +69,10 @@ const SPONSOR_LIVE = false;
       'form.rate': 'Demasiados intentos. Vuelve a intentarlo en una hora.',
       'form.error': 'No se pudo guardar. Inténtalo de nuevo en un momento.',
       'sp.freeTag': 'Gratis',
-      'sp.free': 'Gratis para devs: directorio, búsqueda, filtros y boletín. Pagan las herramientas.',
-      'sp.featured': 'Destacado: arriba de todo, con tu logo y una línea. USD 49 al mes. Cancelas cuando quieras.',
+      'sp.free': 'Directorio, búsqueda, filtros y boletín. Pagan las herramientas.',
+      'sp.featured': 'Arriba de todo, con tu logo y una línea. USD 49 al mes. Cancelas cuando quieras.',
       'sp.soonTag': 'Pronto',
-      'sp.soon': 'Pronto: revisión rápida para listarte antes.',
+      'sp.soon': 'Revisión rápida para listarte antes.',
       'sp.previewLabel': 'Así se ve el destacado',
       'sp.previewName': 'Tu herramienta',
       'sp.previewLine': 'Una línea que explica para qué sirve en tu juego.',
@@ -95,14 +103,22 @@ const SPONSOR_LIVE = false;
       'lang.label': 'Language',
       'hero.kicker': 'Directory · AI for game dev',
       'hero.title': 'AI tools that actually help you ship your game',
-      'hero.sub': '{n} tools for art, code, audio and design. Free, in Spanish and English',
+      'hero.sub': '{n} tools for art, code, audio and design. In Spanish and English, and free.',
       'hero.bubble': 'What are we hunting today?',
       'search.label': 'Search tools',
       'search.ph': 'Search: sprites, voices, music, code…',
       'proof.label': 'Directory facts',
       'proof.tools': 'tools',
       'proof.cats': 'categories',
-      'proof.lang': 'Spanish and English',
+      'proof.free': 'Free for devs',
+      'featured.seen': 'Seen by devs right when they\u2019re picking tools for their game.',
+      'more.show': 'See more ({n})',
+      'more.hide': 'See less',
+      'submit.modalTitle': 'Submit a tool',
+      'submit.send': 'Submit tool',
+      'submit.ok': 'Got it. We\u2019ll review it and add it if it fits.',
+      'sp.nameAny': 'Tool name',
+      'modal.close': 'Close',
       'featured.badge': 'Featured',
       'featured.price': 'USD 49/month',
       'featured.slot': 'Your logo',
@@ -134,10 +150,10 @@ const SPONSOR_LIVE = false;
       'form.rate': 'Too many tries. Please try again in an hour.',
       'form.error': 'Could not save it. Please try again in a moment.',
       'sp.freeTag': 'Free',
-      'sp.free': 'Free for devs: directory, search, filters and newsletter. Tools pay.',
-      'sp.featured': 'Featured: top of the page, your logo and one line. USD 49/month. Cancel anytime.',
+      'sp.free': 'Directory, search, filters and newsletter. Tools pay.',
+      'sp.featured': 'Top of the page, your logo and one line. USD 49/month. Cancel anytime.',
       'sp.soonTag': 'Coming next',
-      'sp.soon': 'Coming next: fast-track review to get listed sooner.',
+      'sp.soon': 'Fast-track review to get listed sooner.',
       'sp.previewLabel': 'What Featured looks like',
       'sp.previewName': 'Your tool',
       'sp.previewLine': 'One line on how it helps make your game.',
@@ -210,6 +226,26 @@ const SPONSOR_LIVE = false;
     });
   })();
 
+  /* Submit-a-tool modal */
+  (function () {
+    const modal = document.getElementById('ia-submit-modal');
+    if (!modal) return;
+    let opener = null;
+    document.querySelectorAll('[data-submit-open]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        opener = btn;
+        const st = modal.querySelector('[data-status]');
+        if (st) { st.textContent = ''; st.className = 'ia-form__status'; }
+        if (typeof modal.showModal === 'function') modal.showModal(); else modal.setAttribute('open', '');
+        const first = modal.querySelector('input[name="name"]');
+        if (first) first.focus();
+      });
+    });
+    function close() { if (modal.open) modal.close(); else modal.removeAttribute('open'); if (opener) opener.focus(); }
+    modal.querySelector('[data-submit-close]').addEventListener('click', close);
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+  })();
+
   /* Sponsor checkout: only used once SPONSOR_LIVE is true. */
   if (SPONSOR_LIVE) {
     document.querySelectorAll('[data-sponsor-cta]').forEach((el) => {
@@ -237,7 +273,7 @@ const SPONSOR_LIVE = false;
         company: String(fd.get('company') || ''),
         lang: lang()
       };
-      if (kind === 'featured') {
+      if (kind === 'featured' || kind === 'submit') {
         payload.name = String(fd.get('name') || '').trim();
         payload.site = String(fd.get('site') || '').trim();
         if (payload.site && !/^https?:\/\//i.test(payload.site)) payload.site = 'https://' + payload.site;
@@ -248,7 +284,7 @@ const SPONSOR_LIVE = false;
       button.disabled = true;
       say('form.sending', true);
       try {
-        const r = await fetch(kind === 'featured' ? '/ia/api/featured' : '/ia/api/subscribe', {
+        const r = await fetch('/ia/api/' + kind, {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
           body: JSON.stringify(payload)
@@ -257,7 +293,7 @@ const SPONSOR_LIVE = false;
         const data = await r.json().catch(() => ({}));
         if (!r.ok || !data.ok) return say(data.error === 'email' ? 'form.badEmail' : data.error === 'site' ? 'form.badSite' : 'form.error');
         form.reset();
-        say(kind === 'featured' ? 'sp.ok' : 'news.ok', true);
+        say(kind === 'featured' ? 'sp.ok' : kind === 'submit' ? 'submit.ok' : 'news.ok', true);
       } catch (_) {
         say('form.error');
       } finally {
@@ -271,6 +307,8 @@ const SPONSOR_LIVE = false;
   let catalog = null;
   let category = 'all';
   let query = '';
+  const expanded = new Set();
+  const PREVIEW = 3;
 
   function norm(v) {
     return String(v).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -313,9 +351,14 @@ const SPONSOR_LIVE = false;
       const tools = catalog.tools.filter((t) => t.category === c.id && matches(t));
       shown += tools.length;
       if (!tools.length) return '';
-      return `<section class="ia-cat" id="${esc(c.id)}" aria-labelledby="cat-${esc(c.id)}">
+      const collapsible = !query && tools.length > PREVIEW;
+      const open = expanded.has(c.id);
+      const more = collapsible
+        ? `<button type="button" class="btn btn--ghost ia-more" data-more="${esc(c.id)}" aria-expanded="${open}" aria-controls="grid-${esc(c.id)}">${esc(open ? s('more.hide') : s('more.show', { n: tools.length - PREVIEW }))}</button>`
+        : '';
+      return `<section class="ia-cat${collapsible && !open ? ' is-collapsed' : ''}" id="${esc(c.id)}" aria-labelledby="cat-${esc(c.id)}">
         <h3 class="ia-cat__title" id="cat-${esc(c.id)}">${esc(catLabel(c))} <span>${tools.length}</span></h3>
-        <div class="ia-grid">${tools.map(card).join('')}</div>
+        <div class="ia-grid" id="grid-${esc(c.id)}">${tools.map(card).join('')}</div>${more}
       </section>`;
     }).join('');
     root.querySelector('[data-ia-empty]').hidden = shown !== 0;
@@ -328,6 +371,15 @@ const SPONSOR_LIVE = false;
   }
 
   if (root) {
+    root.querySelector('[data-ia-sections]').addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-more]');
+      if (!btn) return;
+      const id = btn.getAttribute('data-more');
+      if (expanded.has(id)) expanded.delete(id); else expanded.add(id);
+      renderSections();
+      const again = root.querySelector(`[data-more="${id}"]`);
+      if (again) again.focus();
+    });
     root.querySelector('[data-ia-chips]').addEventListener('click', (e) => {
       const btn = e.target.closest('[data-cat]');
       if (!btn) return;

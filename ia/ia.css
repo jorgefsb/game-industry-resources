@@ -256,3 +256,20 @@ footer.papacito-footer { display: block; border-top: 1px solid var(--line); padd
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .ia-hero__moki:hover .ia-moki, .ia-card:hover { transform: none; }
 }
+
+/* Round 2: see more, featured line, submit modal */
+.ia-more { display: none; margin-top: var(--sp-4); width: 100%; }
+@media (max-width: 640px) {
+  .ia-more { display: inline-flex; }
+  .ia-cat.is-collapsed .ia-card:nth-child(n+4) { display: none; }
+}
+.ia-featured__copy .ia-featured__seen { color: var(--text-strong); font-size: 17px; }
+.hud__nav button.hud__nav-cta { background: none; border: 0; padding: 0; font: inherit; cursor: pointer; text-align: left; white-space: nowrap; font-size: 16px; min-height: var(--tap); align-items: center; color: var(--accent); }
+.ia-modal { width: min(480px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow: auto; padding: var(--sp-6); background: var(--surface); color: var(--text); border: 1px solid var(--border-strong); border-radius: var(--r-panel); }
+.ia-modal::backdrop { background: rgba(0,0,0,.72); }
+.ia-modal__head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-3); margin-bottom: var(--sp-2); }
+.ia-modal__head h2 { font-size: 26px; }
+.ia-modal__close { flex: none; width: var(--tap); height: var(--tap); border-radius: var(--r-control); border: 1px solid var(--border-strong); background: none; color: var(--text); font-size: 24px; line-height: 1; cursor: pointer; }
+.ia-modal__close:hover { border-color: var(--accent); }
+.ia-modal__lead { color: var(--text-secondary); margin-bottom: var(--sp-4); }
+@media (max-width: 480px) { .ia-modal { padding: var(--sp-5); } }
