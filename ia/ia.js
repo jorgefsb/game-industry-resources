@@ -248,6 +248,9 @@ const SPONSOR_LIVE = false;
       if (e.target.closest('a, button')) close();
     });
     document.addEventListener('gamedev:closemenu', close);
+    document.addEventListener('click', (e) => { if (e.target.closest('[data-submit-open]')) close(); }, true);
+    const submitModal = document.getElementById('ia-submit-modal');
+    if (submitModal) submitModal.addEventListener('toggle', () => { if (submitModal.open) close(); });
   })();
 
   /* Submit-a-tool modal */
