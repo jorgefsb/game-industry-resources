@@ -2,6 +2,7 @@
 """Validate the /ia catalog and regenerate llms.txt from tools.json."""
 from __future__ import annotations
 
+import html
 import json
 import re
 import sys
@@ -41,6 +42,8 @@ def main() -> None:
         desc = tool["description"]
         if not desc.get("es") or not desc.get("en"):
             fail(f"{tool['id']} needs es+en description")
+        if tool.get("logo") and not (ROOT / tool["logo"]).exists():
+            fail(f"{tool['id']} logo file missing: {tool['logo']}")
         if "pricing" in tool and not tool.get("pricingSource"):
             fail(f"{tool['id']} pricing without source")
         blob = json.dumps(tool, ensure_ascii=False)
@@ -54,6 +57,9 @@ def main() -> None:
         ROOT / "ia.js",
         ROOT / "tokens.css",
         ROOT / "assets" / "moki-parche-derecho.png",
+        ROOT / "assets" / "moki-parche-derecho.webp",
+        ROOT / "fonts" / "outfit-700.woff2",
+        ROOT / "fonts" / "inter-400.woff2",
         ROOT / "assets" / "moki-ia-leccion.webp",
         ROOT / "assets" / "jorgesuarez-wordmark-a.svg",
     ]
@@ -84,10 +90,84 @@ def main() -> None:
             lines.append(f"- {tool['name']}{price}: {tool['description']['es']} — {tool['url']}")
         lines.append("")
     lines.append("## Destacados / Featured")
-    lines.append("- Slot empty. Makers can request a featured listing at /ia/patrocina/ (USD 49 per month, cancel anytime).")
+    lines.append("- Featured slot open. Makers can request it at https://gamedev.jorgesuarez.com.mx/ia/patrocina/ (USD 49 per month, cancel anytime).")
     lines.append("")
     (ROOT / "llms.txt").write_text("\n".join(lines), encoding="utf-8")
-    print(f"OK: {len(tools)} tools, llms.txt written")
+    render_index(data)
+    print(f"OK: {len(tools)} tools, llms.txt written, index.html catalog + JSON-LD rendered")
+
+
+def esc(value: str) -> str:
+    return html.escape(str(value), quote=True)
+
+
+def render_index(data: dict) -> None:
+    """Pre-render the Spanish catalog and JSON-LD into index.html (SEO + no-JS). ia.js re-renders on load."""
+    path = ROOT / "index.html"
+    page = path.read_text(encoding="utf-8")
+    labels = data.get("pricingLabels") or {}
+    parts = []
+    for cat in data["categories"]:
+        tools = [t for t in data["tools"] if t["category"] == cat["id"]]
+        if not tools:
+            continue
+        cards = []
+        for t in tools:
+            if t.get("logo"):
+                logo = (f'<img class="ia-logo" src="{esc(t["logo"])}" width="40" height="40" loading="lazy" '
+                        f'decoding="async" alt="Logo de {esc(t["name"])}">')
+            else:
+                logo = f'<span class="ia-logo ia-logo--tile" aria-hidden="true">{esc(t["name"][0])}</span>'
+            price = ""
+            if t.get("pricing") and t["pricing"] in labels:
+                price = f'<span class="ia-tag">{esc(labels[t["pricing"]]["es"])}</span>'
+            cards.append(
+                f'<article class="ia-card" id="tool-{esc(t["id"])}"><div class="ia-card__top">{logo}'
+                f'<div><h3>{esc(t["name"])}</h3>{price}</div></div><p>{esc(t["description"]["es"])}</p>'
+                f'<a class="ia-card__link" href="{esc(t["url"])}" target="_blank" rel="noopener">Sitio oficial '
+                f'<span aria-hidden="true">↗</span><span class="sr-only"> {esc(t["name"])} (abre en otra pestaña)</span></a></article>'
+            )
+        parts.append(
+            f'<section class="ia-cat" id="{esc(cat["id"])}" aria-labelledby="cat-{esc(cat["id"])}">'
+            f'<h3 class="ia-cat__title" id="cat-{esc(cat["id"])}">{esc(cat["es"])} <span>{len(tools)}</span></h3>'
+            f'<div class="ia-grid">{"".join(cards)}</div></section>'
+        )
+    sections = "\n".join(parts)
+    page, n = re.subn(
+        r'(<div class="ia-sections" id="ia-sections" data-ia-sections>).*?(</div><span hidden id="ia-sections-end"></span>)',
+        lambda m: m.group(1) + "\n" + sections + "\n" + m.group(2),
+        page,
+        flags=re.S,
+    )
+    if n != 1:
+        fail("index.html: catalog markers not found")
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Directorio de IA para indie game developers",
+        "description": "Herramientas de IA para arte, código, audio y diseño de videojuegos. En español y gratis.",
+        "url": data["url"],
+        "numberOfItems": len(data["tools"]),
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "name": t["name"], "url": t["url"], "description": t["description"]["es"]}
+            for i, t in enumerate(data["tools"])
+        ],
+    }
+    ld_json = json.dumps(ld, ensure_ascii=False).replace("</", "<\\/")
+    page, n = re.subn(
+        r'(<script type="application/ld\+json" id="ia-jsonld">).*?(</script>)',
+        lambda m: m.group(1) + ld_json + m.group(2),
+        page,
+        flags=re.S,
+    )
+    if n != 1:
+        fail("index.html: JSON-LD block not found")
+    ntools, ncats = len(data["tools"]), len(data["categories"])
+    page = re.sub(r'data-n="\d+">\d+ herramientas', f'data-n="{ntools}">{ntools} herramientas', page)
+    page = re.sub(r'(<strong data-ia-ntools>)\d+', rf'\g<1>{ntools}', page)
+    page = re.sub(r'(<strong data-ia-ncats>)\d+', rf'\g<1>{ncats}', page)
+    page = re.sub(r'(<p class="ia-count" data-ia-count aria-live="polite">)\d+', rf'\g<1>{ntools}', page)
+    path.write_text(page, encoding="utf-8")
 
 
 if __name__ == "__main__":

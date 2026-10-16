@@ -58,15 +58,25 @@
     }
   ],
   "pricingLabels": {
-    "gratis": { "es": "Gratis", "en": "Free" },
-    "freemium": { "es": "Freemium", "en": "Freemium" },
-    "pago": { "es": "De pago", "en": "Paid" }
+    "gratis": {
+      "es": "Gratis",
+      "en": "Free"
+    },
+    "freemium": {
+      "es": "Freemium",
+      "en": "Freemium"
+    },
+    "pago": {
+      "es": "De pago",
+      "en": "Paid"
+    }
   },
   "tools": [
     {
       "id": "cursor",
       "name": "Cursor",
       "url": "https://cursor.com",
+      "logo": "logos/cursor.png",
       "category": "codigo",
       "pricing": "freemium",
       "pricingSource": "https://cursor.com/pricing",
@@ -79,6 +89,7 @@
       "id": "github-copilot",
       "name": "GitHub Copilot",
       "url": "https://github.com/features/copilot",
+      "logo": "logos/github-copilot.png",
       "category": "codigo",
       "pricing": "freemium",
       "pricingSource": "https://github.com/features/copilot/plans",
@@ -91,6 +102,7 @@
       "id": "claude-code",
       "name": "Claude Code",
       "url": "https://claude.com/product/claude-code",
+      "logo": "logos/claude-code.png",
       "category": "codigo",
       "description": {
         "es": "Agente de Anthropic que trabaja en tu repo desde la terminal o el IDE.",
@@ -101,6 +113,7 @@
       "id": "windsurf",
       "name": "Windsurf",
       "url": "https://windsurf.com",
+      "logo": "logos/windsurf.png",
       "category": "codigo",
       "description": {
         "es": "IDE con agente de IA (Cognition / Devin) para programar en el escritorio.",
@@ -111,6 +124,7 @@
       "id": "continue",
       "name": "Continue",
       "url": "https://continue.dev",
+      "logo": "logos/continue.png",
       "category": "codigo",
       "pricing": "gratis",
       "pricingSource": "https://continue.dev",
@@ -123,6 +137,7 @@
       "id": "aider",
       "name": "Aider",
       "url": "https://aider.chat",
+      "logo": "logos/aider.png",
       "category": "codigo",
       "pricing": "gratis",
       "pricingSource": "https://aider.chat",
@@ -135,6 +150,7 @@
       "id": "gemini-code-assist",
       "name": "Gemini Code Assist",
       "url": "https://developers.google.com/gemini-code-assist",
+      "logo": "logos/gemini-code-assist.png",
       "category": "codigo",
       "description": {
         "es": "Asistente de código de Google Gemini para editores y flujos de desarrollo.",
@@ -145,6 +161,7 @@
       "id": "scenario",
       "name": "Scenario",
       "url": "https://www.scenario.com",
+      "logo": "logos/scenario.png",
       "category": "sprites",
       "description": {
         "es": "Generación de assets 2D entrenada para estilo consistente de videojuegos.",
@@ -155,6 +172,7 @@
       "id": "leonardo",
       "name": "Leonardo.Ai",
       "url": "https://leonardo.ai",
+      "logo": "logos/leonardo.png",
       "category": "sprites",
       "description": {
         "es": "Generador de imágenes con flujos usados para concept art y assets de juego.",
@@ -165,6 +183,7 @@
       "id": "midjourney",
       "name": "Midjourney",
       "url": "https://www.midjourney.com",
+      "logo": "logos/midjourney.png",
       "category": "sprites",
       "description": {
         "es": "Generador de imágenes por Discord o web, habitual para concept art.",
@@ -175,6 +194,7 @@
       "id": "recraft",
       "name": "Recraft",
       "url": "https://www.recraft.ai",
+      "logo": "logos/recraft.png",
       "category": "sprites",
       "description": {
         "es": "Ilustración e iconos vectoriales con control de estilo para UI y props 2D.",
@@ -185,6 +205,7 @@
       "id": "krea",
       "name": "Krea",
       "url": "https://www.krea.ai",
+      "logo": "logos/krea.png",
       "category": "sprites",
       "description": {
         "es": "Generación y edición de imágenes en tiempo real para iterar arte 2D.",
@@ -195,6 +216,7 @@
       "id": "adobe-firefly",
       "name": "Adobe Firefly",
       "url": "https://www.adobe.com/products/firefly.html",
+      "logo": "logos/adobe-firefly.png",
       "category": "sprites",
       "description": {
         "es": "IA generativa de Adobe para imágenes, integrada en herramientas creativas.",
@@ -205,6 +227,7 @@
       "id": "pixellab",
       "name": "PixelLab",
       "url": "https://www.pixellab.ai",
+      "logo": "logos/pixellab.png",
       "category": "sprites",
       "description": {
         "es": "Generador de pixel art y sprites pensado para videojuegos.",
@@ -215,6 +238,7 @@
       "id": "meshy",
       "name": "Meshy",
       "url": "https://www.meshy.ai",
+      "logo": "logos/meshy.png",
       "category": "modelos3d",
       "description": {
         "es": "Texto o imagen a modelo 3D, con texturizado, para props y personajes.",
@@ -225,6 +249,7 @@
       "id": "luma-ai",
       "name": "Luma AI",
       "url": "https://lumalabs.ai",
+      "logo": "logos/luma-ai.png",
       "category": "modelos3d",
       "description": {
         "es": "Modelos 3D y video generativo (Dream Machine / Genie) desde captura o texto.",
@@ -235,6 +260,7 @@
       "id": "spline",
       "name": "Spline",
       "url": "https://spline.design",
+      "logo": "logos/spline.png",
       "category": "modelos3d",
       "description": {
         "es": "Diseño 3D en el navegador, con herramientas de IA para escenas e interfaces.",
@@ -245,6 +271,7 @@
       "id": "sloyd",
       "name": "Sloyd",
       "url": "https://www.sloyd.ai",
+      "logo": "logos/sloyd.png",
       "category": "modelos3d",
       "description": {
         "es": "Generador de modelos 3D paramétricos para prototipar assets de juego.",
@@ -255,6 +282,7 @@
       "id": "hyper3d",
       "name": "Hyper3D Rodin",
       "url": "https://hyper3d.ai",
+      "logo": "logos/hyper3d.png",
       "category": "modelos3d",
       "description": {
         "es": "Generación de mallas 3D (Rodin) a partir de texto o imagen.",
@@ -265,6 +293,7 @@
       "id": "runway",
       "name": "Runway",
       "url": "https://runway.com",
+      "logo": "logos/runway.png",
       "category": "animacion",
       "description": {
         "es": "Video generativo y edición con IA, útil para cinemáticas y motion.",
@@ -275,6 +304,7 @@
       "id": "cascadeur",
       "name": "Cascadeur",
       "url": "https://cascadeur.com",
+      "logo": "logos/cascadeur.png",
       "category": "animacion",
       "description": {
         "es": "Animación 3D con física asistida por IA para keyframes de personajes.",
@@ -285,6 +315,7 @@
       "id": "deepmotion",
       "name": "DeepMotion",
       "url": "https://www.deepmotion.com",
+      "logo": "logos/deepmotion.png",
       "category": "animacion",
       "description": {
         "es": "Motion capture por video (Animate 3D) para animar personajes.",
@@ -295,6 +326,7 @@
       "id": "pika",
       "name": "Pika",
       "url": "https://pika.art",
+      "logo": "logos/pika.png",
       "category": "animacion",
       "description": {
         "es": "Generador de video corto a partir de texto o imagen.",
@@ -305,6 +337,7 @@
       "id": "suno",
       "name": "Suno",
       "url": "https://suno.com",
+      "logo": "logos/suno.png",
       "category": "audio",
       "pricing": "freemium",
       "pricingSource": "https://suno.com",
@@ -317,6 +350,7 @@
       "id": "udio",
       "name": "Udio",
       "url": "https://www.udio.com",
+      "logo": "logos/udio.png",
       "category": "audio",
       "description": {
         "es": "Generador de música con control de estilo, letras y variaciones.",
@@ -327,6 +361,7 @@
       "id": "aiva",
       "name": "AIVA",
       "url": "https://www.aiva.ai",
+      "logo": "logos/aiva.png",
       "category": "audio",
       "description": {
         "es": "Compositor de IA orientado a bandas sonoras y música de escena.",
@@ -337,6 +372,7 @@
       "id": "soundraw",
       "name": "Soundraw",
       "url": "https://soundraw.io",
+      "logo": "logos/soundraw.png",
       "category": "audio",
       "description": {
         "es": "Música generativa editable por mood, duración e instrumentos.",
@@ -347,6 +383,7 @@
       "id": "elevenlabs",
       "name": "ElevenLabs",
       "url": "https://elevenlabs.io",
+      "logo": "logos/elevenlabs.png",
       "category": "voces",
       "description": {
         "es": "Texto a voz y clonación de voces para diálogos y narración.",
@@ -357,6 +394,7 @@
       "id": "resemble",
       "name": "Resemble AI",
       "url": "https://www.resemble.ai",
+      "logo": "logos/resemble.png",
       "category": "voces",
       "description": {
         "es": "Voces generativas y voice design para localización y NPCs.",
@@ -367,6 +405,7 @@
       "id": "blockade-labs",
       "name": "Blockade Labs",
       "url": "https://www.blockadelabs.com",
+      "logo": "logos/blockade-labs.png",
       "category": "texturas",
       "description": {
         "es": "Skybox AI: entornos 360° y fondos generativos para escenas de juego.",
@@ -377,6 +416,7 @@
       "id": "deepl",
       "name": "DeepL",
       "url": "https://www.deepl.com",
+      "logo": "logos/deepl.png",
       "category": "traduccion",
       "pricing": "freemium",
       "pricingSource": "https://www.deepl.com/pro",
@@ -389,6 +429,7 @@
       "id": "crowdin",
       "name": "Crowdin",
       "url": "https://crowdin.com",
+      "logo": "logos/crowdin.png",
       "category": "traduccion",
       "description": {
         "es": "Plataforma de localización con sugerencias de IA para strings del juego.",
@@ -399,6 +440,7 @@
       "id": "lokalise",
       "name": "Lokalise",
       "url": "https://lokalise.com",
+      "logo": "logos/lokalise.png",
       "category": "traduccion",
       "description": {
         "es": "TMS para traducir y gestionar copys de producto y videojuegos.",
@@ -409,6 +451,7 @@
       "id": "applitools",
       "name": "Applitools",
       "url": "https://applitools.com",
+      "logo": "logos/applitools.png",
       "category": "qa",
       "description": {
         "es": "Testing visual con IA (Eyes) para detectar regresiones de UI.",
@@ -419,6 +462,7 @@
       "id": "testsprite",
       "name": "TestSprite",
       "url": "https://www.testsprite.com",
+      "logo": "logos/testsprite.png",
       "category": "qa",
       "description": {
         "es": "Agente que genera y corre pruebas automáticas a partir del producto.",
@@ -429,6 +473,7 @@
       "id": "opus-clip",
       "name": "Opus Clip",
       "url": "https://www.opus.pro",
+      "logo": "logos/opus-clip.png",
       "category": "marketing",
       "description": {
         "es": "Corta videos largos en clips verticales para redes y tráilers cortos.",
@@ -439,6 +484,7 @@
       "id": "descript",
       "name": "Descript",
       "url": "https://www.descript.com",
+      "logo": "logos/descript.png",
       "category": "marketing",
       "description": {
         "es": "Edición de video y audio por transcripción, con Overdub y recortes de IA.",
@@ -449,6 +495,7 @@
       "id": "capcut",
       "name": "CapCut",
       "url": "https://www.capcut.com",
+      "logo": "logos/capcut.png",
       "category": "marketing",
       "description": {
         "es": "Editor de video con subtítulos, recortes y efectos asistidos por IA.",
@@ -459,6 +506,7 @@
       "id": "heygen",
       "name": "HeyGen",
       "url": "https://www.heygen.com",
+      "logo": "logos/heygen.png",
       "category": "marketing",
       "description": {
         "es": "Avatares y locuciones con IA para spots, demos y anuncios del juego.",

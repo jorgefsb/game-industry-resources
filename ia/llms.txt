@@ -65,4 +65,4 @@
 - HeyGen: Avatares y locuciones con IA para spots, demos y anuncios del juego. — https://www.heygen.com
 
 ## Destacados / Featured
-- Slot empty. Makers can request a featured listing at /ia/patrocina/ (USD 49 per month, cancel anytime).
+- Featured slot open. Makers can request it at https://gamedev.jorgesuarez.com.mx/ia/patrocina/ (USD 49 per month, cancel anytime).

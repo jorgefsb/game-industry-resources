@@ -4,81 +4,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pon tu herramienta aquí · Directorio IA | Jorge Suárez</title>
-  <meta name="description"
-    content="Cómo aparece una herramienta como Destacado / Featured en el directorio de IA para indie game developers. USD 49 al mes, bilingüe ES/EN, cancelas cuando quieras.">
+  <title>Destaca tu herramienta de IA ante gamedevs | Jorge Suárez</title>
+  <meta name="description" content="Pon tu herramienta de IA arriba de todo en el directorio para gamedevs de Latinoamérica. Con tu logo y una línea. USD 49 al mes. Cancelas cuando quieras.">
   <link rel="canonical" href="https://gamedev.jorgesuarez.com.mx/ia/patrocina/">
+  <meta name="theme-color" content="#0A0A0A">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
-  <meta property="og:title" content="Pon tu herramienta aquí · Directorio IA">
-  <meta property="og:description"
-    content="El slot Destacado es para quien fabrica la herramienta. USD 49 al mes, cancelas cuando quieras.">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="JorgeSuarez.com.mx">
+  <meta property="og:title" content="Pon tu herramienta frente a gamedevs de Latinoamérica">
+  <meta property="og:description" content="Arriba de todo, con tu logo y una línea. USD 49 al mes. Cancelas cuando quieras.">
   <meta property="og:url" content="https://gamedev.jorgesuarez.com.mx/ia/patrocina/">
-  <meta property="og:image" content="https://gamedev.jorgesuarez.com.mx/ia/assets/moki-ia-leccion.webp">
-  <meta property="og:image:alt" content="Moki revisa un bloque de IA. Lección: generar no es verificar. Visor oscuro, sin cara.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Outfit:wght@700&display=swap" rel="stylesheet">
+  <meta property="og:image" content="https://gamedev.jorgesuarez.com.mx/ia/assets/moki-parche-derecho.png">
+  <meta property="og:image:alt" content="Moki, el astronauta de cartón de Jorge Suárez">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="../fonts/outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../tokens.css">
   <link rel="stylesheet" href="../ia.css">
+  <link rel="icon" href="../assets/moki-parche-derecho.webp" type="image/webp">
 </head>
 
-<body class="ia-page">
-  <header class="ia-nav">
-    <div class="ia-wrap ia-nav__inner">
-      <a class="ia-nav__brand" href="../../index.html">
-        <img src="../assets/jorgesuarez-wordmark-a.svg" alt="JorgeSuarez.com.mx" width="220" height="48">
-      </a>
-      <nav aria-label="Principal">
-        <ul class="ia-nav__menu">
-          <li><a class="ia-nav__link" href="../../index.html" data-i18n="nav.resources">Recursos</a></li>
-          <li><a class="ia-nav__link is-active" href="../" data-i18n="nav.ia">IA</a></li>
-          <li><a class="ia-nav__link" href="../../jobs.html" data-i18n="nav.jobs">Jobs & Career</a></li>
-          <li><a class="ia-nav__link" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.community">Comunidad</a></li>
-        </ul>
-      </nav>
-      <div class="ia-nav__cta">
-        <div class="ia-lang lang-switch">
-          <a href="#" class="lang-btn" data-lang="es">ES</a>
-          <a href="#" class="lang-btn" data-lang="en">EN</a>
-        </div>
+<body class="ia-page" data-page="sponsor">
+  <a class="ia-skip" href="#main" data-t="skip">Ir al contenido</a>
+  <header class="hud" data-hud>
+    <a class="hud__brand" href="https://jorgesuarez.com.mx/" aria-label="JorgeSuarez.com.mx">
+      <span class="js-wordmark">JorgeSuarez<span>.com.mx</span></span>
+    </a>
+    <nav class="hud__nav" id="hud-nav" aria-label="Principal" data-t-aria="nav.label">
+      <a href="/" data-i18n="nav.resources">Recursos</a>
+      <a href="../" aria-current="true" data-i18n="nav.ia">IA</a>
+      <a href="/jobs" data-i18n="nav.jobs">Jobs &amp; Career</a>
+      <a href="/database" data-i18n="nav.studios">Studios DB</a>
+      <a href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.community">Comunidad</a>
+      <a class="hud__nav-cta" href="mailto:jorgefsb@jorgesuarez.com.mx?subject=Nueva%20herramienta%20Directorio%20IA" data-t="submit.cta">¿Falta una? Envíala gratis</a>
+    </nav>
+    <div class="hud__right">
+      <div class="lang-switcher" role="group" aria-label="Idioma" data-t-aria="lang.label">
+        <a href="#" class="lang-btn" data-lang="es" lang="es">ES</a><span aria-hidden="true">|</span><a href="#" class="lang-btn" data-lang="en" lang="en">EN</a>
       </div>
+      <a class="btn btn--primary btn--sm hud__cta" href="mailto:jorgefsb@jorgesuarez.com.mx?subject=Nueva%20herramienta%20Directorio%20IA" data-t="submit.cta">¿Falta una? Envíala gratis</a>
+      <button class="hud__burger" type="button" aria-expanded="false" aria-controls="hud-nav" aria-label="Menú" data-t-aria="nav.menu"><span></span><span></span></button>
     </div>
   </header>
 
-  <main class="ia-wrap ia-sponsor">
-    <article>
-      <p class="ia-kicker" data-i18n="ia.sponsor.kicker">Destacado / Featured</p>
-      <h1 data-i18n="ia.sponsor.title">Pon tu herramienta donde la buscan quienes ya hacen juegos</h1>
-      <p data-i18n="ia.sponsor.p1">Este directorio es para indie game devs que usan IA. El listado orgánico es editorial: herramientas reales, con URL oficial, sin estrellas inventadas.</p>
-      <p data-i18n="ia.sponsor.p2">Destacado es otra cosa. Es el slot de arriba, el que hoy ocupa Moki con un “aquí va la tuya”. Quien fabrica la herramienta paga para estar ahí un tiempo, con nombre, una línea y el enlace oficial.</p>
-      <p data-i18n="ia.sponsor.p3">Todavía no hay precio, ni checkout, ni Stripe. Si te late, escribe. Revisamos que la herramienta exista y sirva para hacer juegos. Generar un listing no es lo mismo que verificarlo — Moki ya lo sabe.</p>
-      <p class="ia-price" data-i18n="ia.sponsor.price">USD 49 al mes</p>
-      <h2 class="ia-included__title" data-i18n="ia.sponsor.included.title">Qué incluye</h2>
-      <ul class="ia-included">
-        <li data-i18n="ia.sponsor.inc1">Tu herramienta como Destacado arriba de todo en /ia, con badge de Moki.</li>
-        <li data-i18n="ia.sponsor.inc2">Bilingüe: ficha en español e inglés.</li>
-        <li data-i18n="ia.sponsor.inc3">Aparece en /ia/tools.json y /ia/llms.txt, que leen los chatbots.</li>
-        <li data-i18n="ia.sponsor.inc4">Cancelas cuando quieras.</li>
+  <main id="main" class="wrap ia-sponsor">
+    <section class="ia-sponsor__copy" aria-labelledby="sponsor-title">
+      <p class="eyebrow"><span class="ia-badge" data-t="featured.badge">Destacado</span></p>
+      <h1 id="sponsor-title" data-t="featured.title">Pon tu herramienta frente a gamedevs de Latinoamérica</h1>
+      <ul class="ia-plan">
+        <li><span class="ia-plan__tag" data-t="sp.freeTag">Gratis</span><p data-t="sp.free">Gratis para devs: directorio, búsqueda, filtros y boletín. Pagan las herramientas.</p></li>
+        <li class="is-main"><span class="ia-plan__tag" data-t="featured.badge">Destacado</span><p data-t="sp.featured">Destacado: arriba de todo, con tu logo y una línea. USD 49 al mes. Cancelas cuando quieras.</p></li>
+        <li><span class="ia-plan__tag" data-t="sp.soonTag">Pronto</span><p data-t="sp.soon">Pronto: revisión rápida para listarte antes.</p></li>
       </ul>
-      <p>
-        <!-- Default is the mailto. ia.js swaps in SPONSOR_CHECKOUT_URL only when SPONSOR_LIVE = true. -->
-        <a class="ia-btn ia-btn--primary" data-sponsor-cta href="mailto:jorgefsb@jorgesuarez.com.mx?subject=Destacado%20Directorio%20IA" data-i18n="ia.sponsor.cta.mail">Quiero salir destacado</a>
-      </p>
-      <p class="ia-sponsor__contact">jorgefsb@jorgesuarez.com.mx</p>
-      <p>
-        <a class="ia-btn ia-btn--secondary" href="../" data-i18n="ia.sponsor.back">Volver al directorio</a>
-      </p>
-    </article>
-    <aside>
-      <img class="ia-lesson" src="../assets/moki-ia-leccion.webp" width="900" height="1600" alt="Aplicación oficial del brandkit: Moki sostiene dos bloques frente a una máquina IA. Texto: Generar no es verificar. Parche en su oreja derecha. Visor oscuro, sin cara.">
-      <p class="ia-moki-caption" data-i18n="ia.sponsor.lesson">Lección oficial del kit: generar no es verificar. Por eso el Destacado se revisa a mano.</p>
-    </aside>
+      <div class="ia-preview" aria-label="Así se ve el destacado" data-t-aria="sp.previewLabel">
+        <p class="ia-preview__label" data-t="sp.previewLabel">Así se ve el destacado</p>
+        <article class="ia-card ia-card--featured">
+          <div class="ia-card__top">
+            <span class="ia-logo ia-logo--tile" aria-hidden="true">T</span>
+            <div><h3 data-t="sp.previewName">Tu herramienta</h3><span class="ia-badge" data-t="featured.badge">Destacado</span></div>
+          </div>
+          <p data-t="sp.previewLine">Una línea que explica para qué sirve en tu juego.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="ia-sponsor__form" aria-labelledby="form-title">
+      <img class="ia-sponsor__moki" src="../assets/moki-parche-derecho.webp" width="720" height="767" alt="Moki revisa tu herramienta" data-t-alt="alt.mokiSponsor">
+      <h2 id="form-title" data-t="sp.formTitle">Aparta tu lugar</h2>
+      <form class="ia-form" data-ia-form="featured" novalidate>
+        <label for="f-name" data-t="sp.name">Nombre de tu herramienta</label>
+        <input id="f-name" name="name" type="text" required maxlength="80" autocomplete="organization">
+        <label for="f-site" data-t="sp.site">Sitio web</label>
+        <input id="f-site" name="site" type="url" required maxlength="200" inputmode="url" placeholder="https://">
+        <label for="f-email" data-t="sp.email">Tu correo</label>
+        <input id="f-email" name="email" type="email" required maxlength="254" autocomplete="email" inputmode="email">
+        <div class="ia-hp" aria-hidden="true"><label for="f-company">Company</label><input id="f-company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+        <button class="btn btn--primary btn--block" type="submit" data-t="featured.cta">Quiero el destacado</button>
+        <p class="ia-form__note" data-t="sp.note">Sin cobro hoy. Pagas hasta que lo activemos.</p>
+        <p class="ia-form__status" role="status" aria-live="polite" data-status></p>
+      </form>
+      <a class="ia-back" href="../" data-t="sp.back">← Volver al directorio</a>
+    </section>
   </main>
 
-  <footer class="ia-footer">
-    <div class="ia-wrap">
-      <p data-i18n="ia.footer">Hecho para indie game devs que ya usan IA. Marca personal Jorge Suárez. Moki no se espeja.</p>
+  <footer class="wrap papacito-footer" aria-label="Créditos" data-t-aria="footer.label">
+    <div class="papacito-footer__identity">
+      <a class="js-wordmark" href="https://jorgesuarez.com.mx/">JorgeSuarez<span>.com.mx</span></a>
+      <p>Kaizen &amp; Play</p>
+    </div>
+    <ul class="ia-socials" aria-label="Redes" data-t-aria="footer.social">
+      <li><a href="https://linkedin.com/in/yorgenmeister" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://x.com/jorgefsb" target="_blank" rel="noopener">X / Twitter</a></li>
+      <li><a href="https://www.facebook.com/jorgesuarez.com.mx/" target="_blank" rel="noopener">Facebook</a></li>
+      <li><a href="https://github.com/jorgefsb" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://instagram.com/jorgefsb" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.youtube.com/@jorgefsb" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="https://tiktok.com/@jorgesuarez.com.mx" target="_blank" rel="noopener">TikTok</a></li>
+    </ul>
+    <p class="papacito-footer__signature"><span data-t="footer.love">Hecho con amor ❤️🎮 por</span> <a href="https://jorgesuarez.com.mx/">JorgeSuarez.com.mx</a></p>
+    <div class="papacito-footer__meta">
+      <p data-t="footer.values">Jorge Suárez | © 2026 | Construido con nuestros valores de Kaizen &amp; Play.</p>
+      <p><a href="../llms.txt" data-t="footer.llms">Para ChatGPT, Claude y Grok</a></p>
     </div>
   </footer>
 
