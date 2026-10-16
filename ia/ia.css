@@ -136,7 +136,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .ia-badge { display: inline-flex; align-items: center; min-height: 26px; padding: 2px 10px; border-radius: var(--r-chip); background: var(--accent); color: var(--on-accent); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
 @media (max-width: 860px) {
   .ia-featured__card { grid-template-columns: 1fr; gap: var(--sp-4); padding: var(--sp-5); }
-  .ia-featured__slot { width: 72px; height: 72px; font-size: 11px; }
+  .ia-featured__slot { width: 72px; height: 72px; font-size: 12px; }
   .ia-featured__plus { font-size: 24px; }
   .ia-featured__card .btn { width: 100%; }
 }
@@ -210,7 +210,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .ia-form__status { min-height: 1.6em; margin-top: var(--sp-2); font-size: 15px; }
 .ia-form__status.is-ok { color: var(--text-strong); }
 .ia-form__status.is-error { color: var(--accent-hover); }
-.ia-hp { position: absolute !important; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.ia-hp { display: none !important; }
 
 /* Sponsor page */
 .ia-sponsor { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); gap: var(--sp-8); align-items: start; padding-top: var(--sp-8); padding-bottom: var(--sp-8); }
@@ -273,3 +273,12 @@ footer.papacito-footer { display: block; border-top: 1px solid var(--line); padd
 .ia-modal__close:hover { border-color: var(--accent); }
 .ia-modal__lead { color: var(--text-secondary); margin-bottom: var(--sp-4); }
 @media (max-width: 480px) { .ia-modal { padding: var(--sp-5); } }
+
+/* Round 4: header and footer as on jorgesuarez.com.mx */
+.ico { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.btn--primary .ico { stroke: var(--on-accent); }
+.hud__cta { gap: var(--sp-2); }
+footer.foot { margin-top: var(--sp-7); padding-top: var(--sp-7); padding-bottom: calc(48px + env(safe-area-inset-bottom)); display: grid; gap: 6px; font-size: 13px; color: var(--text-secondary); }
+.foot__love { color: var(--text); font-size: 14px; }
+.foot__llms a { display: inline-flex; align-items: center; min-height: var(--tap); color: var(--text-secondary); font-size: 12px; }
+.foot__llms a:hover { color: var(--accent); }
