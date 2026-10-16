@@ -65,9 +65,30 @@
 }
 
 .home-hero__moki .ia-bubble {
-  left: calc(100% - 12px);
+  position: absolute;
+  left: calc(100% - 8px);
   right: auto;
-  top: 4%;
+  top: 6%;
+  width: 168px;
+  max-width: 168px;
+  box-sizing: border-box;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-align: left;
+  border-radius: 16px 16px 16px 4px;
+}
+
+.home-hero__moki .ia-bubble::after {
+  content: "";
+  position: absolute;
+  left: -7px;
+  bottom: 12px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 8px 7px 0;
+  border-color: transparent var(--paper) transparent transparent;
 }
 
 .home-ia {
@@ -78,9 +99,18 @@
   grid-template-columns: minmax(0, 1fr) auto;
 }
 
+.home-ia .btn {
+  min-height: var(--tap);
+}
+
 @media (max-width: 860px) {
   .home-ia .ia-featured__card {
     grid-template-columns: 1fr;
+  }
+
+  .home-ia .btn {
+    width: 100%;
+    min-height: var(--tap);
   }
 }
 
@@ -163,15 +193,28 @@ a.home-card {
   }
 
   .home-hero__moki {
-    width: min(150px, 40vw);
+    width: auto;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .home-hero__moki .ia-moki-live {
+    width: min(140px, 38vw);
+    flex: none;
   }
 
   .home-hero__moki .ia-bubble {
-    position: static;
-    white-space: normal;
-    max-width: none;
-    margin: 0 auto 8px;
-    border-radius: 16px 16px 16px 4px;
+    position: relative;
+    left: auto;
+    top: 18px;
+    width: 156px;
+    max-width: 156px;
+    flex: none;
+    font-size: 15px;
   }
 
   .home-actions .btn {
