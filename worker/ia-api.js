@@ -126,6 +126,7 @@ function englishMeta(response, m) {
     .on('meta[name="twitter:title"]', set(m.ogTitle))
     .on('meta[property="og:locale"]', set('en_US'))
     .on('meta[property="og:locale:alternate"]', set('es_MX'))
+    .on('[data-en]', { element(el) { const t = el.getAttribute('data-en'); if (t) el.setInnerContent(t); } })
     .transform(response);
 }
 
@@ -143,7 +144,7 @@ export default {
     if ((pathname === '/ia/' || pathname === '/ia/patrocina/') && url.searchParams.get('lang') === 'en') {
       return englishMeta(response, pathname === '/ia/patrocina/' ? META_EN.sponsor : META_EN.home);
     }
-    if (pathname === '/ia/llms.txt' || pathname === '/ia/tools.json') {
+    if (pathname === '/llms.txt' || pathname === '/ia/llms.txt' || pathname === '/ia/tools.json') {
       const type = response.headers.get('content-type') || '';
       if (type && !/charset=/i.test(type)) {
         const headers = new Headers(response.headers);
