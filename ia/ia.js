@@ -103,7 +103,7 @@ const SPONSOR_LIVE = false;
       'lang.label': 'Language',
       'hero.kicker': 'Directory · AI for game dev',
       'hero.title': 'AI tools that actually help you ship your game',
-      'hero.sub': '{n} tools for art, code, audio and design. In Spanish and English, and free.',
+      'hero.sub': '{n} tools for game art, code, audio and design. Free to browse.',
       'hero.bubble': 'What are we hunting today?',
       'search.label': 'Search tools',
       'search.ph': 'Search: sprites, voices, music, code…',
@@ -133,7 +133,7 @@ const SPONSOR_LIVE = false;
       'card.site': 'Official site',
       'card.newtab': '(opens in a new tab)',
       'empty.title': 'Moki found nothing',
-      'empty.body': 'Try another word or clear the filter. If a tool is missing, send it and we will review it.',
+      'empty.body': 'Try another word or clear the filter. If a tool is missing, send it and we\'ll review it.',
       'submit.title': 'Made or use a tool that is not here?',
       'submit.body': 'Listing is free. We check that it exists and helps make games.',
       'submit.cta': 'Missing a tool? Submit it free',
@@ -221,9 +221,11 @@ const SPONSOR_LIVE = false;
       burger.setAttribute('aria-expanded', String(open));
       nav.classList.toggle('is-open', open);
     });
+    const close = () => { burger.setAttribute('aria-expanded', 'false'); nav.classList.remove('is-open'); };
     nav.addEventListener('click', (e) => {
-      if (e.target.closest('a')) { burger.setAttribute('aria-expanded', 'false'); nav.classList.remove('is-open'); }
+      if (e.target.closest('a, button')) close();
     });
+    document.addEventListener('gamedev:closemenu', close);
   })();
 
   /* Submit-a-tool modal */
@@ -236,6 +238,7 @@ const SPONSOR_LIVE = false;
         opener = btn;
         const st = modal.querySelector('[data-status]');
         if (st) { st.textContent = ''; st.className = 'ia-form__status'; }
+        document.dispatchEvent(new Event('gamedev:closemenu'));
         if (typeof modal.showModal === 'function') modal.showModal(); else modal.setAttribute('open', '');
         const first = modal.querySelector('input[name="name"]');
         if (first) first.focus();
