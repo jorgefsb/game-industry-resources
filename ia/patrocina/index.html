@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pon tu herramienta aquí · Directorio IA | Jorge Suárez</title>
   <meta name="description"
-    content="Cómo aparece una herramienta como Destacado / Featured en el directorio de IA para indie game developers. Contacto placeholder, sin precio ni pago todavía.">
+    content="Cómo aparece una herramienta como Destacado / Featured en el directorio de IA para indie game developers. USD 49 al mes, bilingüe ES/EN, cancelas cuando quieras.">
   <link rel="canonical" href="https://gamedev.jorgesuarez.com.mx/ia/patrocina/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
   <meta property="og:title" content="Pon tu herramienta aquí · Directorio IA">
   <meta property="og:description"
-    content="El slot Destacado es para quien fabrica la herramienta. Todavía no hay precio ni checkout. Escribe y lo vemos.">
+    content="El slot Destacado es para quien fabrica la herramienta. USD 49 al mes, cancelas cuando quieras.">
   <meta property="og:url" content="https://gamedev.jorgesuarez.com.mx/ia/patrocina/">
   <meta property="og:image" content="https://gamedev.jorgesuarez.com.mx/ia/assets/moki-ia-leccion.webp">
   <meta property="og:image:alt" content="Moki revisa un bloque de IA. Lección: generar no es verificar. Visor oscuro, sin cara.">
@@ -53,12 +53,19 @@
       <p data-i18n="ia.sponsor.p1">Este directorio es para indie game devs que usan IA. El listado orgánico es editorial: herramientas reales, con URL oficial, sin estrellas inventadas.</p>
       <p data-i18n="ia.sponsor.p2">Destacado es otra cosa. Es el slot de arriba, el que hoy ocupa Moki con un “aquí va la tuya”. Quien fabrica la herramienta paga para estar ahí un tiempo, con nombre, una línea y el enlace oficial.</p>
       <p data-i18n="ia.sponsor.p3">Todavía no hay precio, ni checkout, ni Stripe. Si te late, escribe. Revisamos que la herramienta exista y sirva para hacer juegos. Generar un listing no es lo mismo que verificarlo — Moki ya lo sabe.</p>
-      <p class="ia-todo">TODO · mailto placeholder · no hay pago todavía</p>
+      <p class="ia-price" data-i18n="ia.sponsor.price">USD 49 al mes</p>
+      <h2 class="ia-included__title" data-i18n="ia.sponsor.included.title">Qué incluye</h2>
+      <ul class="ia-included">
+        <li data-i18n="ia.sponsor.inc1">Tu herramienta como Destacado arriba de todo en /ia, con badge de Moki.</li>
+        <li data-i18n="ia.sponsor.inc2">Bilingüe: ficha en español e inglés.</li>
+        <li data-i18n="ia.sponsor.inc3">Aparece en /ia/tools.json y /ia/llms.txt, que leen los chatbots.</li>
+        <li data-i18n="ia.sponsor.inc4">Cancelas cuando quieras.</li>
+      </ul>
       <p>
-        <a class="ia-btn ia-btn--primary" href="mailto:TODO@jorgesuarez.com.mx?subject=Destacado%20directorio%20IA">
-          TODO@jorgesuarez.com.mx
-        </a>
+        <!-- Default is the mailto. ia.js swaps in SPONSOR_CHECKOUT_URL only when SPONSOR_LIVE = true. -->
+        <a class="ia-btn ia-btn--primary" data-sponsor-cta href="mailto:jorgefsb@jorgesuarez.com.mx?subject=Destacado%20Directorio%20IA" data-i18n="ia.sponsor.cta.mail">Quiero salir destacado</a>
       </p>
+      <p class="ia-sponsor__contact">jorgefsb@jorgesuarez.com.mx</p>
       <p>
         <a class="ia-btn ia-btn--secondary" href="../" data-i18n="ia.sponsor.back">Volver al directorio</a>
       </p>
@@ -76,6 +83,7 @@
   </footer>
 
   <script src="../../i18n.js"></script>
+  <script src="../ia.js"></script>
 </body>
 
 </html>
