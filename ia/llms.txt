@@ -1,7 +1,7 @@
 # Directorio de IA para indie game developers
 # https://gamedev.jorgesuarez.com.mx/ia/
 # Machine-readable JSON: https://gamedev.jorgesuarez.com.mx/ia/tools.json
-# Updated: 2026-10-15
+# Updated: 2026-10-16
 # Language: Spanish first, English in tools.json
 # Pricing is included only when verified on the official site.
 
@@ -13,6 +13,7 @@
 - Continue: Asistente de código abierto que se conecta a tu editor. (https://continue.dev)
 - Aider: Programa en pareja con IA desde la terminal, sobre tu repo de Git. (https://aider.chat)
 - Gemini Code Assist: Asistente de código de Google Gemini para tu editor. (https://developers.google.com/gemini-code-assist)
+- Summer Engine [freemium]: Motor compatible con Godot 4 hecho para agentes de IA: arman el juego, crean sus assets y lo publican. (https://www.summerengine.com)
 
 ## Sprites y 2D / Sprites & 2D
 - Scenario [freemium]: Genera arte 2D para tu juego manteniendo el mismo estilo en todos los assets. (https://www.scenario.com)
@@ -22,6 +23,7 @@
 - Krea [freemium]: Generación y edición de imágenes en tiempo real para iterar arte 2D. (https://www.krea.ai)
 - Adobe Firefly: IA generativa de Adobe para imágenes, integrada en herramientas creativas. (https://www.adobe.com/products/firefly.html)
 - PixelLab [freemium]: Generador de pixel art y sprites pensado para videojuegos. (https://www.pixellab.ai)
+- Ludo.ai [pago]: Sprites animados y hojas de sprites para tu juego, ahora con el mismo personaje en 8 direcciones. (https://ludo.ai)
 
 ## 3D y modelos / 3D & models
 - Meshy [freemium]: Texto o imagen a modelo 3D, con texturizado, para props y personajes. (https://www.meshy.ai)
@@ -29,6 +31,7 @@
 - Spline [freemium]: Diseño 3D en el navegador, con herramientas de IA para escenas e interfaces. (https://spline.design)
 - Sloyd [freemium]: Generador de modelos 3D ajustables para prototipar assets de juego. (https://www.sloyd.ai)
 - Hyper3D Rodin [freemium]: Crea modelos 3D (Rodin) a partir de texto o una imagen. (https://hyper3d.ai)
+- Bake3D [pago]: Convierte una imagen en un personaje 3D con texturas, rig y animación para Unity, Unreal, Godot y Blender. (https://bake3d.ai)
 
 ## Animación / Animation
 - Runway [freemium]: Video generativo y edición con IA, útil para cinemáticas y animación. (https://runway.com)
