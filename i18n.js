@@ -3,10 +3,38 @@ const translations = {
     es: {
         // Navigation & General UI
         'nav.resources': 'Recursos',
+        'nav.ia': 'IA',
         'nav.jobs': 'Jobs & Career',
         'nav.studios': 'Studios DB',
         'nav.community': 'Comunidad',
         'nav.cta': '🎮 Únete a EGDC',
+        'ia.kicker': 'Directorio · indie + IA',
+        'ia.title': 'Herramientas de IA para hacer tu juego',
+        'ia.lead': 'Una lista viva, en español primero. Moki te acompaña a filtrar. Sin ratings inventados: nombre, para qué sirve y el sitio oficial.',
+        'ia.cta.browse': 'Ver el catálogo',
+        'ia.cta.feature': 'Pon tu herramienta aquí',
+        'ia.featured.kicker': 'Destacados',
+        'ia.featured.title': 'Este slot está vacío. A propósito.',
+        'ia.featured.body': 'Las herramientas de este directorio se listan porque existen y sirven para hacer juegos. Destacado / Featured es un lugar pagado, todavía sin precio público.',
+        'ia.featured.cta': 'Pon tu herramienta aquí / Feature your tool',
+        'ia.catalog.kicker': 'Catálogo',
+        'ia.search.label': 'Buscar herramientas',
+        'ia.empty.title': 'Moki no encontró eso',
+        'ia.empty.body': 'Prueba otra categoría o una palabra más corta. Si falta una herramienta real, escríbenos desde Patrocina.',
+        'ia.news.title': 'Boletín del directorio',
+        'ia.news.body': 'Cuando haya herramientas nuevas o un Destacado real, lo mandamos aquí. Todavía no está conectado.',
+        'ia.news.cta': 'Próximamente',
+        'ia.machine.title': 'Para agentes y citas',
+        'ia.footer': 'Hecho para indie game devs que ya usan IA. Marca personal Jorge Suárez. Moki no se espeja.',
+        'ia.sponsor.kicker': 'Destacado / Featured',
+        'ia.sponsor.title': 'Pon tu herramienta donde la buscan quienes ya hacen juegos',
+        'ia.sponsor.p1': 'Este directorio es para indie game devs que usan IA. El listado orgánico es editorial: herramientas reales, con URL oficial, sin estrellas inventadas.',
+        'ia.sponsor.p2': 'Destacado es otra cosa. Es el slot de arriba, el que hoy ocupa Moki con un “aquí va la tuya”. Quien fabrica la herramienta paga para estar ahí un tiempo, con nombre, una línea y el enlace oficial.',
+        'ia.sponsor.p3': 'Todavía no hay precio, ni checkout, ni Stripe. Si te late, escribe. Revisamos que la herramienta exista y sirva para hacer juegos. Generar un listing no es lo mismo que verificarlo — Moki ya lo sabe.',
+        'ia.sponsor.back': 'Volver al directorio',
+        'ia.sponsor.lesson': 'Lección oficial del kit: generar no es verificar. Por eso el Destacado se revisa a mano.',
+        'card.ia.title': 'Directorio IA',
+        'card.ia.desc': 'Herramientas de IA reales para código, arte, audio y marketing de tu juego.',
         'ui.back_to_hub': '← Regresar al Hub',
         'ui.loading': 'Cargando...',
 
@@ -74,10 +102,38 @@ const translations = {
     en: {
         // Navigation & General UI
         'nav.resources': 'Resources',
+        'nav.ia': 'AI',
         'nav.jobs': 'Jobs & Career',
         'nav.studios': 'Studios DB',
         'nav.community': 'Community',
         'nav.cta': '🎮 Join EGDC',
+        'ia.kicker': 'Directory · indie + AI',
+        'ia.title': 'AI tools for making your game',
+        'ia.lead': 'A living list, Spanish first. Moki helps you filter. No invented ratings: name, what it is for, and the official site.',
+        'ia.cta.browse': 'Browse the catalog',
+        'ia.cta.feature': 'Feature your tool',
+        'ia.featured.kicker': 'Featured',
+        'ia.featured.title': 'This slot is empty. On purpose.',
+        'ia.featured.body': 'Tools in this directory are listed because they exist and help make games. Featured is a paid slot. There is no public price yet.',
+        'ia.featured.cta': 'Pon tu herramienta aquí / Feature your tool',
+        'ia.catalog.kicker': 'Catalog',
+        'ia.search.label': 'Search tools',
+        'ia.empty.title': 'Moki found nothing',
+        'ia.empty.body': 'Try another category or a shorter word. If a real tool is missing, write from the Feature page.',
+        'ia.news.title': 'Directory newsletter',
+        'ia.news.body': 'When new tools or a real Featured listing land, they go here. Not connected yet.',
+        'ia.news.cta': 'Coming soon',
+        'ia.machine.title': 'For agents and citations',
+        'ia.footer': 'Made for indie game devs who already use AI. Jorge Suárez personal brand. Moki is never mirrored.',
+        'ia.sponsor.kicker': 'Destacado / Featured',
+        'ia.sponsor.title': 'Put your tool where people who already ship games look',
+        'ia.sponsor.p1': 'This directory is for indie game devs who use AI. The organic list is editorial: real tools, official URLs, no invented stars.',
+        'ia.sponsor.p2': 'Featured is different. It is the top slot Moki is holding open. The company that makes the tool pays to sit there for a while, with a name, one line, and the official link.',
+        'ia.sponsor.p3': 'There is no price, checkout, or Stripe yet. If you want in, write. We check that the tool exists and helps make games. Generating a listing is not the same as verifying it — Moki already knows.',
+        'ia.sponsor.back': 'Back to the directory',
+        'ia.sponsor.lesson': 'Official kit lesson: generating is not verifying. That is why Featured is reviewed by hand.',
+        'card.ia.title': 'AI directory',
+        'card.ia.desc': 'Real AI tools for code, art, audio, and marketing your game.',
         'ui.back_to_hub': '← Back to Hub',
         'ui.loading': 'Loading...',
 
@@ -177,6 +233,8 @@ function switchLanguage(lang) {
         gameState.lang = lang;
         if (typeof saveState === 'function') saveState();
     }
+
+    document.dispatchEvent(new CustomEvent('gamedev:lang', { detail: lang }));
 }
 
 // Initialize on page load

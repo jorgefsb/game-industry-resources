@@ -1,0 +1,595 @@
+/* /ia — Jorge Suárez brandkit v0.6 (brandkit.jorgesuarez.com.mx)
+   Tokens: tokens.css. Outfit 700 + Inter 400 only. No neon, no glow, no RGB.
+   Motion 180–320 ms. Moki is never mirrored. */
+
+.ia-page {
+  background: var(--brand-background);
+  color: var(--brand-text-on-dark);
+  font-family: var(--brand-font-body);
+  font-weight: 400;
+  font-size: var(--brand-body-size);
+  line-height: var(--brand-body-line);
+  min-height: 100vh;
+}
+
+.ia-page a {
+  color: var(--brand-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.ia-page a:hover {
+  color: var(--brand-paper);
+}
+
+.ia-page a.ia-btn {
+  text-decoration: none;
+}
+
+.ia-page a.ia-btn--primary,
+.ia-page a.ia-btn--primary:hover {
+  color: var(--brand-ink);
+}
+
+.ia-page a.ia-btn--secondary:hover {
+  color: var(--brand-paper);
+}
+
+.ia-page :focus-visible {
+  outline: 2px solid var(--brand-paper);
+  outline-offset: 3px;
+}
+
+.ia-wrap {
+  width: min(1120px, calc(100% - var(--brand-space-8)));
+  margin: 0 auto;
+}
+
+@media (max-width: 580px) {
+  .ia-wrap {
+    width: min(1120px, calc(100% - var(--brand-space-6)));
+  }
+}
+
+/* Nav */
+.ia-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(10, 10, 10, 0.92);
+  border-bottom: 1px solid var(--brand-border);
+  backdrop-filter: blur(12px);
+}
+
+.ia-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--brand-space-4);
+  min-height: 72px;
+  padding: var(--brand-space-3) 0;
+}
+
+.ia-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--brand-space-3);
+  text-decoration: none;
+  color: var(--brand-paper);
+}
+
+.ia-nav__brand img {
+  display: block;
+  height: 28px;
+  width: auto;
+}
+
+.ia-nav__mark {
+  font-family: var(--brand-font-heading);
+  font-weight: 700;
+  font-size: var(--brand-note-size);
+  line-height: var(--brand-note-line);
+  color: var(--brand-paper);
+}
+
+.ia-nav__mark span {
+  color: var(--brand-accent);
+}
+
+.ia-nav__menu {
+  display: flex;
+  list-style: none;
+  gap: var(--brand-space-5);
+  margin: 0;
+  padding: 0;
+}
+
+.ia-nav__link {
+  color: var(--brand-text-muted);
+  text-decoration: none;
+  font-size: var(--brand-note-size);
+  line-height: var(--brand-note-line);
+}
+
+.ia-nav__link:hover,
+.ia-nav__link.is-active {
+  color: var(--brand-paper);
+}
+
+.ia-nav__cta {
+  display: flex;
+  align-items: center;
+  gap: var(--brand-space-3);
+}
+
+.ia-lang {
+  display: flex;
+  gap: var(--brand-space-1);
+}
+
+.ia-lang .lang-btn {
+  appearance: none;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--brand-text-muted);
+  font-family: var(--brand-font-body);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 var(--brand-space-3);
+  border-radius: var(--brand-radius-pill);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ia-lang .lang-btn.active,
+.ia-lang .lang-btn[aria-pressed="true"] {
+  color: var(--brand-ink);
+  background: var(--brand-accent);
+  border-color: var(--brand-accent);
+}
+
+/* Buttons — brandkit: ink on orange, no white-on-orange */
+.ia-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--brand-space-2);
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: var(--brand-radius-control);
+  font-family: var(--brand-font-body);
+  font-weight: 400;
+  font-size: var(--brand-ui-size);
+  line-height: var(--brand-ui-line);
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+.ia-btn--primary {
+  background: var(--brand-accent);
+  color: var(--brand-ink);
+}
+
+.ia-btn--primary:hover {
+  background: var(--brand-accent-warm);
+  color: var(--brand-ink);
+}
+
+.ia-btn--secondary {
+  background: transparent;
+  color: var(--brand-accent);
+  border-color: var(--brand-accent);
+}
+
+.ia-btn--secondary:hover {
+  background: var(--brand-surface);
+  color: var(--brand-paper);
+  border-color: var(--brand-paper);
+}
+
+.ia-btn:disabled,
+.ia-btn[aria-disabled="true"] {
+  background: var(--brand-surface);
+  color: var(--brand-text-muted);
+  border-color: var(--brand-border);
+  cursor: not-allowed;
+}
+
+/* Hero */
+.ia-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(180px, 0.7fr);
+  gap: var(--brand-space-7);
+  align-items: center;
+  padding: var(--brand-space-8) 0 var(--brand-space-6);
+}
+
+.ia-kicker {
+  font-size: var(--brand-note-size);
+  line-height: var(--brand-note-line);
+  color: var(--brand-accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 var(--brand-space-3);
+}
+
+.ia-hero h1,
+.ia-page h1,
+.ia-page h2,
+.ia-page h3 {
+  font-family: var(--brand-font-heading);
+  font-weight: 700;
+  color: var(--brand-paper);
+}
+
+.ia-hero h1 {
+  font-size: var(--brand-h1-size);
+  line-height: var(--brand-h1-line);
+  margin: 0 0 var(--brand-space-4);
+}
+
+.ia-lead {
+  font-size: var(--brand-body-size);
+  line-height: var(--brand-body-line);
+  color: var(--brand-text-muted);
+  max-width: 42ch;
+  margin: 0 0 var(--brand-space-5);
+}
+
+.ia-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--brand-space-3);
+}
+
+.ia-moki {
+  display: block;
+  width: min(360px, 100%);
+  height: auto;
+  margin-left: auto;
+  /* Never mirror Moki. Patch stays on his anatomical right ear. */
+  transform: none;
+}
+
+.ia-moki--hero {
+  width: min(380px, 100%);
+}
+
+.ia-moki-slot {
+  position: relative;
+}
+
+.ia-moki-caption {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--brand-text-muted);
+  margin: var(--brand-space-3) 0 0;
+}
+
+/* Featured */
+.ia-featured {
+  padding-bottom: var(--brand-space-6);
+}
+
+.ia-featured__card {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: var(--brand-space-5);
+  align-items: center;
+  background: var(--brand-surface);
+  border: 1px dashed var(--brand-border);
+  border-radius: var(--brand-radius-card);
+  padding: var(--brand-space-5);
+}
+
+.ia-featured__card img {
+  width: 112px;
+  height: auto;
+  display: block;
+}
+
+.ia-featured__card h2 {
+  font-size: 24px;
+  line-height: 30px;
+  margin: 0 0 var(--brand-space-2);
+}
+
+.ia-featured__card p {
+  margin: 0;
+  color: var(--brand-text-muted);
+  font-size: var(--brand-ui-size);
+  line-height: var(--brand-ui-line);
+}
+
+/* Filters */
+.ia-toolbar {
+  display: grid;
+  gap: var(--brand-space-4);
+  padding-bottom: var(--brand-space-5);
+}
+
+.ia-search {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  border-radius: var(--brand-radius-control);
+  border: 1px solid var(--brand-border);
+  background: var(--brand-surface);
+  color: var(--brand-text-on-dark);
+  font-family: var(--brand-font-body);
+  font-weight: 400;
+  font-size: var(--brand-ui-size);
+  line-height: var(--brand-ui-line);
+}
+
+.ia-search::placeholder {
+  color: var(--brand-text-muted);
+}
+
+.ia-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--brand-space-2);
+}
+
+.ia-chip {
+  min-height: 44px;
+  padding: 8px 14px;
+  border-radius: var(--brand-radius-pill);
+  border: 1px solid var(--brand-border);
+  background: var(--brand-surface);
+  color: var(--brand-paper);
+  font-family: var(--brand-font-body);
+  font-weight: 400;
+  font-size: var(--brand-note-size);
+  line-height: var(--brand-note-line);
+  cursor: pointer;
+}
+
+.ia-chip[aria-pressed="true"] {
+  background: var(--brand-accent);
+  color: var(--brand-ink);
+  border-color: var(--brand-accent);
+}
+
+.ia-count {
+  font-size: var(--brand-note-size);
+  line-height: var(--brand-note-line);
+  color: var(--brand-text-muted);
+}
+
+/* Cards */
+.ia-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--brand-space-4);
+  padding-bottom: var(--brand-space-8);
+}
+
+.ia-card {
+  background: var(--brand-surface);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--brand-radius-card);
+  padding: var(--brand-space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--brand-space-3);
+}
+
+.ia-card h3 {
+  font-size: 22px;
+  line-height: 28px;
+  margin: 0;
+}
+
+.ia-card p {
+  margin: 0;
+  color: var(--brand-text-muted);
+  font-size: var(--brand-ui-size);
+  line-height: var(--brand-ui-line);
+  flex: 1;
+}
+
+.ia-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--brand-space-2);
+}
+
+.ia-tag {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--brand-paper);
+  background: #0A0A0A;
+  border: 1px solid var(--brand-border);
+  border-radius: var(--brand-radius-pill);
+  padding: 4px 10px;
+}
+
+.ia-card__link {
+  align-self: flex-start;
+}
+
+/* Empty */
+.ia-empty {
+  display: none;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--brand-space-8) var(--brand-space-4);
+  background: var(--brand-surface);
+  border-radius: var(--brand-radius-panel);
+}
+
+.ia-empty.is-visible {
+  display: block;
+}
+
+.ia-empty img {
+  width: min(220px, 60%);
+  margin: 0 auto var(--brand-space-4);
+}
+
+.ia-empty h2 {
+  font-size: var(--brand-h2-size);
+  line-height: var(--brand-h2-line);
+  margin: 0 0 var(--brand-space-3);
+}
+
+/* Newsletter */
+.ia-newsletter {
+  background: var(--brand-surface);
+  border-radius: var(--brand-radius-panel);
+  padding: var(--brand-space-6);
+  margin-bottom: var(--brand-space-8);
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--brand-space-5);
+  align-items: center;
+}
+
+.ia-newsletter img {
+  width: 100px;
+  height: auto;
+}
+
+.ia-newsletter h2 {
+  font-size: 28px;
+  line-height: 34px;
+  margin: 0 0 var(--brand-space-2);
+}
+
+.ia-newsletter p {
+  margin: 0 0 var(--brand-space-4);
+  color: var(--brand-text-muted);
+}
+
+.ia-newsletter form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--brand-space-2);
+}
+
+.ia-newsletter input {
+  flex: 1 1 220px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: var(--brand-radius-control);
+  border: 1px solid var(--brand-border);
+  background: #0A0A0A;
+  color: var(--brand-text-muted);
+  font-family: var(--brand-font-body);
+  font-size: var(--brand-ui-size);
+}
+
+/* Machine / SEO list */
+.ia-machine {
+  padding-bottom: var(--brand-space-8);
+}
+
+.ia-machine h2 {
+  font-size: 28px;
+  line-height: 34px;
+  margin: 0 0 var(--brand-space-4);
+}
+
+.ia-machine ol {
+  margin: 0;
+  padding-left: 1.2em;
+  color: var(--brand-text-muted);
+  font-size: var(--brand-note-size);
+  line-height: 1.7;
+  columns: 2;
+}
+
+.ia-machine a {
+  color: var(--brand-paper);
+}
+
+/* Sponsor page */
+.ia-sponsor {
+  padding: var(--brand-space-8) 0 var(--brand-space-10);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.7fr);
+  gap: var(--brand-space-7);
+  align-items: start;
+}
+
+.ia-sponsor h1 {
+  font-size: var(--brand-h1-size);
+  line-height: var(--brand-h1-line);
+  margin: 0 0 var(--brand-space-4);
+}
+
+.ia-sponsor p {
+  color: var(--brand-text-muted);
+  max-width: 58ch;
+  margin: 0 0 var(--brand-space-4);
+}
+
+.ia-todo {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-ink);
+  background: var(--brand-accent-warm);
+  border-radius: var(--brand-radius-pill);
+  padding: 4px 10px;
+  margin-bottom: var(--brand-space-3);
+}
+
+.ia-lesson {
+  width: 100%;
+  height: auto;
+  border-radius: var(--brand-radius-card);
+  display: block;
+}
+
+.ia-footer {
+  border-top: 1px solid var(--brand-border);
+  padding: var(--brand-space-6) 0 var(--brand-space-8);
+  color: var(--brand-text-muted);
+  font-size: var(--brand-note-size);
+  line-height: var(--brand-note-line);
+}
+
+.ia-footer a {
+  color: var(--brand-paper);
+}
+
+@media (max-width: 900px) {
+  .ia-hero,
+  .ia-sponsor,
+  .ia-featured__card,
+  .ia-newsletter,
+  .ia-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ia-nav__menu {
+    display: none;
+  }
+
+  .ia-machine ol {
+    columns: 1;
+  }
+
+  .ia-moki,
+  .ia-moki--hero {
+    margin: 0 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ia-btn,
+  .ia-chip,
+  .ia-page * {
+    transition: none !important;
+  }
+}

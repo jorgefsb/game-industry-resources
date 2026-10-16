@@ -1,0 +1,68 @@
+# Directorio de IA para indie game developers
+# https://gamedev.jorgesuarez.com.mx/ia/
+# Machine-readable JSON: https://gamedev.jorgesuarez.com.mx/ia/tools.json
+# Updated: 2026-10-15
+# Language: Spanish first, English in tools.json
+# Pricing is included only when verified on the official site.
+
+## Código / agentes / Code / agents
+- Cursor [freemium]: Editor con agentes de IA para escribir, editar y revisar el código del juego. — https://cursor.com
+- GitHub Copilot [freemium]: Asistente de código de GitHub que sugiere y completa en el editor. — https://github.com/features/copilot
+- Claude Code: Agente de Anthropic que trabaja en tu repo desde la terminal o el IDE. — https://claude.com/product/claude-code
+- Windsurf: IDE con agente de IA (Cognition / Devin) para programar en el escritorio. — https://windsurf.com
+- Continue [gratis]: Asistente de código abierto que se conecta a tu editor; el código sigue disponible. — https://continue.dev
+- Aider [gratis]: Pair programming por terminal con LLMs sobre tu repo Git. — https://aider.chat
+- Gemini Code Assist: Asistente de código de Google Gemini para editores y flujos de desarrollo. — https://developers.google.com/gemini-code-assist
+
+## Sprites y 2D / Sprites & 2D
+- Scenario: Generación de assets 2D entrenada para estilo consistente de videojuegos. — https://www.scenario.com
+- Leonardo.Ai: Generador de imágenes con flujos usados para concept art y assets de juego. — https://leonardo.ai
+- Midjourney: Generador de imágenes por Discord o web, habitual para concept art. — https://www.midjourney.com
+- Recraft: Ilustración e iconos vectoriales con control de estilo para UI y props 2D. — https://www.recraft.ai
+- Krea: Generación y edición de imágenes en tiempo real para iterar arte 2D. — https://www.krea.ai
+- Adobe Firefly: IA generativa de Adobe para imágenes, integrada en herramientas creativas. — https://www.adobe.com/products/firefly.html
+- PixelLab: Generador de pixel art y sprites pensado para videojuegos. — https://www.pixellab.ai
+
+## 3D y modelos / 3D & models
+- Meshy: Texto o imagen a modelo 3D, con texturizado, para props y personajes. — https://www.meshy.ai
+- Luma AI: Modelos 3D y video generativo (Dream Machine / Genie) desde captura o texto. — https://lumalabs.ai
+- Spline: Diseño 3D en el navegador, con herramientas de IA para escenas e interfaces. — https://spline.design
+- Sloyd: Generador de modelos 3D paramétricos para prototipar assets de juego. — https://www.sloyd.ai
+- Hyper3D Rodin: Generación de mallas 3D (Rodin) a partir de texto o imagen. — https://hyper3d.ai
+
+## Animación / Animation
+- Runway: Video generativo y edición con IA, útil para cinemáticas y motion. — https://runway.com
+- Cascadeur: Animación 3D con física asistida por IA para keyframes de personajes. — https://cascadeur.com
+- DeepMotion: Motion capture por video (Animate 3D) para animar personajes. — https://www.deepmotion.com
+- Pika: Generador de video corto a partir de texto o imagen. — https://pika.art
+
+## Audio y música / Audio & music
+- Suno [freemium]: Genera canciones originales con IA a partir de un prompt. — https://suno.com
+- Udio: Generador de música con control de estilo, letras y variaciones. — https://www.udio.com
+- AIVA: Compositor de IA orientado a bandas sonoras y música de escena. — https://www.aiva.ai
+- Soundraw: Música generativa editable por mood, duración e instrumentos. — https://soundraw.io
+
+## Voces / Voices
+- ElevenLabs: Texto a voz y clonación de voces para diálogos y narración. — https://elevenlabs.io
+- Resemble AI: Voces generativas y voice design para localización y NPCs. — https://www.resemble.ai
+
+## Texturas / Textures
+- Blockade Labs: Skybox AI: entornos 360° y fondos generativos para escenas de juego. — https://www.blockadelabs.com
+
+## Traducción / localización / Translation / localization
+- DeepL [freemium]: Traducción automática de texto y documentos, con plan Pro aparte. — https://www.deepl.com
+- Crowdin: Plataforma de localización con sugerencias de IA para strings del juego. — https://crowdin.com
+- Lokalise: TMS para traducir y gestionar copys de producto y videojuegos. — https://lokalise.com
+
+## Testing / QA / Testing / QA
+- Applitools: Testing visual con IA (Eyes) para detectar regresiones de UI. — https://applitools.com
+- TestSprite: Agente que genera y corre pruebas automáticas a partir del producto. — https://www.testsprite.com
+
+## Marketing / tráiler / Marketing / trailer
+- Opus Clip: Corta videos largos en clips verticales para redes y tráilers cortos. — https://www.opus.pro
+- Descript: Edición de video y audio por transcripción, con Overdub y recortes de IA. — https://www.descript.com
+- CapCut: Editor de video con subtítulos, recortes y efectos asistidos por IA. — https://www.capcut.com
+- HeyGen: Avatares y locuciones con IA para spots, demos y anuncios del juego. — https://www.heygen.com
+
+## Destacados / Featured
+- Slot empty. Makers can request a featured listing at /ia/patrocina/
