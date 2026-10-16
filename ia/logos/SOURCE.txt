@@ -1,0 +1,43 @@
+Tool logos: favicon / app icon published by each tool on its official site (tools.json url),
+downloaded 2026-10-15 and resized to 64x64 PNG so the directory does not hotlink third parties.
+Trademarks belong to their owners. If a tool has no file here, the card shows its initial.
+
+cursor.png  <-  https://cursor.com/marketing-static/apple-touch-icon-light.png
+github-copilot.png  <-  https://github.githubassets.com/favicons/favicon.png
+claude-code.png  <-  https://assets.claude.com/95a868946ac8a31e5ff832e2899f294aa368b836.png?w=32&h=32
+windsurf.png  <-  https://devin.ai/apple-icon.png
+continue.png  <-  https://continue.dev/favicon.png
+aider.png  <-  https://aider.chat/assets/icons/apple-touch-icon.png
+gemini-code-assist.png  <-  https://www.gstatic.com/images/branding/productlogos/gemini_2025/v1/web-48dp/logo_gemini_2025_color_1x_web_48dp.png
+scenario.png  <-  https://www.scenario.com/apple-touch-icon.png
+leonardo.png  <-  https://leonardo.ai/images/leonardo_favicon.png
+midjourney.png  <-  https://www.midjourney.com/public/apple-touch-icon.png
+recraft.png  <-  https://framerusercontent.com/images/abL15N3UiE3oDA6S807KUBarXrQ.png
+krea.png  <-  https://www.krea.ai/favicon/favicon-192.png
+adobe-firefly.png  <-  https://www.adobe.com/favicon.ico
+pixellab.png  <-  https://www.pixellab.ai/favicon.ico
+meshy.png  <-  https://www.meshy.ai/apple-icon.png?apple-icon.1x2jivih2_8ii.png
+luma-ai.png  <-  https://lumalabs.ai/favicons/favicon-white.ico
+spline.png  <-  https://spline.design/images/icon_favicon32x32.png
+sloyd.png  <-  https://www.sloyd.ai/apple-icon.png?6d165b2a1d5024c7
+hyper3d.png  <-  https://hyper3d.ai/favicon-32x32.webp
+runway.png  <-  https://runway.com/icon.png?icon.35ps9bmugbe1e.png
+cascadeur.png  <-  https://cascadeur.com/favicon/favicon_180.png
+deepmotion.png  <-  https://storage.googleapis.com/www.deepmotion.com/assets/673f8e9224f2764a495ca432/673f8e9224f2764a495ca61e_DM_Glyph_FullColor%20(4).png
+pika.png  <-  https://pika.art/apple-icon.png?apple-icon.1pc-f1mhs57mu.png
+suno.png  <-  https://cdn-o.suno.com/apple-touch-icon.png
+udio.png  <-  https://www.udio.com/favicon.ico?favicon.0wbc3vz33genq.ico
+aiva.png  <-  https://www.aiva.ai/assets/img/favicon.ico
+soundraw.png  <-  https://soundraw.io/assets/apple-touch-icon-4ffadde212293f472dc6fde485807f0a51992631e0f2d9169dfac04b84d5e98e.png
+elevenlabs.png  <-  https://elevenlabs.io/apple-icon.png?6592732ab34b1d42
+resemble.png  <-  https://cdn.prod.website-files.com/69bc3de63d285e297507b3ef/69f9281cd4ec730e8ac7d678_resemble%20logo%20for%20webclip.png
+blockade-labs.png  <-  https://static.wixstatic.com/ficons/5bf3df_e8a61b84557040d987eea0ab79cb84d0%7Emv2.ico
+deepl.png  <-  https://www.deepl.com/apple-icon?fb6f62776db8f84a
+crowdin.png  <-  https://crowdin.com/astro-website/apple-touch-icon.png
+lokalise.png  <-  https://lokalise.com/favicon.ico
+applitools.png  <-  https://applitools.com/wp-content/plugins/applitools-custom-elements-8080/assets/images/favicon-192.png
+testsprite.png  <-  https://www.testsprite.com/apple-touch-icon.png
+opus-clip.png  <-  https://cdn.prod.website-files.com/6388604483b03a9ecb34d695/6435197bfb1d6e486e04c37b_webclip.png
+descript.png  <-  https://static-cdn.descript.com/web/icons/apple-touch-icon.png
+capcut.png  <-  https://sf16-web-tos-buz.capcutcdn-us.com/obj/capcut-web-buz-tx/common/images/lv_web-2.ico
+heygen.png  <-  https://www.heygen.com/favicon.ico?favicon.2m321y0geyyfh.ico

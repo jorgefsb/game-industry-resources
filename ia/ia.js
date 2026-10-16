@@ -1,195 +1,363 @@
-/* Directory UI: category chips + text search. Data from tools.json. */
+/* Directorio IA · Jorge Suárez. Search, category chips, ES/EN strings and the two forms. */
 
 /*
  * Sponsor (Destacado) checkout config. Single source of truth.
  * SPONSOR_CHECKOUT_URL is currently the Stripe TEST link. While SPONSOR_LIVE is false,
- * public buttons never point at it: they keep the mailto below.
+ * nothing on the page points at it: "Quiero el destacado" opens the request form instead.
  * When Jorge activates Stripe live: swap in the live payment link here and set SPONSOR_LIVE = true.
  */
 const SPONSOR_CHECKOUT_URL = 'https://buy.stripe.com/test_3cI8wQ3nJ4Vg358a4F9sk00';
 const SPONSOR_LIVE = false;
-const SPONSOR_MAILTO = 'mailto:jorgefsb@jorgesuarez.com.mx?subject=Destacado%20Directorio%20IA';
 
 (function () {
-  const ctas = document.querySelectorAll('[data-sponsor-cta]');
-  ctas.forEach((el) => {
-    if (SPONSOR_LIVE) {
-      el.href = SPONSOR_CHECKOUT_URL;
-      el.setAttribute('data-i18n', 'ia.sponsor.cta.buy');
-      el.setAttribute('rel', 'noopener');
-      if (typeof t === 'function') el.innerHTML = t('ia.sponsor.cta.buy');
-    } else {
-      el.href = SPONSOR_MAILTO;
-      el.setAttribute('data-i18n', 'ia.sponsor.cta.mail');
+  'use strict';
+
+  const STR = {
+    es: {
+      'doc.title': 'Herramientas de IA para hacer videojuegos | Directorio de Jorge Suárez',
+      'doc.titleSponsor': 'Destaca tu herramienta de IA ante gamedevs | Jorge Suárez',
+      'skip': 'Ir al contenido',
+      'nav.label': 'Principal',
+      'nav.menu': 'Menú',
+      'lang.label': 'Idioma',
+      'hero.kicker': 'Directorio · IA para gamedev',
+      'hero.title': 'Las herramientas de IA que sí sirven para hacer tu juego',
+      'hero.sub': '{n} herramientas para arte, código, audio y diseño. En español y gratis',
+      'hero.bubble': '¿Qué buscamos hoy?',
+      'search.label': 'Buscar herramientas',
+      'search.ph': 'Busca: sprites, voces, música, código…',
+      'proof.label': 'Datos del directorio',
+      'proof.tools': 'herramientas',
+      'proof.cats': 'categorías',
+      'proof.lang': 'Español e inglés',
+      'featured.badge': 'Destacado',
+      'featured.price': 'USD 49 al mes',
+      'featured.slot': 'Tu logo',
+      'featured.title': 'Pon tu herramienta frente a gamedevs de Latinoamérica',
+      'featured.body': 'Arriba de todo, con tu logo y una línea. USD 49 al mes. Cancelas cuando quieras.',
+      'featured.cta': 'Quiero el destacado',
+      'catalog.title': 'Catálogo',
+      'catalog.count': '{n} herramientas',
+      'catalog.count1': '1 herramienta',
+      'chips.label': 'Categorías',
+      'chips.all': 'Todas',
+      'card.site': 'Sitio oficial',
+      'card.newtab': '(abre en otra pestaña)',
+      'empty.title': 'Moki no encontró eso',
+      'empty.body': 'Prueba otra palabra o quita el filtro. Si falta una herramienta, mándala y la revisamos.',
+      'submit.title': '¿Hiciste o usas una herramienta que no está?',
+      'submit.body': 'Listar es gratis. Revisamos que exista y que sirva para hacer juegos.',
+      'submit.cta': '¿Falta una? Envíala gratis',
+      'news.title': 'Una herramienta de IA nueva cada semana',
+      'news.sub': 'Para hacer tu juego. En español. Sin spam.',
+      'news.label': 'Tu correo',
+      'news.ph': 'tu@correo.com',
+      'news.cta': 'Quiero recibirlo',
+      'news.ok': 'Listo, ya estás en la lista. Te escribimos cuando salga el primero.',
+      'form.sending': 'Enviando…',
+      'form.badEmail': 'Revisa tu correo, parece que le falta algo.',
+      'form.badName': 'Escribe el nombre de tu herramienta.',
+      'form.badSite': 'Escribe el sitio web completo, con https://',
+      'form.rate': 'Demasiados intentos. Vuelve a intentarlo en una hora.',
+      'form.error': 'No se pudo guardar. Inténtalo de nuevo en un momento.',
+      'sp.freeTag': 'Gratis',
+      'sp.free': 'Gratis para devs: directorio, búsqueda, filtros y boletín. Pagan las herramientas.',
+      'sp.featured': 'Destacado: arriba de todo, con tu logo y una línea. USD 49 al mes. Cancelas cuando quieras.',
+      'sp.soonTag': 'Pronto',
+      'sp.soon': 'Pronto: revisión rápida para listarte antes.',
+      'sp.previewLabel': 'Así se ve el destacado',
+      'sp.previewName': 'Tu herramienta',
+      'sp.previewLine': 'Una línea que explica para qué sirve en tu juego.',
+      'sp.formTitle': 'Aparta tu lugar',
+      'sp.name': 'Nombre de tu herramienta',
+      'sp.site': 'Sitio web',
+      'sp.email': 'Tu correo',
+      'sp.note': 'Sin cobro hoy. Pagas hasta que lo activemos.',
+      'sp.ok': 'Recibido. Te escribimos para activarlo.',
+      'sp.back': '← Volver al directorio',
+      'alt.mokiHero': 'Moki, el astronauta de cartón naranja, listo para explorar',
+      'alt.mokiEmpty': 'Moki buscando sin suerte',
+      'alt.mokiNews': 'Moki con la próxima herramienta',
+      'alt.mokiSponsor': 'Moki revisa tu herramienta',
+      'alt.logo': 'Logo de {name}',
+      'footer.label': 'Créditos',
+      'footer.social': 'Redes',
+      'footer.love': 'Hecho con amor ❤️🎮 por',
+      'footer.values': 'Jorge Suárez | © 2026 | Construido con nuestros valores de Kaizen &amp; Play.',
+      'footer.llms': 'Para ChatGPT, Claude y Grok'
+    },
+    en: {
+      'doc.title': 'AI tools for making video games | Jorge Suárez directory',
+      'doc.titleSponsor': 'Feature your AI tool to game devs | Jorge Suárez',
+      'skip': 'Skip to content',
+      'nav.label': 'Main',
+      'nav.menu': 'Menu',
+      'lang.label': 'Language',
+      'hero.kicker': 'Directory · AI for game dev',
+      'hero.title': 'AI tools that actually help you ship your game',
+      'hero.sub': '{n} tools for art, code, audio and design. Free, in Spanish and English',
+      'hero.bubble': 'What are we hunting today?',
+      'search.label': 'Search tools',
+      'search.ph': 'Search: sprites, voices, music, code…',
+      'proof.label': 'Directory facts',
+      'proof.tools': 'tools',
+      'proof.cats': 'categories',
+      'proof.lang': 'Spanish and English',
+      'featured.badge': 'Featured',
+      'featured.price': 'USD 49/month',
+      'featured.slot': 'Your logo',
+      'featured.title': 'Put your tool in front of Latin American game devs',
+      'featured.body': 'Top of the page, your logo and one line. USD 49/month. Cancel anytime.',
+      'featured.cta': 'Get featured',
+      'catalog.title': 'Catalog',
+      'catalog.count': '{n} tools',
+      'catalog.count1': '1 tool',
+      'chips.label': 'Categories',
+      'chips.all': 'All',
+      'card.site': 'Official site',
+      'card.newtab': '(opens in a new tab)',
+      'empty.title': 'Moki found nothing',
+      'empty.body': 'Try another word or clear the filter. If a tool is missing, send it and we will review it.',
+      'submit.title': 'Made or use a tool that is not here?',
+      'submit.body': 'Listing is free. We check that it exists and helps make games.',
+      'submit.cta': 'Missing a tool? Submit it free',
+      'news.title': 'One new AI tool for game devs, every week',
+      'news.sub': 'Free. No spam.',
+      'news.label': 'Your email',
+      'news.ph': 'you@email.com',
+      'news.cta': 'Send it to me',
+      'news.ok': 'You\u2019re on the list. We\u2019ll email you when the first one ships.',
+      'form.sending': 'Sending…',
+      'form.badEmail': 'Check your email, something looks off.',
+      'form.badName': 'Type your tool\u2019s name.',
+      'form.badSite': 'Type the full website, starting with https://',
+      'form.rate': 'Too many tries. Please try again in an hour.',
+      'form.error': 'Could not save it. Please try again in a moment.',
+      'sp.freeTag': 'Free',
+      'sp.free': 'Free for devs: directory, search, filters and newsletter. Tools pay.',
+      'sp.featured': 'Featured: top of the page, your logo and one line. USD 49/month. Cancel anytime.',
+      'sp.soonTag': 'Coming next',
+      'sp.soon': 'Coming next: fast-track review to get listed sooner.',
+      'sp.previewLabel': 'What Featured looks like',
+      'sp.previewName': 'Your tool',
+      'sp.previewLine': 'One line on how it helps make your game.',
+      'sp.formTitle': 'Save your spot',
+      'sp.name': 'Tool name',
+      'sp.site': 'Website',
+      'sp.email': 'Your email',
+      'sp.note': 'No charge today. You only pay once it\u2019s live.',
+      'sp.ok': 'Got it. We\u2019ll email you to activate it.',
+      'sp.back': '← Back to the directory',
+      'alt.mokiHero': 'Moki, the orange cardboard astronaut, ready to explore',
+      'alt.mokiEmpty': 'Moki searching with no luck',
+      'alt.mokiNews': 'Moki holding the next tool',
+      'alt.mokiSponsor': 'Moki reviews your tool',
+      'alt.logo': '{name} logo',
+      'footer.label': 'Credits',
+      'footer.social': 'Social',
+      'footer.love': 'Made with love ❤️🎮 by',
+      'footer.values': 'Jorge Suárez | © 2026 | Built on our values of Kaizen &amp; Play.',
+      'footer.llms': 'For ChatGPT, Claude and Grok'
     }
+  };
+
+  const isSponsor = document.body.getAttribute('data-page') === 'sponsor';
+  let ntools = Number((document.querySelector('[data-n]') || {}).dataset?.n || 0);
+
+  function lang() {
+    const l = localStorage.getItem('gamedev_lang');
+    return l === 'en' ? 'en' : 'es';
+  }
+  function s(key, vars) {
+    let out = STR[lang()][key] ?? STR.es[key] ?? key;
+    if (vars) Object.keys(vars).forEach((k) => { out = out.split('{' + k + '}').join(vars[k]); });
+    return out;
+  }
+  function esc(v) {
+    return String(v).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function applyStatic() {
+    const l = lang();
+    document.documentElement.lang = l;
+    document.title = s(isSponsor ? 'doc.titleSponsor' : 'doc.title');
+    document.querySelectorAll('[data-t]').forEach((el) => {
+      const k = el.getAttribute('data-t');
+      el.innerHTML = k === 'hero.sub' ? esc(s(k, { n: ntools })) : s(k);
+    });
+    document.querySelectorAll('[data-t-ph]').forEach((el) => { el.placeholder = s(el.getAttribute('data-t-ph')); });
+    document.querySelectorAll('[data-t-alt]').forEach((el) => { el.alt = s(el.getAttribute('data-t-alt')); });
+    document.querySelectorAll('[data-t-aria]').forEach((el) => { el.setAttribute('aria-label', s(el.getAttribute('data-t-aria'))); });
+    document.querySelectorAll('.lang-btn').forEach((b) => {
+      const on = b.getAttribute('data-lang') === l;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
+  }
+
+  /* Header: burger menu */
+  (function () {
+    const burger = document.querySelector('.hud__burger');
+    const nav = document.getElementById('hud-nav');
+    if (!burger || !nav) return;
+    burger.addEventListener('click', () => {
+      const open = burger.getAttribute('aria-expanded') !== 'true';
+      burger.setAttribute('aria-expanded', String(open));
+      nav.classList.toggle('is-open', open);
+    });
+    nav.addEventListener('click', (e) => {
+      if (e.target.closest('a')) { burger.setAttribute('aria-expanded', 'false'); nav.classList.remove('is-open'); }
+    });
+  })();
+
+  /* Sponsor checkout: only used once SPONSOR_LIVE is true. */
+  if (SPONSOR_LIVE) {
+    document.querySelectorAll('[data-sponsor-cta]').forEach((el) => {
+      el.href = SPONSOR_CHECKOUT_URL;
+      el.setAttribute('rel', 'noopener');
+    });
+  }
+
+  /* Forms: newsletter + featured request. Stored by the site Worker in Cloudflare KV. */
+  const EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,24}$/;
+  document.querySelectorAll('[data-ia-form]').forEach((form) => {
+    const kind = form.getAttribute('data-ia-form');
+    const status = form.querySelector('[data-status]');
+    const button = form.querySelector('button[type="submit"]');
+    function say(key, ok) {
+      status.textContent = s(key);
+      status.classList.toggle('is-ok', !!ok);
+      status.classList.toggle('is-error', !ok);
+    }
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const payload = {
+        email: String(fd.get('email') || '').trim(),
+        company: String(fd.get('company') || ''),
+        lang: lang()
+      };
+      if (kind === 'featured') {
+        payload.name = String(fd.get('name') || '').trim();
+        payload.site = String(fd.get('site') || '').trim();
+        if (payload.site && !/^https?:\/\//i.test(payload.site)) payload.site = 'https://' + payload.site;
+        if (!payload.name) return say('form.badName');
+        try { new URL(payload.site); } catch (_) { return say('form.badSite'); }
+      }
+      if (!EMAIL_RE.test(payload.email)) return say('form.badEmail');
+      button.disabled = true;
+      say('form.sending', true);
+      try {
+        const r = await fetch(kind === 'featured' ? '/ia/api/featured' : '/ia/api/subscribe', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (r.status === 429) return say('form.rate');
+        const data = await r.json().catch(() => ({}));
+        if (!r.ok || !data.ok) return say(data.error === 'email' ? 'form.badEmail' : data.error === 'site' ? 'form.badSite' : 'form.error');
+        form.reset();
+        say(kind === 'featured' ? 'sp.ok' : 'news.ok', true);
+      } catch (_) {
+        say('form.error');
+      } finally {
+        button.disabled = false;
+      }
+    });
   });
-})();
-(function () {
+
+  /* Directory */
   const root = document.querySelector('[data-ia-app]');
-  if (!root) return;
-
-  const grid = root.querySelector('[data-ia-grid]');
-  const chips = root.querySelector('[data-ia-chips]');
-  const search = root.querySelector('[data-ia-search]');
-  const count = root.querySelector('[data-ia-count]');
-  const empty = root.querySelector('[data-ia-empty]');
-  const machine = root.querySelector('[data-ia-machine]');
-  const jsonLd = document.getElementById('ia-jsonld');
-
-  let catalog = { tools: [], categories: [], featured: [], pricingLabels: {} };
+  let catalog = null;
   let category = 'all';
   let query = '';
 
-  function lang() {
-    return localStorage.getItem('gamedev_lang') || 'es';
+  function norm(v) {
+    return String(v).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
-
-  function labelCategory(id) {
-    const cat = catalog.categories.find((c) => c.id === id);
-    if (!cat) return id;
-    return cat[lang()] || cat.es;
+  function catLabel(c) { return c[lang()] || c.es; }
+  function priceLabel(code) {
+    const m = catalog.pricingLabels && catalog.pricingLabels[code];
+    return m ? (m[lang()] || m.es) : '';
   }
-
-  function pricingLabel(code) {
-    const map = catalog.pricingLabels[code];
-    if (!map) return '';
-    return map[lang()] || map.es;
-  }
-
-  function t(es, en) {
-    return lang() === 'en' ? en : es;
-  }
-
-  function renderChips() {
-    const items = [{ id: 'all', es: 'Todas', en: 'All' }].concat(catalog.categories);
-    chips.innerHTML = items
-      .map(
-        (c) =>
-          `<button type="button" class="ia-chip" data-cat="${c.id}" aria-pressed="${
-            c.id === category
-          }">${c[lang()] || c.es}</button>`
-      )
-      .join('');
-  }
-
   function matches(tool) {
     if (category !== 'all' && tool.category !== category) return false;
     if (!query) return true;
-    const blob = [
-      tool.name,
-      tool.description.es,
-      tool.description.en,
-      labelCategory(tool.category),
-      tool.url
-    ]
-      .join(' ')
-      .toLowerCase();
-    return blob.includes(query);
+    const cat = catalog.categories.find((c) => c.id === tool.category) || {};
+    return norm([tool.name, tool.description.es, tool.description.en, cat.es, cat.en, (tool.tags || []).join(' ')].join(' ')).includes(query);
   }
-
   function card(tool) {
-    const price = tool.pricing
-      ? `<span class="ia-tag">${pricingLabel(tool.pricing)}</span>`
-      : '';
-    return `<article class="ia-card" data-id="${tool.id}" data-category="${tool.category}">
-      <div class="ia-card__meta">
-        <span class="ia-tag">${labelCategory(tool.category)}</span>
-        ${price}
-      </div>
-      <h3>${tool.name}</h3>
-      <p>${tool.description[lang()] || tool.description.es}</p>
-      <a class="ia-card__link" href="${tool.url}" target="_blank" rel="noopener noreferrer">${t(
-        'Sitio oficial →',
-        'Official site →'
-      )}</a>
+    const logo = tool.logo
+      ? `<img class="ia-logo" src="${esc(tool.logo)}" width="40" height="40" loading="lazy" decoding="async" alt="${esc(s('alt.logo', { name: tool.name }))}">`
+      : `<span class="ia-logo ia-logo--tile" aria-hidden="true">${esc(tool.name.charAt(0))}</span>`;
+    const price = tool.pricing ? `<span class="ia-tag">${esc(priceLabel(tool.pricing))}</span>` : '';
+    return `<article class="ia-card" id="tool-${esc(tool.id)}">
+      <div class="ia-card__top">${logo}<div><h3>${esc(tool.name)}</h3>${price}</div></div>
+      <p>${esc(tool.description[lang()] || tool.description.es)}</p>
+      <a class="ia-card__link" href="${esc(tool.url)}" target="_blank" rel="noopener">${esc(s('card.site'))} <span aria-hidden="true">↗</span><span class="sr-only"> ${esc(tool.name)} ${esc(s('card.newtab'))}</span></a>
     </article>`;
   }
-
-  function renderGrid() {
-    const shown = catalog.tools.filter(matches);
-    grid.querySelectorAll('.ia-card').forEach((el) => el.remove());
-    const html = shown.map(card).join('');
-    grid.insertAdjacentHTML('afterbegin', html);
-    empty.classList.toggle('is-visible', shown.length === 0);
-    count.textContent = t(
-      `${shown.length} herramientas`,
-      `${shown.length} tools`
+  function renderChips() {
+    const chips = root.querySelector('[data-ia-chips]');
+    const items = [{ id: 'all', label: s('chips.all'), n: catalog.tools.length }].concat(
+      catalog.categories.map((c) => ({ id: c.id, label: catLabel(c), n: catalog.tools.filter((t) => t.category === c.id).length }))
     );
+    chips.innerHTML = items.map((c) =>
+      `<button type="button" class="ia-chip" data-cat="${esc(c.id)}" aria-pressed="${c.id === category}">${esc(c.label)} <span class="ia-chip__n">${c.n}</span></button>`
+    ).join('');
   }
-
-  function renderMachineList() {
-    if (!machine) return;
-    const groups = catalog.categories
-      .map((cat) => {
-        const tools = catalog.tools.filter((t) => t.category === cat.id);
-        if (!tools.length) return '';
-        const items = tools
-          .map((tool) => `<li><a href="${tool.url}">${tool.name}</a> — ${tool.description.es}</li>`)
-          .join('');
-        return `<h3>${cat.es}</h3><ol>${items}</ol>`;
-      })
-      .join('');
-    machine.innerHTML = groups;
+  function renderSections() {
+    const box = root.querySelector('[data-ia-sections]');
+    let shown = 0;
+    box.innerHTML = catalog.categories.map((c) => {
+      const tools = catalog.tools.filter((t) => t.category === c.id && matches(t));
+      shown += tools.length;
+      if (!tools.length) return '';
+      return `<section class="ia-cat" id="${esc(c.id)}" aria-labelledby="cat-${esc(c.id)}">
+        <h3 class="ia-cat__title" id="cat-${esc(c.id)}">${esc(catLabel(c))} <span>${tools.length}</span></h3>
+        <div class="ia-grid">${tools.map(card).join('')}</div>
+      </section>`;
+    }).join('');
+    root.querySelector('[data-ia-empty]').hidden = shown !== 0;
+    root.querySelector('[data-ia-count]').textContent = shown === 1 ? s('catalog.count1') : s('catalog.count', { n: shown });
   }
-
-  function renderJsonLd() {
-    if (!jsonLd) return;
-    const itemList = {
-      '@context': 'https://schema.org',
-      '@type': 'ItemList',
-      name: 'Directorio de IA para indie game developers',
-      description:
-        'Catálogo bilingüe de herramientas de IA útiles para hacer videojuegos.',
-      url: 'https://gamedev.jorgesuarez.com.mx/ia/',
-      numberOfItems: catalog.tools.length,
-      itemListElement: catalog.tools.map((tool, i) => ({
-        '@type': 'ListItem',
-        position: i + 1,
-        name: tool.name,
-        url: tool.url,
-        description: tool.description.es
-      }))
-    };
-    jsonLd.textContent = JSON.stringify(itemList);
-  }
-
-  function applyLang() {
+  function renderAll() {
+    if (!catalog) return;
     renderChips();
-    renderGrid();
+    renderSections();
+  }
+
+  if (root) {
+    root.querySelector('[data-ia-chips]').addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-cat]');
+      if (!btn) return;
+      category = btn.getAttribute('data-cat');
+      renderAll();
+    });
+    const search = document.querySelector('[data-ia-search]');
+    const sform = document.querySelector('[data-ia-searchform]');
     if (search) {
-      search.placeholder = t('Busca por nombre o uso…', 'Search by name or use…');
+      search.addEventListener('input', () => { query = norm(search.value.trim()); renderSections(); });
     }
-    document.documentElement.lang = lang();
+    if (sform) {
+      sform.addEventListener('submit', (e) => {
+        e.preventDefault();
+        document.getElementById('catalogo').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      });
+    }
+    fetch('tools.json')
+      .then((r) => { if (!r.ok) throw new Error('tools.json'); return r.json(); })
+      .then((data) => {
+        catalog = data;
+        ntools = data.tools.length;
+        document.querySelectorAll('[data-ia-ntools]').forEach((el) => { el.textContent = data.tools.length; });
+        document.querySelectorAll('[data-ia-ncats]').forEach((el) => { el.textContent = data.categories.length; });
+        applyStatic();
+        renderAll();
+      })
+      .catch(() => { /* static HTML catalog stays visible */ });
   }
 
-  chips.addEventListener('click', (e) => {
-    const btn = e.target.closest('[data-cat]');
-    if (!btn) return;
-    category = btn.getAttribute('data-cat');
-    applyLang();
-  });
-
-  if (search) {
-    search.addEventListener('input', () => {
-      query = search.value.trim().toLowerCase();
-      renderGrid();
-    });
-  }
-
-  document.addEventListener('gamedev:lang', applyLang);
-
-  fetch('tools.json', { cache: 'no-cache' })
-    .then((r) => {
-      if (!r.ok) throw new Error('tools.json');
-      return r.json();
-    })
-    .then((data) => {
-      catalog = data;
-      applyLang();
-      renderMachineList();
-      renderJsonLd();
-    })
-    .catch(() => {
-      count.textContent = t('No se pudo cargar el catálogo.', 'Could not load the catalog.');
-    });
+  applyStatic();
+  document.addEventListener('gamedev:lang', () => { applyStatic(); renderAll(); });
 })();
