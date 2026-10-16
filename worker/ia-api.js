@@ -112,11 +112,16 @@ const META_EN = {
 };
 
 /* English meta tags for ?lang=en, so crawlers that do not run JavaScript see English text. */
+/* The English URL must be its own canonical (and og:url). If it pointed at the Spanish URL, search
+ * engines would treat hreflang="en" as conflicting and drop the English version from the index. */
+const withLangEn = (href) => (href && !/[?&]lang=en\b/.test(href) ? href + (href.includes('?') ? '&' : '?') + 'lang=en' : href);
 function englishMeta(response, m) {
   const type = response.headers.get('content-type') || '';
   if (!response.ok || !type.includes('text/html')) return response;
   const set = (v) => ({ element(el) { el.setAttribute('content', v); } });
   return new HTMLRewriter()
+    .on('link[rel="canonical"]', { element(el) { el.setAttribute('href', withLangEn(el.getAttribute('href'))); } })
+    .on('meta[property="og:url"]', { element(el) { el.setAttribute('content', withLangEn(el.getAttribute('content'))); } })
     .on('html', { element(el) { el.setAttribute('lang', 'en'); } })
     .on('title', { element(el) { el.setInnerContent(m.title); } })
     .on('meta[name="description"]', set(m.desc))
