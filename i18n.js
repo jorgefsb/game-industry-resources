@@ -9,6 +9,14 @@ const translations = {
         'nav.community': 'Comunidad',
         'nav.cta': '🎮 Únete a EGDC',
         'nav.home': '← JorgeSuarez<span>.com.mx</span>',
+        'nav.label': 'Principal',
+        'nav.menu': 'Menú',
+        'lang.label': 'Idioma',
+        'ui.skip': 'Ir a recursos',
+        'alt.mokiHome': 'Moki, el astronauta de cartón naranja, listo para explorar',
+        'footer.label': 'Créditos',
+        'footer.social': 'Redes',
+        'footer.llms': 'Para ChatGPT, Claude y Grok',
         'ia.kicker': 'Directorio · indie + IA',
         'ia.title': 'Herramientas de IA para hacer tu juego',
         'ia.lead': 'Una lista viva, en español primero. Moki te acompaña a filtrar. Sin ratings inventados: nombre, para qué sirve y el sitio oficial.',
@@ -53,7 +61,7 @@ const translations = {
         'hero.badge.tools': '🛠️ Production Ready',
         'hero.badge.studios': '🌎 LATAM Power',
         'hero.badge.marketing': '📢 Visibility Hack',
-        'hero.title.home': 'Level up tu carrera en <span class="text-neon-pink">Game Development</span>',
+        'hero.title.home': 'Level up tu carrera en <span class="home-accent">Game Development</span>',
         'hero.subtitle.home': 'Templates, guías, ofertas de trabajo y herramientas creadas por profesionales de la industria. <strong>¡Consigue chamba</strong> y funda tu estudio rentable!',
         'hero.cta.explore': '🕹️ Explorar Recursos',
         'hero.cta.jobs': '💼 Ver Ofertas Diarias',
@@ -117,6 +125,14 @@ const translations = {
         'nav.community': 'Community',
         'nav.cta': '🎮 Join EGDC',
         'nav.home': '← JorgeSuarez<span>.com.mx</span>',
+        'nav.label': 'Main',
+        'nav.menu': 'Menu',
+        'lang.label': 'Language',
+        'ui.skip': 'Skip to resources',
+        'alt.mokiHome': 'Moki, the orange cardboard astronaut, ready to explore',
+        'footer.label': 'Credits',
+        'footer.social': 'Social',
+        'footer.llms': 'For ChatGPT, Claude and Grok',
         'ia.kicker': 'Directory · indie + AI',
         'ia.title': 'AI tools for making your game',
         'ia.lead': 'A living list, Spanish first. Moki helps you filter. No invented ratings: name, what it is for, and the official site.',
@@ -161,7 +177,7 @@ const translations = {
         'hero.badge.tools': '🛠️ Production Ready',
         'hero.badge.studios': '🌎 LATAM Power',
         'hero.badge.marketing': '📢 Visibility Hack',
-        'hero.title.home': 'Level up your career in <span class="text-neon-pink">Game Development</span>',
+        'hero.title.home': 'Level up your career in <span class="home-accent">Game Development</span>',
         'hero.subtitle.home': 'Templates, guides, job offers and tools created by industry professionals. <strong>Get hired</strong> and build your studio!',
         'hero.cta.explore': '🕹️ Explore Resources',
         'hero.cta.jobs': '💼 See Daily Offers',
@@ -220,6 +236,11 @@ const translations = {
 
 // Current language
 let currentLang = localStorage.getItem('gamedev_lang') || 'es';
+const qpLang = new URLSearchParams(location.search).get('lang');
+if (qpLang === 'en' || qpLang === 'es') {
+    currentLang = qpLang;
+    localStorage.setItem('gamedev_lang', qpLang);
+}
 
 // Get translation
 function t(key) {
@@ -230,6 +251,7 @@ function t(key) {
 function switchLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('gamedev_lang', lang);
+    document.documentElement.lang = lang;
 
     // Update UI elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -241,9 +263,22 @@ function switchLanguage(lang) {
         }
     });
 
+    document.querySelectorAll('[data-es][data-en]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+    });
+
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria')));
+    });
+
+    document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+        el.alt = t(el.getAttribute('data-i18n-alt'));
+    });
+
     // Update active state of buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        btn.setAttribute('aria-pressed', String(btn.getAttribute('data-lang') === lang));
     });
 
     // Update gamification context if available

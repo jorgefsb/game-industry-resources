@@ -7,111 +7,136 @@
   <title>Game Industry Resources 🎮 | Recursos para Game Devs LATAM</title>
   <meta name="description"
     content="Guías, templates y herramientas gratuitas para desarrolladores de videojuegos en Latinoamérica.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="styles/design-system.css">
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+  <link rel="canonical" href="https://gamedev.jorgesuarez.com.mx/">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="alternate" hreflang="es" href="https://gamedev.jorgesuarez.com.mx/">
+  <link rel="alternate" hreflang="en" href="https://gamedev.jorgesuarez.com.mx/?lang=en">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="JorgeSuarez.com.mx">
+  <meta property="og:title" content="Game Industry Resources 🎮 | Recursos para Game Devs LATAM">
+  <meta property="og:description" content="Guías, templates y herramientas gratuitas para desarrolladores de videojuegos en Latinoamérica.">
+  <meta property="og:url" content="https://gamedev.jorgesuarez.com.mx/">
+  <meta property="og:image" content="https://gamedev.jorgesuarez.com.mx/ia/assets/moki-parche-derecho.png">
+  <meta property="og:image:alt" content="Moki, el astronauta de cartón de Jorge Suárez">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="ia/fonts/outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="ia/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="ia/tokens.css">
+  <link rel="stylesheet" href="ia/ia.css">
+  <link rel="stylesheet" href="styles/home.css">
+  <link rel="icon" href="ia/assets/moki-parche-derecho.png" type="image/png">
 </head>
 
-<body>
-  <!-- Navigation -->
-  <nav class="nav">
+<body class="ia-page home-page">
+  <a class="ia-skip" href="#resources" data-i18n="ui.skip">Ir a recursos</a>
+
+  <div class="home-chrome">
     <div class="nav__home">
       <a class="site-home" href="https://jorgesuarez.com.mx/" data-i18n="nav.home" aria-label="JorgeSuarez.com.mx">← JorgeSuarez<span>.com.mx</span></a>
-    </div>
-    <div class="nav__container container">
-      <a href="index.html" class="nav__logo">
-        <span class="nav__logo-icon">🎮</span>
-        <span>Game<span style="color:var(--neon-pink)">Dev</span> Resources</span>
-      </a>
-      <ul class="nav__menu">
-        <li><a href="#resources" class="nav__link nav__link--active" data-i18n="nav.resources">Recursos</a></li>
-        <li><a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a></li>
-        <li><a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs & Career</a></li>
-        <li><a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a></li>
-        <li><a href="https://club.uetc.mx" target="_blank" class="nav__link"
-            data-i18n="nav.community">Comunidad</a></li>
-      </ul>
-      <div class="nav__cta">
-        <div class="lang-switch">
-          <a href="#" class="btn btn-ghost btn-sm lang-btn" data-lang="es">ES</a>
-          <a href="#" class="btn btn-ghost btn-sm lang-btn" data-lang="en">EN</a>
-        </div>
-        <a href="https://club.uetc.mx" target="_blank" class="btn btn-primary" data-i18n="nav.cta">🎮 Unirme</a>
+      <div class="lang-switcher home-lang-mobile" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+        <a href="?lang=es" class="lang-btn" data-lang="es" lang="es">ES</a>
+        <span aria-hidden="true">|</span>
+        <a href="?lang=en" class="lang-btn" data-lang="en" lang="en">EN</a>
       </div>
     </div>
-  </nav>
+    <header class="hud" data-hud>
+      <a class="hud__brand" href="https://jorgesuarez.com.mx/" aria-label="JorgeSuarez.com.mx">
+        <span class="js-wordmark">JorgeSuarez<span>.com.mx</span></span>
+      </a>
+      <nav class="hud__nav" id="hud-nav" aria-label="Principal" data-i18n-aria="nav.label">
+        <a href="#resources" class="nav__link" aria-current="true" data-i18n="nav.resources">Recursos</a>
+        <a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a>
+        <a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs &amp; Career</a>
+        <a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a>
+        <a href="https://club.uetc.mx" target="_blank" rel="noopener" class="nav__link" data-i18n="nav.community">Comunidad</a>
+        <a class="hud__nav-cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+      </nav>
+      <div class="hud__right">
+        <div class="lang-switcher home-lang-desktop" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+          <a href="?lang=es" class="lang-btn" data-lang="es" lang="es">ES</a>
+          <span aria-hidden="true">|</span>
+          <a href="?lang=en" class="lang-btn" data-lang="en" lang="en">EN</a>
+        </div>
+        <a class="btn btn--primary btn--sm hud__cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+        <button class="hud__burger" type="button" aria-expanded="false" aria-controls="hud-nav" aria-label="Menú" data-i18n-aria="nav.menu"><span></span><span></span></button>
+      </div>
+    </header>
+  </div>
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="container">
+  <main id="main">
+    <header class="wrap home-hero">
       <div class="hero__content">
+        <span class="ia-moki-live">
+          <img class="ia-moki" src="ia/assets/moki-parche-derecho.png" width="720" height="767" fetchpriority="high" alt="Moki, el astronauta de cartón naranja, listo para explorar" data-i18n-alt="alt.mokiHome">
+        </span>
         <span class="hero__badge" data-i18n="hero.badge.free">🆓 Recursos 100% gratuitos para LATAM</span>
-        <h1 class="hero__title" data-i18n="hero.title.home">Level up tu carrera en <span
-            style="background:var(--neon-cyan); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Game
-            Dev</span> 🚀</h1>
-        <p class="hero__subtitle" data-i18n="hero.subtitle.home">Templates, guías, ofertas de trabajo y herramientas
-          creadas por profesionales de la industria.</p>
-        <div class="hero__actions">
-          <a href="#resources" class="btn btn-primary" data-i18n="hero.cta.explore">🕹️ Explorar Recursos</a>
-          <a href="https://x.com/jorgefsb" target="_blank" class="btn btn-secondary" data-i18n="hero.cta.jobs">💼 Ver
-            Ofertas</a>
+        <h1 class="hero__title" data-i18n="hero.title.home">Level up tu carrera en <span class="home-accent">Game Dev</span> 🚀</h1>
+        <p class="hero__subtitle lead" data-i18n="hero.subtitle.home">Templates, guías, ofertas de trabajo y herramientas creadas por profesionales de la industria.</p>
+        <div class="hero__actions home-actions">
+          <a href="#resources" class="btn btn--primary" data-i18n="hero.cta.explore">🕹️ Explorar Recursos</a>
+          <a href="https://x.com/jorgefsb" target="_blank" rel="noopener" class="btn btn--ghost" data-i18n="hero.cta.jobs">💼 Ver Ofertas</a>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- Resources Grid -->
-  <section class="section container" id="resources">
-    <div class="section__header">
-      <h2 class="section__title" data-i18n="hero.cta.explore">Herramientas para cada etapa</h2>
-    </div>
-    <div class="grid grid-3">
-      <a href="tools.html" class="card">
-        <span class="card__icon">🛠️</span>
-        <h3 class="card__title">Production Tools</h3>
-        <p class="card__description" data-i18n="hero.subtitle.tools">Templates de GDD, presupuestos y checklists.</p>
-        <span class="card__badge card__badge--new">New</span>
-      </a>
-      <a href="jobs.html" class="card">
-        <span class="card__icon">💼</span>
-        <h3 class="card__title">Jobs & Career</h3>
-        <p class="card__description" data-i18n="hero.subtitle.jobs">CVs, Portafolios y ofertas de empleo.</p>
-        <span class="card__badge card__badge--hot">Hot</span>
-      </a>
-      <a href="database.html" class="card">
-        <span class="card__icon">🌎</span>
-        <h3 class="card__title">Studios DB</h3>
-        <p class="card__description" data-i18n="hero.subtitle.database">Mapa de la industria en Latinoamérica.</p>
-        <span class="card__badge card__badge--new">New</span>
-      </a>
-      <a href="ia/" class="card">
-        <span class="card__icon">🤖</span>
-        <h3 class="card__title" data-i18n="card.ia.title">Directorio IA</h3>
-        <p class="card__description" data-i18n="card.ia.desc">Herramientas de IA reales para código, arte, audio y marketing de tu juego.</p>
-        <span class="card__badge card__badge--new">New</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <div class="footer__logo">🎮 GameDev Resources</div>
-          <p class="footer__tagline">Recursos premium gratuitos para LATAM.</p>
-        </div>
+    <section class="wrap home-section" id="resources">
+      <div class="section__header">
+        <h2 class="section__title" data-i18n="hero.cta.explore">Herramientas para cada etapa</h2>
       </div>
+      <div class="home-grid">
+        <a href="tools.html" class="ia-card home-card">
+          <span class="card__icon">🛠️</span>
+          <h3 class="card__title">Production Tools</h3>
+          <p class="card__description" data-i18n="hero.subtitle.tools">Templates de GDD, presupuestos y checklists.</p>
+          <span class="ia-badge">New</span>
+        </a>
+        <a href="jobs.html" class="ia-card home-card">
+          <span class="card__icon">💼</span>
+          <h3 class="card__title">Jobs &amp; Career</h3>
+          <p class="card__description" data-i18n="hero.subtitle.jobs">CVs, Portafolios y ofertas de empleo.</p>
+          <span class="ia-badge">Hot</span>
+        </a>
+        <a href="database.html" class="ia-card home-card">
+          <span class="card__icon">🌎</span>
+          <h3 class="card__title">Studios DB</h3>
+          <p class="card__description" data-i18n="hero.subtitle.database">Mapa de la industria en Latinoamérica.</p>
+          <span class="ia-badge">New</span>
+        </a>
+        <a href="ia/" class="ia-card home-card">
+          <span class="card__icon">🤖</span>
+          <h3 class="card__title" data-i18n="card.ia.title">Directorio IA</h3>
+          <p class="card__description" data-i18n="card.ia.desc">Herramientas de IA reales para código, arte, audio y marketing de tu juego.</p>
+          <span class="ia-badge">New</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap papacito-footer" aria-label="Créditos" data-i18n-aria="footer.label">
+    <div class="papacito-footer__identity">
+      <a class="js-wordmark" href="https://jorgesuarez.com.mx/">JorgeSuarez<span>.com.mx</span></a>
+      <p>Kaizen &amp; Play</p>
+    </div>
+    <ul class="ia-socials" aria-label="Redes" data-i18n-aria="footer.social">
+      <li><a href="https://linkedin.com/in/yorgenmeister" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://x.com/jorgefsb" target="_blank" rel="noopener">X / Twitter</a></li>
+      <li><a href="https://www.facebook.com/jorgesuarez.com.mx/" target="_blank" rel="noopener">Facebook</a></li>
+      <li><a href="https://github.com/jorgefsb" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://instagram.com/jorgefsb" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.youtube.com/@jorgefsb" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="https://tiktok.com/@jorgesuarez.com.mx" target="_blank" rel="noopener">TikTok</a></li>
+    </ul>
+    <p class="papacito-footer__signature"><span data-es="Hecho con amor ❤️🎮 por" data-en="Made with love ❤️🎮 by">Hecho con amor ❤️🎮 por</span> <a href="https://jorgesuarez.com.mx/">JorgeSuarez.com.mx</a></p>
+    <div class="papacito-footer__meta">
+      <p data-es="Jorge Suárez | © 2026 | Built on our values of Kaizen &amp; Play." data-en="Jorge Suárez | © 2026 | Built on our values of Kaizen &amp; Play.">Jorge Suárez | © 2026 | Built on our values of Kaizen &amp; Play.</p>
+      <p><a href="llms.txt" data-i18n="footer.llms">Para ChatGPT, Claude y Grok</a></p>
     </div>
   </footer>
 
   <script src="i18n.js"></script>
-  <script src="gamification.js"></script>
+  <script src="scripts/home.js"></script>
 </body>
 
 </html>
