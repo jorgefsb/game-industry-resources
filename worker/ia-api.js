@@ -96,13 +96,53 @@ async function handleForm(kind, request, env) {
   return json({ ok: true });
 }
 
+const META_EN = {
+  home: {
+    title: 'AI tools for making video games | Jorge Suárez directory',
+    desc: 'The AI tools that actually help you make your game: art, code, audio, voices, 3D, localization and marketing. Free to browse.',
+    ogTitle: 'The AI tools that actually help you make your game',
+    ogDesc: 'AI tools for game art, code, audio and design. Free to browse.',
+  },
+  sponsor: {
+    title: 'Feature your AI tool to game devs | Jorge Suárez',
+    desc: 'Put your AI tool at the top of the directory for Latin American game devs. With your logo and one line. USD 49 a month. Cancel anytime.',
+    ogTitle: 'Put your tool in front of Latin American game devs',
+    ogDesc: 'At the top, with your logo and one line. USD 49 a month. Cancel anytime.',
+  },
+};
+
+/* English meta tags for ?lang=en, so crawlers that do not run JavaScript see English text. */
+function englishMeta(response, m) {
+  const type = response.headers.get('content-type') || '';
+  if (!response.ok || !type.includes('text/html')) return response;
+  const set = (v) => ({ element(el) { el.setAttribute('content', v); } });
+  return new HTMLRewriter()
+    .on('html', { element(el) { el.setAttribute('lang', 'en'); } })
+    .on('title', { element(el) { el.setInnerContent(m.title); } })
+    .on('meta[name="description"]', set(m.desc))
+    .on('meta[name="twitter:description"]', set(m.desc))
+    .on('meta[property="og:description"]', set(m.ogDesc))
+    .on('meta[property="og:title"]', set(m.ogTitle))
+    .on('meta[name="twitter:title"]', set(m.ogTitle))
+    .on('meta[property="og:locale"]', set('en_US'))
+    .on('meta[property="og:locale:alternate"]', set('es_MX'))
+    .transform(response);
+}
+
 export default {
   async fetch(request, env) {
-    const { pathname } = new URL(request.url);
+    const url = new URL(request.url);
+    const { pathname } = url;
     if (pathname === '/ia/api/subscribe') return handleForm('subscribe', request, env);
     if (pathname === '/ia/api/featured') return handleForm('featured', request, env);
     if (pathname === '/ia/api/submit') return handleForm('submit', request, env);
+    if (pathname === '/tools.json') {
+      return Response.redirect(new URL('/ia/tools.json', request.url).toString(), 301);
+    }
     const response = await env.ASSETS.fetch(request);
+    if ((pathname === '/ia/' || pathname === '/ia/patrocina/') && url.searchParams.get('lang') === 'en') {
+      return englishMeta(response, pathname === '/ia/patrocina/' ? META_EN.sponsor : META_EN.home);
+    }
     if (pathname === '/ia/llms.txt' || pathname === '/ia/tools.json') {
       const type = response.headers.get('content-type') || '';
       if (type && !/charset=/i.test(type)) {

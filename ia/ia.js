@@ -14,6 +14,12 @@ const SPONSOR_LIVE = false;
 
   const STR = {
     es: {
+      'meta.desc': 'Las herramientas de IA que sí sirven para hacer tu juego: arte, código, audio, voces, 3D, localización y marketing. En español y gratis.',
+      'meta.ogTitle': 'Las herramientas de IA que sí sirven para hacer tu juego',
+      'meta.ogDesc': 'Herramientas de IA para arte, código, audio y diseño de videojuegos. En español y gratis.',
+      'meta.descSponsor': 'Pon tu herramienta de IA arriba de todo en el directorio para gamedevs de Latinoamérica. Con tu logo y una línea. USD 49 al mes. Cancelas cuando quieras.',
+      'meta.ogTitleSponsor': 'Pon tu herramienta frente a gamedevs de Latinoamérica',
+      'meta.ogDescSponsor': 'Arriba de todo, con tu logo y una línea. USD 49 al mes. Cancelas cuando quieras.',
       'doc.title': 'Herramientas de IA para hacer videojuegos | Directorio de Jorge Suárez',
       'doc.titleSponsor': 'Destaca tu herramienta de IA ante gamedevs | Jorge Suárez',
       'skip': 'Ir al contenido',
@@ -71,8 +77,6 @@ const SPONSOR_LIVE = false;
       'sp.freeTag': 'Gratis',
       'sp.free': 'Directorio, búsqueda, filtros y boletín. Pagan las herramientas.',
       'sp.featured': 'Arriba de todo, con tu logo y una línea. USD 49 al mes. Cancelas cuando quieras.',
-      'sp.soonTag': 'Pronto',
-      'sp.soon': 'Revisión rápida para listarte antes.',
       'sp.previewLabel': 'Así se ve el destacado',
       'sp.previewName': 'Tu herramienta',
       'sp.previewLine': 'Una línea que explica para qué sirve en tu juego.',
@@ -95,6 +99,12 @@ const SPONSOR_LIVE = false;
       'footer.llms': 'Para ChatGPT, Claude y Grok'
     },
     en: {
+      'meta.desc': 'The AI tools that actually help you make your game: art, code, audio, voices, 3D, localization and marketing. Free to browse.',
+      'meta.ogTitle': 'The AI tools that actually help you make your game',
+      'meta.ogDesc': 'AI tools for game art, code, audio and design. Free to browse.',
+      'meta.descSponsor': 'Put your AI tool at the top of the directory for Latin American game devs. With your logo and one line. USD 49 a month. Cancel anytime.',
+      'meta.ogTitleSponsor': 'Put your tool in front of Latin American game devs',
+      'meta.ogDescSponsor': 'At the top, with your logo and one line. USD 49 a month. Cancel anytime.',
       'doc.title': 'AI tools for making video games | Jorge Suárez directory',
       'doc.titleSponsor': 'Feature your AI tool to game devs | Jorge Suárez',
       'skip': 'Skip to content',
@@ -152,8 +162,6 @@ const SPONSOR_LIVE = false;
       'sp.freeTag': 'Free',
       'sp.free': 'Directory, search, filters and newsletter. Tools pay.',
       'sp.featured': 'Top of the page, your logo and one line. USD 49/month. Cancel anytime.',
-      'sp.soonTag': 'Coming next',
-      'sp.soon': 'Fast-track review to get listed sooner.',
       'sp.previewLabel': 'What Featured looks like',
       'sp.previewName': 'Your tool',
       'sp.previewLine': 'One line on how it helps make your game.',
@@ -180,6 +188,12 @@ const SPONSOR_LIVE = false;
   const isSponsor = document.body.getAttribute('data-page') === 'sponsor';
   let ntools = Number((document.querySelector('[data-n]') || {}).dataset?.n || 0);
 
+  const qpLang = new URLSearchParams(location.search).get('lang');
+  if (qpLang === 'en' || qpLang === 'es') {
+    localStorage.setItem('gamedev_lang', qpLang);
+    try { currentLang = qpLang; } catch (e) { /* i18n.js not loaded */ }
+  }
+
   function lang() {
     const l = localStorage.getItem('gamedev_lang');
     return l === 'en' ? 'en' : 'es';
@@ -197,6 +211,14 @@ const SPONSOR_LIVE = false;
     const l = lang();
     document.documentElement.lang = l;
     document.title = s(isSponsor ? 'doc.titleSponsor' : 'doc.title');
+    const sfx = isSponsor ? 'Sponsor' : '';
+    const setMeta = (sel, key) => { document.querySelectorAll(sel).forEach((m) => m.setAttribute('content', s(key + sfx))); };
+    setMeta('meta[name="description"], meta[name="twitter:description"]', 'meta.desc');
+    setMeta('meta[property="og:description"]', 'meta.ogDesc');
+    setMeta('meta[property="og:title"], meta[name="twitter:title"]', 'meta.ogTitle');
+    document.querySelectorAll('meta[property="og:locale"]').forEach((m) => m.setAttribute('content', l === 'en' ? 'en_US' : 'es_MX'));
+    document.querySelectorAll('meta[property="og:locale:alternate"]').forEach((m) => m.setAttribute('content', l === 'en' ? 'es_MX' : 'en_US'));
+    document.querySelectorAll('[data-es][data-en]').forEach((el) => { el.textContent = el.getAttribute('data-' + l); });
     document.querySelectorAll('[data-t]').forEach((el) => {
       const k = el.getAttribute('data-t');
       el.innerHTML = k === 'hero.sub' ? esc(s(k, { n: ntools })) : s(k);

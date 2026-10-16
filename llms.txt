@@ -1,0 +1,19 @@
+# Game Industry Resources
+
+> Recursos gratis en español para desarrolladores de videojuegos de Latinoamérica: herramientas, trabajo y carrera, estudios de la región, marketing y un directorio de herramientas de IA. Un sitio de Jorge Suárez (https://jorgesuarez.com.mx/).
+
+## Sitio principal
+
+- Inicio: https://gamedev.jorgesuarez.com.mx/
+- Production Tools (herramientas de producción para hacer juegos): https://gamedev.jorgesuarez.com.mx/tools
+- Jobs & Career (trabajo en la industria, guías de carrera, CVs y ofertas): https://gamedev.jorgesuarez.com.mx/jobs
+- Studios DB (directorio de estudios de videojuegos en Latinoamérica): https://gamedev.jorgesuarez.com.mx/database
+- Marketing Playbook (cómo vender tu juego y ganar visibilidad): https://gamedev.jorgesuarez.com.mx/marketing
+- El CV Perfecto (cómo crear un currículum para la industria de videojuegos): https://gamedev.jorgesuarez.com.mx/guides/cv
+
+## Directorio de herramientas de IA
+
+- Directorio de herramientas de IA para hacer videojuegos (arte, código, audio, voces, 3D, localización, QA y marketing), en español y gratis: https://gamedev.jorgesuarez.com.mx/ia/
+- Lista completa para modelos de lenguaje, con precio verificado y enlace oficial de cada herramienta: https://gamedev.jorgesuarez.com.mx/ia/llms.txt
+- Datos en JSON: https://gamedev.jorgesuarez.com.mx/ia/tools.json
+- Destacar una herramienta en el directorio (USD 49 al mes): https://gamedev.jorgesuarez.com.mx/ia/patrocina/

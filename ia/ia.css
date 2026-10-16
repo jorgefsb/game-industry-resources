@@ -273,3 +273,12 @@ footer.papacito-footer { display: block; border-top: 1px solid var(--line); padd
 .ia-modal__close:hover { border-color: var(--accent); }
 .ia-modal__lead { color: var(--text-secondary); margin-bottom: var(--sp-4); }
 @media (max-width: 480px) { .ia-modal { padding: var(--sp-5); } }
+
+/* Round 4: header and footer as on jorgesuarez.com.mx */
+.ico { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.btn--primary .ico { stroke: var(--on-accent); }
+.hud__cta { gap: var(--sp-2); }
+footer.foot { margin-top: var(--sp-7); padding-top: var(--sp-7); padding-bottom: calc(48px + env(safe-area-inset-bottom)); display: grid; gap: 6px; font-size: 13px; color: var(--text-secondary); }
+.foot__love { color: var(--text); font-size: 14px; }
+.foot__llms a { display: inline-flex; align-items: center; min-height: var(--tap); color: var(--text-secondary); font-size: 12px; }
+.foot__llms a:hover { color: var(--accent); }
