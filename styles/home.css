@@ -19,56 +19,24 @@
   color: var(--accent);
 }
 
-.home-chrome {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  background: rgba(10, 10, 10, .86);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-}
-
-.home-chrome .hud {
-  position: relative;
-  top: auto;
-  background: transparent;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-}
-
-.nav__home {
+.home-page .papacito-footer__signature {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-3);
-  min-height: var(--tap);
-  padding: 0 var(--gutter);
-  border-bottom: 1px solid var(--border);
+  gap: 4px 16px;
 }
 
-.home-lang-mobile {
-  display: none;
-}
-
-.site-home {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--tap);
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 16px;
-  letter-spacing: -0.01em;
-  color: var(--text-strong);
-  text-decoration: none;
+.foot-back {
+  color: var(--text-secondary);
   white-space: nowrap;
 }
 
-.site-home span {
+.foot-back span {
   color: var(--accent);
 }
 
-.site-home:hover,
-.site-home:focus-visible {
+.foot-back:hover,
+.foot-back:focus-visible {
   color: var(--accent);
 }
 
@@ -176,29 +144,20 @@ a.home-card {
   .home-actions .btn {
     width: 100%;
   }
-
-  .site-home {
-    font-size: 15px;
-  }
 }
 
 @media (max-width: 480px) {
-  .home-lang-mobile {
-    display: flex;
-  }
-
-  .home-lang-desktop {
-    display: none;
-  }
-
-  .home-chrome .hud {
+  .home-page .hud {
     gap: var(--sp-2);
+  }
+
+  .home-page .hud__right {
+    gap: 0;
   }
 }
 
 @media (max-width: 375px) {
   .home-page,
-  .home-chrome,
   .hud,
   .wrap,
   .home-grid,
@@ -206,7 +165,7 @@ a.home-card {
     max-width: 100%;
   }
 
-  .js-wordmark {
-    font-size: 15px;
+  .home-page .js-wordmark {
+    font-size: 14px;
   }
 }

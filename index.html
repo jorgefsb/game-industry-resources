@@ -32,38 +32,28 @@
 <body class="ia-page home-page">
   <a class="ia-skip" href="#resources" data-i18n="ui.skip">Ir a recursos</a>
 
-  <div class="home-chrome">
-    <div class="nav__home">
-      <a class="site-home" href="https://jorgesuarez.com.mx/" data-i18n="nav.home" aria-label="JorgeSuarez.com.mx">← JorgeSuarez<span>.com.mx</span></a>
-      <div class="lang-switcher home-lang-mobile" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+  <header class="hud" data-hud>
+    <a class="hud__brand" href="https://jorgesuarez.com.mx/" aria-label="JorgeSuarez.com.mx">
+      <span class="js-wordmark">JorgeSuarez<span>.com.mx</span></span>
+    </a>
+    <nav class="hud__nav" id="hud-nav" aria-label="Principal" data-i18n-aria="nav.label">
+      <a href="#resources" class="nav__link" aria-current="true" data-i18n="nav.resources">Recursos</a>
+      <a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a>
+      <a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs &amp; Career</a>
+      <a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a>
+      <a href="https://club.uetc.mx" target="_blank" rel="noopener" class="nav__link" data-i18n="nav.community">Comunidad</a>
+      <a class="hud__nav-cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+    </nav>
+    <div class="hud__right">
+      <div class="lang-switcher" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
         <a href="?lang=es" class="lang-btn" data-lang="es" lang="es">ES</a>
         <span aria-hidden="true">|</span>
         <a href="?lang=en" class="lang-btn" data-lang="en" lang="en">EN</a>
       </div>
+      <a class="btn btn--primary btn--sm hud__cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+      <button class="hud__burger" type="button" aria-expanded="false" aria-controls="hud-nav" aria-label="Menú" data-i18n-aria="nav.menu"><span></span><span></span></button>
     </div>
-    <header class="hud" data-hud>
-      <a class="hud__brand" href="https://jorgesuarez.com.mx/" aria-label="JorgeSuarez.com.mx">
-        <span class="js-wordmark">JorgeSuarez<span>.com.mx</span></span>
-      </a>
-      <nav class="hud__nav" id="hud-nav" aria-label="Principal" data-i18n-aria="nav.label">
-        <a href="#resources" class="nav__link" aria-current="true" data-i18n="nav.resources">Recursos</a>
-        <a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a>
-        <a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs &amp; Career</a>
-        <a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a>
-        <a href="https://club.uetc.mx" target="_blank" rel="noopener" class="nav__link" data-i18n="nav.community">Comunidad</a>
-        <a class="hud__nav-cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
-      </nav>
-      <div class="hud__right">
-        <div class="lang-switcher home-lang-desktop" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
-          <a href="?lang=es" class="lang-btn" data-lang="es" lang="es">ES</a>
-          <span aria-hidden="true">|</span>
-          <a href="?lang=en" class="lang-btn" data-lang="en" lang="en">EN</a>
-        </div>
-        <a class="btn btn--primary btn--sm hud__cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
-        <button class="hud__burger" type="button" aria-expanded="false" aria-controls="hud-nav" aria-label="Menú" data-i18n-aria="nav.menu"><span></span><span></span></button>
-      </div>
-    </header>
-  </div>
+  </header>
 
   <main id="main">
     <header class="wrap home-hero">
@@ -128,7 +118,7 @@
       <li><a href="https://www.youtube.com/@jorgefsb" target="_blank" rel="noopener">YouTube</a></li>
       <li><a href="https://tiktok.com/@jorgesuarez.com.mx" target="_blank" rel="noopener">TikTok</a></li>
     </ul>
-    <p class="papacito-footer__signature"><span data-es="Hecho con amor ❤️🎮 por" data-en="Made with love ❤️🎮 by">Hecho con amor ❤️🎮 por</span> <a href="https://jorgesuarez.com.mx/">JorgeSuarez.com.mx</a></p>
+    <p class="papacito-footer__signature"><span data-es="Hecho con amor ❤️🎮 por" data-en="Made with love ❤️🎮 by">Hecho con amor ❤️🎮 por</span> <a href="https://jorgesuarez.com.mx/">JorgeSuarez.com.mx</a> <a class="foot-back" href="https://jorgesuarez.com.mx/" data-i18n="nav.home">← JorgeSuarez<span>.com.mx</span></a></p>
     <div class="papacito-footer__meta">
       <p data-es="Jorge Suárez | © 2026 | Built on our values of Kaizen &amp; Play." data-en="Jorge Suárez | © 2026 | Built on our values of Kaizen &amp; Play.">Jorge Suárez | © 2026 | Built on our values of Kaizen &amp; Play.</p>
       <p><a href="llms.txt" data-i18n="footer.llms">Para ChatGPT, Claude y Grok</a></p>
