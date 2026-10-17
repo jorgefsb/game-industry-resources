@@ -79,10 +79,18 @@ const css = readFileSync(join(dir, 'juice.css'), 'utf8');
 if (/setTimeout\([^)]{0,120}hap\(/.test(src + pub)) throw new Error('hap() must not run from setTimeout');
 if (/jz-tap[^\n]+around/.test(src)) throw new Error('jz-tap must not include around');
 if (!/isolation:isolate/.test(css)) throw new Error('core CSS must isolate card hosts');
+if (!/\.btn--primary/.test(css) || !/isolation:isolate;position:relative/.test(css)) {
+  throw new Error('core CSS must isolate animated buttons');
+}
+if (!/body>.jz-dot/.test(css) || !/host===d\.body/.test(src)) {
+  throw new Error('particles must host on isolation or the body overlay');
+}
+if (!/\.jz-stamp\{position:absolute/.test(css)) throw new Error('stamp must be absolute to avoid CLS');
 if (!/\.jz-stamp\{/.test(css) || !/\.jz-steps\{/.test(css) || !/\.jz-check\{/.test(css)) {
   throw new Error('core CSS must style check, stamp and steps');
 }
-if (!/o\.kind/.test(src)) throw new Error('play(haptics) must honor kind');
+if (!/o\.kind/.test(src) || !/hk=o\.kind/.test(src)) throw new Error('play(haptics) must honor kind first');
+if (!/!gest/.test(src)) throw new Error('hap() must require a user gesture');
 if (!/function kill\(/.test(src)) throw new Error('setLevel(off) must cancel via kill()');
 if (!/requestAnimationFrame\(function\(\)\{requestAnimationFrame/.test(src)) {
   throw new Error('stagger must use double rAF');

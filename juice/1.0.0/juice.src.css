@@ -1,6 +1,7 @@
 :root{--jz-dur-base:.2s;--jz-dur-slow:.32s;--jz-ease-out:cubic-bezier(.2,.8,.2,1);--jz-ease-pop:cubic-bezier(.34,1.56,.64,1);--jz-dur-flash:.25s;--jz-dur-ripple:.4s;--jz-dur-pop:.3s;--jz-dur-stamp:.25s}
-.jz-host,.ia-card,.home-card,.ia-sponsor__form{isolation:isolate;position:relative}
-.jz-dot{position:fixed;z-index:-1;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:1px;pointer-events:none;animation:jz-burst .56s var(--jz-ease-out) forwards}
+.jz-host,[class$=-card],.ia-sponsor__form,.btn--primary,[data-jz]{isolation:isolate;position:relative}
+.jz-dot{position:absolute;z-index:-1;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:1px;pointer-events:none;animation:jz-burst .56s var(--jz-ease-out) forwards}
+body>.jz-dot{position:fixed;z-index:45}
 @keyframes jz-burst{0%{transform:translate(0,0);opacity:1}100%{transform:translate(var(--dx),var(--dy));opacity:0}}
 @media(hover:hover) and (pointer:fine){
 html[data-jz-level=full] .jz-antic{transition:transform .12s var(--jz-ease-out)}
@@ -15,7 +16,7 @@ html[data-jz-off~=anticipation] .jz-antic:hover{transform:none}
 .jz-held{transform:scale(.94,1.04);transition:transform 40ms var(--jz-ease-out)}
 @keyframes juice-press{0%{transform:scale(1)}40%{transform:scale(.94,1.04)}100%{transform:scale(1)}}
 .juice-press{animation:juice-press var(--jz-dur-base) var(--jz-ease-pop)}
-@keyframes juice-shake{0%,100%{transform:translateX(0)}8.333%{transform:translateX(-4px)}25%{transform:translateX(4px)}41.667%{transform:translateX(-4px)}58.333%{transform:translateX(4px)}75%{transform:translateX(-4px)}91.667%{transform:translateX(4px)}}
+@keyframes juice-shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-4px)}40%{transform:translateX(4px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
 .juice-shake{animation:juice-shake 280ms var(--jz-ease-out)}
 .jz-glow,.jz-ripple-clip{position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none}
 .jz-glow{opacity:0;box-shadow:0 0 0 3px rgba(255,107,53,.55),0 0 18px 6px rgba(255,107,53,.8)}
@@ -32,9 +33,10 @@ html[data-jz-off~=anticipation] .jz-antic:hover{transform:none}
 @keyframes jz-pop{0%{transform:scale(0)}60%{transform:scale(var(--jz-peak,1.2))}100%{transform:scale(1)}}
 .jz-pop .jz-check{animation:jz-pop var(--jz-dur-pop) var(--jz-ease-out)}
 .jz-locked input,.jz-locked textarea,.jz-locked select{opacity:.6;cursor:not-allowed}
-.jz-stamp{position:relative;display:inline-block;align-self:start;width:max-content;margin:0 0 12px;padding:6px 16px;border:3px solid #FF6B35;border-radius:10px;background:#0A0A0A;color:#FF6B35;font:700 22px/1.1 sans-serif;letter-spacing:.04em;text-transform:uppercase;pointer-events:none;transform-origin:left top;animation:jz-stamp var(--jz-dur-stamp) cubic-bezier(.55,0,1,.45) both}
+.jz-host:has(.jz-steps):before,.ia-sponsor__form:before{content:"";display:block;height:50px}
+.jz-stamp{position:absolute;top:8px;left:16px;width:max-content;padding:6px 16px;border:3px solid #FF6B35;border-radius:10px;background:#0A0A0A;color:#FF6B35;font:700 22px/1.1 sans-serif;text-transform:uppercase;pointer-events:none;animation:jz-stamp var(--jz-dur-stamp) cubic-bezier(.55,0,1,.45) both}
 .jz-stamp__ring{position:absolute;inset:-3px;border:2px solid #FFA500;border-radius:inherit;opacity:0;animation:jz-ring .32s var(--jz-ease-out) var(--jz-dur-stamp) both}
 @keyframes jz-stamp{0%{transform:scale(3);opacity:0}100%{transform:scale(1);opacity:1}}
 @keyframes jz-ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.35);opacity:0}}
-@media(prefers-reduced-motion:reduce){.jz-antic:hover{transform:none!important}.jz-hop,.juice-press,.juice-shake,.jz-stamp,.jz-stamp__ring,.jz-pop .jz-check,.jz-dot{animation:none!important}}
-html[data-jz-level=off] .jz-antic:hover,html[data-jz-level=off] .jz-hop,html[data-jz-level=off] .jz-held,html[data-jz-level=off] .jz-stamp,html[data-jz-level=off] .jz-stamp__ring,html[data-jz-level=off] .jz-dot{transform:none;animation:none}
+@media(prefers-reduced-motion:reduce){:is(.jz-antic:hover,.jz-hop,.juice-press,.juice-shake,.jz-stamp,.jz-stamp__ring,.jz-pop .jz-check,.jz-dot,.is-hop img){transform:none!important;animation:none!important}}
+html[data-jz-level=off] :is(.jz-antic:hover,.jz-hop,.jz-held,.jz-stamp,.jz-stamp__ring,.jz-dot,.jz-pre,.jz-in,.is-hop img){transform:none;animation:none;transition:none}

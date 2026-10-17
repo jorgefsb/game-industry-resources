@@ -42,7 +42,7 @@
       e.preventDefault();
       var url = pay.href;
       jz.hold(pay);
-      setTimeout(function () { jz.rel(pay); jz.spray(pay, 'burst'); location.assign(url); }, jz.allowed('impact') ? jz.HOLD : 0);
+      setTimeout(function () { jz.rel(pay); jz.party(pay); jz.spray(pay, 'burst'); location.assign(url); }, jz.allowed('impact') ? jz.HOLD : 0);
       return;
     }
     var fb = t.closest('form .btn, form button[type="submit"]');
