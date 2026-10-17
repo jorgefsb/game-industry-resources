@@ -84,6 +84,8 @@ const SPONSOR_LIVE = true;
       'sp.site': 'Sitio web',
       'sp.email': 'Tu correo',
       'sp.pay': 'Pagar USD 49 al mes',
+      'sp.thanksTitle': '¡Gracias!',
+      'sp.thanksBody': 'Tu Destacado ya está pagado. Te escribimos en menos de 24 horas para activarlo.',
       'sp.payNote': 'Pago seguro con Stripe. Se renueva cada mes y cancelas cuando quieras.',
       'sp.note': '¿Prefieres hablar antes de pagar? Déjanos tus datos y te escribimos.',
       'sp.ok': 'Recibido. Te escribimos para activarlo.',
@@ -171,6 +173,8 @@ const SPONSOR_LIVE = true;
       'sp.site': 'Website',
       'sp.email': 'Your email',
       'sp.pay': 'Pay USD 49/month',
+      'sp.thanksTitle': 'Thanks!',
+      'sp.thanksBody': 'Your Featured listing is paid. We\u2019ll email you within 24 hours to activate it.',
       'sp.payNote': 'Secure checkout with Stripe. Renews monthly, cancel anytime.',
       'sp.note': 'Rather talk before paying? Leave your details and we\u2019ll email you.',
       'sp.ok': 'Got it. We\u2019ll email you to activate it.',
@@ -276,6 +280,10 @@ const SPONSOR_LIVE = true;
     modal.querySelector('[data-submit-close]').addEventListener('click', close);
     modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
   })();
+
+  /* Thank-you banner after Stripe checkout redirects to ?gracias=1. */
+  const thanks = document.querySelector('[data-thanks]');
+  if (thanks && new URLSearchParams(location.search).get('gracias') === '1') thanks.hidden = false;
 
   /* Sponsor checkout: only used once SPONSOR_LIVE is true. */
   if (SPONSOR_LIVE) {
