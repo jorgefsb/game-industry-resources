@@ -290,6 +290,9 @@ footer.papacito-footer { display: block; border-top: 1px solid var(--line); padd
 .hud__cta { gap: var(--sp-2); }
 footer.foot { margin-top: var(--sp-7); padding-top: var(--sp-7); padding-bottom: calc(48px + env(safe-area-inset-bottom)); display: grid; gap: 6px; font-size: 13px; color: var(--text-secondary); }
 .foot__love { color: var(--text); font-size: 14px; }
+.foot__home { display: inline-flex; align-items: center; min-height: var(--tap); font-family: var(--display); font-weight: 700; color: var(--text-strong); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.foot__home span { color: var(--accent); }
+.foot__home:hover, .foot__home:focus-visible { color: var(--accent); }
 .foot__llms a { display: inline-flex; align-items: center; min-height: var(--tap); color: var(--text-secondary); font-size: 12px; }
 .foot__llms a:hover { color: var(--accent); }
 
