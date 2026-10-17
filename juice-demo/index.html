@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>juice.js 1.0.0 · demo | Jorge Suárez</title>
+  <meta name="description" content="Demo de juice.js 1.0.0: feedback de game-feel para la marca personal de Jorge Suárez.">
+  <link rel="canonical" href="https://gamedev.jorgesuarez.com.mx/juice-demo/">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="alternate" hreflang="es" href="https://gamedev.jorgesuarez.com.mx/juice-demo/">
+  <link rel="alternate" hreflang="en" href="https://gamedev.jorgesuarez.com.mx/juice-demo/?lang=en">
+  <link rel="preload" href="../ia/fonts/outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../ia/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../ia/tokens.css">
+  <link rel="stylesheet" href="../ia/ia.css">
+  <link rel="stylesheet" href="../juice/1.0.0/juice.css">
+  <link rel="stylesheet" href="../juice/1.0.0/juice-menu.css">
+  <link rel="stylesheet" href="demo.css">
+  <link rel="icon" href="../ia/assets/moki-parche-derecho.png" type="image/png">
+</head>
+<body class="ia-page jz-demo">
+  <a class="ia-skip" href="#demo" data-es="Ir a la demo" data-en="Skip to demo">Ir a la demo</a>
+
+  <header class="hud" data-hud>
+    <a class="hud__brand" href="https://jorgesuarez.com.mx/" aria-label="JorgeSuarez.com.mx">
+      <span class="js-wordmark">JorgeSuarez<span>.com.mx</span></span>
+    </a>
+    <nav class="hud__nav" id="hud-nav" aria-label="Principal" data-es="Principal" data-en="Main">
+      <a href="../#resources" class="nav__link" aria-current="true" data-es="Recursos" data-en="Resources">Recursos</a>
+      <a href="../ia/" data-es="IA" data-en="AI">IA</a>
+      <a href="../jobs.html" data-es="Jobs &amp; Career" data-en="Jobs &amp; Career">Jobs &amp; Career</a>
+      <a href="../database.html" data-es="Studios DB" data-en="Studios DB">Studios DB</a>
+      <a href="https://club.uetc.mx" target="_blank" rel="noopener" data-es="Comunidad" data-en="Community">Comunidad</a>
+      <a class="hud__nav-cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-es="🎮 Únete a EGDC" data-en="🎮 Join EGDC">🎮 Únete a EGDC</a>
+    </nav>
+    <div class="hud__right">
+      <div class="lang-switcher" role="group" aria-label="Idioma" data-es="Idioma" data-en="Language">
+        <a href="?lang=es" class="lang-btn" data-lang="es" lang="es">ES</a>
+        <span aria-hidden="true">|</span>
+        <a href="?lang=en" class="lang-btn" data-lang="en" lang="en">EN</a>
+      </div>
+      <a class="btn btn--primary btn--sm hud__cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-es="🎮 Únete a EGDC" data-en="🎮 Join EGDC">🎮 Únete a EGDC</a>
+      <button type="button" class="juice-sfx" aria-pressed="false" aria-label="Activar sonido">🔇</button>
+      <button class="hud__burger" type="button" aria-expanded="false" aria-controls="hud-nav" aria-label="Menú" data-es="Menú" data-en="Menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="demo" class="wrap jz-main">
+    <header class="jz-hero">
+      <figure class="jz-hero__moki">
+        <span class="ia-moki-live jz-moki" data-jz-moki>
+          <img class="ia-moki" src="../ia/assets/moki-parche-derecho.webp" width="720" height="767" fetchpriority="high" alt="Moki, el astronauta de cartón naranja" data-es="Moki, el astronauta de cartón naranja" data-en="Moki, the orange cardboard astronaut">
+        </span>
+      </figure>
+      <div>
+        <p class="eyebrow">juice.js 1.0.0</p>
+        <h1 data-es="El juice de la marca, en un solo paquete." data-en="The brand juice, in one package.">El juice de la marca, en un solo paquete.</h1>
+        <p class="lead" data-es="Feedback extra que hace que una acción se sienta viva. Primero va la acción; el juice se apaga solo." data-en="Extra feedback that makes an action feel alive. The action comes first; juice turns itself down.">Feedback extra que hace que una acción se sienta viva. Primero va la acción; el juice se apaga solo.</p>
+      </div>
+    </header>
+
+    <section class="jz-board" aria-labelledby="live-title">
+      <h2 id="live-title" data-es="Nivel en vivo" data-en="Live level">Nivel en vivo</h2>
+      <p data-es="Cambia el nivel aquí o en el menú Juice del header. Discreto es el default." data-en="Change the level here or in the header Juice menu. Subtle is the default.">Cambia el nivel aquí o en el menú Juice del header. Discreto es el default.</p>
+      <div class="jz-live" role="group" aria-label="Nivel">
+        <button type="button" class="btn btn--ghost" data-set-level="off" data-es="Apagado" data-en="Off">Apagado</button>
+        <button type="button" class="btn btn--ghost" data-set-level="subtle" data-es="Discreto" data-en="Subtle">Discreto</button>
+        <button type="button" class="btn btn--ghost" data-set-level="full" data-es="Completo" data-en="Full">Completo</button>
+      </div>
+      <p class="jz-now" data-jz-now></p>
+    </section>
+
+    <section class="jz-grid" aria-labelledby="tech-title">
+      <h2 id="tech-title" data-es="Seis técnicas de Unite + presets" data-en="Six Unite techniques + presets">Seis técnicas de Unite + presets</h2>
+
+      <article class="jz-card jz-host">
+        <h3>1. Anticipation</h3>
+        <p class="jz-card__why" data-es="El botón se prepara: −2 px y scale 1.02. Solo mouse fino. En Discreto, la mitad." data-en="The button readies: −2 px and scale 1.02. Fine pointer only. Half strength in Subtle.">El botón se prepara: −2 px y scale 1.02. Solo mouse fino. En Discreto, la mitad.</p>
+        <button type="button" class="btn btn--primary jz-try" data-jz="jz-tap" data-es="Pruébalo" data-en="Try it">Pruébalo</button>
+      </article>
+
+      <article class="jz-card jz-host">
+        <h3>2. Around</h3>
+        <p class="jz-card__why" data-es="4–6 chispas nacen en el borde y salen 16 px. Solo Completo. Nunca sobre el texto." data-en="4–6 sparks start at the edge and move 16 px out. Full only. Never over text.">4–6 chispas nacen en el borde y salen 16 px. Solo Completo. Nunca sobre el texto.</p>
+        <button type="button" class="btn btn--primary jz-try" data-jz="around+tap" data-es="Pruébalo" data-en="Try it">Pruébalo</button>
+      </article>
+
+      <article class="jz-card jz-host">
+        <h3>3. Stagger</h3>
+        <p class="jz-card__why" data-es="Entran a 30 ms, máx 8, total ≤300 ms. Menú al abrir; listas solo en el primer render." data-en="They enter 30 ms apart, max 8, total ≤300 ms. Menus on open; lists on first render only.">Entran a 30 ms, máx 8, total ≤300 ms. Menú al abrir; listas solo en el primer render.</p>
+        <button type="button" class="btn btn--primary jz-try" data-stagger-demo data-es="Pruébalo" data-en="Try it">Pruébalo</button>
+        <ul class="jz-dots" data-jz-stagger-demo>
+          <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
+        </ul>
+      </article>
+
+      <article class="jz-card jz-host">
+        <h3>4. Foreshadow</h3>
+        <p class="jz-card__why" data-es="Moki se asoma una vez hacia el momento grande. Pose aprobada, sin espejo ni cara." data-en="Moki peeks once toward the big moment. Approved pose, no mirror, no face.">Moki se asoma una vez hacia el momento grande. Pose aprobada, sin espejo ni cara.</p>
+        <button type="button" class="btn btn--primary jz-try" data-jz="foreshadow+tap" data-es="Pruébalo" data-en="Try it">Pruébalo</button>
+      </article>
+
+      <article class="jz-card jz-host">
+        <h3>5. Effects stack</h3>
+        <p class="jz-card__why" data-es="Un feedback es una lista con nombre. data-jz o JZ.play. La pila se encoge sola." data-en="A feedback is a named list. data-jz or JZ.play. The stack shrinks on its own.">Un feedback es una lista con nombre. data-jz o JZ.play. La pila se encoge sola.</p>
+        <button type="button" class="btn btn--primary jz-try" data-jz="press+flash+ripple+tap" data-es="Pruébalo" data-en="Try it">Pruébalo</button>
+      </article>
+
+      <article class="jz-card jz-host">
+        <h3>6. Haptics</h3>
+        <p class="jz-card__why" data-es="Vibra solo en Completo y dentro del toque. Tap 10 ms. Si no hay API, no pasa nada." data-en="Vibrates only on Full, inside the tap. Tap 10 ms. Unsupported browsers stay quiet.">Vibra solo en Completo y dentro del toque. Tap 10 ms. Si no hay API, no pasa nada.</p>
+        <button type="button" class="btn btn--primary jz-try" data-jz="tap+haptics" data-es="Pruébalo" data-en="Try it">Pruébalo</button>
+      </article>
+
+      <article class="jz-card jz-host">
+        <h3>jz-tap</h3>
+        <p class="jz-card__why" data-es="press + flash + ripple + sonido tap." data-en="press + flash + ripple + tap sound.">press + flash + ripple + sonido tap.</p>
+        <button type="button" class="btn btn--primary jz-try" data-jz="jz-tap" data-es="Pruébalo" data-en="Try it">Pruébalo</button>
+      </article>
+
+      <article class="jz-card jz-host" data-jz-stamp>
+        <h3>jz-success</h3>
+        <p class="jz-card__why" data-es="impact, check, burst, stamp, hop de Moki, sonido de éxito." data-en="impact, check, burst, stamp, Moki hop, success sound.">impact, check, burst, stamp, hop de Moki, sonido de éxito.</p>
+        <ol class="jz-steps">
+          <li class="jz-ok"><span class="jz-check">✓</span><span data-es="Paso" data-en="Step">Paso</span></li>
+        </ol>
+        <button type="button" class="btn btn--primary jz-try" data-jz="jz-success" data-es="Pruébalo" data-en="Try it">Pruébalo</button>
+      </article>
+
+      <article class="jz-card jz-host">
+        <h3>jz-error</h3>
+        <p class="jz-card__why" data-es="Shake, sonido de error y texto que dice qué pasó." data-en="Shake, error sound, and text that says what happened.">Shake, sonido de error y texto que dice qué pasó.</p>
+        <button type="button" class="btn btn--primary jz-try" data-jz="jz-error" data-es="Pruébalo" data-en="Try it">Pruébalo</button>
+        <p class="jz-err" role="status" aria-live="polite"></p>
+      </article>
+
+      <article class="jz-card jz-host">
+        <h3>jz-pay</h3>
+        <p class="jz-card__why" data-es="Pausa de impacto, party una vez, hop y éxito. No es el botón de Stripe." data-en="Impact pause, party once, hop and success. Not the Stripe button.">Pausa de impacto, party una vez, hop y éxito. No es el botón de Stripe.</p>
+        <button type="button" class="btn btn--primary jz-try" data-jz="jz-pay" data-es="Pruébalo" data-en="Try it">Pruébalo</button>
+      </article>
+    </section>
+
+    <section class="jz-pair" aria-labelledby="vs-title">
+      <h2 id="vs-title" data-es="Vainilla vs jugoso" data-en="Vanilla vs juicy">Vainilla vs jugoso</h2>
+      <div class="jz-pair__grid">
+        <article class="jz-card">
+          <h3 data-es="Vainilla" data-en="Vanilla">Vainilla</h3>
+          <p class="jz-card__why" data-es="La misma acción, sin pila." data-en="The same action, no stack.">La misma acción, sin pila.</p>
+          <button type="button" class="btn btn--ghost" data-vanilla data-es="Enviar" data-en="Send">Enviar</button>
+          <p class="jz-err" data-vanilla-status role="status"></p>
+        </article>
+        <article class="jz-card jz-host" data-jz-stamp>
+          <h3 data-es="Jugoso" data-en="Juicy">Jugoso</h3>
+          <p class="jz-card__why" data-es="La misma acción, con jz-success." data-en="The same action, with jz-success.">La misma acción, con jz-success.</p>
+          <ol class="jz-steps"><li><span class="jz-check">✓</span><span data-es="Envío" data-en="Send">Envío</span></li></ol>
+          <button type="button" class="btn btn--primary jz-try" data-jz="jz-success" data-es="Enviar" data-en="Send">Enviar</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="jz-play" aria-labelledby="cfg-title">
+      <h2 id="cfg-title" data-es="Interruptor del sitio" data-en="Site switch">Interruptor del sitio</h2>
+      <p data-es="El sitio solo puede bajar el juice. Desmarca para escribir data-jz-off y JZ_CONFIG." data-en="A site can only turn juice down. Uncheck to write data-jz-off and JZ_CONFIG.">El sitio solo puede bajar el juice. Desmarca para escribir data-jz-off y JZ_CONFIG.</p>
+      <div class="jz-checks">
+        <label><input type="checkbox" data-cfg="haptics" checked> haptics</label>
+        <label><input type="checkbox" data-cfg="foreshadow" checked> foreshadow</label>
+        <label><input type="checkbox" data-cfg="around" checked> around</label>
+        <label><input type="checkbox" data-cfg="tilt" checked> tilt</label>
+        <label><input type="checkbox" data-cfg="stagger" checked> stagger</label>
+        <label><input type="checkbox" data-cfg="anticipation" checked> anticipation</label>
+        <label><input type="checkbox" data-cfg="burst" checked> burst</label>
+        <label><input type="checkbox" data-cfg="party" checked> party</label>
+      </div>
+      <pre class="jz-cfg" data-cfg-out></pre>
+    </section>
+  </main>
+
+  <footer class="wrap papacito-footer" aria-label="Créditos" data-es="Créditos" data-en="Credits">
+    <div class="papacito-footer__identity">
+      <a class="js-wordmark" href="https://jorgesuarez.com.mx/">JorgeSuarez<span>.com.mx</span></a>
+      <p data-es="Kaizen y Juego" data-en="Kaizen &amp; Play">Kaizen y Juego</p>
+    </div>
+    <ul class="ia-socials" aria-label="Redes" data-es="Redes" data-en="Social">
+      <li><a href="https://linkedin.com/in/yorgenmeister" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://x.com/jorgefsb" target="_blank" rel="noopener">X / Twitter</a></li>
+      <li><a href="https://github.com/jorgefsb" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+    <p class="papacito-footer__signature"><span data-es="Hecho con amor ❤️🎮 por" data-en="Made with love ❤️🎮 by">Hecho con amor ❤️🎮 por</span> <a href="https://jorgesuarez.com.mx/">JorgeSuarez.com.mx</a> <a class="foot-back" href="https://jorgesuarez.com.mx/">← JorgeSuarez<span>.com.mx</span></a></p>
+    <div class="papacito-footer__meta">
+      <p data-es="Jorge Suárez | © 2026 | Construido sobre nuestros valores de Kaizen y Juego." data-en="Jorge Suárez | © 2026 | Built on our values of Kaizen &amp; Play.">Jorge Suárez | © 2026 | Construido sobre nuestros valores de Kaizen y Juego.</p>
+      <p><a href="../" data-es="Volver a Game Resources" data-en="Back to Game Resources">Volver a Game Resources</a></p>
+    </div>
+  </footer>
+
+  <script src="../juice/1.0.0/juice.js" defer></script>
+  <script src="../juice/1.0.0/juice-menu.js" defer></script>
+  <script src="../scripts/juice.bind.js" defer></script>
+  <script src="demo.js" defer></script>
+</body>
+</html>
