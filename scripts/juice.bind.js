@@ -2,11 +2,29 @@
 (function (d) {
   'use strict';
   function J() { return window.JZ; }
+  (function mount() {
+    var sfx = d.querySelector('.juice-sfx');
+    var host = (sfx && sfx.parentNode) || d.querySelector('.hud__right');
+    if (!host || d.querySelector('.jz-dock')) return;
+    var dock = d.createElement('div');
+    dock.className = 'jz-dock';
+    if (sfx) host.insertBefore(dock, sfx); else host.appendChild(dock);
+    if (!sfx) { sfx = d.createElement('button'); sfx.type = 'button'; sfx.className = 'juice-sfx'; }
+    dock.appendChild(sfx);
+    dock.insertAdjacentHTML('beforeend', '<button type="button" class="jz-lvl" aria-expanded="false" aria-controls="jz-panel"></button><button type="button" class="jz-feel" aria-expanded="false" aria-controls="jz-panel"></button>');
+    var panel = d.createElement('div');
+    panel.className = 'jz-panel';
+    panel.id = 'jz-panel';
+    panel.hidden = true;
+    panel.innerHTML = '<p class="jz-panel__note" hidden></p><button type="button" class="juice-sfx jz-panel__sfx"></button><fieldset><legend data-jz-lab="juice">Juice</legend><label><input type="radio" name="jz-level" value="off"> <span data-jz-lab="off"></span></label><label><input type="radio" name="jz-level" value="subtle"> <span data-jz-lab="subtle"></span></label><label><input type="radio" name="jz-level" value="full"> <span data-jz-lab="full"></span></label></fieldset>';
+    dock.appendChild(panel);
+    if (window.JZ) window.JZ.paint();
+  })();
   var fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
   var F = 'input:not([type=hidden]):not([tabindex="-1"]),textarea,select';
   d.querySelectorAll('.btn--primary,.hud__cta,.hud__nav-cta,.home-card,.ia-card[href],a.ia-card,.jz-try').forEach(function (el) {
     var off = document.documentElement.getAttribute('data-jz-off') || '';
-    if (off.indexOf('anticipation') < 0) el.classList.add('jz-antic');
+    if (off.indexOf('anticipation') < 0 && !(window.JZ_CONFIG && window.JZ_CONFIG.anticipation === false)) el.classList.add('jz-antic');
   });
   d.addEventListener('focusin', function (e) {
     var jz = J(); if (jz && e.target.matches(F) && !e.target.closest('.ia-hp')) jz.look(e.target);
@@ -42,7 +60,7 @@
       e.preventDefault();
       var url = pay.href;
       jz.hold(pay);
-      setTimeout(function () { jz.rel(pay); jz.spray(pay, 'burst'); location.assign(url); }, jz.HOLD);
+      setTimeout(function () { jz.rel(pay); jz.spray(pay, 'burst'); location.assign(url); }, jz.allowed('impact') ? jz.HOLD : 0);
       return;
     }
     var fb = t.closest('form .btn, form button[type="submit"]');
@@ -78,10 +96,10 @@
       var b = (x.form && x.form.querySelector('button[type="submit"]')) || x.el;
       jz.hold(b);
       setTimeout(function () {
-        jz.rel(b); jz.snd('success'); jz.hap('success'); jz.spray(b, 'burst'); jz.hop(b);
+        jz.rel(b); jz.snd('success'); jz.spray(b, 'burst'); jz.hop(b);
         if (x.key === 'sp.ok') jz.stamp(x.form);
       }, jz.allowed('impact') ? jz.HOLD : 0);
-    } else if (!x.ok) { jz.snd('error'); jz.hap('error'); jz.shake(x.form || (x.el && x.el.closest('form'))); }
+    } else if (!x.ok) { jz.snd('error'); jz.shake(x.form || (x.el && x.el.closest('form'))); }
   });
   [].slice.call(d.querySelectorAll('[data-jz-steps]')).forEach(function (list) {
     var items = [].slice.call(list.querySelectorAll('[data-jz-step]'));
