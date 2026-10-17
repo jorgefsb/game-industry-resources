@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the /ia catalog and regenerate llms.txt from tools.json."""
+"""Validate the /ia catalog and regenerate llms.txt and llms-full.txt from tools.json."""
 from __future__ import annotations
 
 import html
@@ -70,18 +70,27 @@ def main() -> None:
             if FORBIDDEN.search(text):
                 fail(f"forbidden brand in {path}")
 
+    by_cat = {c["id"]: [] for c in data["categories"]}
+    for tool in tools:
+        by_cat[tool["category"]].append(tool)
+    write_llms(data, by_cat)
+    write_llms_full(data, tools, by_cat)
+    render_index(data)
+    print(f"OK: {len(tools)} tools, llms.txt and llms-full.txt written, index.html catalog + JSON-LD rendered")
+
+
+def write_llms(data: dict, by_cat: dict) -> None:
+    full = data.get("llmsFull") or "https://gamedev.jorgesuarez.com.mx/ia/llms-full.txt"
     lines = [
         "# Directorio de IA para indie game developers",
         f"# {data['url']}",
         f"# Machine-readable JSON: {data['json']}",
+        f"# Full catalog (ES+EN): {full}",
         f"# Updated: {data['updated']}",
         "# Language: Spanish first, English in tools.json",
         "# Pricing is included only when verified on the official site.",
         "",
     ]
-    by_cat = {c["id"]: [] for c in data["categories"]}
-    for tool in tools:
-        by_cat[tool["category"]].append(tool)
     for cat in data["categories"]:
         lines.append(f"## {cat['es']} / {cat['en']}")
         for tool in by_cat[cat["id"]]:
@@ -92,8 +101,49 @@ def main() -> None:
     lines.append("- Featured slot open. Makers can request it at https://gamedev.jorgesuarez.com.mx/ia/patrocina/ (USD 49 per month, cancel anytime).")
     lines.append("")
     (ROOT / "llms.txt").write_text("\n".join(lines), encoding="utf-8")
-    render_index(data)
-    print(f"OK: {len(tools)} tools, llms.txt written, index.html catalog + JSON-LD rendered")
+
+
+def write_llms_full(data: dict, tools: list, by_cat: dict) -> None:
+    """Plain-text UTF-8 catalog for ChatGPT, Claude and Grok. Keep in sync with tools.json."""
+    labels = data.get("pricingLabels") or {}
+    cat_by_id = {c["id"]: c for c in data["categories"]}
+    lines = [
+        "# Directorio de IA para indie game developers — catálogo completo",
+        f"# {data['url']}",
+        f"# Machine-readable JSON: {data['json']}",
+        f"# Short list: {data.get('llms') or 'https://gamedev.jorgesuarez.com.mx/ia/llms.txt'}",
+        f"# Updated: {data['updated']}",
+        "# Language: Spanish and English",
+        "# Pricing is included only when verified on the official site. Unverified prices: SIN DATO.",
+        "",
+        "## Destacados / Featured",
+        "Public sponsorship info from https://gamedev.jorgesuarez.com.mx/ia/patrocina/",
+        "- Listing the directory is free for developers. Tools pay.",
+        "- Featured slot: at the top of the directory, with the tool's logo and one line.",
+        "- Price: USD 49 per month. Cancel anytime.",
+        "- Request it at https://gamedev.jorgesuarez.com.mx/ia/patrocina/",
+        "",
+        f"## Catalog ({len(tools)} tools)",
+        "",
+    ]
+    for cat in data["categories"]:
+        lines.append(f"## {cat['es']} / {cat['en']}")
+        lines.append("")
+        for tool in by_cat[cat["id"]]:
+            if tool.get("pricing") and tool["pricing"] in labels:
+                lab = labels[tool["pricing"]]
+                price = f"{tool['pricing']} ({lab['es']} / {lab['en']})"
+            else:
+                price = "SIN DATO"
+            meta = cat_by_id[tool["category"]]
+            lines.append(f"### {tool['name']}")
+            lines.append(f"- URL: {tool['url']}")
+            lines.append(f"- Category: {meta['id']} ({meta['es']} / {meta['en']})")
+            lines.append(f"- Pricing: {price}")
+            lines.append(f"- ES: {tool['description']['es']}")
+            lines.append(f"- EN: {tool['description']['en']}")
+            lines.append("")
+    (ROOT / "llms-full.txt").write_text("\n".join(lines), encoding="utf-8")
 
 
 def esc(value: str) -> str:
