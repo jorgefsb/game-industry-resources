@@ -292,6 +292,7 @@ const SPONSOR_LIVE = false;
       status.textContent = s(key);
       status.classList.toggle('is-ok', !!ok);
       status.classList.toggle('is-error', !ok);
+      document.dispatchEvent(new CustomEvent('gamedev:form', { detail: { key: key, ok: !!ok, el: status, form: form } }));
     }
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
