@@ -1,0 +1,141 @@
+/* Juice v0 · Ratchet motion/sound spec. Additive. Transforms only (zero CLS). */
+
+:root {
+  --jz-dur-fast: 120ms;
+  --jz-dur-base: 200ms;
+  --jz-dur-slow: 320ms;
+  --jz-ease-out: cubic-bezier(.2, .8, .2, 1);
+  --jz-ease-pop: cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.juice-sfx {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: var(--tap);
+  height: var(--tap);
+  min-height: var(--tap);
+  padding: 0 10px;
+  flex: none;
+  border: 1px solid rgba(255, 107, 53, .6);
+  border-radius: var(--r-control);
+  background: var(--surface);
+  color: var(--text-strong);
+  font: 400 14px/1 var(--body);
+  cursor: pointer;
+  transition: border-color var(--jz-dur-fast) var(--jz-ease-out), color var(--jz-dur-fast) var(--jz-ease-out);
+}
+
+.juice-sfx svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.juice-sfx__label { white-space: nowrap; }
+
+.juice-sfx[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.juice-sfx:hover {
+  border-color: var(--accent);
+}
+
+@media (max-width: 980px) {
+  .juice-sfx { width: var(--tap); padding: 0; }
+  .juice-sfx__label { display: none; }
+}
+
+/* The opaque sponsor form card hosts its own burst (see BURST_HOSTS in juice.js). */
+.ia-sponsor__form { isolation: isolate; }
+
+/* Particles sit behind page content (z-index -1 in the root stacking context)
+   and start outside the button edge, flying away from it. They never cover text. */
+.juice-dot {
+  position: fixed;
+  z-index: -1;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 1px;
+  pointer-events: none;
+  animation: juice-burst 560ms var(--jz-ease-out) forwards;
+}
+
+@keyframes juice-burst {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  60% { transform: translate(calc(var(--dx) * .8), calc(var(--dy) * .8)) scale(.9); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(.3); opacity: 0; }
+}
+
+@keyframes juice-press {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.94, 1.04); }
+  100% { transform: scale(1); }
+}
+
+.juice-press {
+  animation: juice-press var(--jz-dur-base) var(--jz-ease-pop);
+}
+
+/* Exactly 3 cycles in 280ms at ±4px: each cycle is -4px then +4px (6 peaks). */
+@keyframes juice-shake {
+  0%, 100% { transform: translateX(0); }
+  8.333% { transform: translateX(-4px); }
+  25% { transform: translateX(4px); }
+  41.667% { transform: translateX(-4px); }
+  58.333% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  91.667% { transform: translateX(4px); }
+}
+
+.juice-shake {
+  animation: juice-shake 280ms var(--jz-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ia-page .ia-card,
+  .home-page .home-card {
+    transition: border-color var(--jz-dur-fast) var(--jz-ease-out);
+  }
+
+  .ia-page .ia-card:hover,
+  .home-page .home-card:hover {
+    border-color: rgba(255, 107, 53, .55);
+  }
+}
+
+/* Small screens: every header control gets its own 44px slot with a gap, nothing overlaps. */
+@media (max-width: 480px) {
+  .hud { gap: 8px; padding-inline: 16px; }
+  .hud .js-wordmark { font-size: 14px; }
+  .hud .hud__right { gap: 6px; flex-shrink: 0; }
+  .hud .lang-switcher { gap: 4px; }
+  .hud .lang-switcher > span[aria-hidden="true"] { display: none; }
+  .hud .lang-switcher a,
+  .hud .juice-sfx,
+  .hud .hud__burger { width: 44px; min-width: 44px; height: 44px; flex: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .juice-dot,
+  .juice-press,
+  .juice-shake {
+    animation: none !important;
+  }
+
+  .ia-page .ia-card,
+  .home-page .home-card,
+  .ia-page .ia-card:hover,
+  .home-page .home-card:hover {
+    transform: none !important;
+  }
+}

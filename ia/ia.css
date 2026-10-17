@@ -108,8 +108,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .ia-hero__moki { position: relative; justify-self: center; width: min(100%, 400px); }
 .ia-hero__moki .ia-moki-live { width: 100%; }
 .ia-moki { width: 100%; transform-origin: 50% 90%; }
-.ia-bubble { position: absolute; top: 2%; right: -4%; z-index: 2; background: var(--paper); color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 16px; line-height: 1.25; padding: 10px 16px; border-radius: 16px 16px 4px 16px; max-width: 180px; box-shadow: 0 6px 0 rgba(0,0,0,.35); animation: ia-pop 320ms var(--ease) 400ms both; }
-@keyframes ia-pop { from { opacity: 0; transform: translateY(8px) scale(.94); } to { opacity: 1; transform: none; } }
+.ia-bubble { position: absolute; top: 2%; right: -4%; z-index: 2; background: var(--paper); color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 16px; line-height: 1.25; padding: 10px 16px; border-radius: 16px 16px 4px 16px; max-width: 180px; box-shadow: 0 6px 0 rgba(0,0,0,.35); }
 @media (max-width: 760px) {
   .ia-hero { grid-template-columns: 1fr; gap: var(--sp-4); padding-top: var(--sp-6); padding-bottom: var(--sp-6); }
   .ia-hero__moki { order: -1; width: 170px; justify-self: start; margin-left: 4px; }
@@ -293,12 +292,11 @@ footer.foot { margin-top: var(--sp-7); padding-top: var(--sp-7); padding-bottom:
 .foot__llms a { display: inline-flex; align-items: center; min-height: var(--tap); color: var(--text-secondary); font-size: 12px; }
 .foot__llms a:hover { color: var(--accent); }
 
-/* Moki alive: float + breathe (~4s), visor blink, hop on hover/tap.
-   Transform and opacity only. Never mirrored. No face on the visor. */
+/* Moki: static by default. The only reaction is a 320ms vertical hop on tap.
+   Translate only: never rotated, mirrored or scaled. Approved asset only, black visor, no face. */
 .ia-moki-live {
   position: relative;
   display: inline-block;
-  transform-origin: 50% 90%;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
@@ -306,38 +304,13 @@ footer.foot { margin-top: var(--sp-7); padding-top: var(--sp-7); padding-bottom:
   display: block;
   width: 100%;
   height: auto;
-  animation: ia-moki-breathe 4s ease-in-out infinite;
-}
-.ia-moki-live--r6 { transform: rotate(6deg); }
-.ia-moki-live--r8 { transform: rotate(8deg); }
-.ia-moki-live--l8 { transform: rotate(-8deg); }
-.ia-moki-live::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: rgba(10, 10, 10, .55);
-  clip-path: ellipse(13.5% 11.5% at 61.5% 28.5%);
-  opacity: 0;
-  animation: ia-moki-blink 5.4s ease-in-out infinite;
-}
-@keyframes ia-moki-breathe {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-7px) scale(1.025); }
-}
-@keyframes ia-moki-blink {
-  0%, 84%, 91%, 100% { opacity: 0; }
-  86%, 89% { opacity: 1; }
 }
 @keyframes ia-moki-hop {
-  0% { transform: translateY(0) scale(1); }
-  38% { transform: translateY(-12px) scale(1.04); }
-  100% { transform: translateY(0) scale(1); }
+  0%, 100% { transform: translateY(0); }
+  45% { transform: translateY(-12px); }
 }
-.ia-hero__moki:hover .ia-moki-live { transform: rotate(-4deg); }
-.ia-moki-live:hover img,
 .ia-moki-live.is-hop img {
-  animation: ia-moki-hop 460ms cubic-bezier(0.23, 1, 0.32, 1);
+  animation: ia-moki-hop 320ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* Live sponsor checkout */
