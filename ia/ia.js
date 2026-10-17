@@ -461,18 +461,4 @@ const SPONSOR_LIVE = true;
 
   applyStatic();
   document.addEventListener('gamedev:lang', () => { applyStatic(); renderAll(); });
-
-  /* Moki hop on tap. CSS owns the motion; this only toggles a class. Off / reduced-motion: still. */
-  document.querySelectorAll('.ia-moki-live').forEach((el) => {
-    el.addEventListener('click', () => {
-      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      if (window.JZ && window.JZ.level === 'off') return;
-      el.classList.remove('is-hop');
-      void el.offsetWidth;
-      el.classList.add('is-hop');
-    });
-    el.addEventListener('animationend', (e) => {
-      if (e.animationName === 'ia-moki-hop') el.classList.remove('is-hop');
-    });
-  });
 })();

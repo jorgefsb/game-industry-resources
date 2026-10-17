@@ -90,7 +90,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .hud__cta { display: none; }
   .hud__right { gap: var(--sp-2); }
 }
-@media (max-width: 480px) { .js-wordmark { font-size: 16px; } .lang-switcher { gap: 0; } }
+@media (max-width: 480px) {
+  .hud { gap: 8px; padding-inline: 16px; }
+  .js-wordmark { font-size: 14px; }
+  .hud__right { gap: 6px; flex-shrink: 0; }
+  .lang-switcher { gap: 4px; }
+  .lang-switcher > span[aria-hidden="true"] { display: none; }
+  .lang-switcher a, .hud__burger { width: 44px; min-width: 44px; height: 44px; flex: none; }
+}
 
 /* Hero */
 .ia-hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(220px, .75fr); gap: var(--sp-7); align-items: center; padding-top: var(--sp-8); padding-bottom: var(--sp-7); }
@@ -262,7 +269,6 @@ footer.papacito-footer { display: block; border-top: 1px solid var(--line); padd
   .ia-hero__moki:hover .ia-moki,
   .ia-hero__moki:hover .ia-moki-live,
   .ia-moki-live:hover img,
-  .ia-moki-live.is-hop img,
   .ia-moki-live img,
   .ia-card:hover { transform: none; }
 }
@@ -296,25 +302,18 @@ footer.foot { margin-top: var(--sp-7); padding-top: var(--sp-7); padding-bottom:
 .foot__llms a { display: inline-flex; align-items: center; min-height: var(--tap); color: var(--text-secondary); font-size: 12px; }
 .foot__llms a:hover { color: var(--accent); }
 
-/* Moki: static by default. The only reaction is a 320ms vertical hop on tap.
-   Translate only: never rotated, mirrored or scaled. Approved asset only, black visor, no face. */
+/* Moki: static by default. Hop lives in juice/1.0.0 (jz-hop). Look() uses this transform. */
 .ia-moki-live {
   position: relative;
   display: inline-block;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  transition: transform 200ms cubic-bezier(.2, .8, .2, 1);
 }
 .ia-moki-live img {
   display: block;
   width: 100%;
   height: auto;
-}
-@keyframes ia-moki-hop {
-  0%, 100% { transform: translateY(0); }
-  45% { transform: translateY(-12px); }
-}
-.ia-moki-live.is-hop img {
-  animation: ia-moki-hop 320ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* Live sponsor checkout */

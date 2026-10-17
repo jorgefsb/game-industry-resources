@@ -16,17 +16,4 @@
       }
     });
   }
-
-  document.querySelectorAll('.ia-moki-live').forEach(function (el) {
-    el.addEventListener('click', function () {
-      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      if (window.JZ && window.JZ.level === 'off') return;
-      el.classList.remove('is-hop');
-      void el.offsetWidth;
-      el.classList.add('is-hop');
-    });
-    el.addEventListener('animationend', function (e) {
-      if (e.animationName === 'ia-moki-hop') el.classList.remove('is-hop');
-    });
-  });
 })();
