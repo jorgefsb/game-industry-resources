@@ -4,8 +4,11 @@
 
   var KEY = 'gamedev_sfx';
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var saved = localStorage.getItem(KEY);
-  var enabled = saved === 'on' || (saved !== 'off' && !reduce);
+  /* Sound is OFF by default for everyone. It only plays after the person turns it on;
+     a saved choice in localStorage is always respected. */
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (err) { saved = null; }
+  var enabled = saved === 'on';
   var ctx = null;
   var master = null;
   var COLORS = ['#FF6B35', '#FFA500', '#F4E8D5'];
@@ -80,7 +83,7 @@
 
   function setEnabled(on) {
     enabled = !!on;
-    localStorage.setItem(KEY, enabled ? 'on' : 'off');
+    try { localStorage.setItem(KEY, enabled ? 'on' : 'off'); } catch (err) { /* private mode: keep it for this page only */ }
     paintToggle(document.querySelector('.juice-sfx'));
     if (enabled) audio();
     else if (ctx && ctx.state === 'running') ctx.suspend();
