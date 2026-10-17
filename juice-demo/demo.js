@@ -25,7 +25,9 @@
     document.documentElement.lang = l;
     try { localStorage.setItem('gamedev_lang', l); } catch (e) {}
     document.querySelectorAll('[data-es][data-en]').forEach(function (el) {
-      el.innerHTML = el.getAttribute('data-' + l);
+      var text = el.getAttribute('data-' + l);
+      if (el.hasAttribute('aria-label')) el.setAttribute('aria-label', text);
+      if (!el.firstElementChild) el.innerHTML = text;
     });
     document.querySelectorAll('.lang-btn').forEach(function (a) {
       a.classList.toggle('active', a.getAttribute('data-lang') === l);

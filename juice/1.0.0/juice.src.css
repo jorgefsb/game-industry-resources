@@ -36,7 +36,7 @@ html[data-jz-off~=anticipation] .jz-antic:hover{transform:none}
 .jz-pop .jz-check{animation:jz-pop var(--jz-dur-pop) var(--jz-ease-out)}
 .jz-locked input,.jz-locked textarea,.jz-locked select{opacity:.6}
 [data-jz-stamp]>:is(h1,h2,h3){padding-right:126px;text-wrap:balance}
-.jz-stamp{position:absolute;top:8px;right:16px;padding:6px 16px;border:3px solid #FF6B35;border-radius:10px;background:#0A0A0A;color:#FF6B35;font:700 22px/1.1 sans-serif;text-transform:uppercase;pointer-events:none;animation:jz-stamp var(--jz-dur-stamp) cubic-bezier(.55,0,1,.45) both}
+.jz-stamp{position:absolute;top:8px;right:16px;padding:6px 16px;border:3px solid #FF6B35;border-radius:10px;background:#0A0A0A;color:#FF6B35;font:700 22px/1.1 Outfit,sans-serif;text-transform:uppercase;pointer-events:none;animation:jz-stamp var(--jz-dur-stamp) cubic-bezier(.55,0,1,.45) both}
 .jz-stamp__ring{position:absolute;inset:-3px;border:2px solid #FFA500;border-radius:inherit;opacity:0;animation:jz-ring .32s var(--jz-ease-out) var(--jz-dur-stamp) both}
 @keyframes jz-stamp{0%{transform:scale(3);opacity:0}100%{transform:scale(1);opacity:1}}
 @keyframes jz-ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.35);opacity:0}}

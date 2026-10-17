@@ -1,5 +1,5 @@
 /* LEGACY unused. Live pages load /juice/1.0.0/ only. Keep as historical v7 reference. */
-/* Juice v0 · Ratchet motion/sound spec. Additive. Transforms only (zero CLS). */
+/* Juice v0 · motion/sound spec. Additive. Transforms only (zero CLS). */
 
 :root {
   --jz-dur-fast: 120ms;

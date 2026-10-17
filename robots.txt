@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /juice-demo/package.html
 
 User-agent: GPTBot
 Allow: /
