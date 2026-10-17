@@ -91,6 +91,16 @@ if (!/\.jz-stamp\{/.test(css) || !/\.jz-steps\{/.test(css) || !/\.jz-check\{/.te
 }
 if (!/o\.kind/.test(src) || !/hk=o\.kind/.test(src)) throw new Error('play(haptics) must honor kind first');
 if (!/!gest/.test(src)) throw new Error('hap() must require a user gesture');
+if (/arm\(\)\{[^}]*setTimeout/.test(src)) throw new Error('arm() must not clear gest before click');
+if (!/\[class\*=-card\]/.test(src) || !/\[class\*=-card\]/.test(css)) {
+  throw new Error('card hosts must use *= so jz-antic still matches');
+}
+if (/height:50px/.test(css) || /:has\(\.jz-steps\):before/.test(css)) {
+  throw new Error('stamp must not reserve a 50px strip');
+}
+if (!/rgba\(255,255,255,.15\)/.test(css)) throw new Error('jz-check border must be rgba(255,255,255,.15)');
+if (!/800\+\(Math\.random\(\)\*400/.test(src)) throw new Error('party duration must stay at or under 1.2s');
+if ((css.match(/translateX\(-4px\)/g) || []).length < 3) throw new Error('shake must be 3 cycles');
 if (!/function kill\(/.test(src)) throw new Error('setLevel(off) must cancel via kill()');
 if (!/requestAnimationFrame\(function\(\)\{requestAnimationFrame/.test(src)) {
   throw new Error('stagger must use double rAF');
@@ -98,6 +108,8 @@ if (!/requestAnimationFrame\(function\(\)\{requestAnimationFrame/.test(src)) {
 
 const bind = readFileSync(join(dir, '../../scripts/juice.bind.js'), 'utf8');
 if (/\.hap\(/.test(bind)) throw new Error('bind.js must not call hap()');
+if (/party\(pay\)|spray\(pay/.test(bind)) throw new Error('pay click must not party or spray');
+if (!/play\('jz-tap'/.test(bind)) throw new Error('pay click must play jz-tap');
 if (!/allowed\('impact'\) \? jz\.HOLD : 0/.test(bind)) {
   throw new Error('Stripe wait must be allowed(impact) ? HOLD : 0');
 }
@@ -108,3 +120,4 @@ if (/function mount\(/.test(bind) || /jz-dock/.test(bind)) {
 console.log((check ? 'ok' : 'wrote') + ' core', core, 'js', coreJs, 'css', coreCss, 'pack', pack, 'menu-js', menuJs, 'menu-css', menuCss);
 if (core >= 6000) throw new Error('core gzip -9 ' + core + ' B >= 6000');
 if (pack >= 8000) throw new Error('package gzip -9 ' + pack + ' B >= 8000');
+if (check) process.stdout.write(run('node', [join(dir, 'hap.test.mjs')]));

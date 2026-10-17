@@ -322,9 +322,11 @@ footer.foot { margin-top: var(--sp-7); padding-top: var(--sp-7); padding-bottom:
 @media (max-width: 640px) { .ia-pay .btn { width: 100%; } }
 
 /* Thank-you banner (?gracias=1) */
-.ia-thanks { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--sp-4); padding: var(--sp-5); background: #161616; border: 2px solid #FF6B35; border-radius: var(--r-panel); }
+.ia-thanks { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--sp-4); padding: var(--sp-5); background: #161616; border: 2px solid #FF6B35; border-radius: var(--r-panel); overflow: hidden; }
 .ia-thanks[hidden] { display: none; }
+.ia-thanks > * { position: relative; z-index: 1; }
 .ia-thanks__moki { width: 64px; height: auto; flex: none; }
+.ia-sponsor__form .jz-stamp { right: auto; left: 16px; }
 .ia-thanks__title { margin: 0; font-family: Outfit, var(--display); font-weight: 700; font-size: 24px; line-height: 1.2; color: var(--text-strong); }
 .ia-thanks__body { margin: 4px 0 0; font-family: Inter, var(--body); font-weight: 400; font-size: 16px; line-height: 1.5; color: var(--text); }
 @media (max-width: 640px) { .ia-thanks { padding: var(--sp-4); gap: var(--sp-3); } .ia-thanks__moki { width: 52px; } .ia-thanks__title { font-size: 20px; } }

@@ -37,12 +37,12 @@
     if (live) { jz.snd('tap'); jz.hop(live); return; }
     var pay = t.closest('[data-sponsor-cta]');
     if (pay && /^https:\/\/buy\.stripe\.com\//.test(pay.href || '')) {
-      jz.snd('tap');
+      jz.play('jz-tap', pay, { x: e.clientX, y: e.clientY });
       if (jz.red() || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || pay.target === '_blank') return;
       e.preventDefault();
       var url = pay.href;
       jz.hold(pay);
-      setTimeout(function () { jz.rel(pay); jz.party(pay); jz.spray(pay, 'burst'); location.assign(url); }, jz.allowed('impact') ? jz.HOLD : 0);
+      setTimeout(function () { jz.rel(pay); location.assign(url); }, jz.allowed('impact') ? jz.HOLD : 0);
       return;
     }
     var fb = t.closest('form .btn, form button[type="submit"]');
