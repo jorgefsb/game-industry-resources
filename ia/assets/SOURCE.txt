@@ -9,10 +9,6 @@ https://brandkit.jorgesuarez.com.mx/
 - moki-parche-derecho.webp
   Same official PNG, resized with ffmpeg for faster display. Geometry unchanged.
 
-- moki-ia-leccion.webp
-  https://brandkit.jorgesuarez.com.mx/assets/release-0.6/12-moki-ia-verificar-leccion.webp
-  Selected social application 12 · «Generar no es verificar».
-
 - jorgesuarez-wordmark-a.svg
   https://brandkit.jorgesuarez.com.mx/assets/masters-1.0/signature/JorgeSuarez-A-oscuro-bicolor.svg
   Signature A · bicolor for dark backgrounds.
