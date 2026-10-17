@@ -6,6 +6,16 @@
   --jz-dur-slow: 320ms;
   --jz-ease-out: cubic-bezier(.2, .8, .2, 1);
   --jz-ease-pop: cubic-bezier(.34, 1.56, .64, 1);
+  /* v7 · GMTK game-feel techniques */
+  --jz-dur-hold: 150ms;   /* impact pause, never more than 300ms */
+  --jz-dur-flash: 250ms;  /* 50ms flash, settles by 200ms after it */
+  --jz-dur-ripple: 400ms;
+  --jz-dur-pop: 300ms;
+  --jz-dur-stamp: 250ms;
+  --jz-ease-io: ease-in-out;
+  --jz-orange: #FF6B35;
+  --jz-amber: #FFA500;
+  --jz-cream: #F4E8D5;
 }
 
 .juice-sfx {
@@ -125,7 +135,160 @@
   .hud .hud__burger { width: 44px; min-width: 44px; height: 44px; flex: none; }
 }
 
+/* ---------- v7 · 1. Impact pause: held press ---------- */
+.jz-held {
+  transform: scale(0.94, 1.04);
+  transition: transform 40ms var(--jz-ease-out);
+}
+
+/* ---------- v7 · 2. Press flash + ripple (primary buttons) ----------
+   The button is its own stacking context: the glow (z-index -1) shows only
+   outside the edge, the ripple paints above the fill and below the label. */
+.btn--primary { position: relative; isolation: isolate; }
+
+.jz-glow,
+.jz-ripple-clip {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.jz-glow {
+  opacity: 0;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, .55), 0 0 18px 6px rgba(255, 107, 53, .8);
+}
+
+.jz-glow.is-on { animation: jz-flash var(--jz-dur-flash) linear; }
+
+@keyframes jz-flash {
+  0% { opacity: 0; }
+  20% { opacity: 1; }   /* 50ms flash */
+  100% { opacity: 0; }  /* settled 200ms later */
+}
+
+.jz-ripple-clip { overflow: hidden; }
+
+.jz-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--jz-cream);
+  opacity: 0;
+  transform: scale(0);
+  animation: jz-ripple var(--jz-dur-ripple) var(--jz-ease-out) forwards;
+}
+
+@keyframes jz-ripple {
+  0% { transform: scale(0); opacity: .4; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* ---------- v7 · 3. Escalating progress (form steps) ---------- */
+.jz-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.jz-steps li { display: inline-flex; align-items: center; gap: 8px; }
+
+.jz-check {
+  display: inline-grid;
+  place-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--border-strong);
+  color: transparent;
+  font: 700 13px/1 var(--display);
+}
+
+.jz-steps li.is-done { color: var(--text-strong); }
+
+.jz-steps li.is-done .jz-check {
+  background: var(--jz-orange);
+  border-color: var(--jz-orange);
+  color: var(--on-accent);
+}
+
+.jz-steps li.jz-pop .jz-check { animation: jz-pop var(--jz-dur-pop) var(--jz-ease-out); }
+
+@keyframes jz-pop {
+  0% { transform: scale(0); }
+  60% { transform: scale(var(--jz-peak, 1.2)); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- v7 · 4. Persistent done stamp ---------- */
+.jz-locked input { opacity: .6; cursor: not-allowed; }
+
+.jz-stamp {
+  position: absolute;
+  top: var(--sp-6);
+  left: var(--sp-6);
+  z-index: 2;
+  display: inline-block;
+  padding: 6px 16px;
+  border: 3px solid var(--jz-orange);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--jz-orange);
+  font: 700 22px/1.1 var(--display);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  pointer-events: none;
+  animation: jz-stamp var(--jz-dur-stamp) cubic-bezier(.55, 0, 1, .45) both;
+}
+
+.jz-stamp__ring {
+  position: absolute;
+  inset: -3px;
+  border: 2px solid var(--jz-amber);
+  border-radius: inherit;
+  opacity: 0;
+  animation: jz-ring 320ms var(--jz-ease-out) var(--jz-dur-stamp) both;
+}
+
+@keyframes jz-stamp {
+  0% { transform: scale(3); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes jz-ring {
+  0% { transform: scale(1); opacity: .7; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+@media (max-width: 560px) {
+  .jz-stamp { top: var(--sp-5); left: var(--sp-5); }
+}
+
+/* ---------- v7 · 5. Moki looks at the focused field ---------- */
+.ia-moki-live { transition: transform var(--jz-dur-base) var(--jz-ease-io); }
+
+/* ---------- v7 · 6. Payment confetti (WAAPI, behind content) ---------- */
+.jz-confetti {
+  position: fixed;
+  z-index: -1;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 1px;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .jz-held { transform: none; }
+  .jz-ripple, .jz-confetti { display: none; }
+  .ia-moki-live { transform: none !important; }
+  .jz-glow { transition: none; }
+
   .juice-dot,
   .juice-press,
   .juice-shake {
