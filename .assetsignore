@@ -1,0 +1,3 @@
+# Worker static assets: repo root is the ASSETS directory (binding ASSETS).
+# Wrangler will not upload paths that match these gitignore-style rules.
+__fixtures__/
