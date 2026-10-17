@@ -49,7 +49,7 @@ async function loadChromium() {
 const chromium = await loadChromium();
 const exe = chromePath();
 if (!chromium || !exe) {
-  console.warn('hap.test: no browser found, skip');
+  console.warn('hap.test: no browser — haptics test did NOT run');
   process.exit(0);
 }
 

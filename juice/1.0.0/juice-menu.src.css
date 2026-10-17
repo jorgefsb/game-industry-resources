@@ -2,7 +2,6 @@
 .juice-sfx:hover,.jz-lvl:hover,.jz-feel:hover{border-color:#FF6B35}
 .juice-sfx__label{white-space:nowrap}
 .juice-sfx[aria-pressed=true],.jz-lvl[aria-expanded=true],.jz-feel[aria-expanded=true]{border-color:#FF6B35;color:#FF6B35}
-.jz-host>h1,.jz-host>h2,.jz-host>h3{padding-right:8em}
 .jz-dock{position:relative;display:inline-flex;gap:8px}
 .jz-panel{position:absolute;top:calc(100% + 8px);right:0;z-index:50;width:min(280px,calc(100vw - 24px));padding:12px;border:1px solid rgba(255,255,255,.15);border-radius:12px;background:#161616;color:#F4E8D5}
 .jz-panel[hidden]{display:none}

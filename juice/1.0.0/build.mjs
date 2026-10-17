@@ -103,6 +103,21 @@ if (/height:50px/.test(css) || /:has\(\.jz-steps\):before/.test(css)) {
   throw new Error('stamp must not reserve a 50px strip');
 }
 if (!/rgba\(255,255,255,.15\)/.test(css)) throw new Error('jz-check border must be rgba(255,255,255,.15)');
+if (/font:700 13px/.test(css)) throw new Error('jz-check font shorthand without family is invalid');
+if (!/font-weight:700/.test(css) || !/font-size:13px/.test(css) || !/line-height:1/.test(css)) {
+  throw new Error('jz-check must use font-weight/size/line-height longhands');
+}
+if (!/\.jz-host:has\(\.jz-stamp\)/.test(css) || !/padding-right:126px/.test(css)) {
+  throw new Error('core CSS must pad stamped-card titles by the stamp width');
+}
+const menuCssSrc = readFileSync(join(dir, 'juice-menu.src.css'), 'utf8');
+const menuJsSrc = readFileSync(join(dir, 'juice-menu.src.js'), 'utf8');
+if (/padding-right:8em/.test(menuCssSrc) || /\.jz-host>h1/.test(menuCssSrc)) {
+  throw new Error('stamp title padding belongs in core CSS, only on stamped cards');
+}
+if (!/Sonido y juice/.test(menuJsSrc) || !/Movimiento reducido: apagado\./.test(menuJsSrc)) {
+  throw new Error('never trim menu accessibility text');
+}
 if (!/800\+\(Math\.random\(\)\*400/.test(src)) throw new Error('party duration must stay at or under 1.2s');
 if ((css.match(/translateX\(-4px\)/g) || []).length < 3) throw new Error('shake must be 3 cycles');
 if (!/function kill\(/.test(src)) throw new Error('setLevel(off) must cancel via kill()');
@@ -124,4 +139,7 @@ if (/function mount\(/.test(bind) || /jz-dock/.test(bind)) {
 console.log((check ? 'ok' : 'wrote') + ' core', core, 'js', coreJs, 'css', coreCss, 'pack', pack, 'menu-js', menuJs, 'menu-css', menuCss);
 if (core >= 6000) throw new Error('core gzip -9 ' + core + ' B >= 6000');
 if (pack >= 8000) throw new Error('package gzip -9 ' + pack + ' B >= 8000');
-if (check) process.stdout.write(run('node', [join(dir, 'hap.test.mjs')]));
+if (check) {
+  const hap = spawnSync('node', [join(dir, 'hap.test.mjs')], { stdio: 'inherit' });
+  if (hap.status !== 0) throw new Error('hap.test failed');
+}
