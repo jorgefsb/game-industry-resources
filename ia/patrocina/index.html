@@ -42,6 +42,13 @@
   </header>
 
   <main id="main" class="wrap ia-sponsor">
+    <div class="ia-thanks" role="status" hidden data-thanks>
+      <img class="ia-thanks__moki" src="../assets/moki-parche-derecho.webp" width="720" height="767" alt="" aria-hidden="true">
+      <div>
+        <p class="ia-thanks__title" data-t="sp.thanksTitle">¡Gracias!</p>
+        <p class="ia-thanks__body" data-t="sp.thanksBody">Tu Destacado ya está pagado. Te escribimos en menos de 24 horas para activarlo.</p>
+      </div>
+    </div>
     <section class="ia-sponsor__copy" aria-labelledby="sponsor-title">
       <p class="eyebrow"><span class="ia-badge" data-t="featured.badge">Destacado</span></p>
       <h1 id="sponsor-title" data-t="featured.title">Pon tu herramienta frente a gamedevs de Latinoamérica</h1>
@@ -50,6 +57,10 @@
         <li><span class="ia-plan__tag" data-t="sp.freeTag">Gratis</span><p data-t="sp.free">Directorio, búsqueda, filtros y boletín. Pagan las herramientas.</p></li>
         <li class="is-main"><span class="ia-plan__tag" data-t="featured.badge">Destacado</span><p data-t="sp.featured">Arriba de todo, con tu logo y una línea. USD 49 al mes. Cancelas cuando quieras.</p></li>
       </ul>
+      <div class="ia-pay">
+        <a class="btn btn--primary" href="#form-title" data-sponsor-cta data-t="sp.pay">Pagar USD 49 al mes</a>
+        <p class="ia-form__note" data-t="sp.payNote">Pago seguro con Stripe. Se renueva cada mes y cancelas cuando quieras.</p>
+      </div>
       <div class="ia-preview" aria-label="Así se ve el destacado" data-t-aria="sp.previewLabel">
         <p class="ia-preview__label" data-t="sp.previewLabel">Así se ve el destacado</p>
         <article class="ia-card ia-card--featured">
@@ -78,7 +89,7 @@
         <input id="f-email" name="email" type="email" required maxlength="254" autocomplete="email" inputmode="email">
         <div class="ia-hp" aria-hidden="true"><label for="f-company">Company</label><input id="f-company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
         <button class="btn btn--primary btn--block" type="submit" data-t="featured.cta">Quiero el destacado</button>
-        <p class="ia-form__note" data-t="sp.note">Sin cobro hoy. Pagas hasta que lo activemos.</p>
+        <p class="ia-form__note" data-t="sp.note">¿Prefieres hablar antes de pagar? Déjanos tus datos y te escribimos.</p>
         <p class="ia-form__status" role="status" aria-live="polite" data-status></p>
       </form>
       <a class="ia-back" href="../" data-t="sp.back">← Volver al directorio</a>
