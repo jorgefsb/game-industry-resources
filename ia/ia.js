@@ -88,6 +88,10 @@ const SPONSOR_LIVE = true;
       'sp.thanksBody': 'Tu Destacado ya está pagado. Te escribimos en menos de 24 horas para activarlo.',
       'sp.payNote': 'Pago seguro con Stripe. Se renueva cada mes y cancelas cuando quieras.',
       'sp.note': '¿Prefieres hablar antes de pagar? Déjanos tus datos y te escribimos.',
+      'sp.stepsLabel': 'Tu avance',
+      'sp.stepName': 'Nombre',
+      'sp.stepSite': 'Sitio',
+      'sp.stepEmail': 'Correo',
       'sp.ok': 'Recibido. Te escribimos para activarlo.',
       'sp.back': '← Volver al directorio',
       'alt.mokiHero': 'Moki, el astronauta de cartón naranja, listo para explorar',
@@ -177,6 +181,10 @@ const SPONSOR_LIVE = true;
       'sp.thanksBody': 'Your Featured listing is paid. We\u2019ll email you within 24 hours to activate it.',
       'sp.payNote': 'Secure checkout with Stripe. Renews monthly, cancel anytime.',
       'sp.note': 'Rather talk before paying? Leave your details and we\u2019ll email you.',
+      'sp.stepsLabel': 'Your progress',
+      'sp.stepName': 'Name',
+      'sp.stepSite': 'Website',
+      'sp.stepEmail': 'Email',
       'sp.ok': 'Got it. We\u2019ll email you to activate it.',
       'sp.back': '← Back to the directory',
       'alt.mokiHero': 'Moki, the orange cardboard astronaut, ready to explore',
@@ -332,7 +340,8 @@ const SPONSOR_LIVE = true;
         if (r.status === 429) return say('form.rate');
         const data = await r.json().catch(() => ({}));
         if (!r.ok || !data.ok) return say(data.error === 'email' ? 'form.badEmail' : data.error === 'site' ? 'form.badSite' : 'form.error');
-        form.reset();
+        /* The featured form stays filled and locks with a done stamp (juice.js). */
+        if (kind !== 'featured') form.reset();
         say(kind === 'featured' ? 'sp.ok' : kind === 'submit' ? 'submit.ok' : 'news.ok', true);
       } catch (_) {
         say('form.error');

@@ -1,4 +1,4 @@
-/* Juice v0 · Ratchet spec. Web Audio only. Sounds: tap, success, error. */
+/* Juice · Ratchet spec + GMTK game-feel techniques (v7). Web Audio only. Sounds: tap, success, error. */
 (function () {
   'use strict';
 
@@ -16,6 +16,8 @@
     es: { on: 'Silenciar', off: 'Activar sonido', stateOn: 'Sonido: sí', stateOff: 'Sonido: no' },
     en: { on: 'Mute sound', off: 'Turn sound on', stateOn: 'Sound: on', stateOff: 'Sound: off' }
   };
+  var DONE_LABEL = { es: 'Listo', en: 'Done' };
+  var HOLD_MS = 150; /* impact pause, never more than 300ms */
 
   function lang() {
     return document.documentElement.lang === 'en' ? 'en' : 'es';
@@ -159,6 +161,191 @@
     el.classList.add('juice-shake');
   }
 
+  /* ---------- 1. Impact pause: the button stays pressed, then the celebration. ---------- */
+  function hold(el) {
+    if (!el) return;
+    el.classList.remove('juice-press');
+    if (!reduce) el.classList.add('jz-held');
+  }
+  function release(el) {
+    if (el) el.classList.remove('jz-held');
+  }
+
+  /* ---------- 2. Press flash + ripple on primary buttons. ---------- */
+  function layer(btn, cls) {
+    var l = btn.querySelector(':scope > .' + cls);
+    if (!l) {
+      l = document.createElement('span');
+      l.className = cls;
+      l.setAttribute('aria-hidden', 'true');
+      btn.appendChild(l);
+    }
+    return l;
+  }
+  function flash(btn) {
+    var g = layer(btn, 'jz-glow');
+    if (reduce) {
+      /* No animation in reduced motion: the color still flashes in timed steps. */
+      g.style.opacity = '1';
+      setTimeout(function () { g.style.opacity = '.5'; }, 50);
+      setTimeout(function () { g.style.opacity = ''; }, 250);
+      return;
+    }
+    g.classList.remove('is-on');
+    void g.offsetWidth;
+    g.classList.add('is-on');
+  }
+  function ripple(btn, x, y) {
+    if (reduce) return;
+    var clip = layer(btn, 'jz-ripple-clip');
+    var r = btn.getBoundingClientRect();
+    var px = (x == null ? r.left + r.width / 2 : x) - r.left;
+    var py = (y == null ? r.top + r.height / 2 : y) - r.top;
+    var R = Math.max(Math.hypot(px, py), Math.hypot(r.width - px, py), Math.hypot(px, r.height - py), Math.hypot(r.width - px, r.height - py));
+    var dot = document.createElement('span');
+    dot.className = 'jz-ripple';
+    dot.style.left = (px - R) + 'px';
+    dot.style.top = (py - R) + 'px';
+    dot.style.width = dot.style.height = (2 * R) + 'px';
+    clip.appendChild(dot);
+    dot.addEventListener('animationend', function () { this.remove(); });
+  }
+  document.addEventListener('pointerdown', function (e) {
+    if (e.button !== 0) return;
+    var btn = e.target.closest('.btn--primary');
+    if (!btn || btn.disabled) return;
+    flash(btn);
+    ripple(btn, e.clientX, e.clientY);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var btn = e.target.closest && e.target.closest('.btn--primary');
+    if (!btn || btn.disabled) return;
+    flash(btn);
+    ripple(btn);
+  });
+
+  /* ---------- 3. Escalating progress on form steps. ---------- */
+  function stepDone(input) {
+    var v = (input.value || '').trim();
+    if (!v) return false;
+    if (input.type === 'email') return /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,24}$/.test(v);
+    if (input.type === 'url') return /^(https?:\/\/)?[^\s.\/]+\.[^\s]{2,}$/i.test(v);
+    return true;
+  }
+  document.querySelectorAll('[data-jz-steps]').forEach(function (list) {
+    var items = [].slice.call(list.querySelectorAll('[data-jz-step]'));
+    function refresh() {
+      items.forEach(function (li) {
+        var input = document.getElementById(li.getAttribute('data-jz-step'));
+        if (!input) return;
+        var done = stepDone(input);
+        var was = li.classList.contains('is-done');
+        if (done && !was) {
+          li.classList.add('is-done');
+          var count = items.filter(function (x) { return x.classList.contains('is-done'); }).length;
+          /* each successive step pops a little stronger: 1.2, 1.26, 1.32 */
+          li.style.setProperty('--jz-peak', String(1.2 + 0.06 * (count - 1)));
+          if (!reduce) {
+            li.classList.remove('jz-pop');
+            void li.offsetWidth;
+            li.classList.add('jz-pop');
+          }
+          play('tap');
+        } else if (!done && was) {
+          li.classList.remove('is-done', 'jz-pop');
+        }
+      });
+    }
+    var form = list.closest('form') || document;
+    form.addEventListener('input', refresh);
+    form.addEventListener('change', refresh);
+    refresh();
+  });
+
+  /* ---------- 4. Persistent done stamp after success. ---------- */
+  function lockWithStamp(form) {
+    if (!form || form.classList.contains('jz-locked')) return;
+    form.classList.add('jz-locked');
+    form.querySelectorAll('input, textarea, select').forEach(function (f) {
+      if (f.closest('.ia-hp')) return;
+      f.readOnly = true;
+      f.setAttribute('aria-readonly', 'true');
+    });
+    var submit = form.querySelector('button[type="submit"]');
+    if (submit) { submit.disabled = true; submit.setAttribute('aria-disabled', 'true'); }
+    var host = form.closest('.ia-sponsor__form') || form;
+    var stamp = document.createElement('span');
+    stamp.className = 'jz-stamp';
+    stamp.setAttribute('data-jz-stamp', '');
+    stamp.innerHTML = '<span class="jz-stamp__text"></span><span class="jz-stamp__ring" aria-hidden="true"></span>';
+    stamp.querySelector('.jz-stamp__text').textContent = DONE_LABEL[lang()];
+    host.appendChild(stamp);
+  }
+
+  /* ---------- 5. Moki looks at the focused field (focus only, max 5px). ---------- */
+  var FIELD = 'input:not([type="hidden"]):not([tabindex="-1"]), textarea, select';
+  function mokiLook(field) {
+    if (reduce) return;
+    var fr = field ? field.getBoundingClientRect() : null;
+    document.querySelectorAll('.ia-moki-live').forEach(function (m) {
+      if (!fr) { m.style.transform = ''; return; }
+      var mr = m.getBoundingClientRect();
+      if (!mr.width || mr.bottom < 0 || mr.top > innerHeight) { m.style.transform = ''; return; }
+      var vx = (fr.left + fr.width / 2) - (mr.left + mr.width / 2);
+      var vy = (fr.top + fr.height / 2) - (mr.top + mr.height / 2);
+      var len = Math.hypot(vx, vy);
+      if (len < 1) { m.style.transform = ''; return; }
+      m.style.transform = 'translate(' + (5 * vx / len).toFixed(2) + 'px, ' + (5 * vy / len).toFixed(2) + 'px)';
+    });
+  }
+  document.addEventListener('focusin', function (e) {
+    if (e.target.matches && e.target.matches(FIELD) && !e.target.closest('.ia-hp')) mokiLook(e.target);
+  });
+  document.addEventListener('focusout', function () {
+    setTimeout(function () {
+      var a = document.activeElement;
+      if (!a || !a.matches || !a.matches(FIELD)) mokiLook(null);
+    }, 0);
+  });
+
+  /* ---------- 6. Big celebration only for the payment moment (?gracias=1). ---------- */
+  function celebrate(banner) {
+    if (reduce || !banner) return;
+    var r = banner.getBoundingClientRect();
+    var vw = document.documentElement.clientWidth;
+    var n = 36;
+    for (var i = 0; i < n; i++) {
+      var p = document.createElement('span');
+      p.className = 'jz-confetti';
+      p.style.background = COLORS[i % 3];
+      var x0 = r.left + 8 + (r.width - 16) * ((i + 0.5) / n);
+      var y0 = r.bottom + 6;
+      var dur = 800 + Math.round(Math.random() * 400);
+      var T = dur / 1000;
+      var vx = (Math.random() * 2 - 1) * 70;
+      var vy = Math.random() * 120;
+      var g = 700 + Math.random() * 300;
+      if (x0 + vx * T < 4 || x0 + vx * T > vw - 12) vx = -vx;
+      p.style.left = x0 + 'px';
+      p.style.top = y0 + 'px';
+      document.body.appendChild(p);
+      var frames = [];
+      for (var k = 0; k <= 10; k++) {
+        var t = (k / 10) * T;
+        var x = Math.max(4 - x0, Math.min(vw - 12 - x0, vx * t));
+        var y = vy * t + 0.5 * g * t * t;
+        frames.push({ transform: 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)', opacity: k < 7 ? 1 : 1 - (k - 7) / 3 });
+      }
+      var a = p.animate(frames, { duration: dur, easing: 'linear', fill: 'forwards' });
+      a.onfinish = (function (el) { return function () { el.remove(); }; })(p);
+    }
+  }
+  var thanksBanner = document.querySelector('[data-thanks]');
+  if (thanksBanner && !thanksBanner.hidden) {
+    requestAnimationFrame(function () { celebrate(thanksBanner); });
+  }
+
   function onFirstGesture() {
     if (enabled) audio();
   }
@@ -177,6 +364,23 @@
     var live = e.target.closest('.ia-moki-live');
     if (live) {
       play('tap');
+      return;
+    }
+
+    /* 1. Pay button: hold pressed 150ms, burst, then go to the exact Stripe URL.
+       Reduced motion or modified clicks: normal navigation, no delay. */
+    var pay = e.target.closest('[data-sponsor-cta]');
+    if (pay && /^https:\/\/buy\.stripe\.com\//.test(pay.href || '')) {
+      play('tap');
+      if (reduce || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || pay.target === '_blank') return;
+      e.preventDefault();
+      var url = pay.href;
+      hold(pay);
+      setTimeout(function () {
+        release(pay);
+        burstFrom(pay);
+        location.assign(url);
+      }, HOLD_MS);
       return;
     }
 
@@ -214,8 +418,14 @@
     var d = e.detail || {};
     if (d.key === 'form.sending') return;
     if (d.ok && (d.key === 'news.ok' || d.key === 'submit.ok' || d.key === 'sp.ok')) {
-      play('success');
-      burstFrom((d.form && d.form.querySelector('button[type="submit"]')) || d.el);
+      var btn = (d.form && d.form.querySelector('button[type="submit"]')) || d.el;
+      hold(btn);
+      setTimeout(function () {
+        release(btn);
+        play('success');
+        burstFrom(btn);
+        if (d.key === 'sp.ok') lockWithStamp(d.form);
+      }, HOLD_MS);
       return;
     }
     if (!d.ok) {
@@ -226,11 +436,14 @@
 
   document.addEventListener('gamedev:lang', function () {
     paintToggle(document.querySelector('.juice-sfx'));
+    document.querySelectorAll('[data-jz-stamp] .jz-stamp__text').forEach(function (t) { t.textContent = DONE_LABEL[lang()]; });
   });
 
   document.addEventListener('animationend', function (e) {
     if (e.animationName === 'juice-press') e.target.classList.remove('juice-press');
     if (e.animationName === 'juice-shake') e.target.classList.remove('juice-shake');
+    if (e.animationName === 'jz-pop') e.target.closest('li') && e.target.closest('li').classList.remove('jz-pop');
+    if (e.animationName === 'jz-flash') e.target.classList.remove('is-on');
   });
 
   paintToggle(document.querySelector('.juice-sfx'));

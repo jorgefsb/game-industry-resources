@@ -151,6 +151,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .ia-chip:hover { border-color: var(--accent); }
 .ia-chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 .ia-chip__n { font-size: 12px; opacity: .7; }
+.ia-chip[aria-pressed="true"] .ia-chip__n { opacity: 1; }
 .ia-cat + .ia-cat { margin-top: var(--sp-7); }
 .ia-cat__title { display: flex; align-items: baseline; gap: 10px; font-size: 22px; margin-bottom: var(--sp-4); padding-bottom: var(--sp-3); border-bottom: 1px solid var(--line); }
 .ia-cat__title span { font-family: var(--body); font-weight: 400; font-size: 14px; color: var(--text-secondary); }
