@@ -1,9 +1,10 @@
 {
   "version": "1.0.0",
-  "updated": "2026-10-16",
+  "updated": "2026-10-17",
   "url": "https://gamedev.jorgesuarez.com.mx/ia/",
   "json": "https://gamedev.jorgesuarez.com.mx/ia/tools.json",
   "llms": "https://gamedev.jorgesuarez.com.mx/ia/llms.txt",
+  "llmsFull": "https://gamedev.jorgesuarez.com.mx/ia/llms-full.txt",
   "featured": [],
   "categories": [
     {
@@ -174,6 +175,20 @@
       "pricing": "freemium",
       "pricing_source": "https://www.summerengine.com/pricing",
       "pricing_checked": "2026-10-16"
+    },
+    {
+      "id": "uecp",
+      "name": "Ultimate Engine CoPilot",
+      "url": "https://www.gamedevcore.com",
+      "logo": "logos/uecp.png",
+      "category": "codigo",
+      "description": {
+        "es": "Copiloto de IA dentro de Unreal Engine 5: arma Blueprints, C++, materiales y escenas sin salir del editor.",
+        "en": "AI copilot inside Unreal Engine 5: it builds Blueprints, C++, materials and scenes without leaving the editor."
+      },
+      "pricing": "pago",
+      "pricing_source": "https://www.gamedevcore.com/pricing",
+      "pricing_checked": "2026-10-17"
     },
     {
       "id": "scenario",

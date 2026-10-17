@@ -44,3 +44,4 @@ heygen.png  <-  https://www.heygen.com/favicon.ico?favicon.2m321y0geyyfh.ico
 summer-engine.png  <-  https://www.summerengine.com/icon/apple-icon.png  (downloaded 2026-10-16)
 ludo-ai.png  <-  https://ludo.ai/apple-touch-icon.png  (downloaded 2026-10-16)
 bake3d.png  <-  https://bake3d.ai/apple-touch-icon.png  (downloaded 2026-10-16)
+uecp.png  <-  https://www.gamedevcore.com/apple-touch-icon.png  (downloaded 2026-10-17)
