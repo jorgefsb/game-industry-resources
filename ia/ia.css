@@ -339,3 +339,8 @@ footer.foot { margin-top: var(--sp-7); padding-top: var(--sp-7); padding-bottom:
 .ia-moki-live.is-hop img {
   animation: ia-moki-hop 460ms cubic-bezier(0.23, 1, 0.32, 1);
 }
+
+/* Live sponsor checkout */
+.ia-pay { display: grid; gap: var(--sp-2); justify-items: start; margin: var(--sp-5) 0; }
+.ia-pay .ia-form__note { margin: 0; }
+@media (max-width: 640px) { .ia-pay .btn { width: 100%; } }

@@ -2,12 +2,11 @@
 
 /*
  * Sponsor (Destacado) checkout config. Single source of truth.
- * SPONSOR_CHECKOUT_URL is currently the Stripe TEST link. While SPONSOR_LIVE is false,
- * nothing on the page points at it: "Quiero el destacado" opens the request form instead.
- * When Jorge activates Stripe live: swap in the live payment link here and set SPONSOR_LIVE = true.
+ * SPONSOR_CHECKOUT_URL is the live Stripe Payment Link (USD 49/month). With SPONSOR_LIVE true,
+ * every [data-sponsor-cta] link points at it; without JavaScript it falls back to the request form.
  */
-const SPONSOR_CHECKOUT_URL = 'https://buy.stripe.com/test_3cI8wQ3nJ4Vg358a4F9sk00';
-const SPONSOR_LIVE = false;
+const SPONSOR_CHECKOUT_URL = 'https://buy.stripe.com/3cI8wQ3nJ4Vg358a4F9sk00';
+const SPONSOR_LIVE = true;
 
 (function () {
   'use strict';
@@ -84,7 +83,9 @@ const SPONSOR_LIVE = false;
       'sp.name': 'Nombre de tu herramienta',
       'sp.site': 'Sitio web',
       'sp.email': 'Tu correo',
-      'sp.note': 'Sin cobro hoy. Pagas hasta que lo activemos.',
+      'sp.pay': 'Pagar USD 49 al mes',
+      'sp.payNote': 'Pago seguro con Stripe. Se renueva cada mes y cancelas cuando quieras.',
+      'sp.note': '¿Prefieres hablar antes de pagar? Déjanos tus datos y te escribimos.',
       'sp.ok': 'Recibido. Te escribimos para activarlo.',
       'sp.back': '← Volver al directorio',
       'alt.mokiHero': 'Moki, el astronauta de cartón naranja, listo para explorar',
@@ -169,7 +170,9 @@ const SPONSOR_LIVE = false;
       'sp.name': 'Tool name',
       'sp.site': 'Website',
       'sp.email': 'Your email',
-      'sp.note': 'No charge today. You only pay once it\u2019s live.',
+      'sp.pay': 'Pay USD 49/month',
+      'sp.payNote': 'Secure checkout with Stripe. Renews monthly, cancel anytime.',
+      'sp.note': 'Rather talk before paying? Leave your details and we\u2019ll email you.',
       'sp.ok': 'Got it. We\u2019ll email you to activate it.',
       'sp.back': '← Back to the directory',
       'alt.mokiHero': 'Moki, the orange cardboard astronaut, ready to explore',
