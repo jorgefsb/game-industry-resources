@@ -91,6 +91,10 @@ if (!/\.jz-stamp\{/.test(css) || !/\.jz-steps\{/.test(css) || !/\.jz-check\{/.te
 }
 if (!/o\.kind/.test(src) || !/hk=o\.kind/.test(src)) throw new Error('play(haptics) must honor kind first');
 if (!/!gest/.test(src)) throw new Error('hap() must require a user gesture');
+if (!/isTrusted/.test(src)) throw new Error('click/arm must require a trusted gesture');
+if (!/pointerup/.test(src) || !/pointercancel/.test(src) || !/keyup/.test(src)) {
+  throw new Error('gest must clear on pointerup, pointercancel and keyup');
+}
 if (/arm\(\)\{[^}]*setTimeout/.test(src)) throw new Error('arm() must not clear gest before click');
 if (!/\[class\*=-card\]/.test(src) || !/\[class\*=-card\]/.test(css)) {
   throw new Error('card hosts must use *= so jz-antic still matches');

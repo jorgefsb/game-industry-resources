@@ -25,7 +25,7 @@
       });
       [].slice.call(d.querySelectorAll('.jz-feel')).forEach(function (b) {
         b.textContent = '✨';
-        b.setAttribute('aria-label', t[9]);
+        b.setAttribute('aria-label', t[7]);
       });
       [].slice.call(d.querySelectorAll('input[name=jz-level]')).forEach(function (r) {
         r.checked = r.value === lv;
@@ -33,7 +33,7 @@
       });
       [].slice.call(d.querySelectorAll('.jz-panel__note')).forEach(function (n) {
         n.hidden = !red;
-        n.textContent = t[8];
+        n.textContent = t[4];
       });
       [].slice.call(d.querySelectorAll('[data-jz-lab]')).forEach(function (el) {
         el.textContent = lab[el.getAttribute('data-jz-lab')] || el.textContent;
