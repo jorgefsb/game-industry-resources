@@ -1,6 +1,10 @@
 (function (d) {
   'use strict';
-  var I = { snd: 'Sonido y juice', rm: 'Movimiento reducido: apagado.' };
+  var I = {
+    es: { snd: 'Sonido y juice', rm: 'Movimiento reducido: apagado.' },
+    en: { snd: 'Sound and juice', rm: 'Reduced motion: off.' }
+  };
+  function loc() { return I[d.documentElement.lang === 'en' ? 'en' : 'es']; }
   var sfx = d.querySelector('.juice-sfx');
   var host = (sfx && sfx.parentNode) || d.querySelector('.hud__right') || d.querySelector('header') || d.body;
   if (d.querySelector('.jz-dock')) { if (window.JZ) window.JZ.paint(); return; }
@@ -26,7 +30,7 @@
       });
       [].slice.call(d.querySelectorAll('.jz-feel')).forEach(function (b) {
         b.textContent = '✨';
-        b.setAttribute('aria-label', I.snd);
+        b.setAttribute('aria-label', loc().snd);
       });
       [].slice.call(d.querySelectorAll('input[name=jz-level]')).forEach(function (r) {
         r.checked = r.value === lv;
@@ -34,7 +38,7 @@
       });
       [].slice.call(d.querySelectorAll('.jz-panel__note')).forEach(function (n) {
         n.hidden = !red;
-        n.textContent = I.rm;
+        n.textContent = loc().rm;
       });
       [].slice.call(d.querySelectorAll('[data-jz-lab]')).forEach(function (el) {
         el.textContent = lab[el.getAttribute('data-jz-lab')] || el.textContent;

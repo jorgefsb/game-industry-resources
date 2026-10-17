@@ -107,8 +107,13 @@ if (/font:700 13px/.test(css)) throw new Error('jz-check font shorthand without 
 if (!/font-weight:700/.test(css) || !/font-size:13px/.test(css) || !/line-height:1/.test(css)) {
   throw new Error('jz-check must use font-weight/size/line-height longhands');
 }
-if (!/\.jz-host:has\(\.jz-stamp\)/.test(css) || !/padding-right:126px/.test(css)) {
-  throw new Error('core CSS must pad stamped-card titles by the stamp width');
+if (/:has\(\.jz-stamp\)/.test(css)) throw new Error('title pad must reserve space without :has');
+if (!/\[data-jz-stamp\]>:is\(h1,h2,h3\)/.test(css) || !/padding-right:126px/.test(css)) {
+  throw new Error('core CSS must pad [data-jz-stamp] titles by the stamp width');
+}
+if (!/text-wrap:balance/.test(css)) throw new Error('stamped titles need text-wrap:balance');
+if (!/function init\(/.test(src) || !/init:init/.test(src)) {
+  throw new Error('JZ.init must mark success hosts with data-jz-stamp');
 }
 const menuCssSrc = readFileSync(join(dir, 'juice-menu.src.css'), 'utf8');
 const menuJsSrc = readFileSync(join(dir, 'juice-menu.src.js'), 'utf8');
@@ -116,7 +121,10 @@ if (/padding-right:8em/.test(menuCssSrc) || /\.jz-host>h1/.test(menuCssSrc)) {
   throw new Error('stamp title padding belongs in core CSS, only on stamped cards');
 }
 if (!/Sonido y juice/.test(menuJsSrc) || !/Movimiento reducido: apagado\./.test(menuJsSrc)) {
-  throw new Error('never trim menu accessibility text');
+  throw new Error('never trim Spanish menu accessibility text');
+}
+if (!/Sound and juice/.test(menuJsSrc) || !/Reduced motion: off\./.test(menuJsSrc)) {
+  throw new Error('never trim English menu accessibility text');
 }
 if (!/800\+\(Math\.random\(\)\*400/.test(src)) throw new Error('party duration must stay at or under 1.2s');
 if ((css.match(/translateX\(-4px\)/g) || []).length < 3) throw new Error('shake must be 3 cycles');
