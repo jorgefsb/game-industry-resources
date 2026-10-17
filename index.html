@@ -58,9 +58,12 @@
   <main id="main">
     <header class="wrap home-hero">
       <div class="hero__content">
-        <span class="ia-moki-live">
-          <img class="ia-moki" src="ia/assets/moki-parche-derecho.png" width="720" height="767" fetchpriority="high" alt="Moki, el astronauta de cartón naranja, listo para explorar" data-i18n-alt="alt.mokiHome">
-        </span>
+        <figure class="home-hero__moki">
+          <span class="ia-moki-live">
+            <img class="ia-moki" src="ia/assets/moki-parche-derecho.webp" width="720" height="767" fetchpriority="high" alt="Moki, el astronauta de cartón naranja, listo para explorar" data-i18n-alt="alt.mokiHome">
+          </span>
+          <p class="ia-bubble" data-i18n="hero.bubble.home">¿Listo para el<br>next level?</p>
+        </figure>
         <span class="hero__badge" data-i18n="hero.badge.free">🆓 Recursos 100% gratuitos para LATAM</span>
         <h1 class="hero__title" data-i18n="hero.title.home">Level up tu carrera en <span class="home-accent">Game Dev</span> 🚀</h1>
         <p class="hero__subtitle lead" data-i18n="hero.subtitle.home">Templates, guías, ofertas de trabajo y herramientas creadas por profesionales de la industria.</p>
@@ -70,6 +73,16 @@
         </div>
       </div>
     </header>
+
+    <section class="wrap home-ia" aria-labelledby="ia-band-title">
+      <article class="ia-featured__card">
+        <div class="ia-featured__copy">
+          <h2 id="ia-band-title" data-i18n="card.ia.title">Directorio IA</h2>
+          <p class="ia-featured__seen" data-i18n="card.ia.desc">Herramientas de IA reales para código, arte, audio y marketing de tu juego.</p>
+        </div>
+        <a class="btn btn--primary" href="ia/" data-i18n="hero.cta.ia">Ver directorio IA</a>
+      </article>
+    </section>
 
     <section class="wrap home-section" id="resources">
       <div class="section__header">
@@ -92,12 +105,6 @@
           <span class="card__icon">🌎</span>
           <h3 class="card__title">Studios DB</h3>
           <p class="card__description" data-i18n="hero.subtitle.database">Mapa de la industria en Latinoamérica.</p>
-          <span class="ia-badge">New</span>
-        </a>
-        <a href="ia/" class="ia-card home-card">
-          <span class="card__icon">🤖</span>
-          <h3 class="card__title" data-i18n="card.ia.title">Directorio IA</h3>
-          <p class="card__description" data-i18n="card.ia.desc">Herramientas de IA reales para código, arte, audio y marketing de tu juego.</p>
           <span class="ia-badge">New</span>
         </a>
       </div>
