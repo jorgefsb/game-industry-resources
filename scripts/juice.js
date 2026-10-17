@@ -54,19 +54,20 @@
     o.stop(t0 + dur + 0.01);
   }
 
+  /* j = random pitch factor per play, within ±5%, so repeated sounds don't tire. */
   var sfx = {
-    tap: function () { tone(880, 0.07, 'square'); },
-    success: function () {
-      tone(523, 0.06, 'square');
-      setTimeout(function () { tone(784, 0.08, 'square'); }, 55);
+    tap: function (j) { tone(880 * j, 0.07, 'square'); },
+    success: function (j) {
+      tone(523 * j, 0.06, 'square');
+      setTimeout(function () { tone(784 * j, 0.08, 'square'); }, 55);
     },
-    error: function () { tone(220, 0.14, 'square', 110); }
+    error: function (j) { tone(220 * j, 0.14, 'square', 110 * j); }
   };
 
   function play(name) {
     if (!enabled) return;
     var fn = sfx[name];
-    if (fn) fn();
+    if (fn) fn(0.95 + Math.random() * 0.1);
   }
 
   function paintToggle(btn) {
@@ -99,8 +100,12 @@
     }
     return false;
   }
+  /* Opaque cards (isolation: isolate in juice.css) host their own particles, so the
+     burst paints above the card background and still below the card's text. */
+  var BURST_HOSTS = '.ia-sponsor__form';
   function burstFrom(el) {
     if (!el || reduce) return;
+    var host = el.closest(BURST_HOSTS) || document.body;
     var r = el.getBoundingClientRect();
     var cx = r.left + r.width / 2;
     var cy = r.top + r.height / 2;
@@ -114,7 +119,7 @@
       near.push(b);
     });
     near.push({ left: r.left - 2, right: r.right + 2, top: r.top - 2, bottom: r.bottom + 2 });
-    var n = 20;
+    var n = 12; /* §2: max 12 particles per event */
     for (var i = 0; i < n; i++) {
       var ang = (Math.PI * 2 * i) / n;
       var c = Math.cos(ang), s = Math.sin(ang);
@@ -135,7 +140,7 @@
       p.style.background = COLORS[i % 3];
       p.style.setProperty('--dx', c * dist + 'px');
       p.style.setProperty('--dy', s * dist * 0.6 + 'px');
-      document.body.appendChild(p);
+      host.appendChild(p);
       p.addEventListener('animationend', function () { this.remove(); });
     }
   }

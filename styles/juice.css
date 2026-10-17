@@ -54,6 +54,9 @@
   .juice-sfx__label { display: none; }
 }
 
+/* The opaque sponsor form card hosts its own burst (see BURST_HOSTS in juice.js). */
+.ia-sponsor__form { isolation: isolate; }
+
 /* Particles sit behind page content (z-index -1 in the root stacking context)
    and start outside the button edge, flying away from it. They never cover text. */
 .juice-dot {
@@ -83,13 +86,15 @@
   animation: juice-press var(--jz-dur-base) var(--jz-ease-pop);
 }
 
+/* Exactly 3 cycles in 280ms at ±4px: each cycle is -4px then +4px (6 peaks). */
 @keyframes juice-shake {
   0%, 100% { transform: translateX(0); }
-  16% { transform: translateX(-4px); }
-  33% { transform: translateX(4px); }
-  50% { transform: translateX(-4px); }
-  66% { transform: translateX(4px); }
-  83% { transform: translateX(-4px); }
+  8.333% { transform: translateX(-4px); }
+  25% { transform: translateX(4px); }
+  41.667% { transform: translateX(-4px); }
+  58.333% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  91.667% { transform: translateX(4px); }
 }
 
 .juice-shake {
