@@ -1,25 +1,7 @@
-/* Site binder for juice 1.0.0. Keeps / /ia/ /ia/patrocina/ behavior, including Stripe. */
+/* Site binder for juice 1.0.0. Menu lives in /juice/1.0.0/juice-menu.*. Stripe untouched. */
 (function (d) {
   'use strict';
   function J() { return window.JZ; }
-  (function mount() {
-    var sfx = d.querySelector('.juice-sfx');
-    var host = (sfx && sfx.parentNode) || d.querySelector('.hud__right');
-    if (!host || d.querySelector('.jz-dock')) return;
-    var dock = d.createElement('div');
-    dock.className = 'jz-dock';
-    if (sfx) host.insertBefore(dock, sfx); else host.appendChild(dock);
-    if (!sfx) { sfx = d.createElement('button'); sfx.type = 'button'; sfx.className = 'juice-sfx'; }
-    dock.appendChild(sfx);
-    dock.insertAdjacentHTML('beforeend', '<button type="button" class="jz-lvl" aria-expanded="false" aria-controls="jz-panel"></button><button type="button" class="jz-feel" aria-expanded="false" aria-controls="jz-panel"></button>');
-    var panel = d.createElement('div');
-    panel.className = 'jz-panel';
-    panel.id = 'jz-panel';
-    panel.hidden = true;
-    panel.innerHTML = '<p class="jz-panel__note" hidden></p><button type="button" class="juice-sfx jz-panel__sfx"></button><fieldset><legend data-jz-lab="juice">Juice</legend><label><input type="radio" name="jz-level" value="off"> <span data-jz-lab="off"></span></label><label><input type="radio" name="jz-level" value="subtle"> <span data-jz-lab="subtle"></span></label><label><input type="radio" name="jz-level" value="full"> <span data-jz-lab="full"></span></label></fieldset>';
-    dock.appendChild(panel);
-    if (window.JZ) window.JZ.paint();
-  })();
   var fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
   var F = 'input:not([type=hidden]):not([tabindex="-1"]),textarea,select';
   d.querySelectorAll('.btn--primary,.hud__cta,.hud__nav-cta,.home-card,.ia-card[href],a.ia-card,.jz-try').forEach(function (el) {

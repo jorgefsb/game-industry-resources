@@ -286,11 +286,12 @@
 .jz-locked select { opacity: .6; cursor: not-allowed; }
 
 .jz-stamp {
-  position: absolute;
-  top: var(--sp-6);
-  left: var(--sp-6);
+  position: relative;
   z-index: 2;
   display: inline-block;
+  align-self: start;
+  width: max-content;
+  margin: 0 0 12px;
   padding: 6px 16px;
   border: 3px solid var(--jz-orange);
   border-radius: 10px;
@@ -322,9 +323,10 @@
   100% { transform: scale(1.35); opacity: 0; }
 }
 
-@media (max-width: 560px) {
-  .jz-stamp { top: var(--sp-5); left: var(--sp-5); }
-}
+.jz-host,
+.ia-card,
+.home-card,
+.ia-sponsor__form { isolation: isolate; position: relative; }
 
 /* ---------- v7 · 5. Moki looks at the focused field ---------- */
 .ia-moki-live { transition: transform var(--jz-dur-base) var(--jz-ease-io); }

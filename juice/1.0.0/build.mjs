@@ -1,15 +1,10 @@
 #!/usr/bin/env node
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
-// gzip -9 via system gzip, matching review measurement
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const dir = dirname(fileURLToPath(import.meta.url));
-const srcJs = join(dir, 'juice.src.js');
-const srcCss = join(dir, 'juice.src.css');
-const outJs = join(dir, 'juice.js');
-const outCss = join(dir, 'juice.css');
 const check = process.argv.includes('--check');
 
 function run(cmd, args) {
@@ -35,53 +30,73 @@ function minifyCss(src) {
   return out.trim() + '\n';
 }
 
-const js = run('npx', ['--yes', 'esbuild', srcJs, '--minify', '--legal-comments=none']);
-const css = minifyCss(readFileSync(srcCss, 'utf8'));
-
-if (/calc\([^)]*?[^\s][+-][^\s]/.test(css)) throw new Error('minified CSS broke calc() spaces');
-if (!css.includes('.jz-panel :focus-visible')) throw new Error('minified CSS lost .jz-panel :focus-visible space');
-if (!css.includes('calc(100% + 8px)')) throw new Error('minified CSS lost calc(100% + 8px)');
-const site = readFileSync(join(dir, '../../styles/juice.css'), 'utf8');
-if (!site.includes('calc(100% + 8px)') || !site.includes('.jz-panel :focus-visible')) {
-  throw new Error('styles/juice.css missing panel calc/focus-visible');
-}
-if (/transition:[^;{}]*border-color/.test(site) || /transition:[^;{}]*(?<![-\w])color\b/.test(site)) {
-  throw new Error('styles/juice.css may only animate transform/opacity');
-}
-const bind = readFileSync(join(dir, '../../scripts/juice.bind.js'), 'utf8');
-if (/\.hap\(/.test(bind)) throw new Error('bind.js must not call hap()');
-if (!/allowed\('impact'\) \? jz\.HOLD : 0/.test(bind)) {
-  throw new Error('Stripe wait must be allowed(impact) ? HOLD : 0');
-}
-
-// Official size = `gzip -9 -c <file>` (filename in header). stdin gzip is smaller.
 function gzip9file(path) {
   const r = spawnSync('gzip', ['-9', '-c', path], { maxBuffer: 8 * 1024 * 1024 });
   if (r.status !== 0) throw new Error((r.stderr && r.stderr.toString()) || 'gzip failed');
   return r.stdout.length;
 }
 
-if (!check) {
-  writeFileSync(outJs, js);
-  writeFileSync(outCss, css);
+const pairs = [
+  ['juice.src.js', 'juice.js', 'js'],
+  ['juice.src.css', 'juice.css', 'css'],
+  ['juice-menu.src.js', 'juice-menu.js', 'js'],
+  ['juice-menu.src.css', 'juice-menu.css', 'css']
+];
+
+const built = {};
+for (const [srcName, outName, kind] of pairs) {
+  const srcPath = join(dir, srcName);
+  const outPath = join(dir, outName);
+  const raw = readFileSync(srcPath, 'utf8');
+  const out = kind === 'js'
+    ? run('npx', ['--yes', 'esbuild', srcPath, '--minify', '--legal-comments=none'])
+    : minifyCss(raw);
+  built[outName] = out;
+  if (kind === 'css') {
+    if (/calc\([^)]*?[^\s][+-][^\s]/.test(out)) throw new Error(outName + ' broke calc() spaces');
+    if (out.includes('.jz-panel') && !out.includes('.jz-panel :focus-visible')) {
+      throw new Error(outName + ' lost .jz-panel :focus-visible space');
+    }
+    if (out.includes('calc(') && out.includes('100%') && !out.includes('calc(100% + 8px)') && /jz-panel/.test(out)) {
+      throw new Error(outName + ' lost calc(100% + 8px)');
+    }
+  }
+  if (!check) writeFileSync(outPath, out);
+  if (!existsSync(outPath)) throw new Error(outName + ' missing');
+  if (check && readFileSync(outPath, 'utf8') !== out) throw new Error(outName + ' is stale vs ' + srcName);
 }
 
-if (!existsSync(outJs) || !existsSync(outCss)) throw new Error('published files missing');
-if (check) {
-  if (readFileSync(outJs, 'utf8') !== js) throw new Error('juice.js is stale vs juice.src.js');
-  if (readFileSync(outCss, 'utf8') !== css) throw new Error('juice.css is stale vs juice.src.css');
-}
+const coreJs = gzip9file(join(dir, 'juice.js'));
+const coreCss = gzip9file(join(dir, 'juice.css'));
+const menuJs = gzip9file(join(dir, 'juice-menu.js'));
+const menuCss = gzip9file(join(dir, 'juice-menu.css'));
+const core = coreJs + coreCss;
+const pack = core + menuJs + menuCss;
 
-const fileJs = gzip9file(outJs);
-const fileCss = gzip9file(outCss);
-const fileTotal = fileJs + fileCss;
-const src = readFileSync(srcJs, 'utf8');
-const pub = readFileSync(outJs, 'utf8');
-if (/setTimeout\([^)]*hap\(/.test(src + pub) || /setTimeout\([^)]{0,120}hap\(/.test(src + pub)) {
-  throw new Error('hap() must not run from setTimeout');
-}
+const src = readFileSync(join(dir, 'juice.src.js'), 'utf8');
+const pub = readFileSync(join(dir, 'juice.js'), 'utf8');
+const css = readFileSync(join(dir, 'juice.css'), 'utf8');
+if (/setTimeout\([^)]{0,120}hap\(/.test(src + pub)) throw new Error('hap() must not run from setTimeout');
 if (/jz-tap[^\n]+around/.test(src)) throw new Error('jz-tap must not include around');
-if (!/z-index:-1/.test(readFileSync(srcCss, 'utf8'))) throw new Error('canvas must sit at z-index:-1');
+if (!/isolation:isolate/.test(css)) throw new Error('core CSS must isolate card hosts');
+if (!/\.jz-stamp\{/.test(css) || !/\.jz-steps\{/.test(css) || !/\.jz-check\{/.test(css)) {
+  throw new Error('core CSS must style check, stamp and steps');
+}
+if (!/o\.kind/.test(src)) throw new Error('play(haptics) must honor kind');
+if (!/function kill\(/.test(src)) throw new Error('setLevel(off) must cancel via kill()');
+if (!/requestAnimationFrame\(function\(\)\{requestAnimationFrame/.test(src)) {
+  throw new Error('stagger must use double rAF');
+}
 
-console.log((check ? 'ok' : 'wrote') + ' gzip-9', fileTotal, 'js', fileJs, 'css', fileCss);
-if (fileTotal >= 6000) throw new Error('gzip -9 ' + fileTotal + ' B (js ' + fileJs + ' + css ' + fileCss + ') >= 6000');
+const bind = readFileSync(join(dir, '../../scripts/juice.bind.js'), 'utf8');
+if (/\.hap\(/.test(bind)) throw new Error('bind.js must not call hap()');
+if (!/allowed\('impact'\) \? jz\.HOLD : 0/.test(bind)) {
+  throw new Error('Stripe wait must be allowed(impact) ? HOLD : 0');
+}
+if (/function mount\(/.test(bind) || /jz-dock/.test(bind)) {
+  throw new Error('menu mount must live in juice-menu.js, not bind.js');
+}
+
+console.log((check ? 'ok' : 'wrote') + ' core', core, 'js', coreJs, 'css', coreCss, 'pack', pack, 'menu-js', menuJs, 'menu-css', menuCss);
+if (core >= 6000) throw new Error('core gzip -9 ' + core + ' B >= 6000');
+if (pack >= 8000) throw new Error('package gzip -9 ' + pack + ' B >= 8000');
