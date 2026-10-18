@@ -1,0 +1,337 @@
+# Directorio de IA para indie game developers — catálogo completo
+# https://gamedev.jorgesuarez.com.mx/ia/
+# Machine-readable JSON: https://gamedev.jorgesuarez.com.mx/ia/tools.json
+# Short list: https://gamedev.jorgesuarez.com.mx/ia/llms.txt
+# Updated: 2026-10-18
+# Language: Spanish and English
+# Pricing is included only when verified on the official site. Unverified prices: SIN DATO.
+
+## Destacados / Featured
+Public sponsorship info from https://gamedev.jorgesuarez.com.mx/ia/patrocina/
+- Listing the directory is free for developers. Tools pay.
+- Featured slot: at the top of the directory, with the tool's logo and one line.
+- Price: USD 49 per month. Cancel anytime.
+- Request it at https://gamedev.jorgesuarez.com.mx/ia/patrocina/
+
+## Catalog (43 tools)
+
+## Código / agentes / Code / agents
+
+### Cursor
+- URL: https://cursor.com
+- Category: codigo (Código / agentes / Code / agents)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Editor con agentes de IA para escribir, editar y revisar el código del juego.
+- EN: AI editor with agents for writing, editing, and reviewing game code.
+
+### GitHub Copilot
+- URL: https://github.com/features/copilot
+- Category: codigo (Código / agentes / Code / agents)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Asistente de código de GitHub que sugiere y completa en el editor.
+- EN: GitHub's coding assistant that suggests and completes code in your editor.
+
+### Claude Code
+- URL: https://claude.com/product/claude-code
+- Category: codigo (Código / agentes / Code / agents)
+- Pricing: pago (De pago / Paid)
+- ES: Agente de Anthropic que programa contigo en tu proyecto, desde la terminal o tu editor.
+- EN: Anthropic agent that codes with you in your project, from the terminal or your editor.
+
+### Windsurf
+- URL: https://windsurf.com
+- Category: codigo (Código / agentes / Code / agents)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Editor de código con agente de IA para programar en tu computadora.
+- EN: Code editor with an AI agent for coding on your computer.
+
+### Continue
+- URL: https://continue.dev
+- Category: codigo (Código / agentes / Code / agents)
+- Pricing: SIN DATO
+- ES: Asistente de código abierto que se conecta a tu editor.
+- EN: Open-source coding assistant that plugs into your editor.
+
+### Aider
+- URL: https://aider.chat
+- Category: codigo (Código / agentes / Code / agents)
+- Pricing: SIN DATO
+- ES: Programa en pareja con IA desde la terminal, sobre tu repo de Git.
+- EN: Pair-program with AI from the terminal, on your Git repo.
+
+### Gemini Code Assist
+- URL: https://developers.google.com/gemini-code-assist
+- Category: codigo (Código / agentes / Code / agents)
+- Pricing: SIN DATO
+- ES: Asistente de código de Google Gemini para tu editor.
+- EN: Google Gemini coding assistant for your editor.
+
+### Summer Engine
+- URL: https://www.summerengine.com
+- Category: codigo (Código / agentes / Code / agents)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Motor compatible con Godot 4 hecho para agentes de IA: arman el juego, crean sus assets y lo publican.
+- EN: Godot 4-compatible engine built for AI agents: they build the game, make its assets, and publish it.
+
+### Ultimate Engine CoPilot
+- URL: https://www.gamedevcore.com
+- Category: codigo (Código / agentes / Code / agents)
+- Pricing: pago (De pago / Paid)
+- ES: Copiloto de IA dentro de Unreal Engine 5: arma Blueprints, C++, materiales y escenas sin salir del editor.
+- EN: AI copilot inside Unreal Engine 5: it builds Blueprints, C++, materials and scenes without leaving the editor.
+
+## Sprites y 2D / Sprites & 2D
+
+### Scenario
+- URL: https://www.scenario.com
+- Category: sprites (Sprites y 2D / Sprites & 2D)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Genera arte 2D para tu juego manteniendo el mismo estilo en todos los assets.
+- EN: Generates 2D art for your game, keeping one style across all assets.
+
+### Leonardo.Ai
+- URL: https://leonardo.ai
+- Category: sprites (Sprites y 2D / Sprites & 2D)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Generador de imágenes para concept art y assets de juego.
+- EN: Image generator for concept art and game assets.
+
+### Midjourney
+- URL: https://www.midjourney.com
+- Category: sprites (Sprites y 2D / Sprites & 2D)
+- Pricing: pago (De pago / Paid)
+- ES: Generador de imágenes por Discord o web, habitual para concept art.
+- EN: Image generator via Discord or web, commonly used for concept art.
+
+### Recraft
+- URL: https://www.recraft.ai
+- Category: sprites (Sprites y 2D / Sprites & 2D)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Ilustración e iconos vectoriales con control de estilo para UI y props 2D.
+- EN: Vector illustration and icons with style control for UI and 2D props.
+
+### Krea
+- URL: https://www.krea.ai
+- Category: sprites (Sprites y 2D / Sprites & 2D)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Generación y edición de imágenes en tiempo real para iterar arte 2D.
+- EN: Realtime image generation and editing for iterating on 2D art.
+
+### Adobe Firefly
+- URL: https://www.adobe.com/products/firefly.html
+- Category: sprites (Sprites y 2D / Sprites & 2D)
+- Pricing: SIN DATO
+- ES: IA generativa de Adobe para imágenes, integrada en herramientas creativas.
+- EN: Adobe generative AI for images, integrated into creative tools.
+
+### PixelLab
+- URL: https://www.pixellab.ai
+- Category: sprites (Sprites y 2D / Sprites & 2D)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Generador de pixel art y sprites pensado para videojuegos.
+- EN: Pixel-art and sprite generator built for video games.
+
+### Ludo.ai
+- URL: https://ludo.ai
+- Category: sprites (Sprites y 2D / Sprites & 2D)
+- Pricing: pago (De pago / Paid)
+- ES: Sprites animados y hojas de sprites para tu juego, ahora con el mismo personaje en 8 direcciones.
+- EN: Animated sprites and sprite sheets for your game, now with one consistent character in 8 directions.
+
+## 3D y modelos / 3D & models
+
+### Meshy
+- URL: https://www.meshy.ai
+- Category: modelos3d (3D y modelos / 3D & models)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Texto o imagen a modelo 3D, con texturizado, para props y personajes.
+- EN: Text or image to 3D models, with texturing, for props and characters.
+
+### Luma AI
+- URL: https://lumalabs.ai
+- Category: modelos3d (3D y modelos / 3D & models)
+- Pricing: pago (De pago / Paid)
+- ES: Video y modelos 3D generados con IA a partir de texto o imágenes.
+- EN: AI-generated video and 3D models from text or images.
+
+### Spline
+- URL: https://spline.design
+- Category: modelos3d (3D y modelos / 3D & models)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Diseño 3D en el navegador, con herramientas de IA para escenas e interfaces.
+- EN: In-browser 3D design with AI tools for scenes and interfaces.
+
+### Sloyd
+- URL: https://www.sloyd.ai
+- Category: modelos3d (3D y modelos / 3D & models)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Generador de modelos 3D ajustables para prototipar assets de juego.
+- EN: Adjustable 3D model generator for prototyping game assets.
+
+### Hyper3D Rodin
+- URL: https://hyper3d.ai
+- Category: modelos3d (3D y modelos / 3D & models)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Crea modelos 3D (Rodin) a partir de texto o una imagen.
+- EN: Creates 3D models (Rodin) from text or an image.
+
+### Bake3D
+- URL: https://bake3d.ai
+- Category: modelos3d (3D y modelos / 3D & models)
+- Pricing: pago (De pago / Paid)
+- ES: Convierte una imagen en un personaje 3D con texturas, rig y animación para Unity, Unreal, Godot y Blender.
+- EN: Turns one image into a textured, rigged, and animated 3D character for Unity, Unreal, Godot, and Blender.
+
+## Animación / Animation
+
+### Runway
+- URL: https://runway.com
+- Category: animacion (Animación / Animation)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Video generativo y edición con IA, útil para cinemáticas y animación.
+- EN: Generative video and AI editing, useful for cutscenes and animation.
+
+### Cascadeur
+- URL: https://cascadeur.com
+- Category: animacion (Animación / Animation)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Animación 3D de personajes con física asistida por IA.
+- EN: 3D character animation with AI-assisted physics.
+
+### DeepMotion
+- URL: https://www.deepmotion.com
+- Category: animacion (Animación / Animation)
+- Pricing: SIN DATO
+- ES: Captura de movimiento a partir de un video para animar personajes.
+- EN: Motion capture from a video to animate characters.
+
+### Pika
+- URL: https://pika.art
+- Category: animacion (Animación / Animation)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Generador de video corto a partir de texto o imagen.
+- EN: Short-form video generator from text or image.
+
+## Audio y música / Audio & music
+
+### Suno
+- URL: https://suno.com
+- Category: audio (Audio y música / Audio & music)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Genera canciones originales con IA a partir de una descripción.
+- EN: Generates original songs with AI from a description.
+
+### Udio
+- URL: https://www.udio.com
+- Category: audio (Audio y música / Audio & music)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Generador de música con control de estilo, letras y variaciones.
+- EN: Music generator with control over style, lyrics, and variations.
+
+### AIVA
+- URL: https://www.aiva.ai
+- Category: audio (Audio y música / Audio & music)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Compositor de IA orientado a bandas sonoras y música de escena.
+- EN: AI composer aimed at soundtracks and scene music.
+
+### Soundraw
+- URL: https://soundraw.io
+- Category: audio (Audio y música / Audio & music)
+- Pricing: pago (De pago / Paid)
+- ES: Música generativa que ajustas por ambiente, duración e instrumentos.
+- EN: Generative music you adjust by vibe, length, and instruments.
+
+## Voces / Voices
+
+### ElevenLabs
+- URL: https://elevenlabs.io
+- Category: voces (Voces / Voices)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Texto a voz y clonación de voces para diálogos y narración.
+- EN: Text-to-speech and voice cloning for dialogue and narration.
+
+### Resemble AI
+- URL: https://www.resemble.ai
+- Category: voces (Voces / Voices)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Voces generadas con IA para doblaje, localización y personajes (NPCs).
+- EN: AI-generated voices for dubbing, localization, and characters (NPCs).
+
+## Entornos y texturas / Environments & textures
+
+### Blockade Labs
+- URL: https://www.blockadelabs.com
+- Category: texturas (Entornos y texturas / Environments & textures)
+- Pricing: SIN DATO
+- ES: Skybox AI: entornos 360° y fondos generados para escenas de juego.
+- EN: Skybox AI: 360° environments and generated backdrops for game scenes.
+
+## Traducción / localización / Translation / localization
+
+### DeepL
+- URL: https://www.deepl.com
+- Category: traduccion (Traducción / localización / Translation / localization)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Traducción automática de textos y documentos.
+- EN: Machine translation for texts and documents.
+
+### Crowdin
+- URL: https://crowdin.com
+- Category: traduccion (Traducción / localización / Translation / localization)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Plataforma para traducir los textos de tu juego, con sugerencias de IA.
+- EN: Platform to translate your game's text, with AI suggestions.
+
+### Lokalise
+- URL: https://lokalise.com
+- Category: traduccion (Traducción / localización / Translation / localization)
+- Pricing: pago (De pago / Paid)
+- ES: Plataforma para traducir y ordenar los textos de tu juego.
+- EN: Platform to translate and organize your game's text.
+
+## Testing / QA / Testing / QA
+
+### Applitools
+- URL: https://applitools.com
+- Category: qa (Testing / QA / Testing / QA)
+- Pricing: pago (De pago / Paid)
+- ES: Pruebas visuales con IA para detectar cuando algo se rompe en la interfaz.
+- EN: AI visual testing that catches when something breaks in your UI.
+
+### TestSprite
+- URL: https://www.testsprite.com
+- Category: qa (Testing / QA / Testing / QA)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Agente que crea y corre pruebas automáticas de tu producto.
+- EN: Agent that creates and runs automated tests for your product.
+
+## Marketing / tráiler / Marketing / trailer
+
+### Opus Clip
+- URL: https://www.opus.pro/
+- Category: marketing (Marketing / tráiler / Marketing / trailer)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Corta videos largos en clips verticales para redes y tráilers cortos.
+- EN: Cuts long videos into vertical clips for social and short trailers.
+
+### Descript
+- URL: https://www.descript.com
+- Category: marketing (Marketing / tráiler / Marketing / trailer)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Edita video y audio editando el texto de la transcripción, con recortes de IA.
+- EN: Edit video and audio by editing the transcript text, with AI cuts.
+
+### CapCut
+- URL: https://www.capcut.com
+- Category: marketing (Marketing / tráiler / Marketing / trailer)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Editor de video con subtítulos, recortes y efectos asistidos por IA.
+- EN: Video editor with AI-assisted captions, cuts, and effects.
+
+### HeyGen
+- URL: https://www.heygen.com
+- Category: marketing (Marketing / tráiler / Marketing / trailer)
+- Pricing: freemium (Freemium / Freemium)
+- ES: Avatares y locuciones con IA para spots, demos y anuncios del juego.
+- EN: AI avatars and voiceovers for spots, demos, and game ads.
