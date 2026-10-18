@@ -103,7 +103,7 @@
   border: 1px solid rgba(255, 255, 255, .15);
   border-radius: 12px;
   background: #161616;
-  color: #F4E8D5;
+  color: #FFFFFF;
 }
 .jz-panel[hidden] { display: none; }
 .jz-panel__note { margin: 0 0 8px; font-size: 13px; color: #B7B3AD; }

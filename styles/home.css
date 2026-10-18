@@ -19,6 +19,27 @@
   color: var(--accent);
 }
 
+/* Paper #F4E8D5 is never text on dark; HUD uses white / muted. */
+.home-page .hud__nav a {
+  color: var(--text-strong);
+}
+
+.home-page .hud__nav a[aria-current="true"] {
+  color: var(--accent);
+}
+
+.home-page .lang-switcher a {
+  color: var(--text-secondary);
+}
+
+.home-page .lang-switcher a:hover {
+  color: var(--text-strong);
+}
+
+.home-page .lang-switcher a.active {
+  color: var(--accent);
+}
+
 .home-page .papacito-footer__signature {
   display: flex;
   flex-wrap: wrap;
