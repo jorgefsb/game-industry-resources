@@ -69,12 +69,41 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .lang-switcher a { min-height: var(--tap); min-width: var(--tap); display: inline-flex; align-items: center; justify-content: center; opacity: .6; color: var(--text); text-decoration: none; border-radius: var(--r-control); }
 .lang-switcher a:hover { opacity: 1; }
 .lang-switcher a.active { opacity: 1; color: var(--accent); }
-@media (max-width: 360px) {
+@media (max-width: 380px) {
+  .hud {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    min-width: 0;
+  }
+  .hud__brand {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .hud .js-wordmark {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .home-page .hud__right,
+  .hud__right {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-1);
+    flex: none;
+  }
+  .home-page .hud .lang-switcher,
+  .hud .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-1);
+  }
   .home-page .hud .lang-switcher a,
   .hud .lang-switcher a {
     min-width: var(--tap);
     min-height: var(--tap);
     padding: 0;
+    margin: 0;
+    flex: none;
   }
 }
 .hud__burger { display: none; width: var(--tap); height: var(--tap); background: none; border: 1px solid var(--border-strong); border-radius: var(--r-control); color: var(--text); cursor: pointer; padding: 0; position: relative; flex: none; }

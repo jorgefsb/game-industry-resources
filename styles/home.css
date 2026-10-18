@@ -228,7 +228,7 @@ a.home-card {
   }
 
   .home-page .hud__right {
-    gap: 0;
+    gap: var(--sp-1);
   }
 }
 
@@ -250,7 +250,7 @@ a.home-card {
   }
 
   .home-page .lang-switcher {
-    gap: 0;
+    gap: var(--sp-1);
   }
 
   .home-page .lang-switcher a {
