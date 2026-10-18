@@ -1,4 +1,4 @@
-# Directorio de IA para indie game developers — catálogo completo
+# Directorio de IA para indie game developers: catálogo completo
 # https://gamedev.jorgesuarez.com.mx/ia/
 # Machine-readable JSON: https://gamedev.jorgesuarez.com.mx/ia/tools.json
 # Short list: https://gamedev.jorgesuarez.com.mx/ia/llms.txt

@@ -108,7 +108,7 @@ def write_llms_full(data: dict, tools: list, by_cat: dict) -> None:
     labels = data.get("pricingLabels") or {}
     cat_by_id = {c["id"]: c for c in data["categories"]}
     lines = [
-        "# Directorio de IA para indie game developers — catálogo completo",
+        "# Directorio de IA para indie game developers: catálogo completo",
         f"# {data['url']}",
         f"# Machine-readable JSON: {data['json']}",
         f"# Short list: {data.get('llms') or 'https://gamedev.jorgesuarez.com.mx/ia/llms.txt'}",
