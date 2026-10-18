@@ -1,0 +1,19 @@
+{
+  "name": "juice",
+  "version": "1.0.1",
+  "origin": "jorgefsb/game-industry-resources",
+  "files": {
+    "juice.css": {
+      "sha256": "3ee28d44e68f107003b87e3d8c5804bbffe9e0f0bfd86fc2bafc13ef1d19aed5"
+    },
+    "juice.js": {
+      "sha256": "c8c86b33f3540421516d5f5a78068520e6ab661bb8b859d24698780bbca44bb7"
+    },
+    "juice-menu.css": {
+      "sha256": "3e4dcb2ccd833171eb6358bc9e337dc993c5c5fbf28aacd1672de3d6065c42d3"
+    },
+    "juice-menu.js": {
+      "sha256": "2dfad631d1043dac50740485ce55d4c0d12b1e204f94bc07081b8cd822404917"
+    }
+  }
+}
