@@ -212,14 +212,15 @@
 
 .jz-flash {
   opacity: 0;
-  box-shadow: 0 0 0 3px rgba(255, 107, 53, .55), 0 0 18px 6px rgba(255, 107, 53, .8);
+  border: 3px solid #FF6B35;
+  box-sizing: border-box;
 }
 
 .jz-flash.is-on { animation: jz-flash var(--jz-dur-flash) linear; }
 
 @keyframes jz-flash {
   0% { opacity: 0; }
-  20% { opacity: 1; }   /* 50ms flash */
+  40% { opacity: 1; }   /* 50ms flash */
   100% { opacity: 0; }  /* settled 200ms later */
 }
 
