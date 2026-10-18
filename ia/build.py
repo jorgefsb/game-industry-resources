@@ -7,6 +7,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
 FORBIDDEN = re.compile(
@@ -14,11 +15,25 @@ FORBIDDEN = re.compile(
     re.I,
 )
 NEEDED = ("name", "url", "category", "description")
+ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+AFF_ES = "Liga de afiliado: si compras, Game Resources gana una comisión sin costo extra para ti."
+AFF_EN = "Affiliate link: if you buy, Game Resources earns a commission at no extra cost to you."
 
 
 def fail(msg: str) -> None:
     print(f"FAIL: {msg}", file=sys.stderr)
     sys.exit(1)
+
+
+def require_https(value: str, field: str, tool_id: str) -> None:
+    if not value.startswith("https://") or len(value) > 500:
+        fail(f"{tool_id} {field} must be https and under 500 chars")
+    try:
+        parsed = urlparse(value)
+    except ValueError:
+        fail(f"{tool_id} {field} is not a URL")
+    if parsed.scheme != "https" or not parsed.hostname or "." not in parsed.hostname:
+        fail(f"{tool_id} {field} must be a valid https URL")
 
 
 def main() -> None:
@@ -32,13 +47,16 @@ def main() -> None:
         for key in NEEDED:
             if key not in tool:
                 fail(f"{tool.get('id')} missing {key}")
+        if not ID_RE.fullmatch(str(tool["id"])):
+            fail(f"{tool.get('id')} id must be a lowercase slug")
         if tool["id"] in ids:
             fail(f"duplicate id {tool['id']}")
         ids.add(tool["id"])
         if tool["category"] not in cats:
             fail(f"{tool['id']} bad category {tool['category']}")
-        if not tool["url"].startswith("https://"):
-            fail(f"{tool['id']} url must be https")
+        require_https(tool["url"], "url", tool["id"])
+        if "affiliate" in tool:
+            require_https(tool["affiliate"], "affiliate", tool["id"])
         desc = tool["description"]
         if not desc.get("es") or not desc.get("en"):
             fail(f"{tool['id']} needs es+en description")
@@ -77,6 +95,7 @@ def main() -> None:
         f"# Updated: {data['updated']}",
         "# Language: Spanish first, English in tools.json",
         "# Pricing is included only when verified on the official site.",
+        "# Afiliados: si compras por una liga de afiliado del directorio (hoy Meshy), Game Resources gana una comisión sin costo extra para ti. Las URLs de abajo son las oficiales.",
         "",
     ]
     by_cat = {c["id"]: [] for c in data["categories"]}
@@ -98,6 +117,23 @@ def main() -> None:
 
 def esc(value: str) -> str:
     return html.escape(str(value), quote=True)
+
+
+def aff_note(tool: dict) -> str:
+    if not tool.get("affiliate"):
+        return ""
+    return (
+        f'<p class="ia-card__aff" data-es="{esc(AFF_ES)}" data-en="{esc(AFF_EN)}">{esc(AFF_ES)}</p>'
+    )
+
+
+def visit_anchor(tool: dict) -> str:
+    rel = "sponsored noopener" if tool.get("affiliate") else "noopener"
+    return (
+        f'<a class="ia-card__link" href="/ia/go/{esc(tool["id"])}" data-href="{esc(tool["url"])}" '
+        f'target="_blank" rel="{rel}">Sitio oficial '
+        f'<span aria-hidden="true">↗</span><span class="sr-only"> {esc(tool["name"])} (abre en otra pestaña)</span></a>'
+    )
 
 
 def render_index(data: dict) -> None:
@@ -123,8 +159,7 @@ def render_index(data: dict) -> None:
             cards.append(
                 f'<article class="ia-card" id="tool-{esc(t["id"])}"><div class="ia-card__top">{logo}'
                 f'<div><h3>{esc(t["name"])}</h3>{price}</div></div><p>{esc(t["description"]["es"])}</p>'
-                f'<a class="ia-card__link" href="{esc(t["url"])}" target="_blank" rel="noopener">Sitio oficial '
-                f'<span aria-hidden="true">↗</span><span class="sr-only"> {esc(t["name"])} (abre en otra pestaña)</span></a></article>'
+                f'{aff_note(t)}{visit_anchor(t)}</article>'
             )
         collapsible = len(tools) > 3
         more = ""
