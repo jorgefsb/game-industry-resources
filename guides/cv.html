@@ -2,108 +2,81 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El CV Perfecto | Game Industry Resources 📝</title>
-    <meta name="description" content="Cómo crear un currículum para la industria de videojuegos.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="../styles/design-system.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El CV Perfecto | Game Industry Resources 📝</title>
+  <meta name="description" content="Cómo crear un currículum para la industria de videojuegos.">
+  <link rel="canonical" href="https://gamedev.jorgesuarez.com.mx/guides/cv.html">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="preload" href="../ia/fonts/outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../ia/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../brand/0.3/tokens.css">
+  <link rel="stylesheet" href="../ia/ia.css">
+  <link rel="stylesheet" href="../styles/home.css">
+  <link rel="stylesheet" href="../styles/inner.css">
+  <link rel="stylesheet" href="../juice/1.0.0/juice.css">
+  <link rel="stylesheet" href="../juice/1.0.0/juice-menu.css">
+  <link rel="icon" href="../ia/assets/moki-parche-derecho.png" type="image/png">
 </head>
 
-<body>
-    <nav class="nav">
-        <div class="nav__home">
-            <a class="site-home" href="https://jorgesuarez.com.mx/" data-i18n="nav.home" aria-label="JorgeSuarez.com.mx">← JorgeSuarez<span>.com.mx</span></a>
-        </div>
-        <div class="nav__container container">
-            <a href="../index.html" class="nav__logo">
-                <span class="nav__logo-icon">🎮</span>
-                <span>Game<span class="text-neon-pink">Dev</span> Resources</span>
-            </a>
-            <ul class="nav__menu">
-                <li><a href="../index.html#resources" class="nav__link" data-i18n="nav.resources">Recursos</a></li>
-                <li><a href="../ia/" class="nav__link" data-i18n="nav.ia">IA</a></li>
-                <li><a href="../jobs.html" class="nav__link nav__link--active" data-i18n="nav.jobs">Jobs & Career</a>
-                </li>
-                <li><a href="../database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a></li>
-                <li><a href="https://club.uetc.mx" target="_blank" class="nav__link"
-                        data-i18n="nav.community">Comunidad</a></li>
-            </ul>
-            <div class="nav__cta">
-                <div class="lang-switch">
-                    <a href="#" class="lang-btn active" data-lang="es">🇲🇽 ES</a>
-                    <a href="#" class="lang-btn" data-lang="en">🇺🇸 EN</a>
-                </div>
-                <a href="https://club.uetc.mx" target="_blank" rel="noopener" class="btn btn-primary"
-                    data-i18n="nav.cta">🎮 Únete a EGDC</a>
-            </div>
-        </div>
+<body class="ia-page inner-page">
+  <a class="ia-skip" href="#guide" data-i18n="ui.skip">Ir a recursos</a>
+
+  <header class="hud" data-hud>
+    <a class="hud__brand" href="https://jorgesuarez.com.mx/" aria-label="JorgeSuarez.com.mx">
+      <span class="js-wordmark">JorgeSuarez<span>.com.mx</span></span>
+    </a>
+    <nav class="hud__nav" id="hud-nav" aria-label="Principal" data-i18n-aria="nav.label">
+      <a href="../index.html#resources" class="nav__link" data-i18n="nav.resources">Recursos</a>
+      <a href="../ia/" class="nav__link" data-i18n="nav.ia">IA</a>
+      <a href="../jobs.html" class="nav__link" aria-current="page" data-i18n="nav.jobs">Jobs &amp; Career</a>
+      <a href="../database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a>
+      <a href="https://club.uetc.mx" target="_blank" rel="noopener" class="nav__link" data-i18n="nav.community">Comunidad</a>
+      <a class="hud__nav-cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
     </nav>
+    <div class="hud__right">
+      <div class="lang-switcher" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+        <a href="?lang=es" class="lang-btn" data-lang="es" lang="es">ES</a>
+        <span aria-hidden="true">|</span>
+        <a href="?lang=en" class="lang-btn" data-lang="en" lang="en">EN</a>
+      </div>
+      <a class="btn btn--primary btn--sm hud__cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+      <button type="button" class="juice-sfx" aria-pressed="false" aria-label="Activar sonido">🔇</button>
+      <button class="hud__burger" type="button" aria-expanded="false" aria-controls="hud-nav" aria-label="Menú" data-i18n-aria="nav.menu"><span></span><span></span></button>
+    </div>
+  </header>
 
-    <main class="section container" style="margin-top: var(--space-xl);">
-        <a href="../jobs.html" class="btn btn-ghost btn-sm mb-lg" data-i18n="ui.back_to_hub">← Regresar al Hub de
-            Carrera</a>
+  <main id="guide" class="wrap inner-section">
+    <p><a href="../jobs.html" class="btn btn--ghost" data-i18n="ui.back_to_hub">← Regresar al Hub</a></p>
+    <article class="guide-article">
+      <span class="hero__badge">Industry Standard</span>
+      <h1 data-i18n="card.cv.title">El CV Perfecto</h1>
+      <p class="lead" data-i18n="card.cv.desc">Pasa el filtro de 6 segundos.</p>
+      <section>
+        <h2>Rule #1</h2>
+        <h3>📄 1 Page Max.</h3>
+        <p data-i18n="card.cv.desc">Condense your impact.</p>
+      </section>
+      <section>
+        <h2 data-i18n="nav.cta">¿Quieres feedback?</h2>
+        <a href="https://club.uetc.mx" class="btn btn--primary" data-i18n="nav.cta">Solicitar Revisión</a>
+      </section>
+    </article>
+  </main>
 
-        <article class="bg-glass p-xl"
-            style="border-radius: var(--radius-lg); border: 1px solid var(--border-neon); max-width: 900px; margin: 0 auto;">
-            <div class="section__header">
-                <span class="section__badge">Industry Standard</span>
-                <h1 class="hero__title glitch-text" style="font-size: 2.5rem;" data-text="EL CV PERFECTO"
-                    data-i18n="card.cv.title">EL CV PERFECTO</h1>
-                <p class="section__description" data-i18n="card.cv.desc">Pasa el filtro de 6 segundos.</p>
-            </div>
+  <footer class="wrap papacito-footer" aria-label="Créditos" data-i18n-aria="footer.label">
+    <div class="papacito-footer__identity">
+      <a class="js-wordmark" href="https://jorgesuarez.com.mx/">JorgeSuarez<span>.com.mx</span></a>
+      <p data-es="Kaizen y Juego" data-en="Kaizen &amp; Play">Kaizen y Juego</p>
+    </div>
+    <p class="papacito-footer__signature"><span data-es="Hecho con amor ❤️🎮 por" data-en="Made with love ❤️🎮 by">Hecho con amor ❤️🎮 por</span> <a href="https://jorgesuarez.com.mx/">JorgeSuarez.com.mx</a> <a class="foot-back" href="https://jorgesuarez.com.mx/" data-i18n="nav.home">← JorgeSuarez<span>.com.mx</span></a></p>
+  </footer>
 
-            <div class="grid grid-1" style="gap: var(--space-xl); color: var(--text-secondary);">
-                <section>
-                    <h2 class="text-neon-cyan mb-md" style="font-family: var(--font-heading); font-size: 1.2rem;">Rule
-                        #1</h2>
-                    <div class="card mb-md">
-                        <h3 class="text-gold mb-xs">📄 1 Page Max.</h3>
-                        <p data-i18n="card.cv.desc">Condense your impact.</p>
-                    </div>
-                </section>
-            </div>
-
-            <div class="section__header mt-3xl">
-                <h3 class="text-neon-cyan" data-i18n="nav.cta">¿Quieres feedback?</h3>
-                <a href="https://club.uetc.mx" class="btn btn-primary mt-md" data-i18n="nav.cta">Solicitar
-                    Revisión</a>
-            </div>
-        </article>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__grid">
-                <div class="footer__brand">
-                    <div class="footer__logo">
-                        <span class="footer__logo-icon">🎮</span>
-                        <span>Game<span class="text-neon-pink">Dev</span> Resources</span>
-                    </div>
-                    <p class="footer__tagline" data-i18n="footer.tagline">Recursos premium para game devs en LATAM.</p>
-                </div>
-                <div class="footer__column">
-                    <h4 class="footer__title" data-i18n="footer.resources">🎒 Recursos</h4>
-                    <ul class="footer__links">
-                        <li><a href="../jobs.html" data-i18n="nav.jobs">💼 Jobs & Career</a></li>
-                        <li><a href="../tools.html">🛠️ Production Tools</a></li>
-                        <li><a href="../marketing.html">📢 Marketing</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer__bottom"
-                style="border-top: 1px solid var(--border-subtle); padding-top: var(--space-xl);">
-                <p data-i18n="footer.copyright">© 2026 Game Industry Resources. Hecho con 💙 por Jorge Suarez</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="../i18n.js"></script>
-    <script src="../gamification.js"></script>
+  <script src="../i18n.js"></script>
+  <script src="../scripts/home.js"></script>
+  <script src="../juice/1.0.0/juice.js" defer></script>
+  <script src="../juice/1.0.0/juice-menu.js" defer></script>
+  <script src="../scripts/juice.bind.js" defer></script>
 </body>
 
 </html>

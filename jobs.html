@@ -6,183 +6,161 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jobs & Career | Game Industry Resources 💼</title>
   <meta name="description" content="Encuentra trabajo en la industria de videojuegos. Guías de carrera, CVs y ofertas.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="styles/design-system.css">
+  <link rel="canonical" href="https://gamedev.jorgesuarez.com.mx/jobs.html">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="alternate" hreflang="es" href="https://gamedev.jorgesuarez.com.mx/jobs.html">
+  <link rel="alternate" hreflang="en" href="https://gamedev.jorgesuarez.com.mx/jobs.html?lang=en">
+  <link rel="preload" href="ia/fonts/outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="ia/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="brand/0.3/tokens.css">
+  <link rel="stylesheet" href="ia/ia.css">
+  <link rel="stylesheet" href="styles/home.css">
+  <link rel="stylesheet" href="styles/inner.css">
+  <link rel="stylesheet" href="juice/1.0.0/juice.css">
+  <link rel="stylesheet" href="juice/1.0.0/juice-menu.css">
+  <link rel="icon" href="ia/assets/moki-parche-derecho.png" type="image/png">
 </head>
 
-<body>
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav__home">
-      <a class="site-home" href="https://jorgesuarez.com.mx/" data-i18n="nav.home" aria-label="JorgeSuarez.com.mx">← JorgeSuarez<span>.com.mx</span></a>
-    </div>
-    <div class="nav__container container">
-      <a href="index.html" class="nav__logo">
-        <span class="nav__logo-icon">🎮</span>
-        <span>Game<span style="color:var(--neon-pink)">Dev</span> Resources</span>
-      </a>
-      <ul class="nav__menu">
-        <li><a href="index.html#resources" class="nav__link" data-i18n="nav.resources">Recursos</a></li>
-        <li><a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a></li>
-        <li><a href="jobs.html" class="nav__link nav__link--active" data-i18n="nav.jobs">Jobs & Career</a></li>
-        <li><a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a></li>
-        <li><a href="https://club.uetc.mx" target="_blank" class="nav__link"
-            data-i18n="nav.community">Comunidad</a></li>
-      </ul>
-      <div class="nav__cta">
-        <div class="lang-switch">
-          <a href="#" class="btn btn-ghost btn-sm lang-btn" data-lang="es">ES</a>
-          <a href="#" class="btn btn-ghost btn-sm lang-btn" data-lang="en">EN</a>
-        </div>
-        <a href="https://club.uetc.mx" target="_blank" class="btn btn-primary" data-i18n="nav.cta">🎮 Join Club</a>
-      </div>
-    </div>
-  </nav>
+<body class="ia-page inner-page">
+  <a class="ia-skip" href="#guides" data-i18n="ui.skip">Ir a recursos</a>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="container">
-      <div class="hero__content">
-        <span class="hero__badge" data-i18n="hero.badge.career">💼 Career Boost Active</span>
-        <h1 class="hero__title" data-i18n="hero.title.jobs">LEVEL UP YOUR CAREER</h1>
-        <p class="hero__subtitle" data-i18n="hero.subtitle.jobs">Tu guía definitiva para trabajar en la industria de
-          videojuegos en LATAM.</p>
-        <div class="hero__actions">
-          <a href="https://x.com/jorgefsb" target="_blank" class="btn btn-primary" data-i18n="hero.cta.jobs">🐦 10
-            Ofertas Diarias</a>
-          <a href="#guides" class="btn btn-secondary" data-i18n="card.read_guide">📝 Leer Guías</a>
-        </div>
+  <header class="hud" data-hud>
+    <a class="hud__brand" href="https://jorgesuarez.com.mx/" aria-label="JorgeSuarez.com.mx">
+      <span class="js-wordmark">JorgeSuarez<span>.com.mx</span></span>
+    </a>
+    <nav class="hud__nav" id="hud-nav" aria-label="Principal" data-i18n-aria="nav.label">
+      <a href="index.html#resources" class="nav__link" data-i18n="nav.resources">Recursos</a>
+      <a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a>
+      <a href="jobs.html" class="nav__link" aria-current="page" data-i18n="nav.jobs">Jobs &amp; Career</a>
+      <a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a>
+      <a href="https://club.uetc.mx" target="_blank" rel="noopener" class="nav__link" data-i18n="nav.community">Comunidad</a>
+      <a class="hud__nav-cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+    </nav>
+    <div class="hud__right">
+      <div class="lang-switcher" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+        <a href="?lang=es" class="lang-btn" data-lang="es" lang="es">ES</a>
+        <span aria-hidden="true">|</span>
+        <a href="?lang=en" class="lang-btn" data-lang="en" lang="en">EN</a>
       </div>
+      <a class="btn btn--primary btn--sm hud__cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+      <button type="button" class="juice-sfx" aria-pressed="false" aria-label="Activar sonido">🔇</button>
+      <button class="hud__burger" type="button" aria-expanded="false" aria-controls="hud-nav" aria-label="Menú" data-i18n-aria="nav.menu"><span></span><span></span></button>
     </div>
   </header>
 
-  <!-- Job Ticker -->
-  <section class="container">
-    <div class="job-ticker-container">
-      <div class="job-ticker-label">LIVE JOBS</div>
-      <div class="job-ticker">
-        <div class="job-ticker-track" id="tickerTrack">
-          <!-- Populated by JS -->
-          <span class="job-ticker-item">Loading opportunities... 🚀</span>
+  <main id="main">
+    <header class="wrap inner-hero">
+      <div class="hero__content">
+        <span class="hero__badge" data-i18n="hero.badge.career">💼 Career Boost Activo</span>
+        <h1 class="hero__title" data-i18n="hero.title.jobs">LEVEL UP YOUR CAREER</h1>
+        <p class="hero__subtitle lead" data-i18n="hero.subtitle.jobs">Tu guía definitiva para trabajar en la industria de videojuegos en LATAM.</p>
+        <div class="hero__actions inner-actions">
+          <a href="https://x.com/jorgefsb" target="_blank" rel="noopener" class="btn btn--primary" data-i18n="hero.cta.jobs">🐦 10 Ofertas Diarias</a>
+          <a href="#guides" class="btn btn--ghost" data-i18n="card.read_guide">Leer Guía</a>
         </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Career Guides -->
-  <section class="section container" id="guides">
-    <div class="section__header">
-      <h2 class="section__title" data-i18n="section.guides.title">Guías de Carrera</h2>
-      <p class="section__description" data-i18n="section.guides.desc">Templates y consejos de nivel senior adaptados a
-        LATAM.</p>
-    </div>
-
-    <div class="grid grid-3">
-      <article class="card">
-        <span class="card__icon">📝</span>
-        <span class="card__badge card__badge--new">Premium</span>
-        <h3 class="card__title" data-i18n="card.cv.title">El CV Perfecto</h3>
-        <p class="card__description" data-i18n="card.cv.desc">Plantillas profesionales para estudios AAA.</p>
-        <div class="card__actions">
-          <a href="guides/cv.html" class="btn btn-primary" style="font-size: 0.5rem; padding: 0.5rem 1rem;"
-            data-i18n="card.read_guide">Leer Guía</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <span class="card__icon">🎨</span>
-        <span class="card__badge card__badge--hot">Hot</span>
-        <h3 class="card__title" data-i18n="card.portfolio.title">Portafolio Pro</h3>
-        <p class="card__description" data-i18n="card.portfolio.desc">Cómo presentar tu trabajo para destacar.</p>
-        <div class="card__actions">
-          <button class="btn btn-secondary disabled" style="font-size: 0.5rem; padding: 0.5rem 1rem;"
-            data-i18n="card.coming_soon">Coming Soon</button>
-        </div>
-      </article>
-
-      <article class="card">
-        <span class="card__icon">🤝</span>
-        <span class="card__badge">Prep</span>
-        <h3 class="card__title" data-i18n="card.interview.title">Interview Prep</h3>
-        <p class="card__description" data-i18n="card.interview.desc">Preguntas comunes y negociación salarial.</p>
-        <div class="card__actions">
-          <button class="btn btn-secondary disabled" style="font-size: 0.5rem; padding: 0.5rem 1rem;"
-            data-i18n="card.coming_soon">Coming Soon</button>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Job Hubs -->
-  <section class="section container">
-    <div class="section__header">
-      <h2 class="section__title" data-i18n="section.jobs_where.title">DÓNDE BUSCAR CHAMBA</h2>
-      <p class="section__description" data-i18n="section.jobs_where.desc">Los mejores lugares para encontrar vacantes
-        reales.</p>
-    </div>
-    <div class="grid grid-4">
-      <a href="https://amberstudio.com/careers" target="_blank" class="card">
-        <span class="card__icon">🏢</span>
-        <h3 class="card__title">Amber Studio</h3>
-        <p class="card__description">Global AAA opportunities.</p>
-      </a>
-      <a href="https://hitmarker.net/" target="_blank" class="card">
-        <span class="card__icon">🎯</span>
-        <h3 class="card__title">Hitmarker</h3>
-        <p class="card__description">The gaming industry standard.</p>
-      </a>
-      <a href="https://remotegamejobs.com/" target="_blank" class="card">
-        <span class="card__icon">🏠</span>
-        <h3 class="card__title">Remote Jobs</h3>
-        <p class="card__description">Work from anywhere.</p>
-      </a>
-      <a href="https://www.linkedin.com/jobs/" target="_blank" class="card">
-        <span class="card__icon">💼</span>
-        <h3 class="card__title">LinkedIn</h3>
-        <p class="card__description">Targeted gamedev filters.</p>
-      </a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <div class="footer__logo">🎮 GameDev Resources</div>
-          <p class="footer__tagline" data-i18n="footer.tagline">Recursos premium gratuitos para LATAM.</p>
-        </div>
-        <div class="footer__column">
-          <h4 class="footer__title" data-i18n="footer.resources">🎒 Recursos</h4>
-          <ul class="footer__links">
-            <li><a href="jobs.html">💼 Jobs & Career</a></li>
-            <li><a href="tools.html">🛠️ Production Tools</a></li>
-            <li><a href="database.html">🌎 Studios DB</a></li>
-          </ul>
+    <section class="wrap" aria-label="Live jobs">
+      <div class="job-ticker-wrap">
+        <div class="job-ticker-label">LIVE JOBS</div>
+        <div class="job-ticker">
+          <div class="job-ticker-track" id="tickerTrack">
+            <span class="job-ticker-item">Loading opportunities... 🚀</span>
+          </div>
         </div>
       </div>
+    </section>
+
+    <section class="wrap inner-section" id="guides">
+      <div class="section__header">
+        <h2 class="section__title" data-i18n="section.guides.title">Guías de Carrera</h2>
+        <p class="section__description" data-i18n="section.guides.desc">Templates y consejos de nivel senior adaptados a LATAM.</p>
+      </div>
+      <div class="inner-grid">
+        <article class="ia-card inner-card">
+          <span class="card__icon">📝</span>
+          <span class="ia-badge">Premium</span>
+          <h3 class="card__title" data-i18n="card.cv.title">El CV Perfecto</h3>
+          <p class="card__description" data-i18n="card.cv.desc">Plantillas profesionales para estudios AAA.</p>
+          <div class="card__actions">
+            <a href="guides/cv.html" class="btn btn--primary" data-i18n="card.read_guide">Leer Guía</a>
+          </div>
+        </article>
+        <article class="ia-card inner-card">
+          <span class="card__icon">🎨</span>
+          <span class="ia-badge">Hot</span>
+          <h3 class="card__title" data-i18n="card.portfolio.title">Portafolio Pro</h3>
+          <p class="card__description" data-i18n="card.portfolio.desc">Cómo presentar tu trabajo para destacar.</p>
+          <div class="card__actions">
+            <button class="btn btn--ghost" type="button" disabled data-i18n="card.coming_soon">Coming Soon</button>
+          </div>
+        </article>
+        <article class="ia-card inner-card">
+          <span class="card__icon">🤝</span>
+          <span class="ia-badge">Prep</span>
+          <h3 class="card__title" data-i18n="card.interview.title">Interview Prep</h3>
+          <p class="card__description" data-i18n="card.interview.desc">Preguntas comunes y negociación salarial.</p>
+          <div class="card__actions">
+            <button class="btn btn--ghost" type="button" disabled data-i18n="card.coming_soon">Coming Soon</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap inner-section">
+      <div class="section__header">
+        <h2 class="section__title" data-i18n="section.jobs_where.title">DÓNDE BUSCAR CHAMBA</h2>
+        <p class="section__description" data-i18n="section.jobs_where.desc">Los mejores lugares para encontrar vacantes reales.</p>
+      </div>
+      <div class="inner-grid inner-grid--4">
+        <a href="https://amberstudio.com/careers" target="_blank" rel="noopener" class="ia-card inner-card">
+          <span class="card__icon">🏢</span>
+          <h3 class="card__title">Amber Studio</h3>
+          <p class="card__description">Global AAA opportunities.</p>
+        </a>
+        <a href="https://hitmarker.net/" target="_blank" rel="noopener" class="ia-card inner-card">
+          <span class="card__icon">🎯</span>
+          <h3 class="card__title">Hitmarker</h3>
+          <p class="card__description">The gaming industry standard.</p>
+        </a>
+        <a href="https://remotegamejobs.com/" target="_blank" rel="noopener" class="ia-card inner-card">
+          <span class="card__icon">🏠</span>
+          <h3 class="card__title">Remote Jobs</h3>
+          <p class="card__description">Work from anywhere.</p>
+        </a>
+        <a href="https://www.linkedin.com/jobs/" target="_blank" rel="noopener" class="ia-card inner-card">
+          <span class="card__icon">💼</span>
+          <h3 class="card__title">LinkedIn</h3>
+          <p class="card__description">Targeted gamedev filters.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap papacito-footer" aria-label="Créditos" data-i18n-aria="footer.label">
+    <div class="papacito-footer__identity">
+      <a class="js-wordmark" href="https://jorgesuarez.com.mx/">JorgeSuarez<span>.com.mx</span></a>
+      <p data-es="Kaizen y Juego" data-en="Kaizen &amp; Play">Kaizen y Juego</p>
+    </div>
+    <ul class="ia-socials" aria-label="Redes" data-i18n-aria="footer.social">
+      <li><a href="https://linkedin.com/in/yorgenmeister" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://x.com/jorgefsb" target="_blank" rel="noopener">X / Twitter</a></li>
+      <li><a href="https://github.com/jorgefsb" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+    <p class="papacito-footer__signature"><span data-es="Hecho con amor ❤️🎮 por" data-en="Made with love ❤️🎮 by">Hecho con amor ❤️🎮 por</span> <a href="https://jorgesuarez.com.mx/">JorgeSuarez.com.mx</a> <a class="foot-back" href="https://jorgesuarez.com.mx/" data-i18n="nav.home">← JorgeSuarez<span>.com.mx</span></a></p>
+    <div class="papacito-footer__meta">
+      <p data-es="Jorge Suárez | © 2026 | Construido sobre nuestros valores de Kaizen y Juego." data-en="Jorge Suárez | © 2026 | Built on our values of Kaizen &amp; Play.">Jorge Suárez | © 2026 | Construido sobre nuestros valores de Kaizen y Juego.</p>
     </div>
   </footer>
 
   <script src="i18n.js"></script>
-  <script src="gamification.js"></script>
+  <script src="scripts/home.js"></script>
   <script src="scripts/studios.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (typeof studios !== 'undefined') {
-        const track = document.getElementById('tickerTrack');
-        const hiring = studios.filter(s => s.hiring);
-        if (hiring.length > 0) {
-          track.innerHTML = hiring.map(s => `<a href="${s.url}" target="_blank" class="job-ticker-item">🔥 ${s.name} (${s.country}) is Hiring!</a>`).join('');
-          track.innerHTML += track.innerHTML; // Duplicate for loop
-        }
-      }
-    });
-  </script>
+  <script src="scripts/jobs.js"></script>
+  <script src="juice/1.0.0/juice.js" defer></script>
+  <script src="juice/1.0.0/juice-menu.js" defer></script>
+  <script src="scripts/juice.bind.js" defer></script>
 </body>
 
 </html>

@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (e.target.innerText.includes('HIRING')) filter = 'HIRING';
 
             renderStudios(filter);
-            playSound('click'); // Using the global sound function
+            if (typeof playSound === 'function') playSound('click');
         });
     });
 

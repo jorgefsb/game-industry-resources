@@ -6,177 +6,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studios DB | Game Industry Resources 🌎</title>
   <meta name="description" content="Directorio completo de estudios de videojuegos en Latinoamérica.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="styles/design-system.css">
+  <link rel="canonical" href="https://gamedev.jorgesuarez.com.mx/database.html">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="preload" href="ia/fonts/outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="ia/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="brand/0.3/tokens.css">
+  <link rel="stylesheet" href="ia/ia.css">
+  <link rel="stylesheet" href="styles/home.css">
+  <link rel="stylesheet" href="styles/inner.css">
+  <link rel="stylesheet" href="juice/1.0.0/juice.css">
+  <link rel="stylesheet" href="juice/1.0.0/juice-menu.css">
+  <link rel="icon" href="ia/assets/moki-parche-derecho.png" type="image/png">
 </head>
 
-<body>
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav__home">
-      <a class="site-home" href="https://jorgesuarez.com.mx/" data-i18n="nav.home" aria-label="JorgeSuarez.com.mx">← JorgeSuarez<span>.com.mx</span></a>
-    </div>
-    <div class="nav__container container">
-      <a href="index.html" class="nav__logo">
-        <span class="nav__logo-icon">🎮</span>
-        <span>Game<span style="color:var(--neon-pink)">Dev</span> Resources</span>
-      </a>
-      <ul class="nav__menu">
-        <li><a href="index.html#resources" class="nav__link" data-i18n="nav.resources">Recursos</a></li>
-        <li><a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a></li>
-        <li><a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs & Career</a></li>
-        <li><a href="database.html" class="nav__link nav__link--active" data-i18n="nav.studios">Studios DB</a></li>
-        <li><a href="https://club.uetc.mx" target="_blank" class="nav__link"
-            data-i18n="nav.community">Comunidad</a></li>
-      </ul>
-      <div class="nav__cta">
-        <div class="lang-switch">
-          <a href="#" class="btn btn-ghost btn-sm lang-btn" data-lang="es">ES</a>
-          <a href="#" class="btn btn-ghost btn-sm lang-btn" data-lang="en">EN</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+<body class="ia-page inner-page">
+  <a class="ia-skip" href="#studios" data-i18n="ui.skip">Ir a recursos</a>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="container">
-      <div class="hero__content">
-        <span class="hero__badge" data-i18n="hero.badge.studios">🌎 LATAM POWER Active</span>
-        <h1 class="hero__title" data-i18n="hero.title.database">LATAM STUDIOS DB</h1>
-        <p class="hero__subtitle" data-i18n="hero.subtitle.database">El mapa más completo de la industria en
-          Latinoamérica.</p>
+  <header class="hud" data-hud>
+    <a class="hud__brand" href="https://jorgesuarez.com.mx/" aria-label="JorgeSuarez.com.mx">
+      <span class="js-wordmark">JorgeSuarez<span>.com.mx</span></span>
+    </a>
+    <nav class="hud__nav" id="hud-nav" aria-label="Principal" data-i18n-aria="nav.label">
+      <a href="index.html#resources" class="nav__link" data-i18n="nav.resources">Recursos</a>
+      <a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a>
+      <a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs &amp; Career</a>
+      <a href="database.html" class="nav__link" aria-current="page" data-i18n="nav.studios">Studios DB</a>
+      <a href="https://club.uetc.mx" target="_blank" rel="noopener" class="nav__link" data-i18n="nav.community">Comunidad</a>
+      <a class="hud__nav-cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+    </nav>
+    <div class="hud__right">
+      <div class="lang-switcher" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+        <a href="?lang=es" class="lang-btn" data-lang="es" lang="es">ES</a>
+        <span aria-hidden="true">|</span>
+        <a href="?lang=en" class="lang-btn" data-lang="en" lang="en">EN</a>
       </div>
+      <a class="btn btn--primary btn--sm hud__cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+      <button type="button" class="juice-sfx" aria-pressed="false" aria-label="Activar sonido">🔇</button>
+      <button class="hud__burger" type="button" aria-expanded="false" aria-controls="hud-nav" aria-label="Menú" data-i18n-aria="nav.menu"><span></span><span></span></button>
     </div>
   </header>
 
-  <!-- Search & Filters (Terminal Style) -->
-  <section class="container" style="margin-top: -50px; position: relative; z-index: 10;">
-    <div class="search-terminal"
-      style="background:#050510; border:2px solid var(--neon-cyan); border-radius:12px; overflow:hidden; box-shadow:0 0 30px rgba(0,255,255,0.2);">
-      <div class="terminal-header" style="background:#1a1a3e; padding:10px 20px; display:flex; gap:10px;">
-        <span class="terminal-dot" style="background:#ff5f56; width:12px; height:12px; border-radius:50%;"></span>
-        <span class="terminal-dot" style="background:#ffbd2e; width:12px; height:12px; border-radius:50%;"></span>
-        <span class="terminal-dot" style="background:#27c93f; width:12px; height:12px; border-radius:50%;"></span>
-        <span style="font-family:monospace; font-size:0.7rem; color:#aaa; margin-left:auto;">query_studios.sh</span>
+  <main id="main">
+    <header class="wrap inner-hero">
+      <div class="hero__content">
+        <span class="hero__badge" data-i18n="hero.badge.studios">🌎 LATAM Power</span>
+        <h1 class="hero__title" data-i18n="hero.title.database">LATAM STUDIOS DB</h1>
+        <p class="hero__subtitle lead" data-i18n="hero.subtitle.database">El mapa más completo de la industria en Latinoamérica.</p>
       </div>
-      <div class="terminal-body" style="padding:20px; display:flex; align-items:center; gap:15px;">
-        <span style="color:var(--neon-green); font-family:monospace; font-weight:bold;">></span>
-        <input type="text" class="terminal-input" placeholder="Search by name, tech or country..."
-          style="background:transparent; border:none; color:var(--neon-cyan); font-family:var(--font-heading); font-size:0.7rem; flex:1; outline:none;"
-          id="studioSearch">
+    </header>
+
+    <section class="wrap inner-section" id="studios">
+      <form class="ia-search inner-search" role="search" action="#studios">
+        <label class="sr-only" for="studioSearch">Search studios</label>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input id="studioSearch" type="search" placeholder="Search by name, tech or country..." autocomplete="off">
+      </form>
+      <div class="ia-chips inner-chips" role="group" aria-label="Filters">
+        <button type="button" class="ia-chip" data-filter="TODO" aria-pressed="true">Todas</button>
+        <button type="button" class="ia-chip" data-filter="HIRING" aria-pressed="false">Hiring</button>
+        <button type="button" class="ia-chip" data-filter="MX" aria-pressed="false">México</button>
+        <button type="button" class="ia-chip" data-filter="CO" aria-pressed="false">Colombia</button>
+        <button type="button" class="ia-chip" data-filter="AR" aria-pressed="false">Argentina</button>
+        <button type="button" class="ia-chip" data-filter="BR" aria-pressed="false">Brasil</button>
       </div>
-    </div>
-
-    <!-- Filter Chips -->
-    <div class="filters-bar" style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin:2rem 0;"
-      id="filterBar">
-      <button class="btn btn-ghost active filter-chip"
-        style="font-size:0.6rem; border:1px solid var(--border-subtle); border-radius:50px;">TODO</button>
-      <button class="btn btn-ghost filter-chip"
-        style="font-size:0.6rem; border:1px solid var(--border-subtle); border-radius:50px; color:var(--neon-orange);">🔥
-        HIRING</button>
-      <button class="btn btn-ghost filter-chip"
-        style="font-size:0.6rem; border:1px solid var(--border-subtle); border-radius:50px;">🇲🇽 MÉXICO</button>
-      <button class="btn btn-ghost filter-chip"
-        style="font-size:0.6rem; border:1px solid var(--border-subtle); border-radius:50px;">🇨🇴 COLOMBIA</button>
-      <button class="btn btn-ghost filter-chip"
-        style="font-size:0.6rem; border:1px solid var(--border-subtle); border-radius:50px;">🇦🇷 ARGENTINA</button>
-      <button class="btn btn-ghost filter-chip"
-        style="font-size:0.6rem; border:1px solid var(--border-subtle); border-radius:50px;">🇧🇷 BRAZIL</button>
-    </div>
-  </section>
-
-  <!-- Studios Grid -->
-  <section class="section container">
-    <div class="grid grid-3" id="studiosGrid">
-      <p class="text-center" data-i18n="ui.loading">Accessing database... 💾</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <div class="footer__logo">🎮 GameDev Resources</div>
-          <p class="footer__tagline" data-i18n="footer.tagline">Recursos premium gratuitos para LATAM.</p>
-        </div>
+      <div class="ia-grid" id="studiosGrid">
+        <p class="section__description" data-i18n="ui.loading">Cargando...</p>
       </div>
+    </section>
+  </main>
+
+  <footer class="wrap papacito-footer" aria-label="Créditos" data-i18n-aria="footer.label">
+    <div class="papacito-footer__identity">
+      <a class="js-wordmark" href="https://jorgesuarez.com.mx/">JorgeSuarez<span>.com.mx</span></a>
+      <p data-es="Kaizen y Juego" data-en="Kaizen &amp; Play">Kaizen y Juego</p>
     </div>
+    <p class="papacito-footer__signature"><span data-es="Hecho con amor ❤️🎮 por" data-en="Made with love ❤️🎮 by">Hecho con amor ❤️🎮 por</span> <a href="https://jorgesuarez.com.mx/">JorgeSuarez.com.mx</a> <a class="foot-back" href="https://jorgesuarez.com.mx/" data-i18n="nav.home">← JorgeSuarez<span>.com.mx</span></a></p>
   </footer>
 
   <script src="i18n.js"></script>
-  <script src="gamification.js"></script>
+  <script src="scripts/home.js"></script>
   <script src="scripts/studios.js"></script>
-  <script>
-    // Overriding the studios.js render behavior to ensure it works with the current DOM IDs
-    function customRender(filter = "TODO", searchQuery = "") {
-      const grid = document.getElementById("studiosGrid");
-      grid.innerHTML = "";
-
-      const filtered = studios.filter(s => {
-        const matchesFilter = filter === "TODO" ||
-          (filter === "HIRING" && s.hiring) ||
-          (filter === "MÉXICO" && s.country === "MX") ||
-          (filter === "COLOMBIA" && s.country === "CO") ||
-          (filter === "ARGENTINA" && s.country === "AR") ||
-          (filter === "BRAZIL" && s.country === "BR");
-
-        const matchesSearch = s.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          s.description.toLowerCase().includes(searchQuery.toLowerCase());
-        return matchesFilter && matchesSearch;
-      });
-
-      filtered.forEach((s, idx) => {
-        const card = document.createElement("a");
-        card.href = s.url;
-        card.target = "_blank";
-        card.className = "card";
-        card.style.animationDelay = `${idx * 50}ms`;
-        card.innerHTML = `
-                ${s.hiring ? '<span class="card__badge card__badge--hot" style="position:absolute; top:10px; right:10px;">Hiring</span>' : ''}
-                <span style="font-size:3rem; display:block; margin-bottom:1rem;">${getIcon(s.type)}</span>
-                <h3 class="card__title">${s.name} ${s.flag}</h3>
-                <p class="card__description">${s.description}</p>
-                <div style="margin-top:1rem; display:flex; gap:5px; flex-wrap:wrap;">
-                    ${s.tags.map(t => `<span style="font-size:0.6rem; background:rgba(0,255,255,0.1); padding:2px 8px; border-radius:4px; color:var(--neon-cyan)">${t}</span>`).join('')}
-                </div>
-            `;
-        grid.appendChild(card);
-      });
-    }
-
-    function getIcon(type) {
-      if (type.includes("AAA")) return "🏢";
-      if (type.includes("Indie")) return "👾";
-      if (type.includes("Mobile")) return "📱";
-      if (type.includes("Co-dev")) return "🤝";
-      return "🎮";
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      customRender();
-
-      document.getElementById("studioSearch").addEventListener("input", (e) => {
-        const activeFilter = document.querySelector(".filter-chip.active").innerText.replace('🔥 ', '').replace('🇲🇽 ', '').replace('🇨🇴 ', '').replace('🇦🇷 ', '').replace('🇧🇷 ', '');
-        customRender(activeFilter === "HIRING" ? "HIRING" : activeFilter, e.target.value);
-      });
-
-      document.querySelectorAll(".filter-chip").forEach(btn => {
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".filter-chip").forEach(b => b.classList.remove("active"));
-          btn.classList.add("active");
-          const filter = btn.innerText.replace('🔥 ', '').replace('🇲🇽 ', '').replace('🇨🇴 ', '').replace('🇦🇷 ', '').replace('🇧🇷 ', '');
-          customRender(filter === "HIRING" ? "HIRING" : filter, document.getElementById("studioSearch").value);
-        });
-      });
-    });
-  </script>
+  <script src="scripts/database.js"></script>
+  <script src="juice/1.0.0/juice.js" defer></script>
+  <script src="juice/1.0.0/juice-menu.js" defer></script>
+  <script src="scripts/juice.bind.js" defer></script>
 </body>
 
 </html>
