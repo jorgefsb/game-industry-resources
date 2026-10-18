@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/readme-banner.svg" width="1000" alt="Game Industry Resources — level up tu carrera en videojuegos en Latinoamérica." />
+<img src="./assets/readme-banner.svg" width="1000" alt="Game Industry Resources: level up tu carrera en videojuegos en Latinoamérica." />
 
 [🚀 Explorar el sitio](https://gamedev.jorgesuarez.com.mx) · [🐙 Ver código](https://github.com/jorgefsb/game-industry-resources) · **Estado:** activo / trabajo en progreso
 
