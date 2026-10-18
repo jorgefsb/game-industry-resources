@@ -13,7 +13,7 @@ const PIN = {
   'juice-menu.js': 'a7e13fd899812ef759532225dc839676144f34bb7140309d8cce5e6ad4acc03f'
 };
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..', '1.0.0');
+const root = join(dirname(fileURLToPath(import.meta.url)), '../../juice/1.0.0');
 
 for (const [name, want] of Object.entries(PIN)) {
   test('juice/1.0.0/' + name + ' sha256 stays pinned', () => {

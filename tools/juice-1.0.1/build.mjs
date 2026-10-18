@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 import { createHash } from 'node:crypto';
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const dir = dirname(fileURLToPath(import.meta.url));
+const here = dirname(fileURLToPath(import.meta.url));
+const dir = join(here, '../../juice/1.0.1');
 const check = process.argv.includes('--check');
 
 function run(cmd, args) {
@@ -36,6 +37,9 @@ function gzip9file(path) {
   if (r.status !== 0) throw new Error((r.stderr && r.stderr.toString()) || 'gzip failed');
   return r.stdout.length;
 }
+
+const leaked = readdirSync(dir).filter((n) => n.endsWith('.test.mjs') || n === 'build.mjs');
+if (leaked.length) throw new Error('juice/1.0.1 must not publish ' + leaked.join(', '));
 
 const pairs = [
   ['juice.src.js', 'juice.js', 'js'],
@@ -147,7 +151,7 @@ if (!/requestAnimationFrame\(function\(\)\{requestAnimationFrame/.test(src)) {
   throw new Error('stagger must use double rAF');
 }
 
-const bind = readFileSync(join(dir, '../../scripts/juice.bind.js'), 'utf8');
+const bind = readFileSync(join(here, '../../scripts/juice.bind.js'), 'utf8');
 if (/\.hap\(/.test(bind)) throw new Error('bind.js must not call hap()');
 if (/party\(pay\)|spray\(pay/.test(bind)) throw new Error('pay click must not party or spray');
 if (!/play\('jz-tap'/.test(bind)) throw new Error('pay click must play jz-tap');
@@ -157,11 +161,18 @@ if (!/allowed\('impact'\) \? jz\.HOLD : 0/.test(bind)) {
 if (/function mount\(/.test(bind) || /jz-dock/.test(bind)) {
   throw new Error('menu mount must live in juice-menu.js, not bind.js');
 }
-if (/0 0 18px 6px/.test(css) || /box-shadow:0 0 0 3px/.test(css)) {
-  throw new Error('flash must not use a glow box-shadow');
+if (/0 0 18px 6px/.test(css) || /box-shadow:0 0 0 3px/.test(css) || /\.jz-glow/.test(css + src + pub)) {
+  throw new Error('flash must be .jz-flash with a short border, not a glow');
+}
+if (!/\.jz-flash\{/.test(css) || !/layer\(b,'jz-flash'\)/.test(src)) {
+  throw new Error('flash layer class must be jz-flash');
 }
 if (!/color:var\(--brand-ink,#22211F\)/.test(css)) {
   throw new Error('done check must use brand-ink');
+}
+if (/#FFA500/.test(css)) throw new Error('core CSS must not use #FFA500');
+if (!/border:2px solid var\(--brand-accent,#FF6B35\)/.test(css)) {
+  throw new Error('stamp ring must use brand-accent');
 }
 if (!/function sfxLab\(/.test(src) || !/setAttribute\('aria-label',lab\)/.test(src)) {
   throw new Error('sound button visible text and aria-label must share sfxLab()');
@@ -192,10 +203,6 @@ console.log((check ? 'ok' : 'wrote') + ' core', core, 'js', coreJs, 'css', coreC
 if (core >= 6000) throw new Error('core gzip -9 ' + core + ' B >= 6000');
 if (pack >= 8000) throw new Error('package gzip -9 ' + pack + ' B >= 8000');
 if (check) {
-  const hap = spawnSync('node', [join(dir, 'hap.test.mjs')], { stdio: 'inherit' });
-  if (hap.status !== 0) throw new Error('hap.test failed');
-  const pin = spawnSync('node', ['--test', join(dir, 'pin.test.mjs')], { stdio: 'inherit' });
-  if (pin.status !== 0) throw new Error('pin.test failed');
-  const labels = spawnSync('node', ['--test', join(dir, 'label.test.mjs')], { stdio: 'inherit' });
-  if (labels.status !== 0) throw new Error('label.test failed');
+  const tests = spawnSync('node', ['--test', join(here, 'pin.test.mjs'), join(here, 'label.test.mjs'), join(here, 'hap.test.mjs')], { stdio: 'inherit' });
+  if (tests.status !== 0) throw new Error('juice 1.0.1 tests failed');
 }

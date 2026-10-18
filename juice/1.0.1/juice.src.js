@@ -13,7 +13,7 @@ function pullOff(){var c=w.JZ_CONFIG||{},a=(H.getAttribute('data-jz-off')||'').s
 function siteOff(n){return(w.JZ_CONFIG||{})[n]===false||(' '+(H.getAttribute('data-jz-off')||'')+' ').indexOf(' '+n+' ')>=0}
 function ok(n){return!siteOff(n)&&!red&&level!=='off'&&(level==='full'?2:1)>=(NEED[n]||0)}
 function later(fn,ms){if(!ms){fn();return}var id=setTimeout(fn,ms);timers.push(id)}
-function kill(){timers.forEach(clearTimeout);timers=[];nP=0;$$('.jz-dot,.jz-ripple').forEach(function(el){el.remove()});$$('.juice-press,.juice-shake,.jz-hop,.jz-pop,.jz-held,.jz-glow.is-on').forEach(function(el){el.classList.remove('juice-press','juice-shake','jz-hop','jz-pop','jz-held','is-on')});$$('[data-jz-moki],.ia-moki-live,.jz-moki').forEach(function(m){m.style.transform=''})}
+function kill(){timers.forEach(clearTimeout);timers=[];nP=0;$$('.jz-dot,.jz-ripple').forEach(function(el){el.remove()});$$('.juice-press,.juice-shake,.jz-hop,.jz-pop,.jz-held,.jz-flash.is-on').forEach(function(el){el.classList.remove('juice-press','juice-shake','jz-hop','jz-pop','jz-held','is-on')});$$('[data-jz-moki],.ia-moki-live,.jz-moki').forEach(function(m){m.style.transform=''})}
 var paintMenu=function(){};
 function setLv(v,save){if(red)v='off';if(v!=='off'&&v!=='subtle'&&v!=='full')v='subtle';var prev=level;level=v;H.setAttribute('data-jz-level',v);if(save&&!red)try{localStorage.setItem(LK,v)}catch(e){}if(v==='off'&&prev!=='off')kill();paintMenu()}
 function audio(){if(!sndOn)return;var AC=w.AudioContext||w.webkitAudioContext;if(!AC)return;if(!ac){ac=new AC();mas=ac.createGain();mas.gain.value=.125;mas.connect(ac.destination)}if(ac.state==='suspended')ac.resume();return ac}
@@ -34,7 +34,7 @@ function shake(el){ok('shake')&&replay(el,'juice-shake')}
 function hold(el){if(el){el.classList.remove('juice-press');if(!red&&ok('impact'))el.classList.add('jz-held')}}
 function rel(el){el&&el.classList.remove('jz-held')}
 function layer(b,c){var l=b.querySelector(':scope>.'+c);if(!l){l=d.createElement('span');l.className=c;l.setAttribute('aria-hidden','true');b.appendChild(l)}return l}
-function flash(b){if(!b||!ok('flash'))return;replay(layer(b,'jz-glow'),'is-on')}
+function flash(b){if(!b||!ok('flash'))return;replay(layer(b,'jz-flash'),'is-on')}
 function ripple(b,x,y){if(!ok('ripple')||!b)return;var r=b.getBoundingClientRect(),px=(x==null?r.left+r.width/2:x)-r.left,py=(y==null?r.top+r.height/2:y)-r.top,R=Math.max(Math.hypot(px,py),Math.hypot(r.width-px,py),Math.hypot(px,r.height-py),Math.hypot(r.width-px,r.height-py)),o=d.createElement('span');o.className='jz-ripple';o.style.cssText='left:'+(px-R)+'px;top:'+(py-R)+'px;width:'+2*R+'px;height:'+2*R+'px';layer(b,'jz-ripple-clip').appendChild(o);o.addEventListener('animationend',function(){this.remove()})}
 function impact(el,cb){var ms=ok('impact')&&!red?HOLD:0;hold(el);later(function(){rel(el);cb&&cb()},ms)}
 function check(el){var r=el&&(el.closest('.jz-host,li,form')||el),m=r&&$('.jz-check',r),li=m&&m.closest('li');if(!li)return;li.classList.add('is-done');if(ok('check')){li.style.setProperty('--jz-peak','1.2');replay(li,'jz-pop')}}

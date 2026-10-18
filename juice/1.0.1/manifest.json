@@ -4,10 +4,10 @@
   "origin": "jorgefsb/game-industry-resources",
   "files": {
     "juice.css": {
-      "sha256": "3ee28d44e68f107003b87e3d8c5804bbffe9e0f0bfd86fc2bafc13ef1d19aed5"
+      "sha256": "2d02b3e2d968cd5afe9b6174979255b97aa7ad8793c682273a85976f06058981"
     },
     "juice.js": {
-      "sha256": "c8c86b33f3540421516d5f5a78068520e6ab661bb8b859d24698780bbca44bb7"
+      "sha256": "8f4ba7e6e081f47db948a69da9d67d129f3e3243cebcc063685e33dc0b354eab"
     },
     "juice-menu.css": {
       "sha256": "3e4dcb2ccd833171eb6358bc9e337dc993c5c5fbf28aacd1672de3d6065c42d3"
