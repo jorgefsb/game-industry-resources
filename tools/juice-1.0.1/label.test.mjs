@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import test from 'node:test';
-import { chromePath, loadChromium, packDir, skipNoChromium } from './browser.mjs';
+import { packDir, readyMarkup, requireBrowser, waitJzReady } from './browser.mjs';
 
 export function visibleName(el) {
   function walk(node) {
@@ -54,11 +54,7 @@ test('EN mismatch fixture fails', () => {
   );
 });
 
-const chromium = await loadChromium();
-const exe = chromePath();
-const noChromium = skipNoChromium(chromium, exe, 'label.test');
-if (noChromium) console.warn(noChromium);
-const browserOpts = noChromium ? { skip: noChromium } : {};
+const { chromium, exe } = await requireBrowser('label.test');
 
 const juiceJs = readFileSync(join(packDir, 'juice.js'), 'utf8');
 const menuJs = readFileSync(join(packDir, 'juice-menu.js'), 'utf8');
@@ -77,9 +73,10 @@ async function withPage(opts, fn) {
     await page.setContent(
       '<!doctype html><html lang="' + (opts.lang || 'es') + '"><body>' +
       '<button type="button" class="juice-sfx"></button>' +
-      '<script>' + juiceJs + '</script><script>' + menuJs + '</script></body></html>'
+      '<script>' + juiceJs + '</script><script>' + menuJs + '</script>' +
+      readyMarkup() + '</body></html>'
     );
-    await page.waitForFunction(() => window.JZ);
+    await waitJzReady(page);
     return await fn(page);
   } finally {
     await browser.close();
@@ -115,7 +112,7 @@ const readNames = () => {
   };
 };
 
-test('sound and feel names match in ES and EN, both sound states', browserOpts, async () => {
+test('sound and feel names match in ES and EN, both sound states', async () => {
   const cases = [
     { lang: 'es', sfx: null, sound: 'Sonido', feel: 'Sonido y juice', pressed: 'false' },
     { lang: 'es', sfx: 'on', sound: 'Sonido', feel: 'Sonido y juice', pressed: 'true' },
@@ -139,7 +136,7 @@ test('sound and feel names match in ES and EN, both sound states', browserOpts, 
   }
 });
 
-test('language switch repaints matching labels', browserOpts, async () => {
+test('language switch repaints matching labels', async () => {
   const after = await withPage({ lang: 'es' }, async (page) => {
     const start = await page.evaluate(readNames);
     await page.evaluate(() => {
@@ -165,7 +162,7 @@ test('language switch repaints matching labels', browserOpts, async () => {
   assert.equal(after.es.feel.visible, 'Sonido y juice');
 });
 
-test('sound starts off; reduced motion turns juice off', browserOpts, async () => {
+test('sound starts off; reduced motion turns juice off', async () => {
   const off = await withPage({ lang: 'es' }, (page) => page.evaluate(readNames));
   assert.equal(off.sounds[0].pressed, 'false');
   assert.notEqual(off.level, 'off');
