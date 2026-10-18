@@ -69,6 +69,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .lang-switcher a { min-height: var(--tap); min-width: var(--tap); display: inline-flex; align-items: center; justify-content: center; opacity: .6; color: var(--text); text-decoration: none; border-radius: var(--r-control); }
 .lang-switcher a:hover { opacity: 1; }
 .lang-switcher a.active { opacity: 1; color: var(--accent); }
+@media (max-width: 360px) {
+  .home-page .hud .lang-switcher a,
+  .hud .lang-switcher a {
+    min-width: var(--tap);
+    min-height: var(--tap);
+    padding: 0;
+  }
+}
 .hud__burger { display: none; width: var(--tap); height: var(--tap); background: none; border: 1px solid var(--border-strong); border-radius: var(--r-control); color: var(--text); cursor: pointer; padding: 0; position: relative; flex: none; }
 .hud__burger span { position: absolute; left: 12px; right: 12px; height: 2px; background: currentColor; transition: transform 200ms var(--ease); }
 .hud__burger span:first-child { top: 16px; }
