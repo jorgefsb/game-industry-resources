@@ -170,7 +170,7 @@ if (!/\.jz-flash\{/.test(css) || !/layer\(b,'jz-flash'\)/.test(src)) {
 if (!/color:var\(--brand-ink,#22211F\)/.test(css)) {
   throw new Error('done check must use brand-ink');
 }
-if (/#FFA500/.test(css)) throw new Error('core CSS must not use #FFA500');
+if (/#FFA500/.test(css + src + pub)) throw new Error('1.0.1 must not use #FFA500');
 if (!/border:2px solid var\(--brand-accent,#FF6B35\)/.test(css)) {
   throw new Error('stamp ring must use brand-accent');
 }

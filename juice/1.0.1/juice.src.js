@@ -1,5 +1,5 @@
 (function(w,d){'use strict';
-var H=d.documentElement,SK='gamedev_sfx',LK='jz-level',C=['#FF6B35','#FFA500','#F4E8D5'];
+var H=d.documentElement,SK='gamedev_sfx',LK='jz-level',C=['#FF6B35','#FF6B35','#F4E8D5'];
 var NEED={press:1,flash:1,ripple:1,shake:1,burst:1,impact:1,check:1,stamp:1,'moki-hop':1,'moki-look':1,party:1,anticipation:1,stagger:1,around:2,foreshadow:2,tilt:2,haptics:2};
 var I={es:['Silenciar','Activar sonido','Sonido: sí','Sonido: no','Apagado','Discreto','Completo','Juice','Listo','Algo salió mal.'],en:['Mute sound','Turn sound on','Sound: on','Sound: off','Off','Subtle','Full','Juice','Done','Something went wrong.']};
 var mq=matchMedia('(prefers-reduced-motion: reduce)'),red=mq.matches,HOLD=150;
