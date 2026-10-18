@@ -1,4 +1,6 @@
-/* Juice · Ratchet spec + GMTK game-feel techniques (v7). Web Audio only. Sounds: tap, success, error. */
+/* v7 baseline (motion/sound spec + GMTK). Evolved into juice 1.0.0 at /juice/1.0.0/.
+   Kept so existing behavior is not thrown away. Live pages now load 1.0.0. */
+/* Juice · motion/sound spec + GMTK game-feel techniques (v7). Web Audio only. Sounds: tap, success, error. */
 (function () {
   'use strict';
 

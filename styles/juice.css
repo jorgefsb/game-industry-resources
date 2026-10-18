@@ -1,4 +1,5 @@
-/* Juice v0 · Ratchet motion/sound spec. Additive. Transforms only (zero CLS). */
+/* LEGACY unused. Live pages load /juice/1.0.0/ only. Keep as historical v7 reference. */
+/* Juice v0 · motion/sound spec. Additive. Transforms only (zero CLS). */
 
 :root {
   --jz-dur-fast: 120ms;
@@ -13,6 +14,10 @@
   --jz-dur-pop: 300ms;
   --jz-dur-stamp: 250ms;
   --jz-ease-io: ease-in-out;
+  --jz-foreshadow-dur: 320ms;
+  --jz-haptic-tap: 10;
+  --jz-haptic-max-pulse: 50;
+  --jz-haptic-max-total: 120;
   --jz-orange: #FF6B35;
   --jz-amber: #FFA500;
   --jz-cream: #F4E8D5;
@@ -34,7 +39,6 @@
   color: var(--text-strong);
   font: 400 14px/1 var(--body);
   cursor: pointer;
-  transition: border-color var(--jz-dur-fast) var(--jz-ease-out), color var(--jz-dur-fast) var(--jz-ease-out);
 }
 
 .juice-sfx svg {
@@ -62,6 +66,60 @@
 @media (max-width: 980px) {
   .juice-sfx { width: var(--tap); padding: 0; }
   .juice-sfx__label { display: none; }
+  .jz-panel .juice-sfx {
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-start;
+    padding: 0 10px;
+  }
+  .jz-panel .juice-sfx__label { display: inline; }
+}
+
+/* Juice 1.0.0 menu chrome (unminified so calc() keeps its spaces). */
+.jz-lvl, .jz-feel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 107, 53, .6);
+  border-radius: 6px;
+  background: #161616;
+  color: #fff;
+  font: 400 14px Inter, sans-serif;
+  cursor: pointer;
+}
+.jz-lvl[aria-expanded="true"], .jz-feel[aria-expanded="true"] { border-color: #FF6B35; color: #FF6B35; }
+.jz-dock { position: relative; display: inline-flex; gap: 8px; }
+.jz-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 50;
+  width: min(280px, calc(100vw - 24px));
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, .15);
+  border-radius: 12px;
+  background: #161616;
+  color: #F4E8D5;
+}
+.jz-panel[hidden] { display: none; }
+.jz-panel__note { margin: 0 0 8px; font-size: 13px; color: #B7B3AD; }
+.jz-panel fieldset { border: 0; margin: 0; padding: 0; }
+.jz-panel legend { font: 700 13px Outfit, sans-serif; }
+.jz-panel label { display: flex; align-items: center; gap: 10px; min-height: 44px; }
+.jz-panel input { accent-color: #FF6B35; }
+.jz-panel :focus-visible,
+.jz-lvl:focus-visible,
+.jz-feel:focus-visible { outline: 3px solid #FF6B35; outline-offset: 3px; }
+.jz-panel__sfx { width: 100%; margin-bottom: 8px; }
+@media (min-width: 981px) { .jz-feel, .jz-panel__sfx { display: none; } }
+@media (max-width: 980px) {
+  .jz-dock > .juice-sfx, .jz-lvl { display: none; }
+  .jz-feel { width: 44px; padding: 0; }
+  .jz-lvl__label { display: none; }
 }
 
 /* The opaque sponsor form card hosts its own burst (see BURST_HOSTS in juice.js). */
@@ -112,11 +170,6 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .ia-page .ia-card,
-  .home-page .home-card {
-    transition: border-color var(--jz-dur-fast) var(--jz-ease-out);
-  }
-
   .ia-page .ia-card:hover,
   .home-page .home-card:hover {
     border-color: rgba(255, 107, 53, .55);
@@ -132,7 +185,9 @@
   .hud .lang-switcher > span[aria-hidden="true"] { display: none; }
   .hud .lang-switcher a,
   .hud .juice-sfx,
+  .hud .jz-feel,
   .hud .hud__burger { width: 44px; min-width: 44px; height: 44px; flex: none; }
+  .hud .jz-panel .juice-sfx { width: 100%; min-width: 0; height: 44px; }
 }
 
 /* ---------- v7 · 1. Impact pause: held press ---------- */
@@ -226,14 +281,17 @@
 }
 
 /* ---------- v7 · 4. Persistent done stamp ---------- */
-.jz-locked input { opacity: .6; cursor: not-allowed; }
+.jz-locked input,
+.jz-locked textarea,
+.jz-locked select { opacity: .6; cursor: not-allowed; }
 
 .jz-stamp {
-  position: absolute;
-  top: var(--sp-6);
-  left: var(--sp-6);
+  position: relative;
   z-index: 2;
   display: inline-block;
+  align-self: start;
+  width: max-content;
+  margin: 0 0 12px;
   padding: 6px 16px;
   border: 3px solid var(--jz-orange);
   border-radius: 10px;
@@ -265,9 +323,10 @@
   100% { transform: scale(1.35); opacity: 0; }
 }
 
-@media (max-width: 560px) {
-  .jz-stamp { top: var(--sp-5); left: var(--sp-5); }
-}
+.jz-host,
+.ia-card,
+.home-card,
+.ia-sponsor__form { isolation: isolate; position: relative; }
 
 /* ---------- v7 · 5. Moki looks at the focused field ---------- */
 .ia-moki-live { transition: transform var(--jz-dur-base) var(--jz-ease-io); }
