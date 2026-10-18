@@ -185,7 +185,7 @@
     return l;
   }
   function flash(btn) {
-    var g = layer(btn, 'jz-glow');
+    var g = layer(btn, 'jz-flash');
     if (reduce) {
       /* No animation in reduced motion: the color still flashes in timed steps. */
       g.style.opacity = '1';
