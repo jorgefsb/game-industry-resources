@@ -1,5 +1,7 @@
-/* juice 1.2.0 · nivel Hardcore · genérico para cualquier marca (colores por --jz-c1..c3).
-   Solo corre con JZ.level === 'hard' y sin movimiento reducido. Todo es finito: nada se queda en loop.
+/* juice 1.2.0 · módulo «fuerte»: da cuerpo a Mucho y todo a Hardcore · genérico para cualquier marca (colores por --jz-c1..c3).
+   Mucho: botones con imán al cursor, tic al pasar, squash al picar, chispas y onda chica, tarjetas que se inclinan.
+   Hardcore (level === 'hard'): además screenshake, combos, escombro que se queda, estela y títulos con golpe.
+   Nada corre con movimiento reducido. Todo es finito: nada se queda en loop.
    Principios (Forestié, Unite 2019; Jonasson y Purho, «Juice it or lose it»; Nijman, «The art of screenshake»):
    trigger + feedback, capas (primaria + secundaria + ambiente), anticipación, squash y stretch, screenshake,
    partículas que se quedan (permanencia), aleatoriedad, combos y reacción del entorno. */
@@ -14,6 +16,13 @@
 
   function L() { return T[H.lang === 'en' ? 'en' : 'es']; }
   function on() { return w.JZ && w.JZ.level === 'hard' && !(w.JZ.red && w.JZ.red()); }
+  function mucho() { return w.JZ && (w.JZ.level === 'hard' || w.JZ.level === 'full') && !(w.JZ.red && w.JZ.red()); }
+  var BTN = 'a.btn,button.btn,.btn,.button,.ds-button,[data-jz],.chip,.ds-chip,.social,.row__cta,.lang-switcher a,.tag--link,.hud__nav a,.vframe__play';
+  var lastTick = 0;
+  function tick() {
+    var a = audio(), now = performance.now(); if (!a || now - lastTick < 90) return; lastTick = now;
+    try { tone(a, 1900 * rnd(0.94, 1.06), 1500, a.ctx.currentTime, 0.035, 'triangle', 0.16); } catch (e) {}
+  }
   function rnd(a, b) { return a + Math.random() * (b - a); }
   function ensure() {
     if (layer) return;
@@ -54,14 +63,14 @@
     el.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.12,.86)' }, { transform: 'scale(.94,1.08)' }, { transform: 'scale(1.03,.98)' }, { transform: 'scale(1)' }], { duration: 320, easing: 'cubic-bezier(.3,1.6,.5,1)' });
   }
   /* Partículas con gravedad; algunas caen y se quedan abajo (permanencia) */
-  function burst(x, y, n) {
+  function burst(x, y, n, keepIt) {
     ensure();
     for (var i = 0; i < n; i++) {
       var s = d.createElement('i'), a = rnd(0, Math.PI * 2), v = rnd(60, 190), dx = Math.cos(a) * v, dy = Math.sin(a) * v - rnd(40, 120);
       s.className = 'jzh-p'; s.style.cssText = 'left:' + x + 'px;top:' + y + 'px;background:' + C[i % 3] + ';width:' + rnd(5, 10).toFixed(0) + 'px;height:' + rnd(4, 9).toFixed(0) + 'px';
       layer.appendChild(s);
       var an = s.animate([{ transform: 'translate(0,0) rotate(0)', opacity: 1 }, { transform: 'translate(' + dx + 'px,' + (dy + 260) + 'px) rotate(' + rnd(-540, 540) + 'deg)', opacity: 0.9 }], { duration: rnd(700, 1100), easing: 'cubic-bezier(.2,.6,.6,1)' });
-      (function (s, dx, keep) { an.onfinish = function () { s.remove(); if (keep) rest(x + dx); }; })(s, dx, i % 3 === 0);
+      (function (s, dx, keep) { an.onfinish = function () { s.remove(); if (keep) rest(x + dx); }; })(s, dx, keepIt && i % 3 === 0);
     }
   }
   function rest(x) {
@@ -85,14 +94,15 @@
   }
 
   d.addEventListener('click', function (e) {
-    if (!on() || !e.isTrusted) return;
+    if (!mucho() || !e.isTrusted) return;
     var el = e.target.closest && e.target.closest('a,button,[role=button],.btn,.chip,[data-jz],[class*=card],.moki');
     if (!el || el.closest('.jz-panel,.jz-dock')) return;
-    combo = Date.now() - (comboT || 0) < 900 ? combo + 1 : 1; comboT = Date.now();
     var x = e.clientX, y = e.clientY;
     if (!el.classList.contains('moki')) squash(el);
+    if (!on()) { burst(x, y, 10, false); ring(x, y, false); thump(1); return; }
+    combo = Date.now() - (comboT || 0) < 900 ? combo + 1 : 1; comboT = Date.now();
     shake(1 + combo * 0.3);
-    burst(x, y, 14 + Math.min(combo, 6) * 3);
+    burst(x, y, 14 + Math.min(combo, 6) * 3, true);
     ring(x, y, combo >= 5);
     thump(combo);
     if (combo >= 2) pop(x, y, 'x' + combo, combo >= 5);
@@ -109,13 +119,29 @@
     s.animate([{ transform: 'translate(-50%,-50%) scale(1)', opacity: 0.85 }, { transform: 'translate(-50%,-50%) translateY(14px) scale(.2)', opacity: 0 }], { duration: 480, easing: 'ease-out' }).onfinish = function () { s.remove(); trailN--; };
   }, { passive: true });
 
-  /* El entorno reacciona: tarjetas que se inclinan hacia el cursor */
-  var TILT = '.topic,.show,.stage,.item,.photo,[class*=card],.asset';
+  /* Botones con imán: se acercan al cursor y suenan un tic al llegar (Mucho y Hardcore) */
+  var mag = null;
   d.addEventListener('pointermove', function (e) {
-    if (!fine || !on()) return;
-    var c = e.target.closest && e.target.closest(TILT); if (!c) return;
+    if (!fine || !mucho() || e.pointerType !== 'mouse') return;
+    var b = e.target.closest && e.target.closest(BTN);
+    if (b && b.closest('.jz-panel,.jz-dock')) b = null;
+    if (mag && mag !== b) { mag.style.translate = ''; mag.style.scale = ''; mag.classList.remove('jzh-mag'); mag = null; }
+    if (!b) return;
+    if (mag !== b) { mag = b; b.classList.add('jzh-mag'); tick(); }
+    var r = b.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5, k = on() ? 9 : 5;
+    b.style.translate = (px * k).toFixed(1) + 'px ' + (py * k * 0.7).toFixed(1) + 'px';
+    b.style.scale = on() ? '1.07' : '1.04';
+  }, { passive: true });
+  d.addEventListener('pointerleave', function () { if (mag) { mag.style.translate = ''; mag.style.scale = ''; mag.classList.remove('jzh-mag'); mag = null; } }, true);
+
+  /* El entorno reacciona: tarjetas que se inclinan hacia el cursor */
+  var TILT = '.topic,.show,.stage,.item,.photo,[class*=card],.asset,.tile';
+  d.addEventListener('pointermove', function (e) {
+    if (!fine || !mucho()) return;
+    var c = e.target.closest && e.target.closest(TILT); if (!c || c.matches(BTN)) return;
+    var k2 = on() ? 1 : 0.6;
     var r = c.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
-    c.style.transform = 'perspective(800px) rotateX(' + (-py * 5).toFixed(2) + 'deg) rotateY(' + (px * 6).toFixed(2) + 'deg) translateZ(0)';
+    c.style.transform = 'perspective(800px) rotateX(' + (-py * 5 * k2).toFixed(2) + 'deg) rotateY(' + (px * 6 * k2).toFixed(2) + 'deg) translateZ(0)';
     c.classList.add('jzh-tilt');
   }, { passive: true });
   d.addEventListener('pointerout', function (e) {
@@ -137,7 +163,8 @@
 
   /* Al entrar a Hardcore: onda expansiva desde el botón */
   if (w.MutationObserver) new MutationObserver(function () {
-    if (!on()) { clear(); [].slice.call(d.querySelectorAll('.jzh-tilt')).forEach(function (c) { c.style.transform = ''; c.classList.remove('jzh-tilt'); }); return; }
+    if (!mucho()) { clear(); [].slice.call(d.querySelectorAll('.jzh-tilt')).forEach(function (c) { c.style.transform = ''; c.classList.remove('jzh-tilt'); }); if (mag) { mag.style.translate = ''; mag.style.scale = ''; mag = null; } return; }
+    if (!on()) { if (debris) { debris.textContent = ''; debrisN = 0; } return; }
     var b = d.querySelector('.jz-lvl:not([hidden]),.jz-feel'), r = b ? b.getBoundingClientRect() : { left: innerWidth / 2, top: 60, width: 0, height: 0 };
     var x = r.left + r.width / 2, y = r.top + r.height / 2;
     ring(x, y, true); burst(x, y, 30); pop(x, y + 40, L().on, true); fanfareMini(); shake(2);

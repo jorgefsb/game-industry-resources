@@ -228,11 +228,11 @@ console.log((check ? 'ok' : 'wrote') + ' core', core, 'js', coreJs, 'css', coreC
 // 1.2.0: núcleo < 6200 B (antes 6000) por los colores de marca vía --jz-c1..c3 y el nivel hard.
 if (core >= 6200) throw new Error('core gzip -9 ' + core + ' B >= 6200');
 // 1.2.0 sube el tope del paquete de 8000 a 9000 B: el menú ahora trae el cuarto nivel (Hardcore con candado)
-// y el marco de invitación con partículas. Hardcore es aparte y opcional (< 3500).
+// y el marco de invitación con partículas. El módulo fuerte (Mucho y Hardcore) es aparte y opcional (< 4200).
 if (pack >= 9000) throw new Error('package gzip -9 ' + pack + ' B >= 9000');
 const hard = gzip9file(join(dir, 'hardcore/hardcore.js')) + gzip9file(join(dir, 'hardcore/hardcore.css'));
 console.log('hardcore', hard);
-if (hard >= 3500) throw new Error('hardcore gzip -9 ' + hard + ' B >= 3500');
+if (hard >= 4200) throw new Error('hardcore gzip -9 ' + hard + ' B >= 4200');
 if (check) {
   const tests = spawnSync('node', ['--test', join(here, 'pack.test.mjs')], { stdio: 'inherit' });
   if (tests.status !== 0) throw new Error('juice 1.2.0 tests failed');
