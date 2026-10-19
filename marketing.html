@@ -6,134 +6,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marketing Playbook | Game Industry Resources 📢</title>
   <meta name="description" content="Aprende a vender tu juego. Estrategias de visibilidad.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="styles/design-system.css">
+  <link rel="canonical" href="https://gamedev.jorgesuarez.com.mx/marketing.html">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="preload" href="ia/fonts/outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="ia/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="brand/0.3/tokens.css">
+  <link rel="stylesheet" href="ia/ia.css">
+  <link rel="stylesheet" href="styles/home.css">
+  <link rel="stylesheet" href="styles/inner.css">
+  <link rel="stylesheet" href="juice/1.0.1/juice.css">
+  <link rel="stylesheet" href="juice/1.0.1/juice-menu.css">
+  <link rel="icon" href="ia/assets/moki-parche-derecho.png" type="image/png">
 </head>
 
-<body>
-  <nav class="nav">
-    <div class="nav__container container">
-      <a href="index.html" class="nav__logo">
-        <span class="nav__logo-icon">🎮</span>
-        <span>Game<span class="text-neon-pink">Dev</span> Resources</span>
-      </a>
-      <ul class="nav__menu">
-        <li><a href="index.html#resources" class="nav__link" data-i18n="nav.resources">Recursos</a></li>
-        <li><a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a></li>
-        <li><a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs & Career</a></li>
-        <li><a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a></li>
-        <li><a href="https://club.uetc.mx" target="_blank" class="nav__link"
-            data-i18n="nav.community">Comunidad</a></li>
-      </ul>
-      <div class="nav__cta">
-        <div class="lang-switch">
-          <a href="#" class="lang-btn active" data-lang="es">🇲🇽 ES</a>
-          <a href="#" class="lang-btn" data-lang="en">🇺🇸 EN</a>
-        </div>
-        <a href="https://club.uetc.mx" target="_blank" rel="noopener" class="btn btn-primary"
-          data-i18n="nav.cta">🎮 Únete a EGDC</a>
-      </div>
-    </div>
-  </nav>
+<body class="ia-page inner-page">
+  <a class="ia-skip" href="#strategies" data-i18n="ui.skip">Ir a recursos</a>
 
-  <header class="hero hero--marketing">
-    <div class="container">
-      <div class="hero__content">
-        <div class="hero__badge">
-          <span class="hero__badge-dot"></span>
-          <span data-i18n="hero.badge.marketing">📢 Visibility Hack</span>
-        </div>
-        <h1 class="hero__title glitch-text" data-text="MARKETING PLAYBOOK" data-i18n="hero.title.marketing">MARKETING
-          PLAYBOOK</h1>
-        <p class="hero__subtitle" data-i18n="hero.subtitle.marketing">Tu juego no se vende solo. Aprende a crear
-          comunidades.</p>
-        <div class="hero__actions">
-          <a href="#strategies" class="btn btn-primary" data-i18n="hero.cta.explore">🚀 Ver Estrategias</a>
-          <a href="https://vip.jorgesuarez.com.mx" class="btn btn-secondary">⭐ Mentoría VIP</a>
-        </div>
+  <header class="hud" data-hud>
+    <a class="hud__brand" href="https://jorgesuarez.com.mx/" aria-label="JorgeSuarez.com.mx">
+      <span class="js-wordmark">JorgeSuarez<span>.com.mx</span></span>
+    </a>
+    <nav class="hud__nav" id="hud-nav" aria-label="Principal" data-i18n-aria="nav.label">
+      <a href="index.html#resources" class="nav__link" data-i18n="nav.resources">Recursos</a>
+      <a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a>
+      <a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs &amp; Career</a>
+      <a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a>
+      <a href="https://club.uetc.mx" target="_blank" rel="noopener" class="nav__link" data-i18n="nav.community">Comunidad</a>
+      <a class="hud__nav-cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+    </nav>
+    <div class="hud__right">
+      <div class="lang-switcher" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+        <a href="?lang=es" class="lang-btn" data-lang="es" lang="es">ES</a>
+        <span aria-hidden="true">|</span>
+        <a href="?lang=en" class="lang-btn" data-lang="en" lang="en">EN</a>
       </div>
+      <a class="btn btn--primary btn--sm hud__cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+      <button type="button" class="juice-sfx" aria-pressed="false" aria-label="Activar sonido">🔇</button>
+      <button class="hud__burger" type="button" aria-expanded="false" aria-controls="hud-nav" aria-label="Menú" data-i18n-aria="nav.menu"><span></span><span></span></button>
     </div>
   </header>
 
-  <section class="section container" id="strategies">
-    <div class="section__header">
-      <span class="section__badge" data-i18n="hero.badge.marketing">📈 Growth</span>
-      <h2 class="section__title" data-i18n="section.marketing.title">Estrategias de Lanzamiento</h2>
-    </div>
-    <div class="grid grid-3">
-      <article class="card">
-        <div class="card__icon">🎯</div>
-        <span class="card__badge card__badge--hot">Essential</span>
-        <h3 class="card__title">Steam Next Fest</h3>
-        <p class="card__description" data-i18n="hero.subtitle.marketing">Guía paso a paso.</p>
-        <div class="card__actions"><a href="#" class="btn btn-ghost btn-sm" data-i18n="card.read_guide">Leer Guía</a>
+  <main id="main">
+    <header class="wrap inner-hero">
+      <div class="hero__content">
+        <span class="hero__badge" data-i18n="hero.badge.marketing">📢 Visibility Hack</span>
+        <h1 class="hero__title" data-i18n="hero.title.marketing">MARKETING PLAYBOOK</h1>
+        <p class="hero__subtitle lead" data-i18n="hero.subtitle.marketing">Tu juego no se vende solo. Aprende a crear comunidades.</p>
+        <div class="hero__actions inner-actions">
+          <a href="#strategies" class="btn btn--primary" data-i18n="hero.cta.explore">🚀 Ver Estrategias</a>
+          <a href="https://vip.jorgesuarez.com.mx" class="btn btn--ghost">⭐ Mentoría VIP</a>
         </div>
-      </article>
-      <article class="card">
-        <div class="card__icon">📱</div>
-        <span class="card__badge card__badge--new">New</span>
-        <h3 class="card__title">TikTok for Devs</h3>
-        <p class="card__description" data-i18n="card.portfolio.desc">Viral devlogs.</p>
-        <div class="card__actions"><a href="#" class="btn btn-ghost btn-sm" data-i18n="card.read_guide">Ver Tips</a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__icon">📦</div>
-        <span class="card__badge card__badge--new">New</span>
-        <h3 class="card__title">Press Kit 1.0</h3>
-        <p class="card__description" data-i18n="card.cv.desc">Modern presskit.</p>
-        <div class="card__actions"><a href="#" class="btn btn-ghost btn-sm" data-i18n="card.download">Download</a></div>
-      </article>
-    </div>
-  </section>
+      </div>
+    </header>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <div class="footer__logo">
-            <span class="footer__logo-icon">🎮</span>
-            <span>Game<span class="text-neon-pink">Dev</span> Resources</span>
-          </div>
-          <p class="footer__tagline" data-i18n="footer.tagline">Recursos premium para game devs en LATAM.</p>
-        </div>
-        <div class="footer__column">
-          <h4 class="footer__title" data-i18n="footer.resources">🎒 Recursos</h4>
-          <ul class="footer__links">
-            <li><a href="jobs.html" data-i18n="nav.jobs">💼 Jobs & Career</a></li>
-            <li><a href="tools.html">🛠️ Production Tools</a></li>
-            <li><a href="marketing.html">📢 Marketing</a></li>
-          </ul>
-        </div>
-        <div class="footer__column">
-          <h4 class="footer__title" data-i18n="footer.ecosystem">🌐 Ecosistema</h4>
-          <ul class="footer__links">
-            <li><a href="https://jorgesuarez.com.mx" target="_blank">🏠 Jorge Suarez</a></li>
-            <li><a href="https://club.uetc.mx" target="_blank">🎮 EGDC Club</a></li>
-          </ul>
-        </div>
-        <div class="footer__column">
-          <h4 class="footer__title" data-i18n="footer.connect">🔗 Conecta</h4>
-          <ul class="footer__links">
-            <li><a href="https://x.com/jorgefsb" target="_blank">Twitter/X</a></li>
-            <li><a href="mailto:hola@jorgesuarez.com.mx">Contacto</a></li>
-          </ul>
-        </div>
+    <section class="wrap inner-section" id="strategies">
+      <div class="section__header">
+        <h2 class="section__title" data-i18n="section.marketing.title">Estrategias de Lanzamiento</h2>
       </div>
-      <div class="footer__bottom">
-        <p data-i18n="footer.copyright">© 2026 Game Industry Resources. Hecho con 💙 por Jorge Suarez</p>
-        <p class="footer__tagline-small" data-i18n="footer.tagline.small">"It's dangerous to go alone! Take this." 🗡️
-        </p>
+      <div class="inner-grid">
+        <article class="ia-card inner-card">
+          <span class="card__icon">🎯</span>
+          <span class="ia-badge">Essential</span>
+          <h3 class="card__title">Steam Next Fest</h3>
+          <p class="card__description" data-i18n="hero.subtitle.marketing">Guía paso a paso.</p>
+          <div class="card__actions"><a href="#" class="btn btn--ghost" data-i18n="card.read_guide">Leer Guía</a></div>
+        </article>
+        <article class="ia-card inner-card">
+          <span class="card__icon">📱</span>
+          <span class="ia-badge">New</span>
+          <h3 class="card__title">TikTok for Devs</h3>
+          <p class="card__description" data-i18n="card.portfolio.desc">Viral devlogs.</p>
+          <div class="card__actions"><a href="#" class="btn btn--ghost" data-i18n="card.read_guide">Ver Tips</a></div>
+        </article>
+        <article class="ia-card inner-card">
+          <span class="card__icon">📦</span>
+          <span class="ia-badge">New</span>
+          <h3 class="card__title">Press Kit 1.0</h3>
+          <p class="card__description" data-i18n="card.cv.desc">Modern presskit.</p>
+          <div class="card__actions"><a href="#" class="btn btn--ghost" data-i18n="card.download">Download</a></div>
+        </article>
       </div>
+    </section>
+  </main>
+
+  <footer class="wrap papacito-footer" aria-label="Créditos" data-i18n-aria="footer.label">
+    <div class="papacito-footer__identity">
+      <a class="js-wordmark" href="https://jorgesuarez.com.mx/">JorgeSuarez<span>.com.mx</span></a>
+      <p data-es="Kaizen y Juego" data-en="Kaizen &amp; Play">Kaizen y Juego</p>
     </div>
+    <p class="papacito-footer__signature"><span data-es="Hecho con amor ❤️🎮 por" data-en="Made with love ❤️🎮 by">Hecho con amor ❤️🎮 por</span> <a href="https://jorgesuarez.com.mx/">JorgeSuarez.com.mx</a> <a class="foot-back" href="https://jorgesuarez.com.mx/" data-i18n="nav.home">← JorgeSuarez<span>.com.mx</span></a></p>
   </footer>
 
   <script src="i18n.js"></script>
-  <script src="gamification.js"></script>
+  <script src="scripts/home.js"></script>
+  <script src="juice/1.0.1/juice.js" defer></script>
+  <script src="juice/1.0.1/juice-menu.js" defer></script>
+  <script src="scripts/juice.bind.js" defer></script>
 </body>
 
 </html>

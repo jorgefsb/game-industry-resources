@@ -150,7 +150,6 @@ a {
 
 a:hover {
   color: var(--neon-pink);
-  text-shadow: var(--glow-pink);
 }
 
 img {
@@ -227,17 +226,14 @@ h4 {
 
 .text-neon-cyan {
   color: var(--neon-cyan);
-  text-shadow: var(--glow-cyan);
 }
 
 .text-neon-pink {
   color: var(--neon-pink);
-  text-shadow: var(--glow-pink);
 }
 
 .text-neon-green {
   color: var(--neon-green);
-  text-shadow: var(--glow-green);
 }
 
 /* === Container === */
@@ -323,7 +319,6 @@ h4 {
 
 .btn-ghost:hover {
   color: var(--neon-cyan);
-  text-shadow: var(--glow-cyan);
 }
 
 /* === Cards === */
@@ -528,7 +523,6 @@ h4 {
 
 .nav-logo:hover {
   color: var(--neon-cyan);
-  text-shadow: var(--glow-cyan);
 }
 
 .nav-logo-icon {
@@ -575,7 +569,6 @@ h4 {
 
 .nav-link:hover {
   color: var(--neon-cyan);
-  text-shadow: var(--glow-cyan);
 }
 
 .nav-link:hover::after {
@@ -1014,7 +1007,6 @@ h4 {
 
 .footer-links a:hover {
   color: var(--neon-cyan);
-  text-shadow: var(--glow-cyan);
   padding-left: var(--space-sm);
 }
 
@@ -1426,7 +1418,6 @@ h4 {
 
 .job-ticker-item:hover {
   color: var(--neon-orange);
-  text-shadow: 0 0 10px var(--neon-orange);
   cursor: pointer;
 }
 

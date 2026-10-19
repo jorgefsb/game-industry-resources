@@ -244,7 +244,8 @@ const SPONSOR_LIVE = true;
     document.querySelectorAll('.lang-btn').forEach((b) => {
       const on = b.getAttribute('data-lang') === l;
       b.classList.toggle('active', on);
-      b.setAttribute('aria-pressed', String(on));
+      if (on) b.setAttribute('aria-current', 'true');
+      else b.removeAttribute('aria-current');
     });
   }
 
