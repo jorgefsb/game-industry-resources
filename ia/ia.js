@@ -368,8 +368,12 @@ const SPONSOR_LIVE = true;
     const m = catalog.pricingLabels && catalog.pricingLabels[code];
     return m ? (m[lang()] || m.es) : '';
   }
+  const H = window.GDHook;
+  let fresh = [];
   function matches(tool) {
-    if (category !== 'all' && tool.category !== category) return false;
+    if (category === 'saved') { if (!H || !H.isSaved('tool', tool.id)) return false; }
+    else if (category === 'new') { if (fresh.indexOf(tool.id) < 0) return false; }
+    else if (category !== 'all' && tool.category !== category) return false;
     if (!query) return true;
     const cat = catalog.categories.find((c) => c.id === tool.category) || {};
     return norm([tool.name, tool.description.es, tool.description.en, cat.es, cat.en, (tool.tags || []).join(' ')].join(' ')).includes(query);
@@ -380,9 +384,10 @@ const SPONSOR_LIVE = true;
       : `<span class="ia-logo ia-logo--tile" aria-hidden="true">${esc(tool.name.charAt(0))}</span>`;
     const price = tool.pricing ? `<span class="ia-tag">${esc(priceLabel(tool.pricing))}</span>` : '';
     return `<article class="ia-card" id="tool-${esc(tool.id)}">
-      <div class="ia-card__top">${logo}<div><h3>${esc(tool.name)}</h3>${price}</div></div>
+      <div class="ia-card__top">${logo}<div><h3>${esc(tool.name)}</h3>${price}${fresh.indexOf(tool.id) >= 0 && H ? ` <span class="ia-tag gd-new">${esc(H.t('badgeNew'))}</span>` : ''}</div></div>
       <p>${esc(tool.description[lang()] || tool.description.es)}</p>
       <a class="ia-card__link" href="${esc(tool.url)}" target="_blank" rel="noopener">${esc(s('card.site'))} <span aria-hidden="true">↗</span><span class="sr-only"> ${esc(tool.name)} ${esc(s('card.newtab'))}</span></a>
+      ${H ? `<div class="gd-actions">${H.saveBtn('tool', tool.id, tool.name)}</div>` : ''}
     </article>`;
   }
   function renderChips() {
@@ -390,6 +395,8 @@ const SPONSOR_LIVE = true;
     const items = [{ id: 'all', label: s('chips.all'), n: catalog.tools.length }].concat(
       catalog.categories.map((c) => ({ id: c.id, label: catLabel(c), n: catalog.tools.filter((t) => t.category === c.id).length }))
     );
+    if (H && fresh.length) items.push({ id: 'new', label: H.t('chipNew'), n: fresh.length });
+    if (H && (H.count('tool') || category === 'saved')) items.push({ id: 'saved', label: H.t('chipSaved'), n: H.count('tool') });
     chips.innerHTML = items.map((c) =>
       `<button type="button" class="ia-chip" data-cat="${esc(c.id)}" aria-pressed="${c.id === category}">${esc(c.label)} <span class="ia-chip__n">${c.n}</span></button>`
     ).join('');
@@ -411,7 +418,15 @@ const SPONSOR_LIVE = true;
         <div class="ia-grid" id="grid-${esc(c.id)}">${tools.map(card).join('')}</div>${more}
       </section>`;
     }).join('');
-    root.querySelector('[data-ia-empty]').hidden = shown !== 0;
+    const gdNote = root.querySelector('[data-gd-note]');
+    if (gdNote && H) {
+      gdNote.hidden = !fresh.length && category !== 'saved';
+      gdNote.textContent = category === 'saved' && !H.count('tool') ? H.t('emptySaved')
+        : category === 'saved' ? H.t('local')
+        : fresh.length === 1 ? H.t('newOne') : H.t('newMany', { n: fresh.length });
+    }
+    root.querySelector('[data-ia-empty]').hidden = shown !== 0 || (category === 'saved');
+    if (H) H.paintClear(category === 'saved', 'tool');
     root.querySelector('[data-ia-count]').textContent = shown === 1 ? s('catalog.count1') : s('catalog.count', { n: shown });
   }
   function renderAll() {
@@ -452,6 +467,7 @@ const SPONSOR_LIVE = true;
       .then((data) => {
         catalog = data;
         ntools = data.tools.length;
+        if (H) fresh = H.newTools(data.tools.map((t) => t.id));
         document.querySelectorAll('[data-ia-ntools]').forEach((el) => { el.textContent = data.tools.length; });
         document.querySelectorAll('[data-ia-ncats]').forEach((el) => { el.textContent = data.categories.length; });
         applyStatic();
@@ -462,4 +478,10 @@ const SPONSOR_LIVE = true;
 
   applyStatic();
   document.addEventListener('gamedev:lang', () => { applyStatic(); renderAll(); });
+  document.addEventListener('gamedev:collection', () => {
+    if (!catalog) return;
+    renderChips();
+    if (category === 'saved') renderSections();
+    else if (H) H.paintClear(false, 'tool');
+  });
 })();
