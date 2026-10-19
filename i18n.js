@@ -45,7 +45,7 @@ const translations = {
         'ia.sponsor.title': 'Pon tu herramienta donde la buscan quienes ya hacen juegos',
         'ia.sponsor.p1': 'Este directorio es para indie game devs que usan IA. El listado orgánico es editorial: herramientas reales, con URL oficial, sin estrellas inventadas.',
         'ia.sponsor.p2': 'Destacado es otra cosa. Es el slot de arriba, el que hoy ocupa Moki con un “aquí va la tuya”. Quien fabrica la herramienta paga para estar ahí un tiempo, con nombre, una línea y el enlace oficial.',
-        'ia.sponsor.p3': 'Antes de publicarlo revisamos que la herramienta exista y sirva para hacer juegos. Generar un listing no es lo mismo que verificarlo — Moki ya lo sabe.',
+        'ia.sponsor.p3': 'Antes de publicarlo revisamos que la herramienta exista y sirva para hacer juegos. Generar un listing no es lo mismo que verificarlo: Moki ya lo sabe.',
         'ia.sponsor.price': 'USD 49 al mes',
         'ia.sponsor.included.title': 'Qué incluye',
         'ia.sponsor.inc1': 'Tu herramienta como Destacado arriba de todo en /ia, con badge de Moki.',
@@ -167,7 +167,7 @@ const translations = {
         'ia.sponsor.title': 'Put your tool where people who already ship games look',
         'ia.sponsor.p1': 'This directory is for indie game devs who use AI. The organic list is editorial: real tools, official URLs, no invented stars.',
         'ia.sponsor.p2': 'Featured is different. It is the top slot Moki is holding open. The company that makes the tool pays to sit there for a while, with a name, one line, and the official link.',
-        'ia.sponsor.p3': 'Before it goes live we check that the tool exists and helps make games. Generating a listing is not the same as verifying it — Moki already knows.',
+        'ia.sponsor.p3': 'Before it goes live we check that the tool exists and helps make games. Generating a listing is not the same as verifying it: Moki already knows.',
         'ia.sponsor.price': 'USD 49 per month',
         'ia.sponsor.included.title': 'What is included',
         'ia.sponsor.inc1': 'Your tool as Featured at the top of /ia, with a Moki badge.',
@@ -290,7 +290,8 @@ function switchLanguage(lang) {
     // Update active state of buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-        btn.setAttribute('aria-pressed', String(btn.getAttribute('data-lang') === lang));
+        if (btn.getAttribute('data-lang') === lang) btn.setAttribute('aria-current', 'true');
+        else btn.removeAttribute('aria-current');
     });
 
     // Update gamification context if available

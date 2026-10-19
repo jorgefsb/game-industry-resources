@@ -28,6 +28,15 @@
     el.style.setProperty('--jz-tilt', Math.max(-6, Math.min(6, (e.clientX - (r.left + r.width / 2)) / (r.width / 2) * 6)).toFixed(2) + 'deg');
     el.classList.add('jz-tilting');
   });
+  function feelA11y() {
+    var label = d.documentElement.lang === 'en' ? 'Sound' : 'Sonido';
+    [].slice.call(d.querySelectorAll('.jz-feel')).forEach(function (b) {
+      b.setAttribute('aria-label', label);
+    });
+  }
+  var jz = J();
+  if (jz && jz.hook) jz.hook(feelA11y);
+  feelA11y();
   d.addEventListener('gamedev:lang', function () { J() && J().paint(); });
   function on(e, fn) { d.addEventListener(e, fn); }
   on('click', function (e) {

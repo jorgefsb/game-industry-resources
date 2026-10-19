@@ -1,0 +1,13 @@
+{
+  "name": "game-industry-resources",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test --test-concurrency=1 tools/juice-1.0.1/pin.test.mjs tools/juice-1.0.1/label.test.mjs tools/juice-1.0.1/hap.test.mjs tools/juice-1.0.2/pin.test.mjs tools/juice-1.0.2/manifest.test.mjs tools/juice-1.0.2/paper.test.mjs",
+    "test:install": "npx playwright install chromium",
+    "build:juice": "node tools/juice-1.0.1/build.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}

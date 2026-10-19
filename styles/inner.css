@@ -1,0 +1,239 @@
+/* Inner pages (jobs, tools, studios, marketing, guides) · same brand shell as home/ia. */
+
+.inner-page {
+  overflow-x: clip;
+}
+
+.inner-page h1,
+.inner-page h2,
+.inner-page h3,
+.inner-page p {
+  overflow-wrap: break-word;
+}
+
+.inner-hero {
+  padding-top: var(--sp-8);
+  padding-bottom: var(--sp-6);
+  text-align: center;
+}
+
+.inner-hero .hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-5);
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.inner-hero h1 {
+  max-width: 18ch;
+}
+
+.inner-hero .lead {
+  margin-inline: auto;
+}
+
+.inner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
+}
+
+.inner-section {
+  padding-bottom: var(--sp-8);
+}
+
+.inner-page .section__header {
+  text-align: center;
+  margin-bottom: var(--sp-6);
+}
+
+.inner-page .section__description {
+  color: var(--text-secondary);
+  margin-top: var(--sp-3);
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+.inner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-4);
+}
+
+.inner-grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+a.inner-card,
+.inner-card {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.inner-card .card__icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.inner-card .card__description,
+.inner-card .card-description {
+  color: var(--text-secondary);
+}
+
+.inner-card .ia-badge {
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-4);
+}
+
+.inner-card .card__actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.inner-card .card__actions .btn {
+  min-height: var(--tap);
+}
+
+.job-ticker-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 0 16px;
+  min-height: 44px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  overflow: hidden;
+}
+
+.job-ticker-label {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  min-height: 44px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.job-ticker {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+}
+
+.job-ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  width: max-content;
+  min-height: 44px;
+  animation: inner-ticker 36s linear infinite;
+}
+
+.job-ticker-item {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.job-ticker-item:hover,
+.job-ticker-item:focus-visible {
+  color: var(--accent);
+}
+
+.inner-search {
+  max-width: 640px;
+  margin: 0 auto var(--sp-5);
+}
+
+.inner-chips {
+  justify-content: center;
+  margin-bottom: var(--sp-6);
+}
+
+.studio-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: var(--sp-2);
+}
+
+.studio-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 2px 8px;
+  border-radius: var(--r-chip);
+  border: 1px solid var(--line);
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.guide-article {
+  max-width: 720px;
+  margin: 0 auto;
+  display: grid;
+  gap: var(--sp-5);
+  padding: var(--sp-6);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-panel);
+}
+
+.guide-article h2 {
+  font-size: 22px;
+  color: var(--accent);
+}
+
+.inner-page .papacito-footer {
+  margin-top: var(--sp-7);
+}
+
+@keyframes inner-ticker {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .job-ticker-track { animation: none; }
+}
+
+@media (max-width: 1024px) {
+  .inner-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .inner-hero { padding-top: var(--sp-6); padding-bottom: var(--sp-5); }
+  .inner-grid,
+  .inner-grid--4 { grid-template-columns: minmax(0, 1fr); }
+  .inner-actions .btn { width: 100%; }
+  .job-ticker-wrap { flex-direction: column; align-items: stretch; }
+}
+
+@media (max-width: 375px) {
+  .inner-page,
+  .inner-grid,
+  .inner-card { max-width: 100%; }
+}
