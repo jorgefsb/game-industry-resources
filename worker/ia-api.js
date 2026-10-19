@@ -8,7 +8,8 @@
  *   POST /ia/api/featured   { name, site, email, lang, company(honeypot) } -> KV key: featured:<host>:<email>
  *   POST /ia/api/submit     { name, site, email, lang, company(honeypot) } -> KV key: submit:<host>:<email>
  *
- * /ia/llms.txt and /ia/tools.json run through the Worker first (assets run_worker_first) to add charset=utf-8.
+ * /ia/llms.txt, /ia/llms-full.txt and /ia/tools.json run through the Worker first
+ * (assets run_worker_first) to add charset=utf-8.
  *
  * KV binding IA_KV = namespace "ia-newsletter". Nothing is emailed or sent anywhere.
  * Rate limit: 5 submissions per IP per hour (KV counter "rl:<ip>:<hour>" with TTL).
@@ -149,7 +150,7 @@ export default {
     if ((pathname === '/ia/' || pathname === '/ia/patrocina/') && url.searchParams.get('lang') === 'en') {
       return englishMeta(response, pathname === '/ia/patrocina/' ? META_EN.sponsor : META_EN.home);
     }
-    if (pathname === '/llms.txt' || pathname === '/ia/llms.txt' || pathname === '/ia/tools.json') {
+    if (pathname === '/llms.txt' || pathname === '/ia/llms.txt' || pathname === '/ia/llms-full.txt' || pathname === '/ia/tools.json') {
       const type = response.headers.get('content-type') || '';
       if (type && !/charset=/i.test(type)) {
         const headers = new Headers(response.headers);

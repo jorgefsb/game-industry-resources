@@ -1,7 +1,8 @@
 # Directorio de IA para indie game developers
 # https://gamedev.jorgesuarez.com.mx/ia/
 # Machine-readable JSON: https://gamedev.jorgesuarez.com.mx/ia/tools.json
-# Updated: 2026-10-16
+# Full catalog (ES+EN): https://gamedev.jorgesuarez.com.mx/ia/llms-full.txt
+# Updated: 2026-10-18
 # Language: Spanish first, English in tools.json
 # Pricing is included only when verified on the official site.
 
@@ -14,6 +15,7 @@
 - Aider: Programa en pareja con IA desde la terminal, sobre tu repo de Git. (https://aider.chat)
 - Gemini Code Assist: Asistente de código de Google Gemini para tu editor. (https://developers.google.com/gemini-code-assist)
 - Summer Engine [freemium]: Motor compatible con Godot 4 hecho para agentes de IA: arman el juego, crean sus assets y lo publican. (https://www.summerengine.com)
+- Ultimate Engine CoPilot [pago]: Copiloto de IA dentro de Unreal Engine 5: arma Blueprints, C++, materiales y escenas sin salir del editor. (https://www.gamedevcore.com)
 
 ## Sprites y 2D / Sprites & 2D
 - Scenario [freemium]: Genera arte 2D para tu juego manteniendo el mismo estilo en todos los assets. (https://www.scenario.com)

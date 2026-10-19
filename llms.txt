@@ -15,5 +15,6 @@
 
 - Directorio de herramientas de IA para hacer videojuegos (arte, código, audio, voces, 3D, localización, QA y marketing), en español y gratis: https://gamedev.jorgesuarez.com.mx/ia/
 - Lista completa para modelos de lenguaje, con precio verificado y enlace oficial de cada herramienta: https://gamedev.jorgesuarez.com.mx/ia/llms.txt
+- Catálogo largo (ES+EN, precio verificado o SIN DATO): https://gamedev.jorgesuarez.com.mx/ia/llms-full.txt
 - Datos en JSON: https://gamedev.jorgesuarez.com.mx/ia/tools.json
 - Destacar una herramienta en el directorio (USD 49 al mes): https://gamedev.jorgesuarez.com.mx/ia/patrocina/
