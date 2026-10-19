@@ -12,7 +12,10 @@ if (!meshy || !meshy.affiliate || !meshy.url) {
   throw new Error('Meshy catalog entry needs url + affiliate');
 }
 
+const TEST_IP = '203.0.113.50';
+const TEST_SALT = 'test-ip-hash-salt';
 const kv = new Map();
+const putOpts = new Map();
 const logs = [];
 const origLog = console.log;
 console.log = (...args) => {
@@ -20,12 +23,14 @@ console.log = (...args) => {
 };
 
 const env = {
+  IP_HASH_SALT: TEST_SALT,
   IA_KV: {
     async get(key) {
       return kv.has(key) ? kv.get(key) : null;
     },
-    async put(key, value) {
+    async put(key, value, opts) {
       kv.set(key, String(value));
+      putOpts.set(key, opts || {});
     }
   },
   ASSETS: {
@@ -40,7 +45,10 @@ const env = {
 };
 
 async function go(path, method = 'GET') {
-  return worker.fetch(new Request('https://gamedev.jorgesuarez.com.mx' + path, { method }), env);
+  return worker.fetch(new Request('https://gamedev.jorgesuarez.com.mx' + path, {
+    method,
+    headers: { 'cf-connecting-ip': TEST_IP }
+  }), env);
 }
 
 function assert(cond, msg) {
@@ -77,6 +85,33 @@ assert(kv.get(key) === '2', `kv count ${kv.get(key)}`);
 assert(logs.some((line) => line.includes('"event":"outbound_click"') && line.includes('"slug":"meshy"')), `log lines ${JSON.stringify(logs)}`);
 assert(!logs.some((line) => /cf-connecting-ip|127\.0\.0\.1|x-forwarded/i.test(line)), 'must not log IPs');
 
+const sub = await worker.fetch(new Request('https://gamedev.jorgesuarez.com.mx/ia/api/subscribe', {
+  method: 'POST',
+  headers: { 'content-type': 'application/json', 'cf-connecting-ip': TEST_IP },
+  body: JSON.stringify({ email: 'qa@example.com', lang: 'es' })
+}), env);
+assert(sub.status === 200, `subscribe status ${sub.status}`);
+
+const hour = Math.floor(Date.now() / 3600000);
+const tokenBytes = await crypto.subtle.digest(
+  'SHA-256',
+  new TextEncoder().encode(`${TEST_SALT}:${TEST_IP}:${day}`)
+);
+const token = Array.from(new Uint8Array(tokenBytes), (b) => b.toString(16).padStart(2, '0')).join('').slice(0, 16);
+const rlKey = `rl:${token}:${hour}`;
+assert(kv.get(rlKey) === '1', `hashed rl key ${rlKey} -> ${kv.get(rlKey)}`);
+assert(putOpts.get(rlKey)?.expirationTtl === 3600, `rl ttl ${JSON.stringify(putOpts.get(rlKey))}`);
+assert(!rlKey.includes(TEST_IP), 'rl key must not embed the IP');
+
+const noSaltEnv = { IA_KV: env.IA_KV, ASSETS: env.ASSETS };
+const noSalt = await worker.fetch(new Request('https://gamedev.jorgesuarez.com.mx/ia/api/subscribe', {
+  method: 'POST',
+  headers: { 'content-type': 'application/json', 'cf-connecting-ip': TEST_IP },
+  body: JSON.stringify({ email: 'qa2@example.com', lang: 'es' })
+}), noSaltEnv);
+assert(noSalt.status === 200, `subscribe without salt status ${noSalt.status}`);
+assert(![...kv.keys()].some((k) => k.includes(TEST_IP)), `no-salt must not store IP keys: ${[...kv.keys()]}`);
+
 const kvDown = {
   ...env,
   IA_KV: {
@@ -84,9 +119,22 @@ const kvDown = {
     async put() { throw new Error('kv down'); }
   }
 };
-const still = await worker.fetch(new Request('https://gamedev.jorgesuarez.com.mx/ia/go/meshy'), kvDown);
+const still = await worker.fetch(new Request('https://gamedev.jorgesuarez.com.mx/ia/go/meshy', {
+  headers: { 'cf-connecting-ip': TEST_IP }
+}), kvDown);
 assert(still.status === 302, `kv-fail status ${still.status}`);
 assert(still.headers.get('location') === meshy.affiliate, 'kv-fail must still 302 to affiliate');
+
+const noSaltGo = await worker.fetch(new Request('https://gamedev.jorgesuarez.com.mx/ia/go/meshy', {
+  headers: { 'cf-connecting-ip': TEST_IP }
+}), { IA_KV: env.IA_KV, ASSETS: env.ASSETS });
+assert(noSaltGo.status === 302, `go without salt status ${noSaltGo.status}`);
+
+for (const [k, v] of kv.entries()) {
+  assert(!k.includes(TEST_IP), `KV key leaked IP: ${k}`);
+  assert(!String(v).includes(TEST_IP), `KV value leaked IP at ${k}: ${v}`);
+}
+assert(!logs.some((line) => line.includes(TEST_IP)), `logs leaked IP: ${JSON.stringify(logs)}`);
 
 console.log = origLog;
 console.log('OK: /ia/go/meshy → affiliate 302, unknown 404, KV ' + key + '=' + kv.get(key));

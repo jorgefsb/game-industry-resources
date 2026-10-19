@@ -15,7 +15,10 @@
  *
  * KV binding IA_KV = namespace "ia-newsletter". Nothing is emailed or sent anywhere.
  * Click counters: clicks:<slug>:<YYYY-MM-DD> (UTC). Observability: {event:'outbound_click', slug}.
- * Rate limit: 5 submissions per IP per hour (KV counter "rl:<ip>:<hour>" with TTL).
+ * Rate limit: 5 form posts per hour. KV key rl:<16 hex SHA-256(IP_HASH_SALT:ip:YYYY-MM-DD)>:<hour>
+ * with expirationTtl 3600. The IP is never written to KV or console.log.
+ * If env.IP_HASH_SALT is missing, rate limit is skipped (forms still accept, /ia/go still 302).
+ * Deploy: create Worker secret IP_HASH_SALT (wrangler secret put IP_HASH_SALT) before relying on the limiter.
  */
 const MAX_PER_HOUR = 5;
 const EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,24}$/;
@@ -46,13 +49,33 @@ async function readBody(request) {
   }
 }
 
+function utcDay(d = new Date()) {
+  return d.toISOString().slice(0, 10);
+}
+
+async function rlToken(salt, ip, day) {
+  const bytes = await crypto.subtle.digest(
+    'SHA-256',
+    new TextEncoder().encode(`${salt}:${ip}:${day}`)
+  );
+  return Array.from(new Uint8Array(bytes), (b) => b.toString(16).padStart(2, '0')).join('').slice(0, 16);
+}
+
 async function rateLimited(env, request) {
+  const salt = env.IP_HASH_SALT;
+  if (!salt) return false;
   const ip = request.headers.get('cf-connecting-ip') || 'unknown';
   const hour = Math.floor(Date.now() / 3600000);
-  const key = `rl:${ip}:${hour}`;
+  let token;
+  try {
+    token = await rlToken(salt, ip, utcDay());
+  } catch (_) {
+    return false;
+  }
+  const key = `rl:${token}:${hour}`;
   const count = parseInt((await env.IA_KV.get(key)) || '0', 10);
   if (count >= MAX_PER_HOUR) return true;
-  await env.IA_KV.put(key, String(count + 1), { expirationTtl: 3700 });
+  await env.IA_KV.put(key, String(count + 1), { expirationTtl: 3600 });
   return false;
 }
 
@@ -72,10 +95,6 @@ function cleanSite(value) {
   } catch (_) {
     return null;
   }
-}
-
-function utcDay(d = new Date()) {
-  return d.toISOString().slice(0, 10);
 }
 
 function httpsDest(value) {
