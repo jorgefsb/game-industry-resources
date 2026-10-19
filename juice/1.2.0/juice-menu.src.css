@@ -22,7 +22,7 @@
   .jz-panel .juice-sfx__label{display:inline}
 }
 .jz-hard.is-locked{opacity:.55}
-.jz-hard__lock{margin:4px 0 0}
+.jz-hard__lock{margin:4px 0 0;color:inherit}
 /* Invitación: marco con chispas alrededor de "Juega" hasta que la persona lo abre (10 vueltas, luego se calma) */
 .jz-invite{position:relative;isolation:isolate;overflow:visible}
 .jz-invite::before{content:"";position:absolute;inset:-3px;z-index:-1;border-radius:9px;padding:2px;background:conic-gradient(from var(--jz-a,0deg),var(--jz-c1,#FF6B35),var(--jz-c3,#F4E8D5),var(--jz-c2,#FF6B35),var(--jz-c1,#FF6B35));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:jz-spin 2.4s linear 10}

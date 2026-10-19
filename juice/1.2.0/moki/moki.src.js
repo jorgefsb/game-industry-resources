@@ -362,18 +362,40 @@
     return m;
   }
 
+  /* Escoge n escondites del día. Reglas: nunca dos pegados (si caben) y nunca más escondites de un tipo
+     que poses tiene su grupo (si hay con qué llenarlos). Semilla del día: cambia cada día, igual todo el día. */
   function pick() {
     var all = [].slice.call(d.querySelectorAll('[data-moki]:not(.moki)'));
     var n = parseInt(H.getAttribute('data-moki-show'), 10);
     if (!(n > 0) || n >= all.length) return all;
-    var r = seeded(day + location.pathname), a = all.slice(), i, j, t;
-    for (i = a.length - 1; i > 0; i--) { j = Math.floor(r() * (i + 1)); t = a[i]; a[i] = a[j]; a[j] = t; }
-    /* Nunca dos escondites pegados: si se puede, se saltan los vecinos del que ya salió */
-    var keep = [], idx = function (s) { return all.indexOf(s); };
-    a.forEach(function (s) { if (keep.length < n && !keep.some(function (k) { return Math.abs(idx(k) - idx(s)) === 1; })) keep.push(s); });
-    a.forEach(function (s) { if (keep.length < n && keep.indexOf(s) < 0) keep.push(s); });
+    var r = seeded(day + location.pathname), N = all.length, best = null, bestScore = -1, t, i;
+    function kindOf(s) { var k = s.getAttribute('data-moki'); return POOL[k] ? k : 'arriba'; }
+    function score(ix) {
+      var bad = 0, per = {};
+      for (i = 1; i < ix.length; i++) if (ix[i] - ix[i - 1] === 1) bad += 2;
+      ix.forEach(function (j) { var s = all[j], k = kindOf(s); if (s.getAttribute('data-moki-pose')) return; per[k] = (per[k] || 0) + 1; if (per[k] > POOL[k].length) bad += 3; });
+      return -bad;
+    }
+    for (t = 0; t < 40 && bestScore < 0; t++) {
+      var ix;
+      if (N - n + 1 >= n) {
+        /* n posiciones sin vecinos: se eligen n de N-n+1 y se separan sumando su lugar */
+        var c = [], pool = [];
+        for (i = 0; i <= N - n; i++) pool.push(i);
+        for (i = 0; i < n; i++) c.push(pool.splice(Math.floor(r() * pool.length), 1)[0]);
+        c.sort(function (a, b) { return a - b; });
+        ix = c.map(function (v, k) { return v + k; });
+      } else {
+        var a = all.map(function (_, k) { return k; });
+        for (i = a.length - 1; i > 0; i--) { var j = Math.floor(r() * (i + 1)), x = a[i]; a[i] = a[j]; a[j] = x; }
+        ix = a.slice(0, n).sort(function (p, q) { return p - q; });
+      }
+      var sc = score(ix);
+      if (sc > bestScore || best === null) { best = ix; bestScore = sc; }
+    }
+    var keep = best.map(function (k) { return all[k]; });
     all.forEach(function (s) { if (keep.indexOf(s) < 0) s.remove(); });
-    return all.filter(function (s) { return keep.indexOf(s) >= 0; });
+    return keep;
   }
 
   function init() {
