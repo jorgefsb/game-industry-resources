@@ -343,6 +343,7 @@
     b.className = 'moki moki--' + kind + (span.className ? ' ' + span.className : '');
     if (span.getAttribute('style')) b.setAttribute('style', span.getAttribute('style'));
     b.setAttribute('data-moki-pose', pose);
+    b.setAttribute('data-moki-spot', id);
     b.style.setProperty('--moki-ar', AR[pose]);
     var src = BASE + 'moki-' + pose + '.webp';
     var img = '<img class="moki__img" src="' + src + '" alt="" loading="lazy" decoding="async" draggable="false">';
@@ -362,40 +363,37 @@
     return m;
   }
 
-  /* Escoge n escondites del día. Reglas: nunca dos pegados (si caben) y nunca más escondites de un tipo
-     que poses tiene su grupo (si hay con qué llenarlos). Semilla del día: cambia cada día, igual todo el día. */
+  /* Escoge n escondites del día. Reglas: nunca dos cerca uno del otro en la página (si caben) y nunca más
+     escondites de un tipo que poses tiene su grupo. «Cerca» es por distancia real, no por orden en el HTML.
+     Semilla del día: cambia cada día y es igual todo ese día. */
   function pick() {
     var all = [].slice.call(d.querySelectorAll('[data-moki]:not(.moki)'));
     var n = parseInt(H.getAttribute('data-moki-show'), 10);
     if (!(n > 0) || n >= all.length) return all;
-    var r = seeded(day + location.pathname), N = all.length, best = null, bestScore = -1, t, i;
+    var r = seeded(day + location.pathname), gap = Math.max(260, (w.innerHeight || 800) * 0.45);
+    var y = all.map(function (s) { var h = s.parentElement || s; var b = h.getBoundingClientRect(); return b.top + (w.scrollY || 0); });
     function kindOf(s) { var k = s.getAttribute('data-moki'); return POOL[k] ? k : 'arriba'; }
-    function score(ix) {
-      var bad = 0, per = {};
-      for (i = 1; i < ix.length; i++) if (ix[i] - ix[i - 1] === 1) bad += 2;
-      ix.forEach(function (j) { var s = all[j], k = kindOf(s); if (s.getAttribute('data-moki-pose')) return; per[k] = (per[k] || 0) + 1; if (per[k] > POOL[k].length) bad += 3; });
-      return -bad;
+    function near(i, j) { return Math.abs(y[i] - y[j]) < gap; }
+    var best = null, bestBad = 1e9, t, i, j, x;
+    for (t = 0; t < 60 && bestBad > 0; t++) {
+      var a = all.map(function (_, k) { return k; });
+      for (i = a.length - 1; i > 0; i--) { j = Math.floor(r() * (i + 1)); x = a[i]; a[i] = a[j]; a[j] = x; }
+      var keep = [], per = {}, bad = 0;
+      [0, 1].forEach(function (pass) {
+        a.forEach(function (k) {
+          if (keep.length >= n || keep.indexOf(k) >= 0) return;
+          var kd = kindOf(all[k]), full = !all[k].getAttribute('data-moki-pose') && (per[kd] || 0) >= POOL[kd].length;
+          var close = keep.some(function (q) { return near(q, k); });
+          if (pass === 0 && (full || close)) return;
+          if (full) bad += 3; if (close) bad += 2;
+          keep.push(k); per[kd] = (per[kd] || 0) + 1;
+        });
+      });
+      if (bad < bestBad) { best = keep; bestBad = bad; }
     }
-    for (t = 0; t < 40 && bestScore < 0; t++) {
-      var ix;
-      if (N - n + 1 >= n) {
-        /* n posiciones sin vecinos: se eligen n de N-n+1 y se separan sumando su lugar */
-        var c = [], pool = [];
-        for (i = 0; i <= N - n; i++) pool.push(i);
-        for (i = 0; i < n; i++) c.push(pool.splice(Math.floor(r() * pool.length), 1)[0]);
-        c.sort(function (a, b) { return a - b; });
-        ix = c.map(function (v, k) { return v + k; });
-      } else {
-        var a = all.map(function (_, k) { return k; });
-        for (i = a.length - 1; i > 0; i--) { var j = Math.floor(r() * (i + 1)), x = a[i]; a[i] = a[j]; a[j] = x; }
-        ix = a.slice(0, n).sort(function (p, q) { return p - q; });
-      }
-      var sc = score(ix);
-      if (sc > bestScore || best === null) { best = ix; bestScore = sc; }
-    }
-    var keep = best.map(function (k) { return all[k]; });
-    all.forEach(function (s) { if (keep.indexOf(s) < 0) s.remove(); });
-    return keep;
+    var chosen = best.map(function (k) { return all[k]; });
+    all.forEach(function (s) { if (chosen.indexOf(s) < 0) s.remove(); });
+    return all.filter(function (s) { return chosen.indexOf(s) >= 0; });
   }
 
   function init() {
