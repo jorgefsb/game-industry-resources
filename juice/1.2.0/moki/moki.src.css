@@ -29,8 +29,8 @@
 /* cuelga: baja de un hilo desde el borde superior, de cabeza. Se puede jalar y se columpia. */
 .moki--cuelga{top:0;right:var(--moki-r);width:calc(var(--moki) * 1.2);height:calc(var(--rope,72px) + var(--moki));touch-action:none;cursor:grab}
 .moki--cuelga.is-drag{cursor:grabbing}
-.moki--cuelga .moki__clip{inset:0 -30% -30%}
-.moki--cuelga.is-down .moki__clip{overflow:visible}
+.moki--cuelga .moki__clip{inset:0;overflow:visible;clip-path:inset(0 -60% -60% -60%)}
+.moki--cuelga.is-down .moki__clip{clip-path:none}
 .moki__rig{display:block;width:calc(var(--moki) * 1.2);margin:0 auto;transform:translateY(-102%);transition:transform .7s cubic-bezier(.3,1.5,.4,1)}
 .moki__swing{display:block;transform-origin:50% 0;will-change:transform}
 .moki__thread{display:block;width:2px;height:var(--rope,72px);margin:0 auto;background:var(--brand-border,#8A7E70)}
