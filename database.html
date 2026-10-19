@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="styles/inner.css">
   <link rel="stylesheet" href="juice/1.0.1/juice.css">
   <link rel="stylesheet" href="juice/1.0.1/juice-menu.css">
+  <link rel="stylesheet" href="styles/hook.css">
   <link rel="icon" href="ia/assets/moki-parche-derecho.png" type="image/png">
 </head>
 
@@ -69,6 +70,11 @@
         <button type="button" class="ia-chip" data-filter="AR" aria-pressed="false">Argentina</button>
         <button type="button" class="ia-chip" data-filter="BR" aria-pressed="false">Brasil</button>
       </div>
+      <div class="gd-bar" data-gd-bar hidden>
+        <button type="button" class="btn btn--primary gd-random" data-gd-random data-gd-t-aria="randomAria"><span data-gd-t="random">🎲 Estudio al azar</span></button>
+        <p class="gd-got" data-gd-got aria-live="polite"></p>
+        <button type="button" class="btn btn--ghost gd-clear" data-gd-clear="studio" hidden><span data-gd-t="clear">Borrar mi colección</span></button>
+      </div>
       <div class="ia-grid" id="studiosGrid">
         <p class="section__description" data-i18n="ui.loading">Cargando...</p>
       </div>
@@ -85,6 +91,7 @@
 
   <script src="i18n.js"></script>
   <script src="scripts/home.js"></script>
+  <script src="scripts/hook.js"></script>
   <script src="scripts/studios.js"></script>
   <script src="scripts/database.js"></script>
   <script src="juice/1.0.1/juice.js" defer></script>

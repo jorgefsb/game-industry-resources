@@ -1,0 +1,43 @@
+/* Loop Hook de gamedev (piloto). Tokens del brandkit 0.3; texto blanco sobre oscuro. */
+.gd-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin: 0 0 var(--sp-4, 16px); }
+.gd-bar[hidden] { display: none; }
+.gd-random { min-height: var(--tap, 44px); }
+.gd-got { margin: 0; min-height: 1.5em; color: var(--brand-text-on-dark, #FFFFFF); font-size: 15px; }
+.gd-note { margin: 0 0 var(--sp-3, 12px); color: var(--brand-text-on-dark, #FFFFFF); font-size: 15px; }
+.gd-note[hidden] { display: none; }
+
+.gd-card .gd-stretch { color: inherit; text-decoration: none; }
+.gd-card .gd-stretch::after { content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: 1; }
+.gd-card .gd-stretch:focus-visible { outline: none; }
+.gd-card:has(.gd-stretch:focus-visible) { outline: 3px solid #FF6B35; outline-offset: 3px; }
+.gd-card .ia-badge { z-index: 2; }
+
+.gd-actions { position: relative; z-index: 2; display: flex; margin-top: auto; }
+.gd-save {
+  display: inline-flex; align-items: center; gap: 6px;
+  min-height: var(--tap, 44px); padding: 0 14px;
+  border: 1px solid rgba(255, 107, 53, .6); border-radius: 6px;
+  background: #161616; color: var(--brand-text-on-dark, #FFFFFF);
+  font: 400 14px/1 var(--brand-font-body, Inter, sans-serif); cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease, transform 200ms cubic-bezier(.34, 1.56, .64, 1);
+}
+.gd-save:hover { border-color: #FF6B35; }
+.gd-save:active { transform: scale(.95); }
+.gd-save:focus-visible { outline: 3px solid #FF6B35; outline-offset: 3px; }
+.gd-save[aria-pressed="true"] { background: #FF6B35; border-color: #FF6B35; color: #22211F; }
+
+.gd-new { border-color: #FF6B35; color: #FF6B35; }
+.gd-chip[hidden] { display: none; }
+
+.gd-picked { border-color: #FF6B35 !important; box-shadow: 0 0 0 2px #FF6B35; }
+.gd-picked { animation: gd-pick 420ms cubic-bezier(.34, 1.56, .64, 1); }
+@keyframes gd-pick { 0% { transform: scale(.96); } 60% { transform: scale(1.02); } 100% { transform: none; } }
+
+html[data-jz-level="off"] .gd-picked, html[data-jz-level="off"] .gd-save { animation: none; transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  .gd-picked { animation: none; }
+  .gd-save { transition: none; }
+}
+.gd-bar--ia { margin-bottom: var(--sp-3, 12px); }
+.gd-clear[hidden] { display: none; }
+.gd-clear { min-height: var(--tap, 44px); }
