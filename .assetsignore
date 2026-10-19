@@ -1,3 +1,9 @@
 # Worker static assets: repo root is the ASSETS directory (binding ASSETS).
 # Wrangler will not upload paths that match these gitignore-style rules.
 __fixtures__/
+tools/
+node_modules/
+package.json
+package-lock.json
+juice/1.0.0/build.mjs
+juice/1.0.0/hap.test.mjs
