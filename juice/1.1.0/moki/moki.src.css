@@ -8,7 +8,7 @@
 .moki__clip{position:absolute;overflow:hidden;display:block;pointer-events:none}
 .moki__img{display:block;height:var(--moki);width:auto;max-width:none;pointer-events:auto;transition:transform var(--moki-t);user-select:none;-webkit-user-drag:none;filter:drop-shadow(0 6px 8px rgba(0,0,0,.45))}
 .moki__actor{position:absolute;bottom:0;left:50%;height:var(--moki);width:auto;max-width:none;margin-left:calc(var(--moki) * -.5);opacity:0;visibility:hidden;pointer-events:none;transform-origin:50% 100%;filter:drop-shadow(0 6px 8px rgba(0,0,0,.45))}
-.moki__bubble{position:absolute;z-index:2;display:block;white-space:nowrap;padding:7px 12px 8px;border-radius:14px;background:var(--brand-paper,#F4E8D5);color:var(--brand-ink,#22211F);font:700 15px/1.1 var(--brand-font-heading,Outfit,sans-serif);letter-spacing:-.01em;box-shadow:0 6px 18px rgba(0,0,0,.35);opacity:0;transform:scale(.6);transition:opacity .16s,transform .22s cubic-bezier(.2,.9,.25,1.4);pointer-events:none}
+.moki__bubble{position:absolute;z-index:2;display:block;text-align:left;text-shadow:none;white-space:nowrap;padding:7px 12px 8px;border-radius:14px;background:var(--brand-paper,#F4E8D5);color:var(--brand-ink,#22211F);font:700 15px/1.1 var(--brand-font-heading,Outfit,sans-serif);letter-spacing:-.01em;box-shadow:0 6px 18px rgba(0,0,0,.35);opacity:0;transform:scale(.6);transition:opacity .16s,transform .22s cubic-bezier(.2,.9,.25,1.4);pointer-events:none}
 .moki__bubble::after{content:"";position:absolute;width:10px;height:10px;background:inherit;transform:rotate(45deg)}
 .moki.is-ay .moki__bubble{opacity:1;transform:scale(1)}
 .moki__spark{position:absolute;width:7px;height:7px;border-radius:2px;pointer-events:none;animation:moki-spark .6s ease-out forwards}
@@ -104,12 +104,13 @@
 /* Contador y fiesta del 5 de 5 */
 .moki-count{position:fixed;left:16px;bottom:16px;z-index:60;display:flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:var(--brand-paper,#F4E8D5);color:var(--brand-ink,#22211F);font:700 14px/1.25 var(--brand-font-body,Inter,sans-serif);box-shadow:0 8px 24px rgba(0,0,0,.4);opacity:0;transform:translateY(12px);transition:opacity .2s,transform .25s;pointer-events:none;max-width:calc(100vw - 32px)}
 .moki-count.is-on{opacity:1;transform:none}
+.moki-count b{color:var(--brand-ink,#22211F);font-weight:700}
 .moki-count img{width:30px;height:30px;object-fit:contain;flex:none}
 .moki-count small{display:block;font-weight:400;font-size:12px;color:#4A4640}
 .moki-party{position:fixed;inset:0;z-index:70;pointer-events:none}
 .moki-party canvas{position:absolute;inset:0;width:100%;height:100%}
 .moki-party__card{position:absolute;left:50%;top:50%;display:block;width:min(420px,calc(100vw - 32px));padding:22px 24px 24px;border-radius:18px;background:var(--brand-paper,#F4E8D5);color:var(--brand-ink,#22211F);text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.55);pointer-events:auto;cursor:pointer;transform:translate(-50%,-50%);z-index:2}
-.moki-party__card b{display:block;font:700 26px/1.15 var(--brand-font-heading,Outfit,sans-serif);letter-spacing:-.02em}
+.moki-party__card b{display:block;color:var(--brand-ink,#22211F);font:700 26px/1.15 var(--brand-font-heading,Outfit,sans-serif);letter-spacing:-.02em}
 .moki-party__card span{display:block;margin-top:8px;font:400 15px/1.45 var(--brand-font-body,Inter,sans-serif);color:#4A4640}
 .moki-party__moki{position:absolute;left:50%;top:50%;height:150px;width:auto;margin-left:-62px;z-index:1;opacity:0;transform:translateY(-50%);filter:drop-shadow(0 10px 14px rgba(0,0,0,.5))}
 .moki-party.is-in .moki-party__moki{animation:moki-sale 3.6s cubic-bezier(.3,1.4,.5,1) .55s both}
