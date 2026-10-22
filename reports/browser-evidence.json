@@ -1,0 +1,45 @@
+{
+  "source": "a7076dfd527ba04771d41a8d4773eae964f4a01c",
+  "sessions": [
+    {
+      "lang": "es",
+      "errors": [],
+      "blockedWrites": [],
+      "steps": [
+        "home",
+        "jobs.html",
+        "database.html",
+        "tools.html",
+        "ia/"
+      ],
+      "databaseSearch": "Ir a recursos\nJorgeSuarez\n.com.mx\nRecursos\nIA\nJobs & Career\nStudios DB\nComunidad\nES\n|\nEN\n🎮 Únete a EGDC\n🔇\nSonido\n✨\nJuice: Discreto\n🌎 LATAM Power\nLATAM STUDIOS DB\n\nEl mapa más completo de la industria en Latinoamérica. Encuentra estudios, tecnología y vacantes.\n\nSearch studios\nTodas\nHiring\nMéxico\nColombia\nArgentina\nBrasil\nHIRING\n🏢\nAmber Studio 🇲🇽\n\nServicios de desarrollo completo y co-dev para AAA. Oficinas en Guadalajara.\n\nUnity\nUnreal\nAAA\nJorgeSuarez\n.com.mx\n\nKaizen y Juego\n\nHecho con amor ❤️🎮 por JorgeSuarez.com.mx ← JorgeSuarez\n.com.mx",
+      "templateHrefs": [
+        "#",
+        "#",
+        "#"
+      ],
+      "catalogBefore": "42 herramientas",
+      "catalogAfter": "1 herramienta"
+    },
+    {
+      "lang": "en",
+      "errors": [],
+      "blockedWrites": [],
+      "steps": [
+        "home",
+        "jobs.html",
+        "database.html",
+        "tools.html",
+        "ia/"
+      ],
+      "databaseSearch": "Skip to resources\nJorgeSuarez\n.com.mx\nResources\nAI\nJobs & Career\nStudios DB\nCommunity\nES\n|\nEN\n🎮 Join EGDC\n🔇\nSound\n✨\nJuice: Discreto\n🌎 LATAM Power\nLATAM STUDIOS DB\n\nThe most complete map of the industry in Latin America. Find studios, tech, and job openings.\n\nSearch studios\nTodas\nHiring\nMéxico\nColombia\nArgentina\nBrasil\nHIRING\n🏢\nAmber Studio 🇲🇽\n\nServicios de desarrollo completo y co-dev para AAA. Oficinas en Guadalajara.\n\nUnity\nUnreal\nAAA\nJorgeSuarez\n.com.mx\n\nKaizen & Play\n\nMade with love ❤️🎮 by JorgeSuarez.com.mx ← JorgeSuarez\n.com.mx",
+      "templateHrefs": [
+        "#",
+        "#",
+        "#"
+      ],
+      "catalogBefore": "42 tools",
+      "catalogAfter": "1 tool"
+    }
+  ]
+}
