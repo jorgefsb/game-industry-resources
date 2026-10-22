@@ -1,76 +1,49 @@
-<div align="center">
+[Español](README.md) | [English](README.en.md)
 
-<img src="./assets/readme-banner.svg" width="1000" alt="Game Industry Resources: level up tu carrera en videojuegos en Latinoamérica." />
+![Game Industry Resources](docs/media/cover-es.png)
 
-[🚀 Explorar el sitio](https://gamedev.jorgesuarez.com.mx) · [🐙 Ver código](https://github.com/jorgefsb/game-industry-resources) · **Estado:** activo / trabajo en progreso
+# Game Industry Resources
 
-**Un hub abierto para compartir herramientas, guías y rutas de carrera con la comunidad de videojuegos en Latinoamérica.**
+## ¿Qué es y por qué existe?
+Un sitio de recursos para quienes crean videojuegos, con enfoque en Latinoamérica. Reúne directorios y guías para explorar opciones desde un solo lugar; no es una plataforma de contratación ni valida proveedores.
 
-</div>
+## ¿Para quién?
+Estudiantes, desarrolladores independientes y equipos buscando herramientas, estudios o orientación profesional. Usa un navegador moderno; consultar el directorio no requiere cuenta ni conocimientos de programación. Alojar una copia sí requiere ayuda técnica.
 
----
+## ¿Cómo empiezo?
+1. Abre el [directorio IA](https://gamedev.jorgesuarez.com.mx/ia/). Las capturas proceden de `main` servido localmente, no certifican el despliegue público.
+2. Escribe **Cursor** en Buscar herramientas: en la copia verificada el catálogo pasó de 42 herramientas a una coincidencia. Usa categorías para explorar otras áreas y revisa términos y precios en el sitio oficial de cada herramienta.
+3. En [Studios DB](https://gamedev.jorgesuarez.com.mx/database.html), busca **Amber**: la búsqueda local deja la ficha coincidente. Las etiquetas Hiring no demuestran vacantes actuales.
+4. En [Jobs & Career](https://gamedev.jorgesuarez.com.mx/jobs.html), consulta enlaces y la guía de CV. Confirma cada oferta directamente con el estudio. No envíes correo, solicitudes de patrocinio ni pagos para seguir este recorrido.
 
-## 🌟 ¿Qué es esto?
+![Búsqueda real de IA](docs/media/06-search-es.png)
+![Búsqueda de estudios](docs/media/database-search-es.png)
 
-Una colección en crecimiento de recursos, templates, guías y herramientas para ayudar a **desarrolladores de videojuegos en LATAM** a:
+En teléfono: [captura vertical legible](docs/media/mobile-search-es.png). Abre las capturas a tamaño completo para leer cada control.
 
-- 🚀 **Fundar studios rentables** desde cero
-- 📋 **Acceder a templates profesionales** probados con publishers AAA
-- 🌎 **Conectar con el ecosistema** de publishers, grants y eventos
-- 🎓 **Aprender de profesionales** con experiencia real en la industria
+## ¿Cuándo usarlo y cuándo no?
+Para descubrir recursos y enlaces. No para comprobar vacantes en tiempo real, recibir asesoría legal o asumir que una herramienta cumple licencias, privacidad o necesidades de tu juego.
 
----
+## ¿Dónde y en qué estado?
+[Inicio](https://gamedev.jorgesuarez.com.mx) · [Código](https://github.com/jorgefsb/game-industry-resources). `main` local verificado el 22 de octubre de 2026: inicio, Jobs, Studios DB, Tools y directorio IA cargan. Búsquedas de IA y estudios verificadas en ES/EN. No se verificaron otras ramas ni PR pendientes.
 
-## 📚 Contenido
+## Costos y licencia
+Consultar la copia no mostró cobro. El directorio anuncia acceso gratuito y un destacado de USD 49 al mes; no probamos pago, activación, cancelación ni envío. Las herramientas externas tienen sus propios precios. No hay LICENSE en este snapshot: no asumir MIT ni permiso general de redistribución. La marca y logotipos de terceros tienen restricciones separadas.
 
-### ✅ Disponible Ahora
-- 🏠 Landing page con recursos principales
+## Privacidad
+La preferencia de idioma se guarda en `localStorage`. Boletín, envío de herramientas y destacado tienen formularios que intentan enviar datos a `/ia/api/`; un servidor estático local no los implementa. El Worker existe en código, pero su despliegue, almacenamiento y políticas de retención no fueron verificados. No enviamos formularios ni pagos. Al abrir enlaces externos aplican sus propias políticas.
 
-### 🚧 En Desarrollo
-| Recurso | Descripción | Status |
-|---------|-------------|--------|
-| 📋 **Studio Templates** | Pitch deck, GDD, finance tracker, publisher CRM | Próximamente |
-| 🤝 **Wizard de Fundadores** | Genera acuerdos entre co-fundadores | Próximamente |
-| 🌎 **LATAM Database** | Publishers, grants, eventos, studios | Próximamente |
-| 🚀 **Zero to Studio Guide** | Roadmap completo para crear un studio | Próximamente |
-| 📢 **Marketing Playbook** | Estrategias de launch e influencers | Próximamente |
-| ⚖️ **Legal Básico** | Contratos e IP para studios | Próximamente |
+## Límites y ayuda
+- Jobs muestra una lista/ticker basado en datos del repositorio, no un feed de ofertas en vivo comprobado.
+- Studios DB usa datos locales: confirma país, tecnología y contratación con cada estudio.
+- Tools presenta Standard GDD, Project Budget y Release Checklist, pero sus tres botones enlazan a `#`: **no hay descarga funcional verificada**.
+- Portafolio e Interview Prep aparecen como próximamente. Una página o botón no prueba un servicio operativo.
+- Para errores o enlaces desactualizados, [abre un issue](https://github.com/jorgefsb/game-industry-resources/issues) sin datos sensibles. No hay plazo de soporte garantizado.
 
----
+## Video y siguientes pasos
 
-## 🔗 Ecosistema
+[MP4 · ES](docs/media/walkthrough-es.mp4) · [VTT](docs/media/walkthrough-es.vtt) · [Texto / Transcript](docs/media/transcript-es.md)
 
-Este proyecto es parte de un ecosistema más amplio para impulsar a game devs:
+[Guía técnica](docs/TECHNICAL.md) · [Canon de documentación](docs/REPOSITORY-DOCUMENTATION.md) · [Aviso de medios](docs/ASSET-NOTICE.md)
 
-| Plataforma | Descripción |
-|------------|-------------|
-| [🎮 EGDC - Echo Gamedev Club](https://comunidad.uetc.mx) | Comunidad exclusiva de desarrolladores |
-| [🎓 Cursos VIP](https://vip.jorgesuarez.com.mx) | Masterclasses y mentorías premium |
-| [🏫 UETC](https://uetc.mx) | Formación profesional completa |
-| [🏢 Amber Studio](https://amberstudio.com) | Estudio de desarrollo profesional |
-| [🎯 PlayPitch](https://playpitch.com) | Conecta juegos con influencers |
-
----
-
-## 💡 ¿De dónde viene?
-
-El proyecto reúne aprendizajes de más de dos décadas construyendo videojuegos, estudios y comunidad desde México. No pretende tener la última palabra: es un mapa abierto que mejora con la experiencia de quienes hacen juegos en la región.
-
----
-
-## 🤝 Contribuir
-
-¡Las contribuciones son bienvenidas! Si conoces un recurso que debería estar aquí:
-
-1. Abre un **Issue** describiendo el recurso
-2. O envía un **Pull Request** con tu adición
-
----
-
-<div align="center">
-
-**Hecho con ❤️ para LATAM por [Jorge Suarez](https://jorgesuarez.com.mx)**
-
-[🎮 EGDC](https://comunidad.uetc.mx) • [🎓 VIP](https://vip.jorgesuarez.com.mx) • [🏫 UETC](https://uetc.mx) • [🏢 Amber](https://amberstudio.com)
-
-</div>
+Construido por [Jorge Suárez](https://jorgesuarez.com.mx) · [Brandkit oficial / Official brandkit](https://brandkit.jorgesuarez.com.mx/)
