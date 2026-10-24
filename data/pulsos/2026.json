@@ -1,0 +1,16 @@
+{
+  "id": "pulso-2026",
+  "status": "PROXIMO",
+  "period": "2026",
+  "label_es": "PRÓXIMO",
+  "label_en": "UPCOMING",
+  "title_es": "Pulso de la industria MX 2026",
+  "title_en": "Mexico industry pulse 2026",
+  "cadence": "trimestral",
+  "cadence_months": ["01", "04", "07", "10"],
+  "next_cut": "2027-01",
+  "metrics": [],
+  "note_es": "[SIN DATO] Sin cifras 2026 publicadas. El siguiente corte trimestral es enero de 2027.",
+  "note_en": "[SIN DATO] No 2026 figures published. The next quarterly cut lands January 2027.",
+  "supersedes": "data/pulsos/2025.json"
+}
