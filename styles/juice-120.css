@@ -1,4 +1,4 @@
-/* gamedev · juice 1.2.0 en /tools, /jobs y /database. Solo formato: no cambia textos.
+/* gamedev · juice 1.2.0 en home, /ia, /tools, /jobs y /database. Solo formato: no cambia textos.
    Tokens: brand/0.3/tokens.css. Nunca editar juice/1.2.0: los ajustes del sitio viven aquí. */
 
 /* Registro del build en el footer: secundario sobre oscuro (#B7B3AD, 8.6:1 sobre #0A0A0A). */
@@ -17,8 +17,34 @@
 .inner-page .inner-section .section__header { margin-bottom: var(--sp-8); }
 .inner-page #studios { padding-top: var(--sp-5); }
 .inner-page #studios .inner-search { margin-bottom: var(--sp-8); }
+.home-page .home-hero,
+.home-page .hero__content,
+.home-page .ia-featured__card,
+.home-page .pulse-stat,
+.home-page .home-grid,
+.home-page .papacito-footer,
+.home-page .papacito-footer__identity,
+.ia-page .ia-hero,
+.ia-page .ia-featured__card,
+.ia-page .ia-news,
+.ia-page .ia-catalog,
+.ia-page .ia-catalog__head,
+.ia-page .ia-submit,
+.ia-page .ia-sponsor,
+.ia-page .ia-sponsor__copy,
+.ia-page .ia-preview,
+.ia-page .ia-plan,
+.ia-page .ia-pay,
+.ia-page .ia-card,
+.ia-page footer.foot,
+.inner-page .papacito-footer,
+.inner-page .papacito-footer__identity,
+.inner-page .guide-article {
+  position: relative;
+}
 @media (max-width: 768px) {
   .inner-hero { padding-top: calc(var(--sp-6) + 12px); }
+  .home-page .home-hero { padding-top: calc(var(--sp-6) + 12px); }
   .inner-page #studios .inner-search { margin-bottom: var(--sp-7); }
 }
 
