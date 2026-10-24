@@ -4,6 +4,7 @@
 # Updated: 2026-10-16
 # Language: Spanish first, English in tools.json
 # Pricing is included only when verified on the official site.
+# Afiliados: si compras por una liga de afiliado del directorio (hoy Meshy), Game Resources gana una comisión sin costo extra para ti. Las URLs de abajo son las oficiales.
 
 ## Código / agentes / Code / agents
 - Cursor [freemium]: Editor con agentes de IA para escribir, editar y revisar el código del juego. (https://cursor.com)
