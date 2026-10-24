@@ -19,6 +19,27 @@
   color: var(--accent);
 }
 
+/* Paper #F4E8D5 is never text on dark; HUD uses white / muted. */
+.home-page .hud__nav a {
+  color: var(--text-strong);
+}
+
+.home-page .hud__nav a[aria-current="true"] {
+  color: var(--accent);
+}
+
+.home-page .lang-switcher a {
+  color: var(--text-secondary);
+}
+
+.home-page .lang-switcher a:hover {
+  color: var(--text-strong);
+}
+
+.home-page .lang-switcher a.active {
+  color: var(--accent);
+}
+
 .home-page .papacito-footer__signature {
   display: flex;
   flex-wrap: wrap;
@@ -222,13 +243,43 @@ a.home-card {
   }
 }
 
+/* juice 1.0.0–1.0.2 keep labeled dock buttons at ≥981px; site-side icon-only 44 so the HUD fits 1024. */
+@media (min-width: 981px) {
+  .home-page .hud .jz-dock {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    flex: none;
+    min-width: 0;
+  }
+
+  .home-page .hud .jz-dock > .juice-sfx,
+  .home-page .hud .jz-dock > .jz-lvl {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--tap);
+    min-width: var(--tap);
+    height: var(--tap);
+    min-height: var(--tap);
+    padding: 0;
+    gap: 0;
+    flex: none;
+  }
+
+  .home-page .hud .jz-dock > .juice-sfx .juice-sfx__label,
+  .home-page .hud .jz-dock > .jz-lvl .jz-lvl__label {
+    display: none;
+  }
+}
+
 @media (max-width: 480px) {
   .home-page .hud {
     gap: var(--sp-2);
   }
 
   .home-page .hud__right {
-    gap: 0;
+    gap: var(--sp-1);
   }
 }
 
@@ -250,7 +301,7 @@ a.home-card {
   }
 
   .home-page .lang-switcher {
-    gap: 0;
+    gap: var(--sp-1);
   }
 
   .home-page .lang-switcher a {
