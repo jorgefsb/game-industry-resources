@@ -37,4 +37,6 @@ Un archivo JSON por semana: `YYYY-Www.json` (ejemplo `2026-W44.json`).
 - Copy bilingüe ES + EN siempre, igual que el resto del sitio.
 - Sin em dash en el copy de UI. Guion normal o punto.
 
-Estado actual: **vacío**. Primer digest [SIN DATO].
+Estado actual: **publicado**. Primer digest: `2026-W43.json` (semana 2026-W43, publicada el 24 oct 2026, 4 items LATAM).
+
+Gap conocido de 2026-W43: sin inversiones, cierres ni policy de MX en la ventana 22-24 oct. En la UI se marca como `MX esta semana: [SIN DATO]`.
