@@ -1,0 +1,52 @@
+/* gamedev · juice 1.2.0 en /tools, /jobs y /database. Solo formato: no cambia textos.
+   Tokens: brand/0.3/tokens.css. Nunca editar juice/1.2.0: los ajustes del sitio viven aquí. */
+
+/* Registro del build en el footer: secundario sobre oscuro (#B7B3AD, 8.6:1 sobre #0A0A0A). */
+.papacito-footer__log {
+  margin: 8px 0 0;
+  font: 400 12px/1.5 var(--brand-font-body, Inter, sans-serif);
+  color: var(--brand-text-muted, #B7B3AD);
+  overflow-wrap: anywhere;
+}
+
+/* Panel de Juega: el papel nunca es texto. */
+.jz-dock .jz-panel { color: var(--brand-text-on-dark, #FFFFFF); }
+
+/* Espacio para los escondites de Moki: arriba mide ~48 px (36 en celular) y saluda ~96 px (72).
+   Así se asoma en hueco, nunca encima de un texto o botón. */
+.inner-page .inner-section .section__header { margin-bottom: var(--sp-8); }
+.inner-page #studios { padding-top: var(--sp-5); }
+.inner-page #studios .inner-search { margin-bottom: var(--sp-8); }
+@media (max-width: 768px) {
+  .inner-hero { padding-top: calc(var(--sp-6) + 12px); }
+  .inner-page #studios .inner-search { margin-bottom: var(--sp-7); }
+}
+
+/* Taps de 44 px en el selector ES/EN (antes 36 px de ancho en celular). */
+.lang-switcher .lang-btn { min-width: 44px; justify-content: center; }
+
+/* El escondite vacío no ocupa lugar antes de que moki.js lo convierta en botón (CLS 0). */
+[data-moki]:not(.moki) { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* Studios DB: mientras dice «Cargando...», la rejilla aparta su lugar para que el footer no brinque. */
+.inner-page #studiosGrid:has(> [data-i18n="ui.loading"]) { min-height: 100vh; }
+
+/* Escritorio angosto (981 a 1279 px): Sonido y Juega quedan como íconos de 44 px para que el HUD
+   no se salga de la pantalla. El aria-label conserva el texto completo. */
+@media (min-width: 981px) and (max-width: 1279px) {
+  .hud .jz-dock > .juice-sfx,
+  .hud .jz-dock > .jz-lvl { width: 44px; min-width: 44px; height: 44px; padding: 0; justify-content: center; overflow: hidden; }
+  .hud .jz-dock > .juice-sfx .juice-sfx__label,
+  .hud .jz-dock > .jz-lvl .jz-lvl__label { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+}
+@media (min-width: 981px) and (max-width: 1099px) {
+  .hud { gap: 10px; }
+  .hud__nav { gap: 10px; }
+  .hud__right { gap: 8px; }
+  .hud__cta { padding-inline: 14px; }
+}
+@media (min-width: 981px) and (max-width: 1023px) {
+  .hud { padding-inline: 16px; gap: 6px; }
+  .hud__nav { gap: 6px; }
+  .hud__nav .nav__link { font-size: 15px; }
+}
