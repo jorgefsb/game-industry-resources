@@ -31,11 +31,11 @@
 /* Studios DB: mientras dice «Cargando...», la rejilla aparta su lugar para que el footer no brinque. */
 .inner-page #studiosGrid:has(> [data-i18n="ui.loading"]) { min-height: 100vh; }
 
-/* Escritorio angosto (981 a 1279 px): Sonido y Juega quedan como íconos de 44 px para que el HUD
-   no se salga de la pantalla. El aria-label conserva el texto completo. */
+/* Escritorio angosto (981 a 1279 px): Sonido y Juega quedan como íconos de 44 px.
+   overflow visible: el recorte anterior dejaba solo la raya naranja del 🔇. */
 @media (min-width: 981px) and (max-width: 1279px) {
   .hud .jz-dock > .juice-sfx,
-  .hud .jz-dock > .jz-lvl { width: 44px; min-width: 44px; height: 44px; padding: 0; justify-content: center; overflow: hidden; }
+  .hud .jz-dock > .jz-lvl { width: 44px; min-width: 44px; height: 44px; padding: 0; justify-content: center; overflow: visible; }
   .hud .jz-dock > .juice-sfx .juice-sfx__label,
   .hud .jz-dock > .jz-lvl .jz-lvl__label { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
 }

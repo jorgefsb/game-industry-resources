@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-jz-sound="on" data-moki-show="5">
+<html lang="es" data-moki-show="5">
 
 <head>
   <meta charset="UTF-8">
@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="styles/home.css">
   <link rel="stylesheet" href="styles/inner.css">
   <link rel="stylesheet" href="styles/juice-120.css">
+  <link rel="stylesheet" href="styles/juice-sfx.css">
   <link rel="stylesheet" href="juice/1.2.0/juice.css">
   <link rel="stylesheet" href="juice/1.2.0/juice-menu.css">
   <link rel="stylesheet" href="juice/1.2.0/hardcore/hardcore.css">
@@ -35,6 +36,7 @@
     <nav class="hud__nav" id="hud-nav" aria-label="Principal" data-i18n-aria="nav.label">
       <a href="index.html#resources" class="nav__link" data-i18n="nav.resources">Recursos</a>
       <a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a>
+      <a href="industria.html" class="nav__link" data-i18n="nav.industry">Industria</a>
       <a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs &amp; Career</a>
       <a href="database.html" class="nav__link" aria-current="page" data-i18n="nav.studios">Studios DB</a>
       <a href="https://club.uetc.mx" target="_blank" rel="noopener" class="nav__link" data-i18n="nav.community">Comunidad</a>
@@ -47,7 +49,7 @@
         <a href="?lang=en" class="lang-btn" data-lang="en" lang="en">EN</a>
       </div>
       <a class="btn btn--primary btn--sm hud__cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
-      <button type="button" class="juice-sfx" aria-pressed="false" aria-label="Sonido">Sonido</button>
+      <button type="button" class="juice-sfx" aria-pressed="false" aria-label="Activar sonido"></button>
       <button class="hud__burger" type="button" aria-expanded="false" aria-controls="hud-nav" aria-label="Menú" data-i18n-aria="nav.menu"><span></span><span></span></button>
     </div>
   </header>
@@ -57,9 +59,18 @@
       <div class="hero__content"><span data-moki="arriba" data-moki-id="gamedev-db-hero" style="--moki-r:12%"></span>
         <span class="hero__badge" data-i18n="hero.badge.studios">🌎 LATAM Power</span>
         <h1 class="hero__title" data-i18n="hero.title.database">LATAM STUDIOS DB</h1>
-        <p class="hero__subtitle lead" data-i18n="hero.subtitle.database">El mapa más completo de la industria en Latinoamérica.</p>
+        <p class="hero__subtitle lead" data-i18n="hero.subtitle.database">Busca estudio por país, tech o si están contratando.</p>
+        <div class="hero__actions inner-actions">
+          <a href="ecosistema.html" class="btn btn--ghost" data-i18n="database.cta.eco">Ver el ecosistema</a>
+        </div>
       </div>
     </header>
+
+    <section class="wrap inner-section">
+      <div class="prose">
+        <p data-i18n="database.intro">Este directorio es para encontrar estudio.</p>
+      </div>
+    </section>
 
     <section class="wrap inner-section" id="studios">
       <form class="ia-search inner-search" role="search" action="#studios"><span data-moki="arriba" data-moki-id="gamedev-db-buscar" style="--moki-r:10%"></span>
@@ -99,6 +110,7 @@
   <script src="juice/1.2.0/hardcore/hardcore.js" defer></script>
   <script src="juice/1.2.0/moki/moki.js" defer></script>
   <script src="scripts/juice.bind.120.js" defer></script>
+  <script src="scripts/juice.sfx.js" defer></script>
 </body>
 
 </html>

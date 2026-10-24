@@ -75,7 +75,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .hud__burger span:last-child { top: 25px; }
 .hud__burger[aria-expanded="true"] span:first-child { transform: translateY(4.5px) rotate(45deg); }
 .hud__burger[aria-expanded="true"] span:last-child { transform: translateY(-4.5px) rotate(-45deg); }
-@media (max-width: 1100px) {
+@media (max-width: 1180px) {
   .hud { gap: var(--sp-4); }
   .hud__nav { gap: var(--sp-4); margin-left: 0; }
   .hud__nav a { font-size: 14px; }

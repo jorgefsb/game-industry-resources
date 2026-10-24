@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es" data-moki-show="5">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciclo de producción | Game Industry Resources</title>
+  <meta name="description" content="Elige preproducción, producción o post y ve dónde encaja un gamedev de LATAM.">
+  <link rel="canonical" href="https://gamedev.jorgesuarez.com.mx/ciclo.html">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="alternate" hreflang="es" href="https://gamedev.jorgesuarez.com.mx/ciclo.html">
+  <link rel="alternate" hreflang="en" href="https://gamedev.jorgesuarez.com.mx/ciclo.html?lang=en">
+  <link rel="preload" href="ia/fonts/outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="ia/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="brand/0.3/tokens.css">
+  <link rel="stylesheet" href="ia/ia.css">
+  <link rel="stylesheet" href="styles/home.css">
+  <link rel="stylesheet" href="styles/inner.css">
+  <link rel="stylesheet" href="styles/juice-120.css">
+  <link rel="stylesheet" href="styles/juice-sfx.css">
+  <link rel="stylesheet" href="juice/1.2.0/juice.css">
+  <link rel="stylesheet" href="juice/1.2.0/juice-menu.css">
+  <link rel="stylesheet" href="juice/1.2.0/hardcore/hardcore.css">
+  <link rel="stylesheet" href="juice/1.2.0/moki/moki.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+
+<body class="ia-page inner-page">
+  <a class="ia-skip" href="#ciclo" data-i18n="ui.skip">Ir a recursos</a>
+
+  <header class="hud" data-hud>
+    <a class="hud__brand" href="https://jorgesuarez.com.mx/" aria-label="JorgeSuarez.com.mx">
+      <span class="js-wordmark">JorgeSuarez<span>.com.mx</span></span>
+    </a>
+    <nav class="hud__nav" id="hud-nav" aria-label="Principal" data-i18n-aria="nav.label">
+      <a href="index.html#resources" class="nav__link" data-i18n="nav.resources">Recursos</a>
+      <a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a>
+      <a href="industria.html" class="nav__link" data-i18n="nav.industry">Industria</a>
+      <a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs &amp; Career</a>
+      <a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a>
+      <a href="https://club.uetc.mx" target="_blank" rel="noopener" class="nav__link" data-i18n="nav.community">Comunidad</a>
+      <a class="hud__nav-cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+    </nav>
+    <div class="hud__right">
+      <div class="lang-switcher" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+        <a href="?lang=es" class="lang-btn" data-lang="es" lang="es">ES</a>
+        <span aria-hidden="true">|</span>
+        <a href="?lang=en" class="lang-btn" data-lang="en" lang="en">EN</a>
+      </div>
+      <a class="btn btn--primary btn--sm hud__cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+      <button type="button" class="juice-sfx" aria-pressed="false" aria-label="Activar sonido"></button>
+      <button class="hud__burger" type="button" aria-expanded="false" aria-controls="hud-nav" aria-label="Menú" data-i18n-aria="nav.menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="wrap inner-hero">
+      <div class="hero__content">
+        <span class="hero__badge" data-i18n="hero.badge.cycle">Herramienta</span>
+        <h1 class="hero__title" data-i18n="hero.title.cycle">Dónde te metes</h1>
+        <p class="hero__subtitle lead" data-i18n="hero.subtitle.cycle">Elige una etapa del ciclo.</p>
+      </div>
+    </header>
+
+    <section class="wrap inner-section" id="ciclo" data-cycle data-stage="prod">
+      <div class="section__header">
+        <h2 class="section__title" data-i18n="cycle.pick">Elige etapa</h2>
+      </div>
+      <div class="cycle-tool">
+        <div class="cycle-picks" role="group" aria-label="Etapas">
+          <button type="button" class="ia-chip" data-cycle-btn="pre" aria-pressed="false" data-i18n="cycle.pre.t">Preproducción</button>
+          <button type="button" class="ia-chip" data-cycle-btn="prod" aria-pressed="true" data-i18n="cycle.prod.t">Producción</button>
+          <button type="button" class="ia-chip" data-cycle-btn="post" aria-pressed="false" data-i18n="cycle.post.t">Postproducción</button>
+        </div>
+        <article class="cycle-panel" aria-live="polite">
+          <h3 id="cycle-title">Producción</h3>
+          <p id="cycle-body" data-i18n="cycle.prod.d">Arte, código, diseño, audio y QA en volumen.</p>
+          <dl class="cycle-meta">
+            <div>
+              <dt data-i18n="cycle.roles">Roles que se piden</dt>
+              <dd id="cycle-roles">Programación, arte, QA, producción de línea.</dd>
+            </div>
+            <div>
+              <dt data-i18n="cycle.latam">Cómo entra LATAM</dt>
+              <dd id="cycle-latam">Co-dev, arte, engineering y QA.</dd>
+            </div>
+            <div>
+              <dt data-i18n="cycle.next">Siguiente paso</dt>
+              <dd id="cycle-next">Ve Jobs o Studios DB.</dd>
+            </div>
+          </dl>
+          <div class="inner-actions">
+            <a href="tools.html" class="btn btn--ghost" data-i18n="cycle.open.tools">Production Tools</a>
+            <a href="jobs.html" class="btn btn--ghost" data-i18n="cycle.open.jobs">Jobs &amp; Career</a>
+            <a href="database.html" class="btn btn--primary" data-i18n="cycle.open.db">Studios DB</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap papacito-footer" aria-label="Créditos" data-i18n-aria="footer.label">
+    <div class="papacito-footer__identity">
+      <a class="js-wordmark" href="https://jorgesuarez.com.mx/">JorgeSuarez<span>.com.mx</span></a>
+      <p data-es="Kaizen y Juego" data-en="Kaizen &amp; Play">Kaizen y Juego</p>
+    </div>
+    <p class="papacito-footer__signature"><span data-es="Hecho con amor ❤️🎮 por" data-en="Made with love ❤️🎮 by">Hecho con amor ❤️🎮 por</span> <a href="https://jorgesuarez.com.mx/">JorgeSuarez.com.mx</a> <a class="foot-back" href="https://jorgesuarez.com.mx/" data-i18n="nav.home">← JorgeSuarez<span>.com.mx</span></a></p>
+    <p class="papacito-footer__log" data-es="gamedev /ciclo · build 24 oct 2026 · America/Mexico_City · Spark · juice 1.2.0 · brandkit 0.3" data-en="gamedev /ciclo · build Oct 24 2026 · America/Mexico_City · Spark · juice 1.2.0 · brandkit 0.3">gamedev /ciclo · build 24 oct 2026 · America/Mexico_City · Spark · juice 1.2.0 · brandkit 0.3</p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="scripts/home.js"></script>
+  <script src="scripts/ciclo.js"></script>
+  <script src="juice/1.2.0/juice.js" defer></script>
+  <script src="juice/1.2.0/juice-menu.js" defer></script>
+  <script src="juice/1.2.0/hardcore/hardcore.js" defer></script>
+  <script src="juice/1.2.0/moki/moki.js" defer></script>
+  <script src="scripts/juice.bind.120.js" defer></script>
+  <script src="scripts/juice.sfx.js" defer></script>
+</body>
+
+</html>
