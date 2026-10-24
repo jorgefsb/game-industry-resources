@@ -333,3 +333,23 @@ a.home-card {
     flex: none;
   }
 }
+
+/* Bloque «Próximo pulso» (cadencia trimestral: ene / abr / jul / oct) */
+.next-pulse__card {
+  max-width: 720px;
+  margin-inline: auto;
+  display: grid;
+  gap: var(--sp-3);
+  justify-items: start;
+  text-align: left;
+  padding: var(--sp-6);
+}
+
+.next-pulse__card .card__description { color: var(--text-secondary); }
+
+.next-pulse__card .card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-2);
+}

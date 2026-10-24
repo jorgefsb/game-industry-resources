@@ -38,6 +38,7 @@
       <a href="index.html#resources" class="nav__link" data-i18n="nav.resources">Recursos</a>
       <a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a>
       <a href="industria.html" class="nav__link" aria-current="page" data-i18n="nav.industry">Industria</a>
+      <a href="noticias/" class="nav__link" data-i18n="nav.news">Noticias</a>
       <a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs &amp; Career</a>
       <a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a>
       <a href="https://club.uetc.mx" target="_blank" rel="noopener" class="nav__link" data-i18n="nav.community">Comunidad</a>
@@ -58,11 +59,12 @@
   <main id="main">
     <header class="wrap inner-hero">
       <div class="hero__content">
-        <span class="hero__badge" data-i18n="hero.badge.industry">Corte 2024-2025</span>
+        <span class="hero__badge hero__badge--historic"><span class="ia-badge" data-i18n="historic.badge">Histórico</span> <span data-i18n="hero.badge.industry">Corte 2024-2025</span></span>
         <h1 class="hero__title" data-i18n="hero.title.industry">Pulso de la industria MX</h1>
         <p class="hero__subtitle lead" data-i18n="hero.subtitle.industry">Servicios, empleo y lo que todavía no leí del informe.</p>
         <div class="hero__actions inner-actions">
           <a href="ecosistema.html" class="btn btn--primary" data-i18n="database.cta.eco">Ver el ecosistema</a>
+          <a href="historico/2024-2025/" class="btn btn--ghost" data-i18n="historic.banner.cta">Ver el archivo 2024-2025</a>
           <a href="ciclo.html" class="btn btn--ghost" data-i18n="hero.cta.cycle">Dónde te metes</a>
         </div>
       </div>
@@ -71,8 +73,15 @@
     <section class="wrap inner-section" id="pulse">
       <div class="section__header">
         <h2 class="section__title" data-i18n="section.pulse.kicker">Lo que se ve en el sector</h2>
-        <p class="section__description" data-i18n="section.pulse.lead">Corte 2024-2025. Servicios y desarrollo externo en México.</p>
+        <p class="section__description" data-i18n="section.pulse.historic.lead">Corte 2024-2025, ya histórico. Servicios y desarrollo externo en México.</p>
       </div>
+      <aside class="historic-note" role="note">
+        <p>
+          <span class="ia-badge" data-i18n="historic.badge">Histórico</span>
+          <span data-i18n="historic.banner.industry">Corte cerrado 2024-2025. El pulso de cifras se actualiza cada trimestre: enero, abril, julio y octubre. El siguiente es enero de 2027.</span>
+          <a class="historic-note__link" href="historico/2024-2025/" data-i18n="historic.banner.cta">Ver el archivo 2024-2025</a>
+        </p>
+      </aside>
       <div class="pulse-grid">
         <article class="pulse-stat">
           <span class="pulse-stat__n" data-i18n="pulse.50.n">+50</span>
@@ -119,6 +128,23 @@
         <article class="ia-card inner-card">
           <h3 class="card__title" data-i18n="industry.cuts.title">Dos cortes, no los mezcles</h3>
           <p class="card__description" data-i18n="industry.cuts.p">Servicios y escena ancha son redes distintas.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap inner-section" id="next-pulse">
+      <div class="section__header">
+        <h2 class="section__title" data-i18n="next.title">Próximo pulso</h2>
+        <p class="section__description" data-i18n="next.lead">Las cifras se actualizan cada trimestre: enero, abril, julio y octubre.</p>
+      </div>
+      <div class="inner-grid">
+        <article class="ia-card inner-card">
+          <span class="ia-badge" data-i18n="next.badge">Próximo</span>
+          <h3 class="card__title" data-i18n="next.when">Enero 2027</h3>
+          <p class="card__description" data-i18n="next.body.industry">Ahí entra el siguiente corte de cifras. Hasta entonces, lo de esta página es el corte 2024-2025.</p>
+          <div class="card__actions">
+            <a class="btn btn--ghost" href="noticias/" data-i18n="next.cta.news">Mientras, ve las noticias</a>
+          </div>
         </article>
       </div>
     </section>

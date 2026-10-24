@@ -46,6 +46,7 @@
       <a href="#resources" class="nav__link" aria-current="true" data-i18n="nav.resources">Recursos</a>
       <a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a>
       <a href="industria.html" class="nav__link" data-i18n="nav.industry">Industria</a>
+      <a href="noticias/" class="nav__link" data-i18n="nav.news">Noticias</a>
       <a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs &amp; Career</a>
       <a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a>
       <a href="https://club.uetc.mx" target="_blank" rel="noopener" class="nav__link" data-i18n="nav.community">Comunidad</a>
@@ -72,7 +73,7 @@
           </span>
           <p class="ia-bubble" data-i18n="hero.bubble.home">¿Listo para el<br>next level?</p>
         </figure>
-        <span class="hero__badge" data-i18n="hero.badge.free">Pulso 2024-2025 · México y LATAM</span>
+        <span class="hero__badge hero__badge--historic"><span class="ia-badge" data-i18n="historic.badge">Histórico</span> <span data-i18n="hero.badge.historic">Pulso 2024-2025 · México y LATAM</span></span>
         <h1 class="hero__title" data-i18n="hero.title.home">El mapa para hacer juegos en <span class="home-accent">LATAM</span></h1>
         <p class="hero__subtitle lead" data-i18n="hero.subtitle.home">Cifras del sector, estudios, chamba y herramientas. Curado para quien ya está en esto o quiere entrar.</p>
         <div class="hero__actions home-actions">
@@ -95,8 +96,15 @@
     <section class="wrap home-pulse" id="pulse" aria-labelledby="pulse-title">
       <div class="section__header">
         <h2 id="pulse-title" class="section__title" data-i18n="section.pulse.kicker">Lo que se ve en el sector</h2>
-        <p class="section__description" data-i18n="section.pulse.lead">Corte 2024-2025. Servicios y desarrollo externo en México.</p>
+        <p class="section__description" data-i18n="section.pulse.historic.lead">Corte 2024-2025, ya histórico. Servicios y desarrollo externo en México.</p>
       </div>
+      <aside class="historic-note" role="note">
+        <p>
+          <span class="ia-badge" data-i18n="historic.badge">Histórico</span>
+          <span data-i18n="historic.banner.home">Estas cifras son del corte 2024-2025. No son el pulso vivo. Se quedan aquí hasta el siguiente corte trimestral.</span>
+          <a class="historic-note__link" href="historico/2024-2025/" data-i18n="historic.banner.cta">Ver el archivo 2024-2025</a>
+        </p>
+      </aside>
       <div class="pulse-grid">
         <article class="pulse-stat"><span data-moki="arriba" data-moki-id="gamedev-home-pulso" style="--moki-r:8%"></span>
           <span class="pulse-stat__n" data-i18n="pulse.50.n">+50</span>
@@ -127,6 +135,22 @@
       </div>
     </section>
 
+    <section class="wrap home-section next-pulse" id="next-pulse" aria-labelledby="next-pulse-title">
+      <div class="section__header">
+        <h2 id="next-pulse-title" class="section__title" data-i18n="next.title">Próximo pulso</h2>
+        <p class="section__description" data-i18n="next.lead">Las cifras se actualizan cada trimestre: enero, abril, julio y octubre.</p>
+      </div>
+      <article class="ia-card next-pulse__card">
+        <span class="ia-badge" data-i18n="next.badge">Próximo</span>
+        <h3 class="card__title" data-i18n="next.when">Enero 2027</h3>
+        <p class="card__description" data-i18n="next.body">Ahí entra el siguiente corte de cifras. Hasta entonces no hay números nuevos publicados aquí: lo que ves arriba es el corte 2024-2025.</p>
+        <div class="card__actions">
+          <a class="btn btn--primary" href="noticias/" data-i18n="next.cta.news">Mientras, ve las noticias</a>
+          <a class="btn btn--ghost" href="historico/2024-2025/" data-i18n="historic.banner.cta">Ver el archivo 2024-2025</a>
+        </div>
+      </article>
+    </section>
+
     <section class="wrap home-section" id="resources">
       <div class="section__header">
         <h2 class="section__title" data-i18n="section.home.resources">Herramientas para cada etapa</h2>
@@ -150,7 +174,7 @@
         <a href="industria.html" class="ia-card home-card">
           <span class="card__icon">📊</span>
           <h3 class="card__title" data-i18n="card.industry.title">Pulso de la industria</h3>
-          <p class="card__description" data-i18n="card.industry.desc">Cifras 2024-2025 y qué falta del informe.</p>
+          <p class="card__description" data-i18n="card.industry.desc">Cifras 2024-2025 (histórico) y qué falta del informe.</p>
         </a>
         <a href="ecosistema.html" class="ia-card home-card">
           <span class="card__icon">🗺️</span>
@@ -161,6 +185,11 @@
           <span class="card__icon">🔁</span>
           <h3 class="card__title" data-i18n="card.cycle.title">Ciclo de producción</h3>
           <p class="card__description" data-i18n="card.cycle.desc">Elige una etapa y ve dónde encajas.</p>
+        </a>
+        <a href="noticias/" class="ia-card home-card">
+          <span class="card__icon">📰</span>
+          <h3 class="card__title" data-i18n="card.news.title">Noticias</h3>
+          <p class="card__description" data-i18n="card.news.desc">Digest semanal de México y Latinoamérica.</p>
         </a>
         <span data-moki="asoma" data-moki-id="gamedev-home-recursos" style="--moki:60px;--moki-y:calc(100% - 68px)"></span>
       </div>

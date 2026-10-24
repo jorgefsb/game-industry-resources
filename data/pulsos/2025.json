@@ -1,0 +1,53 @@
+{
+  "id": "pulso-2024-2025",
+  "status": "HISTORICO",
+  "period": "2024-2025",
+  "label_es": "HISTÓRICO",
+  "label_en": "HISTORICAL",
+  "title_es": "Pulso de la industria MX 2024-2025",
+  "title_en": "Mexico industry pulse 2024-2025",
+  "scope_es": "Servicios y desarrollo externo de videojuegos en México.",
+  "scope_en": "Game services and external development in Mexico.",
+  "cadence": "trimestral",
+  "archived_at": "2026-10-24",
+  "archive_url": "/historico/2024-2025/",
+  "source_es": "Encuesta online pública, junio a octubre de 2025. 292 respuestas. Publicada el 1 de febrero de 2026.",
+  "source_en": "Public online survey, June to October 2025. 292 responses. Published February 1, 2026.",
+  "source_note_es": "Pulso público, no censo. El informe largo en PDF no está leído aquí.",
+  "source_note_en": "Public pulse, not a census. The long PDF report is not read here.",
+  "metrics": [
+    {
+      "key": "estudios_servicios",
+      "value": "+50",
+      "label_es": "Estudios de servicios",
+      "label_en": "Services studios",
+      "detail_es": "Desarrollo y apoyo externo en el país.",
+      "detail_en": "External development and support in the country."
+    },
+    {
+      "key": "empleos_directos",
+      "value": "+2,900",
+      "label_es": "Empleos directos",
+      "label_en": "Direct jobs",
+      "detail_es": "Gente cobrando por hacer juegos en México.",
+      "detail_en": "People getting paid to make games in Mexico."
+    },
+    {
+      "key": "puestos_en_desarrollo",
+      "value": "79%",
+      "label_es": "En desarrollo",
+      "label_en": "In development",
+      "detail_es": "Casi 8 de cada 10 puestos están en hacer el juego.",
+      "detail_en": "Almost 8 in 10 roles are making the game."
+    },
+    {
+      "key": "facturacion_anual",
+      "value": "+USD 36 M",
+      "label_es": "Facturación",
+      "label_en": "Revenue",
+      "detail_es": "Promedio anual del sector de servicios.",
+      "detail_en": "Average yearly figure for the services sector."
+    }
+  ],
+  "superseded_by": "data/pulsos/2026.json"
+}
