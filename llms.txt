@@ -10,6 +10,9 @@
 - Studios DB (directorio de estudios de videojuegos en Latinoamérica): https://gamedev.jorgesuarez.com.mx/database
 - Marketing Playbook (cómo vender tu juego y ganar visibilidad): https://gamedev.jorgesuarez.com.mx/marketing
 - El CV Perfecto (cómo crear un currículum para la industria de videojuegos): https://gamedev.jorgesuarez.com.mx/guides/cv
+- Pulso de la industria MX (corte 2024-2025 de servicios, empleo y gaps del informe): https://gamedev.jorgesuarez.com.mx/industria
+- Ecosistema MX (estudios, comunidades, eventos y escuelas): https://gamedev.jorgesuarez.com.mx/ecosistema
+- Ciclo de producción (pre, producción y post: dónde encaja un gamedev de LATAM): https://gamedev.jorgesuarez.com.mx/ciclo
 
 ## Directorio de herramientas de IA
 

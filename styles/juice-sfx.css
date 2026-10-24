@@ -1,0 +1,110 @@
+/* Mute 44×44. Juice pinta 🔇/🔊 y el recorte dejaba solo la raya naranja.
+   El HUD muestra un ícono SVG sólido. El texto vive en aria-label + label recortado. */
+
+.hud .juice-sfx,
+.jz-dock > .juice-sfx {
+  box-sizing: border-box;
+  position: relative;
+  width: 44px;
+  min-width: 44px;
+  max-width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  overflow: visible;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  font-size: 0;
+  line-height: 0;
+  color: var(--text, #FFFFFF);
+  border: 1px solid var(--border-strong, #8A7E70);
+  background: var(--surface, #161616);
+  border-radius: var(--r-control, 6px);
+  cursor: pointer;
+}
+
+.juice-sfx__ico {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hud .juice-sfx .juice-sfx__label,
+.jz-dock > .juice-sfx .juice-sfx__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.juice-sfx[aria-pressed="false"] {
+  color: var(--text, #FFFFFF);
+  border-color: var(--border-strong, #8A7E70);
+}
+
+.juice-sfx[aria-pressed="true"] {
+  color: var(--accent, #FF6B35);
+  border-color: var(--accent, #FF6B35);
+}
+
+.jz-panel .juice-sfx {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  height: 44px;
+  justify-content: flex-start;
+  padding: 0 12px;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.jz-panel .juice-sfx .juice-sfx__label {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  clip: auto;
+  overflow: visible;
+  white-space: nowrap;
+  font: 400 14px/1 var(--brand-font-body, Inter, sans-serif);
+  color: inherit;
+}
+
+@media (min-width: 981px) and (max-width: 1279px) {
+  .hud .jz-dock > .juice-sfx {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    padding: 0;
+    overflow: visible;
+  }
+}
+
+/* Celular: juice-menu esconde el mute del HUD y deja .jz-feel (44px).
+   No pises ese hide o el header se aprieta. El mute del panel sí se ve. */
+@media (max-width: 980px) {
+  .jz-dock > .juice-sfx,
+  .jz-lvl {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .juice-sfx {
+    transition: none;
+  }
+}

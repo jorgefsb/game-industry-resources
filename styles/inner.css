@@ -232,8 +232,130 @@ a.inner-card,
   .job-ticker-wrap { flex-direction: column; align-items: stretch; }
 }
 
+.pulse-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-4);
+}
+
+.pulse-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 44px;
+  padding: var(--sp-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+}
+
+.pulse-stat__n {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(28px, 3vw, 36px);
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.pulse-stat__l {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-strong);
+}
+
+.pulse-stat__d {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.prose {
+  max-width: 42rem;
+  margin-inline: auto;
+  display: grid;
+  gap: var(--sp-4);
+}
+
+.prose p + p { margin-top: 0; }
+
+.gap-note {
+  padding: var(--sp-4);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--r-card);
+  background: var(--surface);
+  color: var(--text-secondary);
+}
+
+.eco-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-4);
+}
+
+.eco-list a.inner-card { min-height: 44px; }
+
+.cycle-tool {
+  display: grid;
+  gap: var(--sp-5);
+  max-width: 840px;
+  margin-inline: auto;
+}
+
+.cycle-picks {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-3);
+}
+
+.cycle-picks .ia-chip {
+  min-height: 44px;
+  justify-content: center;
+  width: 100%;
+}
+
+.cycle-panel {
+  display: grid;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-panel);
+}
+
+.cycle-panel h3 { color: var(--accent); }
+
+.cycle-meta {
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.cycle-meta dt {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent);
+}
+
+.cycle-meta dd {
+  margin: 4px 0 0;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .pulse-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .eco-list,
+  .cycle-picks { grid-template-columns: minmax(0, 1fr); }
+}
+
 @media (max-width: 375px) {
   .inner-page,
   .inner-grid,
-  .inner-card { max-width: 100%; }
+  .inner-card,
+  .pulse-grid,
+  .cycle-tool { max-width: 100%; }
+  .pulse-grid { grid-template-columns: minmax(0, 1fr); }
 }
