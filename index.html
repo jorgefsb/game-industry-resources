@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-moki-show="5">
 
 <head>
   <meta charset="UTF-8">
@@ -26,9 +26,12 @@
   <link rel="stylesheet" href="brand/0.3/tokens.css">
   <link rel="stylesheet" href="ia/ia.css">
   <link rel="stylesheet" href="styles/home.css">
-  <link rel="stylesheet" href="juice/1.0.1/juice.css">
-  <link rel="stylesheet" href="juice/1.0.1/juice-menu.css">
+  <link rel="stylesheet" href="styles/juice-120.css">
   <link rel="stylesheet" href="styles/juice-sfx.css">
+  <link rel="stylesheet" href="juice/1.2.0/juice.css">
+  <link rel="stylesheet" href="juice/1.2.0/juice-menu.css">
+  <link rel="stylesheet" href="juice/1.2.0/hardcore/hardcore.css">
+  <link rel="stylesheet" href="juice/1.2.0/moki/moki.css">
   <link rel="icon" href="ia/assets/moki-parche-derecho.png" type="image/png">
 </head>
 
@@ -62,7 +65,7 @@
 
   <main id="main">
     <header class="wrap home-hero">
-      <div class="hero__content">
+      <div class="hero__content"><span data-moki="arriba" data-moki-id="gamedev-home-hero" style="--moki-r:12%"></span>
         <figure class="home-hero__moki">
           <span class="ia-moki-live">
             <img class="ia-moki" src="ia/assets/moki-parche-derecho.webp" width="220" height="234" fetchpriority="high" alt="Moki, el astronauta de cartón naranja, listo para explorar" data-i18n-alt="alt.mokiHome">
@@ -80,7 +83,7 @@
     </header>
 
     <section class="wrap home-ia" aria-labelledby="ia-band-title">
-      <article class="ia-featured__card">
+      <article class="ia-featured__card"><span data-moki="arriba" data-moki-id="gamedev-home-ia" style="--moki-r:10%"></span>
         <div class="ia-featured__copy">
           <h2 id="ia-band-title" data-i18n="card.ia.title">Directorio IA</h2>
           <p class="ia-featured__seen" data-i18n="card.ia.desc">Herramientas de IA reales para código, arte, audio y marketing de tu juego.</p>
@@ -95,7 +98,7 @@
         <p class="section__description" data-i18n="section.pulse.lead">Corte 2024-2025. Servicios y desarrollo externo en México.</p>
       </div>
       <div class="pulse-grid">
-        <article class="pulse-stat">
+        <article class="pulse-stat"><span data-moki="arriba" data-moki-id="gamedev-home-pulso" style="--moki-r:8%"></span>
           <span class="pulse-stat__n" data-i18n="pulse.50.n">+50</span>
           <span class="pulse-stat__l" data-i18n="pulse.50.l">Estudios de servicios</span>
           <span class="pulse-stat__d" data-i18n="pulse.50.d">Desarrollo y apoyo externo en el país.</span>
@@ -159,12 +162,13 @@
           <h3 class="card__title" data-i18n="card.cycle.title">Ciclo de producción</h3>
           <p class="card__description" data-i18n="card.cycle.desc">Elige una etapa y ve dónde encajas.</p>
         </a>
+        <span data-moki="asoma" data-moki-id="gamedev-home-recursos" style="--moki:60px;--moki-y:calc(100% - 68px)"></span>
       </div>
     </section>
   </main>
 
-  <footer class="wrap papacito-footer" aria-label="Créditos" data-i18n-aria="footer.label">
-    <div class="papacito-footer__identity">
+  <footer class="wrap papacito-footer" aria-label="Créditos" data-i18n-aria="footer.label"><span data-moki="saluda" data-moki-id="gamedev-home-footer" style="--moki-r:8%"></span>
+    <div class="papacito-footer__identity"><span data-moki="arriba" data-moki-id="gamedev-home-firma" style="right:auto;left:0"></span>
       <a class="js-wordmark" href="https://jorgesuarez.com.mx/">JorgeSuarez<span>.com.mx</span></a>
       <p data-es="Kaizen y Juego" data-en="Kaizen &amp; Play">Kaizen y Juego</p>
     </div>
@@ -178,6 +182,7 @@
       <li><a href="https://tiktok.com/@jorgesuarez.com.mx" target="_blank" rel="noopener">TikTok</a></li>
     </ul>
     <p class="papacito-footer__signature"><span data-es="Hecho con amor ❤️🎮 por" data-en="Made with love ❤️🎮 by">Hecho con amor ❤️🎮 por</span> <a href="https://jorgesuarez.com.mx/">JorgeSuarez.com.mx</a> <a class="foot-back" href="https://jorgesuarez.com.mx/" data-i18n="nav.home">← JorgeSuarez<span>.com.mx</span></a></p>
+    <p class="papacito-footer__log" data-es="gamedev / · build 24 oct 2026 · America/Mexico_City · Spark · juice 1.2.0 · brandkit 0.3" data-en="gamedev / · build Oct 24 2026 · America/Mexico_City · Spark · juice 1.2.0 · brandkit 0.3">gamedev / · build 24 oct 2026 · America/Mexico_City · Spark · juice 1.2.0 · brandkit 0.3</p>
     <div class="papacito-footer__meta">
       <p data-es="Jorge Suárez | © 2026 | Construido sobre nuestros valores de Kaizen y Juego." data-en="Jorge Suárez | © 2026 | Built on our values of Kaizen &amp; Play.">Jorge Suárez | © 2026 | Construido sobre nuestros valores de Kaizen y Juego.</p>
       <p><a href="llms.txt" data-i18n="footer.llms">Para ChatGPT, Claude y Grok</a></p>
@@ -186,9 +191,11 @@
 
   <script src="i18n.js"></script>
   <script src="scripts/home.js"></script>
-  <script src="juice/1.0.1/juice.js" defer></script>
-  <script src="juice/1.0.1/juice-menu.js" defer></script>
-  <script src="scripts/juice.bind.js" defer></script>
+  <script src="juice/1.2.0/juice.js" defer></script>
+  <script src="juice/1.2.0/juice-menu.js" defer></script>
+  <script src="juice/1.2.0/hardcore/hardcore.js" defer></script>
+  <script src="juice/1.2.0/moki/moki.js" defer></script>
+  <script src="scripts/juice.bind.120.js" defer></script>
   <script src="scripts/juice.sfx.js" defer></script>
 </body>
 
