@@ -1,0 +1,46 @@
+{
+  "week": "2026-W43",
+  "published_at": "2026-10-24",
+  "items": [
+    {
+      "title_es": "EVA 2026 cierra con Awards en Buenos Aires",
+      "title_en": "EVA 2026 closes with Awards in Buenos Aires",
+      "summary_es": "La Expo Videojuegos Argentina cierra el 24-oct con showcase de 150+ juegos y los EVA Awards a las 18:30 en BAferial. Nominados vía ReConectados.",
+      "summary_en": "Expo Videojuegos Argentina wraps Oct 24 with a 150+ game showcase and EVA Awards at 18:30 at BAferial. Nominees via ReConectados.",
+      "url": "https://expoeva.com/en/",
+      "source": "Expo EVA",
+      "date": "2026-10-24",
+      "region": "LATAM"
+    },
+    {
+      "title_es": "Latam Games Festival 2026 vivo en Steam",
+      "title_en": "Latam Games Festival 2026 live on Steam",
+      "summary_es": "La vitrina digital de EVA vuelve a Steam como Latam Games Festival 2026.",
+      "summary_en": "EVA's digital showcase returns to Steam as Latam Games Festival 2026.",
+      "url": "https://reconectados.com.ar/notas/el-latam-games-festival-vuelve-a-steam-como-parte-de-la-eva-2026",
+      "source": "ReConectados",
+      "date": "2026-10-22",
+      "region": "LATAM"
+    },
+    {
+      "title_es": "The Mix debuta en Latinoamérica (Buenos Aires)",
+      "title_en": "The Mix debuts in Latin America (Buenos Aires)",
+      "summary_es": "El mixer estilo GDC/Gamescom llega por primera vez a la región, junto a EVA en Buenos Aires (22-oct).",
+      "summary_en": "The GDC/Gamescom-style mixer lands in the region for the first time, alongside EVA in Buenos Aires (Oct 22).",
+      "url": "https://pressover.substack.com/p/the-mix-llega-a-buenos-aires-tenebris",
+      "source": "Press Over",
+      "date": "2026-10-22",
+      "region": "LATAM"
+    },
+    {
+      "title_es": "Worlds 2026 Swiss: Movistar KOI gana Round 1",
+      "title_en": "Worlds 2026 Swiss: Movistar KOI wins Round 1",
+      "summary_es": "La org hispanohablante Movistar KOI abre el Swiss Stage con victoria en Round 1.",
+      "summary_en": "Spanish-speaking org Movistar KOI opens Swiss Stage with a Round 1 win.",
+      "url": "https://www.strafe.com/news/read/worlds-2026-swiss-stage-round-1-recap-lck-goes-4-0-lpl-goes-winless",
+      "source": "Strafe",
+      "date": "2026-10-22",
+      "region": "LATAM"
+    }
+  ]
+}
