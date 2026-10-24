@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-jz-sound="on" data-moki-show="5">
 
 <head>
   <meta charset="UTF-8">
@@ -14,9 +14,15 @@
   <link rel="stylesheet" href="ia/ia.css">
   <link rel="stylesheet" href="styles/home.css">
   <link rel="stylesheet" href="styles/inner.css">
-  <link rel="stylesheet" href="juice/1.0.1/juice.css">
-  <link rel="stylesheet" href="juice/1.0.1/juice-menu.css">
-  <link rel="icon" href="ia/assets/moki-parche-derecho.png" type="image/png">
+  <link rel="stylesheet" href="styles/juice-120.css">
+  <link rel="stylesheet" href="juice/1.2.0/juice.css">
+  <link rel="stylesheet" href="juice/1.2.0/juice-menu.css">
+  <link rel="stylesheet" href="juice/1.2.0/hardcore/hardcore.css">
+  <link rel="stylesheet" href="juice/1.2.0/moki/moki.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 
 <body class="ia-page inner-page">
@@ -41,14 +47,14 @@
         <a href="?lang=en" class="lang-btn" data-lang="en" lang="en">EN</a>
       </div>
       <a class="btn btn--primary btn--sm hud__cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
-      <button type="button" class="juice-sfx" aria-pressed="false" aria-label="Activar sonido">🔇</button>
+      <button type="button" class="juice-sfx" aria-pressed="false" aria-label="Sonido">Sonido</button>
       <button class="hud__burger" type="button" aria-expanded="false" aria-controls="hud-nav" aria-label="Menú" data-i18n-aria="nav.menu"><span></span><span></span></button>
     </div>
   </header>
 
   <main id="main">
     <header class="wrap inner-hero">
-      <div class="hero__content">
+      <div class="hero__content"><span data-moki="arriba" data-moki-id="gamedev-db-hero" style="--moki-r:12%"></span>
         <span class="hero__badge" data-i18n="hero.badge.studios">🌎 LATAM Power</span>
         <h1 class="hero__title" data-i18n="hero.title.database">LATAM STUDIOS DB</h1>
         <p class="hero__subtitle lead" data-i18n="hero.subtitle.database">El mapa más completo de la industria en Latinoamérica.</p>
@@ -56,12 +62,12 @@
     </header>
 
     <section class="wrap inner-section" id="studios">
-      <form class="ia-search inner-search" role="search" action="#studios">
+      <form class="ia-search inner-search" role="search" action="#studios"><span data-moki="arriba" data-moki-id="gamedev-db-buscar" style="--moki-r:10%"></span>
         <label class="sr-only" for="studioSearch">Search studios</label>
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
         <input id="studioSearch" type="search" placeholder="Search by name, tech or country..." autocomplete="off">
       </form>
-      <div class="ia-chips inner-chips" role="group" aria-label="Filters">
+      <div class="ia-chips inner-chips" role="group" aria-label="Filters"><span data-moki="arriba" data-moki-id="gamedev-db-filtros" style="right:auto;left:10%"></span>
         <button type="button" class="ia-chip" data-filter="TODO" aria-pressed="true">Todas</button>
         <button type="button" class="ia-chip" data-filter="HIRING" aria-pressed="false">Hiring</button>
         <button type="button" class="ia-chip" data-filter="MX" aria-pressed="false">México</button>
@@ -75,21 +81,24 @@
     </section>
   </main>
 
-  <footer class="wrap papacito-footer" aria-label="Créditos" data-i18n-aria="footer.label">
-    <div class="papacito-footer__identity">
+  <footer class="wrap papacito-footer" aria-label="Créditos" data-i18n-aria="footer.label"><span data-moki="saluda" data-moki-id="gamedev-db-footer" style="--moki-r:8%"></span>
+    <div class="papacito-footer__identity"><span data-moki="arriba" data-moki-id="gamedev-database-firma" style="right:auto;left:0"></span>
       <a class="js-wordmark" href="https://jorgesuarez.com.mx/">JorgeSuarez<span>.com.mx</span></a>
       <p data-es="Kaizen y Juego" data-en="Kaizen &amp; Play">Kaizen y Juego</p>
     </div>
     <p class="papacito-footer__signature"><span data-es="Hecho con amor ❤️🎮 por" data-en="Made with love ❤️🎮 by">Hecho con amor ❤️🎮 por</span> <a href="https://jorgesuarez.com.mx/">JorgeSuarez.com.mx</a> <a class="foot-back" href="https://jorgesuarez.com.mx/" data-i18n="nav.home">← JorgeSuarez<span>.com.mx</span></a></p>
+    <p class="papacito-footer__log" data-es="gamedev /database · build 23 oct 2026 · 18:30 · America/Mexico_City · Spark (Claude) · Cloudflare Workers · juice 1.2.0 · brandkit 0.3" data-en="gamedev /database · build Oct 23 2026 · 18:30 · America/Mexico_City · Spark (Claude) · Cloudflare Workers · juice 1.2.0 · brandkit 0.3">gamedev /database · build 23 oct 2026 · 18:30 · America/Mexico_City · Spark (Claude) · Cloudflare Workers · juice 1.2.0 · brandkit 0.3</p>
   </footer>
 
   <script src="i18n.js"></script>
   <script src="scripts/home.js"></script>
   <script src="scripts/studios.js"></script>
   <script src="scripts/database.js"></script>
-  <script src="juice/1.0.1/juice.js" defer></script>
-  <script src="juice/1.0.1/juice-menu.js" defer></script>
-  <script src="scripts/juice.bind.js" defer></script>
+  <script src="juice/1.2.0/juice.js" defer></script>
+  <script src="juice/1.2.0/juice-menu.js" defer></script>
+  <script src="juice/1.2.0/hardcore/hardcore.js" defer></script>
+  <script src="juice/1.2.0/moki/moki.js" defer></script>
+  <script src="scripts/juice.bind.120.js" defer></script>
 </body>
 
 </html>
