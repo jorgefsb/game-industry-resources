@@ -168,10 +168,11 @@ function renderStudios(filter = "TODO", searchQuery = "") {
         card.className = `card studio-card ${studio.hiring ? 'hiring' : ''}`;
         card.style.animationDelay = `${index * 100}ms`; // Staggered animation
         card.innerHTML = `
-      ${studio.hiring ? '<div class="hiring-badge">HIRING</div>' : ''}
-      <div class="card-icon">${getIcon(studio.type)}</div>
+      ${studio.hiring ? '<div class="hiring-badge">DICEN QUE CONTRATAN</div>' : ''}
+      <div class="card-icon">${studio.cover ? '' : getIcon(studio.type)}</div>
       <h3 class="card-title">${studio.name} <span class="flag">${studio.flag}</span></h3>
       <p class="card-description">${studio.description}</p>
+      <p class="card-description">Pulso ${studio.pulse == null ? 'sin medir' : studio.pulse + '/4'}. Utilidad: sin dato. Empleo: ${studio.hiring ? 'hay aviso, no hay cifra' : 'sin aviso'}.</p>
       <div class="card-tags">
         ${studio.tags.map(t => `<span class="tag">${t}</span>`).join('')}
       </div>
