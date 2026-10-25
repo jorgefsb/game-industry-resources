@@ -21,7 +21,7 @@ Scout nuestro. Script en `scripts/scout-devuego.py`. Lo corre OA, no un perfil n
 
 ## Cómo entra
 
-El script escribe `data/devuego/estudios.json`. El diff va a git. Si el corte está mal, se vuelve al commit anterior. Rollback de esta tanda: `21f801e`.
+El script escribe `data/devuego/estudios.json`. El diff va a git. Si el corte está mal, se vuelve al commit anterior. Rollback de esta tanda: `5c98e34`.
 
 ## Cadencia
 
