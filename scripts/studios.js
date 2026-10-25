@@ -7,7 +7,13 @@ const studios = [
         description: "Servicios de desarrollo completo y co-dev para AAA. Oficinas en Guadalajara.",
         tags: ["Unity", "Unreal", "AAA"],
         hiring: true,
-        url: "https://amberstudio.com"
+        url: "https://amberstudio.com",
+        revenue: {
+          kind: "registry",
+          es: "AMBER STUDIO S.A. (Rumania), registro público: cifra de negocios 2024 de 161,4 millones RON y 474 personas. 2025: 159,6 millones RON y 405 personas. No es el estado de resultados de Guadalajara.",
+          en: "AMBER STUDIO S.A. (Romania), public registry: 2024 turnover 161.4 million RON and 474 people. 2025: 159.6 million RON and 405 people. This is not the Guadalajara P&L.",
+          source: "https://harta-firmelor.ro/firma/31273663"
+        }
     },
     {
         name: "Halberd Studios",
@@ -107,7 +113,13 @@ const studios = [
         description: "Gigante tecnológico con división de gaming fuerte. Trabajan con EA, Ubisoft.",
         tags: ["Tech", "AAA", "Engineering"],
         hiring: true,
-        url: "https://www.globant.com/studio/gaming-esports"
+        url: "https://www.globant.com/studio/gaming-esports",
+        revenue: {
+          kind: "filing",
+          es: "Globant S.A. (NYSE: GLOB), reporte anual 2025: 2.454,9 millones USD de toda la empresa. No es la facturación del estudio de juegos.",
+          en: "Globant S.A. (NYSE: GLOB), 2025 annual report: USD 2,454.9 million for the whole company. Not the gaming studio's revenue.",
+          source: "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001557860&type=20-F"
+        }
     },
     {
         name: "Ironhide Game Studio",

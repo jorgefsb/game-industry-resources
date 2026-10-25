@@ -30,11 +30,20 @@
       card.target = '_blank';
       card.rel = 'noopener';
       card.className = 'ia-card inner-card';
+      var lang = document.documentElement.lang === 'en' ? 'en' : 'es';
+      var pulse = lang === 'en'
+        ? 'Pulse ' + (s.pulse == null ? 'not measured' : s.pulse + '/4') + '. Profit: no figure.'
+        : 'Pulso ' + (s.pulse == null ? 'sin medir' : s.pulse + '/4') + '. Utilidad: sin dato.';
+      var money = s.revenue
+        ? '<p class="card__description"><a href="' + s.revenue.source + '" target="_blank" rel="noopener">' + (lang === 'en' ? s.revenue.en : s.revenue.es) + '</a></p>'
+        : '<p class="card__description">' + (lang === 'en' ? 'Annual revenue: no public figure.' : 'Facturación anual: sin dato público.') + '</p>';
       card.innerHTML =
         (s.hiring ? '<span class="ia-badge">Hiring</span>' : '') +
         '<span class="card__icon">' + icon(s.type) + '</span>' +
         '<h3 class="card__title">' + s.name + ' ' + s.flag + '</h3>' +
         '<p class="card__description">' + s.description + '</p>' +
+        '<p class="card__description">' + pulse + '</p>' +
+        money +
         '<div class="studio-tags">' + s.tags.map(function (t) {
           return '<span>' + t + '</span>';
         }).join('') + '</div>';
@@ -63,6 +72,7 @@
       });
     });
     if (search) search.addEventListener('input', refresh);
+    document.addEventListener('gamedev:lang', refresh);
     refresh();
   });
 })();
