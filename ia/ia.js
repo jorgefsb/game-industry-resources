@@ -376,7 +376,7 @@ const SPONSOR_LIVE = true;
     const cat = catalog.categories.find((c) => c.id === tool.category) || {};
     return norm([tool.name, tool.description.es, tool.description.en, cat.es, cat.en, (tool.tags || []).join(' ')].join(' ')).includes(query);
   }
-  function card(tool) {
+  function card(tool, featured) {
     const logo = tool.logo
       ? `<img class="ia-logo" src="${esc(tool.logo)}" width="40" height="40" loading="lazy" decoding="async" alt="${esc(s('alt.logo', { name: tool.name }))}">`
       : `<span class="ia-logo ia-logo--tile" aria-hidden="true">${esc(tool.name.charAt(0))}</span>`;
@@ -385,7 +385,7 @@ const SPONSOR_LIVE = true;
     const aff = tool.affiliate
       ? `<p class="ia-card__aff" data-es="${esc(STR.es['card.aff'])}" data-en="${esc(STR.en['card.aff'])}">${esc(s('card.aff'))}</p>`
       : '';
-    return `<article class="ia-card" id="tool-${esc(tool.id)}">
+    return `<article ${featured ? 'class="ia-card ia-card--featured"' : `class="ia-card" id="tool-${esc(tool.id)}"`}>
       <div class="ia-card__top">${logo}<div><h3>${esc(tool.name)}</h3>${price}</div></div>
       <p>${esc(tool.description[lang()] || tool.description.es)}</p>
       ${aff}
@@ -404,7 +404,14 @@ const SPONSOR_LIVE = true;
   function renderSections() {
     const box = root.querySelector('[data-ia-sections]');
     let shown = 0;
-    box.innerHTML = catalog.categories.map((c) => {
+    const top = catalog.tools.filter((t) => (catalog.featured || []).includes(t.id));
+    const featured = category === 'all' && !query && top.length
+      ? `<section class="ia-cat" id="destacados" aria-labelledby="cat-destacados">
+        <h3 class="ia-cat__title" id="cat-destacados">${esc(s('featured.badge'))} <span>${top.length}</span></h3>
+        <div class="ia-grid">${top.map((t) => card(t, true)).join('')}</div>
+      </section>`
+      : '';
+    box.innerHTML = featured + catalog.categories.map((c) => {
       const tools = catalog.tools.filter((t) => t.category === c.id && matches(t));
       shown += tools.length;
       if (!tools.length) return '';
@@ -415,7 +422,7 @@ const SPONSOR_LIVE = true;
         : '';
       return `<section class="ia-cat${collapsible && !open ? ' is-collapsed' : ''}" id="${esc(c.id)}" aria-labelledby="cat-${esc(c.id)}">
         <h3 class="ia-cat__title" id="cat-${esc(c.id)}">${esc(catLabel(c))} <span>${tools.length}</span></h3>
-        <div class="ia-grid" id="grid-${esc(c.id)}">${tools.map(card).join('')}</div>${more}
+        <div class="ia-grid" id="grid-${esc(c.id)}">${tools.map((t) => card(t)).join('')}</div>${more}
       </section>`;
     }).join('');
     root.querySelector('[data-ia-empty]').hidden = shown !== 0;
