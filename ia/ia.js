@@ -56,6 +56,7 @@ const SPONSOR_LIVE = true;
       'chips.all': 'Todas',
       'card.site': 'Sitio oficial',
       'card.newtab': '(abre en otra pestaña)',
+      'card.aff': 'Liga de afiliado: si compras, Game Resources gana una comisión sin costo extra para ti.',
       'empty.title': 'Moki no encontró eso',
       'empty.body': 'Prueba otra palabra o quita el filtro. Si falta una herramienta, mándala y la revisamos.',
       'submit.title': '¿Hiciste o usas una herramienta que no está?',
@@ -149,6 +150,7 @@ const SPONSOR_LIVE = true;
       'chips.all': 'All',
       'card.site': 'Official site',
       'card.newtab': '(opens in a new tab)',
+      'card.aff': 'Affiliate link: if you buy, Game Resources earns a commission at no extra cost to you.',
       'empty.title': 'Moki found nothing',
       'empty.body': 'Try another word or clear the filter. If a tool is missing, send it and we\'ll review it.',
       'submit.title': 'Made or use a tool that is not here?',
@@ -379,10 +381,15 @@ const SPONSOR_LIVE = true;
       ? `<img class="ia-logo" src="${esc(tool.logo)}" width="40" height="40" loading="lazy" decoding="async" alt="${esc(s('alt.logo', { name: tool.name }))}">`
       : `<span class="ia-logo ia-logo--tile" aria-hidden="true">${esc(tool.name.charAt(0))}</span>`;
     const price = tool.pricing ? `<span class="ia-tag">${esc(priceLabel(tool.pricing))}</span>` : '';
+    const rel = tool.affiliate ? 'sponsored noopener' : 'noopener';
+    const aff = tool.affiliate
+      ? `<p class="ia-card__aff" data-es="${esc(STR.es['card.aff'])}" data-en="${esc(STR.en['card.aff'])}">${esc(s('card.aff'))}</p>`
+      : '';
     return `<article class="ia-card" id="tool-${esc(tool.id)}">
       <div class="ia-card__top">${logo}<div><h3>${esc(tool.name)}</h3>${price}</div></div>
       <p>${esc(tool.description[lang()] || tool.description.es)}</p>
-      <a class="ia-card__link" href="${esc(tool.url)}" target="_blank" rel="noopener">${esc(s('card.site'))} <span aria-hidden="true">↗</span><span class="sr-only"> ${esc(tool.name)} ${esc(s('card.newtab'))}</span></a>
+      ${aff}
+      <a class="ia-card__link" href="/ia/go/${esc(tool.id)}" data-href="${esc(tool.url)}" target="_blank" rel="${rel}">${esc(s('card.site'))} <span aria-hidden="true">↗</span><span class="sr-only"> ${esc(tool.name)} ${esc(s('card.newtab'))}</span></a>
     </article>`;
   }
   function renderChips() {
