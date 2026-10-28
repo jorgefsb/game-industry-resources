@@ -1,7 +1,7 @@
 # Directorio de IA para indie game developers
 # https://gamedev.jorgesuarez.com.mx/ia/
 # Machine-readable JSON: https://gamedev.jorgesuarez.com.mx/ia/tools.json
-# Updated: 2026-10-16
+# Updated: 2026-10-26
 # Language: Spanish first, English in tools.json
 # Pricing is included only when verified on the official site.
 # Afiliados: si compras por una liga de afiliado del directorio (hoy Meshy), Game Resources gana una comisión sin costo extra para ti. Las URLs de abajo son las oficiales.
@@ -15,6 +15,8 @@
 - Aider: Programa en pareja con IA desde la terminal, sobre tu repo de Git. (https://aider.chat)
 - Gemini Code Assist: Asistente de código de Google Gemini para tu editor. (https://developers.google.com/gemini-code-assist)
 - Summer Engine [freemium]: Motor compatible con Godot 4 hecho para agentes de IA: arman el juego, crean sus assets y lo publican. (https://www.summerengine.com)
+- Strata [freemium]: Agente que compila tu juego de Unreal Engine, lo prueba en una GPU en la nube y lo publica como enlace jugable en el navegador. (https://simplystream.com)
+- AI Game Developer [freemium]: App de escritorio con agentes para Unity, Unreal y Godot, que genera imágenes y modelos en tu propia GPU. (https://ai-game.dev)
 
 ## Sprites y 2D / Sprites & 2D
 - Scenario [freemium]: Genera arte 2D para tu juego manteniendo el mismo estilo en todos los assets. (https://www.scenario.com)
@@ -61,6 +63,7 @@
 ## Testing / QA / Testing / QA
 - Applitools [pago]: Pruebas visuales con IA para detectar cuando algo se rompe en la interfaz. (https://applitools.com)
 - TestSprite [freemium]: Agente que crea y corre pruebas automáticas de tu producto. (https://www.testsprite.com)
+- Playgama MCP: Servidor MCP para que tu agente publique el juego en el navegador y lea los datos de los jugadores para iterarlo. (https://playgama.com/mcp/)
 
 ## Marketing / tráiler / Marketing / trailer
 - Opus Clip [freemium]: Corta videos largos en clips verticales para redes y tráilers cortos. (https://www.opus.pro/)

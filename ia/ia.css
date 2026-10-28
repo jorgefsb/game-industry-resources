@@ -183,6 +183,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .ia-catalog { padding-top: var(--sp-5); padding-bottom: var(--sp-7); }
 .ia-catalog__head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-4); }
 .ia-count { color: var(--text-secondary); font-size: 14px; }
+.ia-updated { color: var(--text-secondary); font-size: 14px; margin-top: var(--sp-2); }
 .ia-chips { display: flex; gap: var(--sp-2); margin: var(--sp-5) 0 var(--sp-6); overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; -webkit-mask-image: linear-gradient(90deg, #000 92%, transparent); mask-image: linear-gradient(90deg, #000 92%, transparent); }
 .ia-chips::-webkit-scrollbar { display: none; }
 @media (min-width: 981px) { .ia-chips { flex-wrap: wrap; -webkit-mask-image: none; mask-image: none; } }
