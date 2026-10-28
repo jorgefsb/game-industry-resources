@@ -196,7 +196,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .ia-cat__title { display: flex; align-items: baseline; gap: 10px; font-size: 22px; margin-bottom: var(--sp-4); padding-bottom: var(--sp-3); border-bottom: 1px solid var(--line); }
 .ia-cat__title span { font-family: var(--body); font-weight: 400; font-size: 14px; color: var(--text-secondary); }
 .ia-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--sp-4); }
-.ia-card { display: flex; flex-direction: column; gap: var(--sp-3); padding: var(--sp-5); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-card); transition: border-color 180ms var(--ease), transform 180ms var(--ease); }
+.ia-card { display: flex; flex-direction: column; gap: var(--sp-3); padding: var(--sp-5); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-card); min-width: 0; transition: border-color 180ms var(--ease), transform 180ms var(--ease); }
 .ia-card:hover { border-color: rgba(255,107,53,.55); transform: translateY(-2px); }
 .ia-card__top { display: flex; align-items: center; gap: var(--sp-3); }
 .ia-card__top > div { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; min-width: 0; }
@@ -205,8 +205,22 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .ia-logo { width: 40px; height: 40px; border-radius: 10px; background: #fff; object-fit: contain; flex: none; }
 .ia-logo--tile { display: grid; place-content: center; background: var(--accent); color: var(--on-accent); font-family: var(--display); font-weight: 700; font-size: 20px; }
 .ia-tag { display: inline-flex; padding: 1px 8px; border-radius: var(--r-chip); border: 1px solid var(--line); font-size: 12px; color: var(--text-secondary); }
-.ia-card__link { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: var(--tap); color: var(--accent); text-decoration: none; font-size: 15px; }
+.ia-card__link { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: var(--tap); max-width: 100%; color: var(--accent); text-decoration: none; font-size: 15px; }
 .ia-card__link:hover { text-decoration: underline; }
+.ia-card__aff {
+  margin: 0;
+  padding: 8px 10px;
+  background: var(--bg);
+  border-radius: var(--r-control);
+  color: var(--text-secondary);
+  font-family: var(--body);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.45;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
 .ia-empty { display: flex; align-items: center; gap: var(--sp-6); padding: var(--sp-6); border: 1px dashed var(--line); border-radius: var(--r-panel); }
 .ia-empty[hidden] { display: none; }
 .ia-empty .ia-moki-live { width: 140px; flex: none; }
