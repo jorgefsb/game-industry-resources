@@ -67,6 +67,9 @@ def main() -> None:
         blob = json.dumps(tool, ensure_ascii=False)
         if FORBIDDEN.search(blob):
             fail(f"{tool['id']} contains a forbidden brand")
+    for fid in data.get("featured") or []:
+        if fid not in ids:
+            fail(f"featured id {fid} is not in tools")
 
     pages = [
         ROOT / "index.html",
@@ -108,6 +111,8 @@ def main() -> None:
             lines.append(f"- {tool['name']}{price}: {tool['description']['es']} ({tool['url']})")
         lines.append("")
     lines.append("## Destacados / Featured")
+    for tool in (t for t in tools if t["id"] in (data.get("featured") or [])):
+        lines.append(f"- {tool['name']}: {tool['description']['es']} ({tool['url']})")
     lines.append("- Featured slot open. Makers can request it at https://gamedev.jorgesuarez.com.mx/ia/patrocina/ (USD 49 per month, cancel anytime).")
     lines.append("")
     (ROOT / "llms.txt").write_text("\n".join(lines), encoding="utf-8")
@@ -142,8 +147,10 @@ def render_index(data: dict) -> None:
     page = path.read_text(encoding="utf-8")
     labels = data.get("pricingLabels") or {}
     parts = []
-    for cat in data["categories"]:
-        tools = [t for t in data["tools"] if t["category"] == cat["id"]]
+    featured = data.get("featured") or []
+    groups = [({"id": "destacados", "es": "Destacado"}, [t for t in data["tools"] if t["id"] in featured])]
+    groups += [(cat, [t for t in data["tools"] if t["category"] == cat["id"]]) for cat in data["categories"]]
+    for cat, tools in groups:
         if not tools:
             continue
         cards = []
@@ -156,8 +163,9 @@ def render_index(data: dict) -> None:
             price = ""
             if t.get("pricing") and t["pricing"] in labels:
                 price = f'<span class="ia-tag">{esc(labels[t["pricing"]]["es"])}</span>'
+            attrs = 'class="ia-card ia-card--featured"' if cat["id"] == "destacados" else f'class="ia-card" id="tool-{esc(t["id"])}"'
             cards.append(
-                f'<article class="ia-card" id="tool-{esc(t["id"])}"><div class="ia-card__top">{logo}'
+                f'<article {attrs}><div class="ia-card__top">{logo}'
                 f'<div><h3>{esc(t["name"])}</h3>{price}</div></div><p>{esc(t["description"]["es"])}</p>'
                 f'{aff_note(t)}{visit_anchor(t)}</article>'
             )
