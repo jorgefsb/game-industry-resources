@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated": "2026-10-26",
+  "updated": "2026-10-28",
   "url": "https://gamedev.jorgesuarez.com.mx/ia/",
   "json": "https://gamedev.jorgesuarez.com.mx/ia/tools.json",
   "llms": "https://gamedev.jorgesuarez.com.mx/ia/llms.txt",
@@ -202,6 +202,16 @@
       "pricing_checked": "2026-10-26"
     },
     {
+      "id": "genex",
+      "name": "Genex",
+      "url": "https://genex.games",
+      "category": "codigo",
+      "description": {
+        "es": "App de escritorio abierta (MIT) que conecta tu agente de IA con herramientas de gamedev: modelos 3D, animación, audio, multijugador y publicación del juego.",
+        "en": "Open desktop app (MIT) that connects your AI agent to gamedev tools: 3D models, animation, audio, multiplayer, and publishing your game."
+      }
+    },
+    {
       "id": "scenario",
       "name": "Scenario",
       "url": "https://www.scenario.com",
@@ -394,6 +404,19 @@
       "pricing": "pago",
       "pricing_source": "https://bake3d.ai/pricing",
       "pricing_checked": "2026-10-16"
+    },
+    {
+      "id": "tripo",
+      "name": "Tripo",
+      "url": "https://www.tripo3d.ai",
+      "category": "modelos3d",
+      "description": {
+        "es": "Convierte texto o una imagen en modelos 3D con malla limpia y versión de pocos polígonos para Unity, Unreal y Godot.",
+        "en": "Turns text or an image into 3D models with clean topology and a low-poly version for Unity, Unreal, and Godot."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://www.tripo3d.ai/pricing",
+      "pricing_checked": "2026-10-27"
     },
     {
       "id": "runway",
