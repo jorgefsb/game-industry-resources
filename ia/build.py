@@ -151,6 +151,7 @@ def render_index(data: dict) -> None:
         "name": "Directorio de IA para indie game developers",
         "description": "Herramientas de IA para arte, código, audio y diseño de videojuegos. En español y gratis.",
         "url": data["url"],
+        "dateModified": data["updated"],
         "numberOfItems": len(data["tools"]),
         "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "name": t["name"], "url": t["url"], "description": t["description"]["es"]}
@@ -166,6 +167,13 @@ def render_index(data: dict) -> None:
     )
     if n != 1:
         fail("index.html: JSON-LD block not found")
+    page, n = re.subn(
+        r'<time datetime="[^"]*" data-ia-updated>[^<]*</time>',
+        f'<time datetime="{esc(data["updated"])}" data-ia-updated>{esc(data["updated"])}</time>',
+        page,
+    )
+    if n != 1:
+        fail("index.html: data-ia-updated time element not found")
     ntools, ncats = len(data["tools"]), len(data["categories"])
     page = re.sub(r'data-n="\d+">\d+ herramientas', f'data-n="{ntools}">{ntools} herramientas', page)
     page = re.sub(r'(<strong data-ia-ntools>)\d+', rf'\g<1>{ntools}', page)
