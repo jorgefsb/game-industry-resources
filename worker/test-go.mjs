@@ -69,6 +69,15 @@ assert(cur.status === 302, `cursor status ${cur.status}`);
 const cursorLoc = cur.headers.get('location') || '';
 assert(cursorLoc === cursor.url || cursorLoc === new URL(cursor.url).toString(), `cursor location ${cursorLoc}`);
 
+for (const slug of ['bezi', 'astrocade-mcp']) {
+  const tool = catalog.tools.find((t) => t.id === slug);
+  assert(tool, `catalog missing ${slug}`);
+  const res = await go(`/ia/go/${slug}`);
+  assert(res.status === 302, `${slug} status ${res.status}`);
+  const loc = res.headers.get('location') || '';
+  assert(loc === tool.url || loc === new URL(tool.url).toString(), `${slug} location ${loc}`);
+}
+
 const extra = await go('/ia/go/meshy/extra');
 assert(extra.status === 404, `nested path status ${extra.status}`);
 const empty = await go('/ia/go/');

@@ -1,7 +1,7 @@
 # Directorio de IA para indie game developers
 # https://gamedev.jorgesuarez.com.mx/ia/
 # Machine-readable JSON: https://gamedev.jorgesuarez.com.mx/ia/tools.json
-# Updated: 2026-10-28
+# Updated: 2026-10-29
 # Language: Spanish first, English in tools.json
 # Pricing is included only when verified on the official site.
 # Afiliados: si compras por una liga de afiliado del directorio (hoy Meshy), Game Resources gana una comisión sin costo extra para ti. Las URLs de abajo son las oficiales.
@@ -18,6 +18,8 @@
 - Strata [freemium]: Agente que compila tu juego de Unreal Engine, lo prueba en una GPU en la nube y lo publica como enlace jugable en el navegador. (https://simplystream.com)
 - AI Game Developer [freemium]: App de escritorio con agentes para Unity, Unreal y Godot, que genera imágenes y modelos en tu propia GPU. (https://ai-game.dev)
 - Genex: App de escritorio abierta (MIT) que conecta tu agente de IA con herramientas de gamedev: modelos 3D, animación, audio, multijugador y publicación del juego. (https://genex.games)
+- Bezi [pago]: Agente que se conecta a tu proyecto de Unity o Unreal y aplica los cambios en el motor: escenas, scripts, UI y builds. (https://www.bezi.com)
+- Astrocade MCP: Servidor MCP hospedado para que tu agente arme y publique juegos en el feed de Astrocade, desde Claude Code, Cursor, Codex o ChatGPT. (https://www.astrocade.com/create/mcp)
 
 ## Sprites y 2D / Sprites & 2D
 - Scenario [freemium]: Genera arte 2D para tu juego manteniendo el mismo estilo en todos los assets. (https://www.scenario.com)
