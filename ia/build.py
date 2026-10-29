@@ -188,6 +188,18 @@ def render_index(data: dict) -> None:
     )
     if n != 1:
         fail("index.html: catalog markers not found")
+    app_cat = {
+        "codigo": "DeveloperApplication",
+        "sprites": "DesignApplication",
+        "modelos3d": "DesignApplication",
+        "animacion": "MultimediaApplication",
+        "audio": "MultimediaApplication",
+        "voces": "MultimediaApplication",
+        "texturas": "DesignApplication",
+        "traduccion": "BusinessApplication",
+        "qa": "DeveloperApplication",
+        "marketing": "MultimediaApplication",
+    }
     ld = {
         "@context": "https://schema.org",
         "@type": "ItemList",
@@ -196,8 +208,19 @@ def render_index(data: dict) -> None:
         "url": data["url"],
         "dateModified": data["updated"],
         "numberOfItems": len(data["tools"]),
+        "inLanguage": ["es", "en"],
         "itemListElement": [
-            {"@type": "ListItem", "position": i + 1, "name": t["name"], "url": t["url"], "description": t["description"]["es"]}
+            {
+                "@type": "ListItem",
+                "position": i + 1,
+                "item": {
+                    "@type": "SoftwareApplication",
+                    "name": t["name"],
+                    "url": t["url"],
+                    "description": t["description"]["es"],
+                    "applicationCategory": app_cat[t["category"]],
+                },
+            }
             for i, t in enumerate(data["tools"])
         ],
     }

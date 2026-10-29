@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "url": "https://gamedev.jorgesuarez.com.mx/ia/",
   "json": "https://gamedev.jorgesuarez.com.mx/ia/tools.json",
   "llms": "https://gamedev.jorgesuarez.com.mx/ia/llms.txt",
@@ -209,6 +209,29 @@
       "description": {
         "es": "App de escritorio abierta (MIT) que conecta tu agente de IA con herramientas de gamedev: modelos 3D, animación, audio, multijugador y publicación del juego.",
         "en": "Open desktop app (MIT) that connects your AI agent to gamedev tools: 3D models, animation, audio, multiplayer, and publishing your game."
+      }
+    },
+    {
+      "id": "bezi",
+      "name": "Bezi",
+      "url": "https://www.bezi.com",
+      "category": "codigo",
+      "description": {
+        "es": "Agente que se conecta a tu proyecto de Unity o Unreal y aplica los cambios en el motor: escenas, scripts, UI y builds.",
+        "en": "Agent that connects to your Unity or Unreal project and applies in-engine changes: scenes, scripts, UI, and builds."
+      },
+      "pricing": "pago",
+      "pricing_source": "https://www.bezi.com/pricing",
+      "pricing_checked": "2026-10-29"
+    },
+    {
+      "id": "astrocade-mcp",
+      "name": "Astrocade MCP",
+      "url": "https://www.astrocade.com/create/mcp",
+      "category": "codigo",
+      "description": {
+        "es": "Servidor MCP hospedado para que tu agente arme y publique juegos en el feed de Astrocade, desde Claude Code, Cursor, Codex o ChatGPT.",
+        "en": "Hosted MCP server so your agent builds and publishes games to the Astrocade feed, from Claude Code, Cursor, Codex, or ChatGPT."
       }
     },
     {
