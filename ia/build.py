@@ -209,6 +209,8 @@ def render_index(data: dict) -> None:
         "dateModified": data["updated"],
         "numberOfItems": len(data["tools"]),
         "inLanguage": ["es", "en"],
+        "publisher": {"@type": "Person", "name": "Jorge Suárez", "url": "https://jorgesuarez.com.mx"},
+        "isPartOf": {"@type": "WebSite", "name": "Game Resources", "url": "https://gamedev.jorgesuarez.com.mx/"},
         "itemListElement": [
             {
                 "@type": "ListItem",

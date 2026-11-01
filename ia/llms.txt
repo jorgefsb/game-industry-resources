@@ -1,7 +1,7 @@
 # Directorio de IA para indie game developers
 # https://gamedev.jorgesuarez.com.mx/ia/
 # Machine-readable JSON: https://gamedev.jorgesuarez.com.mx/ia/tools.json
-# Updated: 2026-10-29
+# Updated: 2026-11-01
 # Language: Spanish first, English in tools.json
 # Pricing is included only when verified on the official site.
 # Afiliados: si compras por una liga de afiliado del directorio (hoy Meshy), Game Resources gana una comisión sin costo extra para ti. Las URLs de abajo son las oficiales.
@@ -20,6 +20,7 @@
 - Genex: App de escritorio abierta (MIT) que conecta tu agente de IA con herramientas de gamedev: modelos 3D, animación, audio, multijugador y publicación del juego. (https://genex.games)
 - Bezi [pago]: Agente que se conecta a tu proyecto de Unity o Unreal y aplica los cambios en el motor: escenas, scripts, UI y builds. (https://www.bezi.com)
 - Astrocade MCP: Servidor MCP hospedado para que tu agente arme y publique juegos en el feed de Astrocade, desde Claude Code, Cursor, Codex o ChatGPT. (https://www.astrocade.com/create/mcp)
+- Atelico AI Engine: Motor de IA que corre en el dispositivo del jugador: LLMs, voz y NPCs dentro del juego, para Unity, Unreal y Godot. (https://atelico.studio)
 
 ## Sprites y 2D / Sprites & 2D
 - Scenario [freemium]: Genera arte 2D para tu juego manteniendo el mismo estilo en todos los assets. (https://www.scenario.com)
@@ -45,6 +46,7 @@
 - Cascadeur [freemium]: Animación 3D de personajes con física asistida por IA. (https://cascadeur.com)
 - DeepMotion: Captura de movimiento a partir de un video para animar personajes. (https://www.deepmotion.com)
 - Pika [freemium]: Generador de video corto a partir de texto o imagen. (https://pika.art)
+- PINOC (Viggle) [freemium]: Estudio de movimiento 3D: anima desde texto o video, hace rigging automático y crea personajes desde una imagen. (https://viggle.ai/pinoc)
 
 ## Audio y música / Audio & music
 - Suno [freemium]: Genera canciones originales con IA a partir de una descripción. (https://suno.com)
@@ -68,6 +70,7 @@
 - Applitools [pago]: Pruebas visuales con IA para detectar cuando algo se rompe en la interfaz. (https://applitools.com)
 - TestSprite [freemium]: Agente que crea y corre pruebas automáticas de tu producto. (https://www.testsprite.com)
 - Playgama MCP: Servidor MCP para que tu agente publique el juego en el navegador y lea los datos de los jugadores para iterarlo. (https://playgama.com/mcp/)
+- Aura Autopilot [gratis]: Agente de código abierto que juega tu build en tiempo real y reporta bugs; para Unreal, Unity y Godot. (https://www.tryaura.dev/autopilot/)
 
 ## Marketing / tráiler / Marketing / trailer
 - Opus Clip [freemium]: Corta videos largos en clips verticales para redes y tráilers cortos. (https://www.opus.pro/)
