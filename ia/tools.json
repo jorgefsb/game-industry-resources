@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated": "2026-10-29",
+  "updated": "2026-11-01",
   "url": "https://gamedev.jorgesuarez.com.mx/ia/",
   "json": "https://gamedev.jorgesuarez.com.mx/ia/tools.json",
   "llms": "https://gamedev.jorgesuarez.com.mx/ia/llms.txt",
@@ -232,6 +232,16 @@
       "description": {
         "es": "Servidor MCP hospedado para que tu agente arme y publique juegos en el feed de Astrocade, desde Claude Code, Cursor, Codex o ChatGPT.",
         "en": "Hosted MCP server so your agent builds and publishes games to the Astrocade feed, from Claude Code, Cursor, Codex, or ChatGPT."
+      }
+    },
+    {
+      "id": "atelico",
+      "name": "Atelico AI Engine",
+      "url": "https://atelico.studio",
+      "category": "codigo",
+      "description": {
+        "es": "Motor de IA que corre en el dispositivo del jugador: LLMs, voz y NPCs dentro del juego, para Unity, Unreal y Godot.",
+        "en": "On-device AI engine: LLMs, speech and NPC behavior running inside the game, for Unity, Unreal and Godot."
       }
     },
     {
@@ -495,6 +505,19 @@
       "pricing_checked": "2026-10-15"
     },
     {
+      "id": "viggle-pinoc",
+      "name": "PINOC (Viggle)",
+      "url": "https://viggle.ai/pinoc",
+      "category": "animacion",
+      "description": {
+        "es": "Estudio de movimiento 3D: anima desde texto o video, hace rigging automático y crea personajes desde una imagen.",
+        "en": "3D motion studio: animate from text or video, auto-rig, and create animated characters from one image."
+      },
+      "pricing": "freemium",
+      "pricing_source": "https://viggle.ai/pricing",
+      "pricing_checked": "2026-11-01"
+    },
+    {
       "id": "suno",
       "name": "Suno",
       "url": "https://suno.com",
@@ -668,6 +691,19 @@
         "es": "Servidor MCP para que tu agente publique el juego en el navegador y lea los datos de los jugadores para iterarlo.",
         "en": "MCP server so your agent publishes the game to the browser and reads player data to iterate on it."
       }
+    },
+    {
+      "id": "aura-autopilot",
+      "name": "Aura Autopilot",
+      "url": "https://www.tryaura.dev/autopilot/",
+      "category": "qa",
+      "description": {
+        "es": "Agente de código abierto que juega tu build en tiempo real y reporta bugs; para Unreal, Unity y Godot.",
+        "en": "Open-source agent that plays your build in real time and reports bugs; for Unreal, Unity and Godot."
+      },
+      "pricing": "gratis",
+      "pricing_source": "https://github.com/ramenvr/autopilot",
+      "pricing_checked": "2026-11-01"
     },
     {
       "id": "opus-clip",
