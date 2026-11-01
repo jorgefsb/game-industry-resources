@@ -21,6 +21,31 @@ const SPONSOR_LIVE = true;
       'meta.ogDescSponsor': 'Arriba de todo, con tu logo y una línea. USD 49 al mes. Cancelas cuando quieras.',
       'doc.title': 'Herramientas de IA para hacer videojuegos | Directorio de Jorge Suárez',
       'doc.titleSponsor': 'Destaca tu herramienta de IA ante gamedevs | Jorge Suárez',
+      'doc.titleDestacadoGrok': 'Destacado for Grok Bot | Espacio destacado en el directorio de IA para gamedev',
+      'meta.descDestacadoGrok': 'Pon tu herramienta de IA para juegos arriba del directorio bilingüe para indies. USD 49 al mes. Cancelas cuando quieras. Solo placement.',
+      'meta.ogTitleDestacadoGrok': 'Destacado for Grok Bot | Espacio destacado en el directorio de IA para gamedev',
+      'meta.ogDescDestacadoGrok': 'Pon tu herramienta de IA para juegos arriba del directorio bilingüe para indies. USD 49 al mes. Cancelas cuando quieras. Solo placement.',
+      'dg.title': 'Destacado for Grok Bot',
+      'dg.lead': 'Tu herramienta de IA para hacer juegos, arriba de un directorio bilingüe que Grok Bot (y otros agentes) pueden leer y citar.',
+      'dg.line': 'Logo + una línea. Español e inglés. Hecho para indies en Latinoamérica.',
+      'dg.price': 'USD 49 al mes. Cancelas cuando quieras.',
+      'dg.placement': 'Solo placement. No es promesa de tráfico ni de suscriptores.',
+      'dg.cta': 'Quiero Destacado',
+      'dg.browse': 'Ver el directorio',
+      'dg.getTitle': 'Qué incluye',
+      'dg.get1': 'Placement arriba en https://gamedev.jorgesuarez.com.mx/ia/ (52 tools hoy)',
+      'dg.get2': 'Tu logo y una línea de para qué sirve al hacer un juego',
+      'dg.get3': 'El alta gratis sigue gratis; Destacado es opcional',
+      'dg.get4': 'Después de pagar, te colocamos a mano en ≤24 h (no es automático)',
+      'dg.faqTitle': 'Preguntas',
+      'dg.faq1q': '¿El Destacado se activa solo después de pagar en Stripe?',
+      'dg.faq1a': 'No. Te colocamos a mano en ≤24 h y te avisamos por correo cuando está live.',
+      'dg.faq2q': '¿Prometen clics o suscriptores?',
+      'dg.faq2a': 'No. Destacado es solo placement.',
+      'dg.faq3q': '¿Puedo cancelar?',
+      'dg.faq3a': 'Sí. Cancelas cuando quieras. Mientras esté activo, el cobro es USD 49 al mes.',
+      'dg.home': 'Volver a Jorge Suárez',
+      'dg.dir': 'Directorio de IA',
       'skip': 'Ir al contenido',
       'nav.label': 'Principal',
       'nav.menu': 'Menú',
@@ -115,6 +140,31 @@ const SPONSOR_LIVE = true;
       'meta.ogDescSponsor': 'At the top, with your logo and one line. USD 49 a month. Cancel anytime.',
       'doc.title': 'AI tools for making video games | Jorge Suárez directory',
       'doc.titleSponsor': 'Feature your AI tool to game devs | Jorge Suárez',
+      'doc.titleDestacadoGrok': 'Destacado for Grok Bot | Featured spot in the AI gamedev directory',
+      'meta.descDestacadoGrok': 'Put your AI game-dev tool at the top of a bilingual directory built for indie teams. USD 49 per month. Cancel anytime. Placement only.',
+      'meta.ogTitleDestacadoGrok': 'Destacado for Grok Bot | Featured spot in the AI gamedev directory',
+      'meta.ogDescDestacadoGrok': 'Put your AI game-dev tool at the top of a bilingual directory built for indie teams. USD 49 per month. Cancel anytime. Placement only.',
+      'dg.title': 'Destacado for Grok Bot',
+      'dg.lead': 'Your AI tool for making games, at the top of a bilingual directory that Grok Bot (and other agents) can read and cite.',
+      'dg.line': 'Logo + one line. Spanish and English. Built for indie game developers in Latin America.',
+      'dg.price': 'USD 49 per month. Cancel anytime.',
+      'dg.placement': 'Placement only. Not a promise of traffic or subscribers.',
+      'dg.cta': 'Get Featured',
+      'dg.browse': 'Browse the directory',
+      'dg.getTitle': 'What you get',
+      'dg.get1': 'Top placement on https://gamedev.jorgesuarez.com.mx/ia/ (52 tools today)',
+      'dg.get2': 'Your logo and one line on how the tool helps ship a game',
+      'dg.get3': 'Free listing stays free; Featured is optional',
+      'dg.get4': 'After you pay, we place you by hand within 24 hours (not automatic)',
+      'dg.faqTitle': 'FAQ',
+      'dg.faq1q': 'Does Featured turn on by itself after Stripe?',
+      'dg.faq1a': 'No. We place you manually within 24 hours and email you when it is live.',
+      'dg.faq2q': 'Do you promise clicks or subscribers?',
+      'dg.faq2a': 'No. Featured is placement only.',
+      'dg.faq3q': 'Can I cancel?',
+      'dg.faq3a': 'Yes. Cancel anytime. Billing is USD 49 per month while active.',
+      'dg.home': 'Back to Jorge Suárez',
+      'dg.dir': 'AI directory',
       'skip': 'Skip to content',
       'nav.label': 'Main',
       'nav.menu': 'Menu',
@@ -202,7 +252,9 @@ const SPONSOR_LIVE = true;
     }
   };
 
-  const isSponsor = document.body.getAttribute('data-page') === 'sponsor';
+  const page = document.body.getAttribute('data-page');
+  const isSponsor = page === 'sponsor';
+  const isDestacadoGrok = page === 'destacado-grok';
   let ntools = Number((document.querySelector('[data-n]') || {}).dataset?.n || 0);
 
   const qpLang = new URLSearchParams(location.search).get('lang');
@@ -227,8 +279,9 @@ const SPONSOR_LIVE = true;
   function applyStatic() {
     const l = lang();
     document.documentElement.lang = l;
-    document.title = s(isSponsor ? 'doc.titleSponsor' : 'doc.title');
-    const sfx = isSponsor ? 'Sponsor' : '';
+    const titleKey = isDestacadoGrok ? 'doc.titleDestacadoGrok' : isSponsor ? 'doc.titleSponsor' : 'doc.title';
+    document.title = s(titleKey);
+    const sfx = isDestacadoGrok ? 'DestacadoGrok' : isSponsor ? 'Sponsor' : '';
     const setMeta = (sel, key) => { document.querySelectorAll(sel).forEach((m) => m.setAttribute('content', s(key + sfx))); };
     setMeta('meta[name="description"], meta[name="twitter:description"]', 'meta.desc');
     setMeta('meta[property="og:description"]', 'meta.ogDesc');
@@ -243,12 +296,20 @@ const SPONSOR_LIVE = true;
     document.querySelectorAll('[data-t-ph]').forEach((el) => { el.placeholder = s(el.getAttribute('data-t-ph')); });
     document.querySelectorAll('[data-t-alt]').forEach((el) => { el.alt = s(el.getAttribute('data-t-alt')); });
     document.querySelectorAll('[data-t-aria]').forEach((el) => { el.setAttribute('aria-label', s(el.getAttribute('data-t-aria'))); });
+    document.querySelectorAll('[data-href-es][data-href-en]').forEach((el) => {
+      el.setAttribute('href', el.getAttribute(l === 'en' ? 'data-href-en' : 'data-href-es'));
+    });
     document.querySelectorAll('.lang-btn').forEach((b) => {
       const on = b.getAttribute('data-lang') === l;
       b.classList.toggle('active', on);
       if (on) b.setAttribute('aria-current', 'true');
       else b.removeAttribute('aria-current');
     });
+    if (isDestacadoGrok && typeof history !== 'undefined' && history.replaceState) {
+      const next = new URL(location.href);
+      next.searchParams.set('lang', l);
+      history.replaceState({}, '', next.pathname + next.search + next.hash);
+    }
   }
 
   /* Header: burger menu */

@@ -74,6 +74,7 @@ def main() -> None:
     pages = [
         ROOT / "index.html",
         ROOT / "patrocina" / "index.html",
+        ROOT / "destacado-grok-bot" / "index.html",
         ROOT / "ia.css",
         ROOT / "ia.js",
         ROOT / "tokens.css",
