@@ -230,6 +230,12 @@ const META_EN = {
     ogTitle: 'Put your tool in front of Latin American game devs',
     ogDesc: 'At the top, with your logo and one line. USD 49 a month. Cancel anytime.',
   },
+  destacadoGrok: {
+    title: 'Destacado for Grok Bot | Featured spot in the AI gamedev directory',
+    desc: 'Put your AI game-dev tool at the top of a bilingual directory built for indie teams. USD 49 per month. Cancel anytime. Placement only.',
+    ogTitle: 'Destacado for Grok Bot | Featured spot in the AI gamedev directory',
+    ogDesc: 'Put your AI game-dev tool at the top of a bilingual directory built for indie teams. USD 49 per month. Cancel anytime. Placement only.',
+  },
 };
 
 /* English meta tags for ?lang=en, so crawlers that do not run JavaScript see English text. */
@@ -253,6 +259,7 @@ function englishMeta(response, m) {
     .on('meta[property="og:locale"]', set('en_US'))
     .on('meta[property="og:locale:alternate"]', set('es_MX'))
     .on('[data-en]', { element(el) { const t = el.getAttribute('data-en'); if (t) el.setInnerContent(t); } })
+    .on('[data-href-en]', { element(el) { const h = el.getAttribute('data-href-en'); if (h) el.setAttribute('href', h); } })
     .transform(response);
 }
 
@@ -268,8 +275,14 @@ export default {
       return Response.redirect(new URL('/ia/tools.json', request.url).toString(), 301);
     }
     const response = await env.ASSETS.fetch(request);
-    if ((pathname === '/ia/' || pathname === '/ia/patrocina/') && url.searchParams.get('lang') === 'en') {
-      return englishMeta(response, pathname === '/ia/patrocina/' ? META_EN.sponsor : META_EN.home);
+    const metaEn = {
+      '/ia/': META_EN.home,
+      '/ia/patrocina/': META_EN.sponsor,
+      '/ia/destacado-grok-bot/': META_EN.destacadoGrok,
+      '/ia/destacado-grok-bot': META_EN.destacadoGrok,
+    }[pathname];
+    if (metaEn && url.searchParams.get('lang') === 'en') {
+      return englishMeta(response, metaEn);
     }
     if (pathname === '/llms.txt' || pathname === '/ia/llms.txt' || pathname === '/ia/tools.json') {
       const type = response.headers.get('content-type') || '';
