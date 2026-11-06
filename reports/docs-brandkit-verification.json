@@ -1,0 +1,332 @@
+{
+  "base_main": "a7076dfd527ba04771d41a8d4773eae964f4a01c",
+  "branch": "docs/brandkit-es-en-20261022",
+  "runtime_byte_identical": true,
+  "protected_files_checked": 146,
+  "local_only": true,
+  "no_real_form_submission": true,
+  "verification_date": "2026-10-22",
+  "readme": {
+    "es": {
+      "section_count": 9,
+      "required_questions": [
+        "what",
+        "why",
+        "who",
+        "how",
+        "when",
+        "where",
+        "cost",
+        "privacy",
+        "limits",
+        "help"
+      ],
+      "local_links_checked": 12,
+      "missing_links": []
+    },
+    "en": {
+      "section_count": 9,
+      "required_questions": [
+        "what",
+        "why",
+        "who",
+        "how",
+        "when",
+        "where",
+        "cost",
+        "privacy",
+        "limits",
+        "help"
+      ],
+      "local_links_checked": 12,
+      "missing_links": []
+    }
+  },
+  "assets": {
+    "docs/media/database-es.png": {
+      "bytes": 109387,
+      "sha256": "f1101bcd03ea5dcde45351a1e19123d4fc1740607a9b49d6fad6990a25e346fa",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    "docs/media/jobs-es.png": {
+      "bytes": 96276,
+      "sha256": "c55a1115b6f5dd2aaa6cf4a0446368460656385bed5ec0744adff93d03e24f82",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    "docs/media/05-ia-es.png": {
+      "bytes": 160518,
+      "sha256": "ffdd4954f40927d514d1916751e9e625ad240da81a31ff0edfa66fb1d162df94",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    "docs/media/walkthrough-en.mp4": {
+      "bytes": 491464,
+      "sha256": "4ba258d4f3bea45bc872ac0efd99db7fa34a1fdac6ac6ca99844755d521d6e42",
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "duration": 15.04,
+      "width": 1440,
+      "height": 1000
+    },
+    "docs/media/06-search-en.png": {
+      "bytes": 95625,
+      "sha256": "966886645f7635bbb5fc7e4e1ad5743aa7f2e203815c21203b2dcfd742568ee3",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    "docs/media/tools-en.png": {
+      "bytes": 81292,
+      "sha256": "2092ec747fd582e4ef240bba3e9bf636cc9e4aef44966911aea3e465bb9e56b7",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    "docs/media/mobile-search-es.png": {
+      "bytes": 43772,
+      "sha256": "9bec2b3c07fbeddbc10a08da2995e9abcf00639a41d68a85da75af0902809d49",
+      "dimensions": [
+        390,
+        844
+      ]
+    },
+    "docs/media/01-home-en.png": {
+      "bytes": 103723,
+      "sha256": "6fe3dbcb87ee6387f391dd9290a0fa9a27a56c331c59f36056d100b69a9f4afc",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    "docs/media/database-en.png": {
+      "bytes": 109378,
+      "sha256": "b4b061e3b1a29f4b092fc757ecf1ac45c85f96dea807b6e5ec4854e86d6a37f0",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    "docs/media/walkthrough-es.mp4": {
+      "bytes": 508340,
+      "sha256": "daf26bc414199476b6504e3afe8c3ee9f426b96da532461f6422e2534e99553b",
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "duration": 15.32,
+      "width": 1440,
+      "height": 1000
+    },
+    "docs/media/database-search-es.png": {
+      "bytes": 69205,
+      "sha256": "72f90e3a0e84bb03f7fa37bfd91aa9ee7e0be88491b30e8fda475fc37d8dde82",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    "docs/media/walkthrough-es.vtt": {
+      "bytes": 388,
+      "sha256": "67040f0e28f762492148abef6afeb0552ede2f341a984c6dc4c8c677b4dfba38"
+    },
+    "docs/media/transcript-en.md": {
+      "bytes": 373,
+      "sha256": "6e51dddef45accf771a41c94aad03a6f128a43ca3e62fb038dbb28ef910b788b"
+    },
+    "docs/media/tools-es.png": {
+      "bytes": 82065,
+      "sha256": "7d00dd5d8777f27b3896ca28bdd2e58b46d9395c4e85cac120f12dfb89f99edc",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    "docs/media/mobile-search-en.png": {
+      "bytes": 41475,
+      "sha256": "03625908c60a7ea3bc8032681da7adda2178f8d222ba7239c27eb9998f1bb173",
+      "dimensions": [
+        390,
+        844
+      ]
+    },
+    "docs/media/cover-es.png": {
+      "bytes": 123376,
+      "sha256": "83fee4ced1d4bd8445358a4d38cd0f8ffaab5c1b79df9d3e32ee2502def1a581",
+      "dimensions": [
+        1600,
+        850
+      ]
+    },
+    "docs/media/06-search-es.png": {
+      "bytes": 99170,
+      "sha256": "fd89c069fea599f3aa2139dc0aac45dbc8ddba22e2f2e4483514e52d089bad2d",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    "docs/media/cover-en.png": {
+      "bytes": 119866,
+      "sha256": "66ef8bb67f016b9d76dbf22cae35bae00a5eebc7b7ba64b919a3e36ea1bd0ef3",
+      "dimensions": [
+        1600,
+        850
+      ]
+    },
+    "docs/media/walkthrough-en.vtt": {
+      "bytes": 357,
+      "sha256": "79a050e1d27a6b14ffce60583d7bb317198ccf60fe70045b5295f9d5b019fc28"
+    },
+    "docs/media/mobile.png": {
+      "bytes": 54018,
+      "sha256": "76d14de08bb18af412407c0a59cba6883b05ba4279c1e7bbfa466b93e5886b15",
+      "dimensions": [
+        390,
+        844
+      ]
+    },
+    "docs/media/05-ia-en.png": {
+      "bytes": 155471,
+      "sha256": "5149b5d599a64d233010b9df45fbcde09750c9529910c19f1e4c32a812643b63",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    "docs/media/transcript-es.md": {
+      "bytes": 411,
+      "sha256": "cb8352a96fc41f239bf73bf34928bda51f2877af1845dd8e6ff93eef892dd7e6"
+    },
+    "docs/media/jobs-en.png": {
+      "bytes": 98233,
+      "sha256": "9eed5c26ca33d984440606805bad67920f4bb5fbf3a3891984e09cf4b222aec1",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    "docs/media/01-home-es.png": {
+      "bytes": 107035,
+      "sha256": "3089010681757183c9a79255f703f58fe114e667688eff04eecc0b4c5c5396f2",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    "docs/media/database-search-en.png": {
+      "bytes": 69045,
+      "sha256": "a9fde352a6356d4a1a3314706638fee5fe9d3cdebb0796c9427b2ff7a94cb280",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    }
+  },
+  "brand_sources": [
+    {
+      "url": "https://brandkit.jorgesuarez.com.mx/assets/masters-1.0/signature/png/JorgeSuarez-A-oscuro-bicolor-screen-240px-visible.png",
+      "path": "brand-assets/assets/masters-1.0/signature/png/JorgeSuarez-A-oscuro-bicolor-screen-240px-visible.png",
+      "bytes": 4783,
+      "sha256": "560b2a153bb385c17da353de3b4224ac4bb15a4ba8c2fda88c99ad357fa18763"
+    },
+    {
+      "url": "https://brandkit.jorgesuarez.com.mx/assets/Outfit-static.ttf",
+      "path": "brand-assets/assets/Outfit-static.ttf",
+      "bytes": 55304,
+      "sha256": "cad43a79db1b8204a28d8a161d90c938ed80971affbf6768e357f090c7a2ed02"
+    },
+    {
+      "url": "https://brandkit.jorgesuarez.com.mx/assets/Inter-static.ttf",
+      "path": "brand-assets/assets/Inter-static.ttf",
+      "bytes": 341396,
+      "sha256": "6bd75f77a5941117f794cdb9cf4ee983acf45f2e96be56e74db55029454a988c"
+    }
+  ],
+  "browser_no_errors": true,
+  "tests": {
+    "command": "npm test",
+    "exit_code": 0,
+    "output": "test-output.txt",
+    "temporary_dependency": "Existing Playwright via a temporary node_modules symlink; removed after tests."
+  },
+  "recording_notes": "Actual browser screen recordings; silent; explanatory ES/EN VTT burned into H.264 MP4. No mocked responses, login or backend. Temporary localhost servers stopped.",
+  "protected_policy": "Every pre-existing tracked file except README.md compared byte-for-byte with base_main, including runtime, tests, vendor and historical docs.",
+  "readme_preview": [
+    {
+      "lang": "es",
+      "label": "desktop",
+      "imagesLoaded": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "lang": "es",
+      "label": "mobile",
+      "imagesLoaded": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "lang": "en",
+      "label": "desktop",
+      "imagesLoaded": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "lang": "en",
+      "label": "mobile",
+      "imagesLoaded": true,
+      "noHorizontalOverflow": true
+    }
+  ],
+  "changed_paths": [
+    "AGENTS.md",
+    "README.en.md",
+    "README.md",
+    "docs/ASSET-NOTICE.md",
+    "docs/REPOSITORY-DOCUMENTATION.en.md",
+    "docs/REPOSITORY-DOCUMENTATION.md",
+    "docs/TECHNICAL.en.md",
+    "docs/TECHNICAL.md",
+    "docs/media/01-home-en.png",
+    "docs/media/01-home-es.png",
+    "docs/media/05-ia-en.png",
+    "docs/media/05-ia-es.png",
+    "docs/media/06-search-en.png",
+    "docs/media/06-search-es.png",
+    "docs/media/cover-en.png",
+    "docs/media/cover-es.png",
+    "docs/media/database-en.png",
+    "docs/media/database-es.png",
+    "docs/media/database-search-en.png",
+    "docs/media/database-search-es.png",
+    "docs/media/jobs-en.png",
+    "docs/media/jobs-es.png",
+    "docs/media/mobile-search-en.png",
+    "docs/media/mobile-search-es.png",
+    "docs/media/mobile.png",
+    "docs/media/tools-en.png",
+    "docs/media/tools-es.png",
+    "docs/media/transcript-en.md",
+    "docs/media/transcript-es.md",
+    "docs/media/walkthrough-en.mp4",
+    "docs/media/walkthrough-en.vtt",
+    "docs/media/walkthrough-es.mp4",
+    "docs/media/walkthrough-es.vtt",
+    "reports/browser-evidence.json",
+    "reports/docs-brandkit-verification.json",
+    "reports/preview-en-desktop.png",
+    "reports/preview-en-mobile.png",
+    "reports/preview-es-desktop.png",
+    "reports/preview-es-mobile.png",
+    "reports/test-output.txt"
+  ],
+  "head_at_verification": "a7076dfd527ba04771d41a8d4773eae964f4a01c",
+  "commit_identity_note": "No identity configured; command-scoped Hermes Agent <hermes-agent@localhost> used, without global or repository config change."
+}

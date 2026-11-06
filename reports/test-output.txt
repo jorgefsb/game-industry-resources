@@ -1,0 +1,158 @@
+
+> test
+> node --test --test-concurrency=1 tools/juice-1.0.1/pin.test.mjs tools/juice-1.0.1/label.test.mjs tools/juice-1.0.1/hap.test.mjs tools/juice-1.0.2/pin.test.mjs tools/juice-1.0.2/manifest.test.mjs tools/juice-1.0.2/paper.test.mjs
+
+TAP version 13
+# Subtest: haptics: trusted tap fires; off / tab / drag / scripted click do not
+ok 1 - haptics: trusted tap fires; off / tab / drag / scripted click do not
+  ---
+  duration_ms: 2049.317888
+  type: 'test'
+  ...
+# Subtest: mismatch fixture fails (the 1.0.0 bug)
+ok 2 - mismatch fixture fails (the 1.0.0 bug)
+  ---
+  duration_ms: 1.765591
+  type: 'test'
+  ...
+# Subtest: EN mismatch fixture fails
+ok 3 - EN mismatch fixture fails
+  ---
+  duration_ms: 0.24397
+  type: 'test'
+  ...
+# Subtest: sound and feel names match in ES and EN, both sound states
+ok 4 - sound and feel names match in ES and EN, both sound states
+  ---
+  duration_ms: 2062.368199
+  type: 'test'
+  ...
+# Subtest: language switch repaints matching labels
+ok 5 - language switch repaints matching labels
+  ---
+  duration_ms: 411.139104
+  type: 'test'
+  ...
+# Subtest: sound starts off; reduced motion turns juice off
+ok 6 - sound starts off; reduced motion turns juice off
+  ---
+  duration_ms: 829.947759
+  type: 'test'
+  ...
+# Subtest: juice/1.0.0/juice.css sha256 stays pinned
+ok 7 - juice/1.0.0/juice.css sha256 stays pinned
+  ---
+  duration_ms: 1.567585
+  type: 'test'
+  ...
+# Subtest: juice/1.0.0/juice.js sha256 stays pinned
+ok 8 - juice/1.0.0/juice.js sha256 stays pinned
+  ---
+  duration_ms: 0.273359
+  type: 'test'
+  ...
+# Subtest: juice/1.0.0/juice-menu.css sha256 stays pinned
+ok 9 - juice/1.0.0/juice-menu.css sha256 stays pinned
+  ---
+  duration_ms: 0.267108
+  type: 'test'
+  ...
+# Subtest: juice/1.0.0/juice-menu.js sha256 stays pinned
+ok 10 - juice/1.0.0/juice-menu.js sha256 stays pinned
+  ---
+  duration_ms: 0.225449
+  type: 'test'
+  ...
+# Subtest: juice/1.0.0 sha256 matches manifest
+ok 11 - juice/1.0.0 sha256 matches manifest
+  ---
+  duration_ms: 1.928412
+  type: 'test'
+  ...
+# Subtest: juice/1.0.1 sha256 matches manifest
+ok 12 - juice/1.0.1 sha256 matches manifest
+  ---
+  duration_ms: 0.863299
+  type: 'test'
+  ...
+# Subtest: juice/1.0.2 sha256 matches manifest
+ok 13 - juice/1.0.2 sha256 matches manifest
+  ---
+  duration_ms: 0.970577
+  type: 'test'
+  ...
+# Subtest: detector fails when \#F4E8D5 is used as color
+ok 14 - detector fails when \#F4E8D5 is used as color
+  ---
+  duration_ms: 1.348514
+  type: 'test'
+  ...
+# Subtest: 1.0.2 published files must not use \#F4E8D5 as color (text)
+ok 15 - 1.0.2 published files must not use \#F4E8D5 as color (text)
+  ---
+  duration_ms: 0.414558
+  type: 'test'
+  ...
+# Subtest: 1.0.2 .jz-panel text on \#161616 uses on-dark / muted tokens
+ok 16 - 1.0.2 .jz-panel text on \#161616 uses on-dark / muted tokens
+  ---
+  duration_ms: 1.695394
+  type: 'test'
+  ...
+# Subtest: juice/1.0.0/juice.css sha256 stays pinned
+ok 17 - juice/1.0.0/juice.css sha256 stays pinned
+  ---
+  duration_ms: 1.745061
+  type: 'test'
+  ...
+# Subtest: juice/1.0.0/juice.js sha256 stays pinned
+ok 18 - juice/1.0.0/juice.js sha256 stays pinned
+  ---
+  duration_ms: 0.273969
+  type: 'test'
+  ...
+# Subtest: juice/1.0.0/juice-menu.css sha256 stays pinned
+ok 19 - juice/1.0.0/juice-menu.css sha256 stays pinned
+  ---
+  duration_ms: 0.288924
+  type: 'test'
+  ...
+# Subtest: juice/1.0.0/juice-menu.js sha256 stays pinned
+ok 20 - juice/1.0.0/juice-menu.js sha256 stays pinned
+  ---
+  duration_ms: 0.223155
+  type: 'test'
+  ...
+# Subtest: juice/1.0.1/juice.css sha256 stays pinned
+ok 21 - juice/1.0.1/juice.css sha256 stays pinned
+  ---
+  duration_ms: 0.219052
+  type: 'test'
+  ...
+# Subtest: juice/1.0.1/juice.js sha256 stays pinned
+ok 22 - juice/1.0.1/juice.js sha256 stays pinned
+  ---
+  duration_ms: 0.254589
+  type: 'test'
+  ...
+# Subtest: juice/1.0.1/juice-menu.css sha256 stays pinned
+ok 23 - juice/1.0.1/juice-menu.css sha256 stays pinned
+  ---
+  duration_ms: 0.280364
+  type: 'test'
+  ...
+# Subtest: juice/1.0.1/juice-menu.js sha256 stays pinned
+ok 24 - juice/1.0.1/juice-menu.js sha256 stays pinned
+  ---
+  duration_ms: 0.386397
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6892.808098
