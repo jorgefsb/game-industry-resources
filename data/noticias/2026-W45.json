@@ -1,0 +1,66 @@
+{
+  "week": "2026-W45",
+  "published_at": "2026-11-02",
+  "items": [
+    {
+      "title_es": "Hyperyuki: Snowboard Syndicate, el juego mexicano del Indie World",
+      "title_en": "Hyperyuki: Snowboard Syndicate, the Mexican game in Indie World",
+      "summary_es": "Wabisabi Design, estudio con sede en la Ciudad de México, mostró su juego de deportes arcade en el Nintendo Indie World Showcase del 28 de octubre. Llega a Nintendo Switch 2 a principios de 2027, y también a PS5, Xbox Series X|S y PC vía Steam. Entre sus cofundadores está Óscar Akira Noriega, quien fundó Atomix a los 17 años.",
+      "summary_en": "Wabisabi Design, a studio based in Mexico City, showed its arcade sports game at the Nintendo Indie World Showcase on Oct 28. It lands on Nintendo Switch 2 in early 2027, plus PS5, Xbox Series X|S and PC via Steam. Its cofounders include Óscar Akira Noriega, who founded Atomix at age 17.",
+      "url": "https://www.3djuegos.com.mx/deportes/estudio-fundado-leyenda-gaming-mexico-anuncia-su-nuevo-juego-salio-ultimo-nintendo-indie-world-tiene-a-taco-snowboard",
+      "source": "3DJuegos México",
+      "date": "2026-10-29",
+      "region": "MX"
+    },
+    {
+      "title_es": "Nadie coincide en cuántos estudios de videojuegos hay en México",
+      "title_en": "No two sources agree on how many game studios Mexico has",
+      "summary_es": "Un repaso de fuentes deja el conteo abierto: el BID habla de más de 220 estudios, Motor de Juegos de 222 entidades con 154 empresas formales, DeVuego LATAM registra 178 estudios y 554 juegos, y la Universidad de Colima liga 1,091 juegos a 261 estudios. El SCIAN del INEGI no tiene casilla para videojuegos, así que no hay cifra oficial.",
+      "summary_en": "A review of the sources leaves the count open: the IDB cites more than 220 studios, Motor de Juegos 222 entities with 154 formal companies, DeVuego LATAM lists 178 studios and 554 games, and the Universidad de Colima ties 1,091 games to 261 studios. The SCIAN system at INEGI has no video game category, so there is no official figure.",
+      "url": "https://neutralgame.com.mx/industria-mexicana-de-videojuegos/",
+      "source": "Neutral Game",
+      "date": "2026-11-02",
+      "region": "MX"
+    },
+    {
+      "title_es": "MADiSON, el terror argentino, tendrá película en Hollywood",
+      "title_en": "Argentine horror game MADiSON is getting a Hollywood film",
+      "summary_es": "BLOODIOUS Games cerró un acuerdo con Story Kitchen para un largometraje en el universo del juego de Alexis Di Stéfano, según adelantó Variety. Todavía no hay distribuidora, director, guionista, elenco ni fecha de estreno. Story Kitchen tiene en desarrollo adaptaciones de Sifu, Split Fiction y Streets of Rage.",
+      "summary_en": "BLOODIOUS Games signed a deal with Story Kitchen for a feature film set in the universe of the game by Alexis Di Stéfano, as Variety reported first. There is no distributor, director, writer, cast or release date yet. Story Kitchen has adaptations of Sifu, Split Fiction and Streets of Rage in development.",
+      "url": "https://pressover.news/noticias/madison-tendra-su-pelicula-el-videojuego-argentino-de-terror-llega-a-hollywood/",
+      "source": "Press Over",
+      "date": "2026-10-27",
+      "region": "LATAM"
+    },
+    {
+      "title_es": "LEVEL UY llega a su décima edición en Montevideo",
+      "title_en": "LEVEL UY reaches its tenth edition in Montevideo",
+      "summary_es": "El encuentro de la Cámara Uruguaya de Desarrolladores de Videojuegos se hace el 20 y 21 de noviembre en el Complejo Cultural Antel. El viernes van workshops pagos y mesas redondas gratuitas con inscripción previa. El sábado, de 10 a 19 horas, la jornada es abierta y gratuita, con charlas, exposición de juegos, networking y el Concurso Nacional de Videojuegos.",
+      "summary_en": "The gathering run by the Uruguayan chamber of game developers takes place Nov 20 and 21 at Complejo Cultural Antel. Friday brings paid workshops plus free round tables with prior registration. Saturday, 10am to 7pm, is open and free, with talks, a game showcase, networking and the national game contest.",
+      "url": "https://pressover.news/noticias/level-uy-2026-todo-sobre-la-decima-edicion-del-evento-de-videojuegos-uruguayos/",
+      "source": "Press Over",
+      "date": "2026-10-29",
+      "region": "LATAM"
+    },
+    {
+      "title_es": "Cash, el juego hecho en Cali, reporta 8,814 jugadores",
+      "title_en": "Cash, the game made in Cali, reports 8,814 players",
+      "summary_es": "El RPG 2D de educación financiera de la Fundación WWB Colombia y Banco W presentó balance alrededor del Día Mundial del Ahorro: 8,814 jugadores y 45 instituciones educativas. El 86.8 por ciento de quienes lo terminaron dijo entender mejor el ahorro, dato que es percepción reportada y no ahorro medido.",
+      "summary_en": "The 2D financial education RPG from Fundación WWB Colombia and Banco W published its numbers around World Savings Day: 8,814 players and 45 schools. Of those who finished, 86.8 percent said they understand saving better, a figure that is self reported perception and not measured saving.",
+      "url": "https://begamers.com/es/beyond-the-game/cash-el-videojuego-nacido-en-cali-que-lleva-la-educacion-financiera-una-aventura",
+      "source": "BeGamers",
+      "date": "2026-10-31",
+      "region": "LATAM"
+    },
+    {
+      "title_es": "Anthropic frena los clones de juegos en Claude Code",
+      "title_en": "Anthropic curbs game clones in Claude Code",
+      "summary_es": "Mueve a la región: la regla nueva de Claude Code, detectada el 27 de octubre, deja construir juegos originales, de género y con diseños y assets propios, pero no recrear un juego existente aunque se renombre. Es el primer freno de un laboratorio de IA al clonado que ya hizo a estudios chicos cancelar playtests públicos.",
+      "summary_en": "Why it moves the region: the new Claude Code rule, spotted on Oct 27, allows original games, genre games and games built from your own designs and assets, but not a recreation of an existing game even if renamed. It is the first brake from an AI lab on the cloning that already pushed small studios to cancel public playtests.",
+      "url": "https://www.gamedeveloper.com/programming/anthropic-appears-to-have-ordered-ai-tool-claude-to-stop-remaking-video-games",
+      "source": "Game Developer",
+      "date": "2026-10-30",
+      "region": "GLOBAL"
+    }
+  ]
+}
