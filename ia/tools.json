@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated": "2026-11-01",
+  "updated": "2026-11-09",
   "url": "https://gamedev.jorgesuarez.com.mx/ia/",
   "json": "https://gamedev.jorgesuarez.com.mx/ia/tools.json",
   "llms": "https://gamedev.jorgesuarez.com.mx/ia/llms.txt",
@@ -243,6 +243,19 @@
         "es": "Motor de IA que corre en el dispositivo del jugador: LLMs, voz y NPCs dentro del juego, para Unity, Unreal y Godot.",
         "en": "On-device AI engine: LLMs, speech and NPC behavior running inside the game, for Unity, Unreal and Godot."
       }
+    },
+    {
+      "id": "reference-to-game",
+      "name": "Reference to Game",
+      "category": "codigo",
+      "url": "https://github.com/gokayfem/reference-to-game",
+      "description": {
+        "es": "Skill abierta (MIT) para tu agente de código: convierte una imagen, un video o un boceto en un juego jugable sin perder su estilo ni sus colores.",
+        "en": "Open-source (MIT) skill for your coding agent: turns an image, video or sketch into a playable game without losing its style or colors."
+      },
+      "pricing": "gratis",
+      "pricing_checked": "2026-11-09",
+      "pricing_source": "https://github.com/gokayfem/reference-to-game/blob/main/LICENSE"
     },
     {
       "id": "scenario",

@@ -1,7 +1,7 @@
 # Directorio de IA para indie game developers
 # https://gamedev.jorgesuarez.com.mx/ia/
 # Machine-readable JSON: https://gamedev.jorgesuarez.com.mx/ia/tools.json
-# Updated: 2026-11-01
+# Updated: 2026-11-09
 # Language: Spanish first, English in tools.json
 # Pricing is included only when verified on the official site.
 # Afiliados: si compras por una liga de afiliado del directorio (hoy Meshy), Game Resources gana una comisión sin costo extra para ti. Las URLs de abajo son las oficiales.
@@ -21,6 +21,7 @@
 - Bezi [pago]: Agente que se conecta a tu proyecto de Unity o Unreal y aplica los cambios en el motor: escenas, scripts, UI y builds. (https://www.bezi.com)
 - Astrocade MCP: Servidor MCP hospedado para que tu agente arme y publique juegos en el feed de Astrocade, desde Claude Code, Cursor, Codex o ChatGPT. (https://www.astrocade.com/create/mcp)
 - Atelico AI Engine: Motor de IA que corre en el dispositivo del jugador: LLMs, voz y NPCs dentro del juego, para Unity, Unreal y Godot. (https://atelico.studio)
+- Reference to Game [gratis]: Skill abierta (MIT) para tu agente de código: convierte una imagen, un video o un boceto en un juego jugable sin perder su estilo ni sus colores. (https://github.com/gokayfem/reference-to-game)
 
 ## Sprites y 2D / Sprites & 2D
 - Scenario [freemium]: Genera arte 2D para tu juego manteniendo el mismo estilo en todos los assets. (https://www.scenario.com)
