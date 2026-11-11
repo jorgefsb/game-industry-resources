@@ -1,0 +1,38 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Outfit;src:url('/ia/fonts/outfit-700.woff2') format('woff2');font-weight:700}
+@font-face{font-family:Inter;src:url('/ia/fonts/inter-400.woff2') format('woff2');font-weight:400}
+*{box-sizing:border-box;margin:0}
+body{width:1200px;height:630px;background:#0A0A0A;color:#fff;font-family:Inter,sans-serif;overflow:hidden;position:relative}
+.wm{position:absolute;left:64px;top:48px;font:700 30px/1 Outfit;letter-spacing:-.01em}.wm span{color:#FF6B35}
+.eye{position:absolute;left:64px;top:118px;font-size:19px;letter-spacing:.14em;text-transform:uppercase;color:#FF6B35}
+h1{position:absolute;left:64px;top:156px;font:700 92px/1 Outfit;letter-spacing:-.035em}h1 span{color:#FF6B35}
+.moki{position:absolute;right:56px;top:36px;width:214px}
+.bub{position:absolute;right:250px;top:64px;background:#F4E8D5;color:#22211F;font:700 24px/1.2 Outfit;padding:14px 20px;border-radius:20px 20px 4px 20px;box-shadow:0 6px 0 rgba(0,0,0,.35)}
+.row{position:absolute;left:64px;right:64px;top:322px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.t{position:relative;background:#F4E8D5;color:#22211F;border-radius:20px;padding:34px 26px 26px;box-shadow:0 10px 0 rgba(0,0,0,.5);height:236px}
+.t:nth-child(1){transform:rotate(-1deg)}.t:nth-child(2){transform:rotate(.7deg)}.t:nth-child(3){transform:rotate(-.5deg)}
+.t::before{content:"";position:absolute;top:-14px;left:50%;width:96px;height:30px;margin-left:-48px;background:#B99168;transform:rotate(-2deg)}
+.n{display:inline-flex;width:54px;height:54px;border-radius:50%;background:#FF6B35;align-items:center;justify-content:center;font:700 22px/1 Outfit}
+.t h2{font:700 34px/1.05 Outfit;letter-spacing:-.02em;margin-top:16px}
+.t p{font-size:20px;line-height:1.35;margin-top:10px}
+/* kit */
+.kit .ticket{position:absolute;left:64px;top:150px;width:860px;height:416px;background:#F4E8D5;color:#22211F;border-radius:26px;box-shadow:0 12px 0 rgba(0,0,0,.5);display:grid;grid-template-columns:1fr 250px;transform:rotate(-1deg)}
+.kit .main{padding:44px 44px}
+.kit .k{font-size:18px;letter-spacing:.16em;text-transform:uppercase}
+.kit h1{position:static;font:700 86px/1 Outfit;letter-spacing:-.035em;margin-top:14px;color:#22211F}
+.kit ul{list-style:none;padding:0;margin-top:26px;font-size:26px;line-height:1.5}
+.kit li::before{content:"✓  ";font-weight:700}
+.kit .stub{border-left:4px dashed rgba(34,33,31,.5);padding:44px 30px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.kit .stub::before,.kit .stub::after{content:"";position:absolute;left:-18px;width:32px;height:32px;border-radius:50%;background:#0A0A0A}
+.kit .stub::before{top:-16px}.kit .stub::after{bottom:-16px}
+.kit .p{font:700 18px/1 Outfit;letter-spacing:.1em;text-transform:uppercase}
+.kit .p b{display:block;font-size:64px;letter-spacing:-.03em;text-transform:none;margin-top:8px}
+.kit .moki{right:40px;top:250px;width:236px}
+.url{position:absolute;right:64px;top:54px;font-size:20px;color:#B7B3AD}
+</style></head><body>
+<script>
+var q=new URLSearchParams(location.search), v=q.get('v')||'home';
+if(v==='home'){document.body.innerHTML='<div class="wm">JorgeSuarez<span>.com.mx</span></div><p class="eye">Recursos gratis para gamedevs de LATAM</p><h1>¿Dónde estás <span>hoy?</span></h1><p class="bub">Elige una y te llevo.</p><img class="moki" src="/ia/assets/moki-parche-derecho.png" alt=""><div class="row"><div class="t"><span class="n">01</span><h2>Quiero entrar</h2><p>Primer juego, CV y chamba</p></div><div class="t"><span class="n">02</span><h2>Ya hago juegos</h2><p>Kit, presupuesto, IA y venta</p></div><div class="t"><span class="n">03</span><h2>Tengo un estudio</h2><p>Pulso, ecosistema y noticias</p></div></div>';}
+else{document.body.className='kit';document.body.innerHTML='<div class="wm">JorgeSuarez<span>.com.mx</span></div><p class="url">gamedev.jorgesuarez.com.mx/kit</p><div class="ticket"><div class="main"><p class="k">Kit de arranque para tu juego</p><h1>Paga con un post</h1><ul><li>GDD de una página</li><li>Checklist de tu página de tienda</li><li>Pitch en 10 láminas</li></ul></div><div class="stub"><p class="p">Precio<b>1 post</b></p></div></div><img class="moki" src="/ia/assets/moki-parche-derecho.png" alt="">';}
+</script></body></html>

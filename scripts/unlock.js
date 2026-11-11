@@ -4,7 +4,7 @@
   var root = document.querySelector('[data-kit]');
   if (!root) return;
   var KEY = 'gd_kit_abierto';
-  var URL_KIT = 'https://gamedev.jorgesuarez.com.mx/kit.html';
+  var URL_KIT = 'https://gamedev.jorgesuarez.com.mx/kit';
   var status = document.querySelector('[data-kit-status]');
   var pending = false;
 

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es" data-moki-show="5" data-jz-sound="on">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Cuánto cuesta tu juego? Calculadora de presupuesto | Game Industry Resources</title>
+  <meta name="description" content="Calculadora gratis para gamedevs: pon a tu equipo, los meses y tus gastos, y ve el total y cuántas copias necesitas vender para recuperarlo.">
+  <link rel="canonical" href="https://gamedev.jorgesuarez.com.mx/presupuesto">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="alternate" hreflang="es" href="https://gamedev.jorgesuarez.com.mx/presupuesto">
+  <link rel="alternate" hreflang="en" href="https://gamedev.jorgesuarez.com.mx/presupuesto?lang=en">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="JorgeSuarez.com.mx">
+  <meta property="og:title" content="¿Cuánto cuesta tu juego? Calculadora de presupuesto | Game Industry Resources">
+  <meta property="og:description" content="Calculadora gratis para gamedevs: pon a tu equipo, los meses y tus gastos, y ve el total y cuántas copias necesitas vender para recuperarlo.">
+  <meta property="og:url" content="https://gamedev.jorgesuarez.com.mx/presupuesto">
+  <meta property="og:image" content="https://gamedev.jorgesuarez.com.mx/assets/og/gamedev-home.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="¿Dónde estás hoy? Tres rutas para hacer videojuegos en LATAM, con Moki, el astronauta de cartón de Jorge Suárez">
+  <meta name="twitter:site" content="@jorgefsb">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="ia/fonts/outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="ia/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="brand/0.3/tokens.css">
+  <link rel="stylesheet" href="ia/ia.css">
+  <link rel="stylesheet" href="styles/home.css">
+  <link rel="stylesheet" href="styles/inner.css">
+  <link rel="stylesheet" href="styles/revamp.css">
+  <link rel="stylesheet" href="styles/juice-120.css">
+  <link rel="stylesheet" href="styles/juice-sfx.css">
+  <link rel="stylesheet" href="juice/1.2.0/juice.css">
+  <link rel="stylesheet" href="juice/1.2.0/juice-menu.css">
+  <link rel="stylesheet" href="juice/1.2.0/hardcore/hardcore.css">
+  <link rel="stylesheet" href="juice/1.2.0/moki/moki.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+
+<body class="ia-page home-page inner-page">
+  <a class="ia-skip" href="#main" data-i18n="ui.skip">Ir a recursos</a>
+
+  <header class="hud" data-hud>
+    <a class="hud__brand" href="https://jorgesuarez.com.mx/" aria-label="JorgeSuarez.com.mx">
+      <span class="js-wordmark">JorgeSuarez<span>.com.mx</span></span>
+    </a>
+    <nav class="hud__nav" id="hud-nav" aria-label="Principal" data-i18n-aria="nav.label">
+      <div class="nav-group" data-group="empezar">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-empezar" data-es="Empezar" data-en="Start">Empezar</button>
+        <div class="nav-group__panel" id="nav-empezar">
+          <a href="entrar.html"><span data-es="Cómo entrar" data-en="How to get in">Cómo entrar</span><small data-es="Primer juego, Steam y el error más común" data-en="First game, Steam and the most common mistake">Primer juego, Steam y el error más común</small></a>
+          <a href="ciclo.html"><span data-es="Dónde te metes" data-en="Where you fit">Dónde te metes</span><small data-es="Elige una etapa y ve tu lugar" data-en="Pick a stage and see your place">Elige una etapa y ve tu lugar</small></a>
+          <a href="guides/cv.html"><span data-es="El CV perfecto" data-en="The perfect CV">El CV perfecto</span><small data-es="Currículum para la industria" data-en="A résumé for the industry">Currículum para la industria</small></a>
+          <a href="kit.html"><span data-es="Kit de arranque" data-en="Starter kit">Kit de arranque</span><small data-es="Plantillas. Se paga con un post" data-en="Templates. You pay with a post">Plantillas. Se paga con un post</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-group="hacer">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-hacer" data-es="Hacer" data-en="Make">Hacer</button>
+        <div class="nav-group__panel" id="nav-hacer">
+          <a href="presupuesto.html" aria-current="page"><span data-es="Calculadora de presupuesto" data-en="Budget calculator">Calculadora de presupuesto</span><small data-es="Cuánto cuesta tu juego y cuántas copias vender" data-en="What your game costs and how many copies to sell">Cuánto cuesta tu juego y cuántas copias vender</small></a>
+          <a href="tools.html"><span data-es="Production Tools" data-en="Production Tools">Production Tools</span><small data-es="GDD, presupuestos y checklists" data-en="GDD, budgets and checklists">GDD, presupuestos y checklists</small></a>
+          <a href="ia/"><span data-es="Directorio IA" data-en="AI Directory">Directorio IA</span><small data-es="Herramientas con precio verificado" data-en="Tools with verified pricing">Herramientas con precio verificado</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-group="vender">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-vender" data-es="Vender" data-en="Sell">Vender</button>
+        <div class="nav-group__panel" id="nav-vender">
+          <a href="marketing.html"><span data-es="Marketing Playbook" data-en="Marketing Playbook">Marketing Playbook</span><small data-es="Cómo vender tu juego" data-en="How to sell your game">Cómo vender tu juego</small></a>
+          <a href="https://gamestory.jorgesuarez.com.mx/"><span data-es="GameStory" data-en="GameStory">GameStory</span><small data-es="Video de 20 segundos de tu juego" data-en="A 20-second video of your game">Video de 20 segundos de tu juego</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-group="chamba">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-chamba" data-es="Chamba" data-en="Work">Chamba</button>
+        <div class="nav-group__panel" id="nav-chamba">
+          <a href="jobs.html"><span data-es="Jobs &amp; Career" data-en="Jobs &amp; Career">Jobs &amp; Career</span><small data-es="Vacantes, portafolio y carrera" data-en="Openings, portfolio and career">Vacantes, portafolio y carrera</small></a>
+          <a href="database.html"><span data-es="Studios DB" data-en="Studios DB">Studios DB</span><small data-es="Estudios de Latinoamérica" data-en="Studios across Latin America">Estudios de Latinoamérica</small></a>
+          <a href="ecosistema.html"><span data-es="Ecosistema MX" data-en="Mexico Ecosystem">Ecosistema MX</span><small data-es="Comunidades, eventos y escuelas" data-en="Communities, events and schools">Comunidades, eventos y escuelas</small></a>
+          <a href="mexico-indie.html"><span data-es="INDI-ES" data-en="INDI-ES">INDI-ES</span><small data-es="Pista de estudios indie en México" data-en="Leads on indie studios in Mexico">Pista de estudios indie en México</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-group="industria">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-industria" data-es="Industria" data-en="Industry">Industria</button>
+        <div class="nav-group__panel" id="nav-industria">
+          <a href="industria.html"><span data-es="Pulso MX" data-en="Mexico pulse">Pulso MX</span><small data-es="Corte 2024-2025, ya histórico" data-en="2024-2025 snapshot, now historical">Corte 2024-2025, ya histórico</small></a>
+          <a href="noticias/"><span data-es="Noticias" data-en="News">Noticias</span><small data-es="Digest semanal de la región" data-en="Weekly digest of the region">Digest semanal de la región</small></a>
+          <a href="actividad.html"><span data-es="Actividad" data-en="Activity">Actividad</span><small data-es="Lanzamientos de referencia" data-en="Reference launches">Lanzamientos de referencia</small></a>
+          <a href="gracias.html"><span data-es="Fuentes y gracias" data-en="Sources and thanks">Fuentes y gracias</span><small data-es="A quién le debemos este mapa" data-en="Who we owe this map to">A quién le debemos este mapa</small></a>
+        </div>
+      </div>
+      <a class="hud__nav-cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+    </nav>
+    <div class="hud__right">
+      <div class="lang-switcher" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+        <a href="?lang=es" class="lang-btn" data-lang="es" lang="es">ES</a>
+        <span aria-hidden="true">|</span>
+        <a href="?lang=en" class="lang-btn" data-lang="en" lang="en">EN</a>
+      </div>
+      <a class="btn btn--primary btn--sm hud__cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+      <button type="button" class="juice-sfx" aria-pressed="false" aria-label="Activar sonido"></button>
+      <button class="hud__burger" type="button" aria-expanded="false" aria-controls="hud-nav" aria-label="Menú" data-i18n-aria="nav.menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="wrap inner-hero">
+      <div class="hero__content">
+        <span class="hero__badge" data-es="Herramienta · gratis y sin registro" data-en="Tool · free, no sign-up">Herramienta · gratis y sin registro</span>
+        <h1 class="hero__title" data-es="¿Cuánto cuesta tu juego?" data-en="What does your game cost?">¿Cuánto cuesta tu juego?</h1>
+        <p class="hero__subtitle lead" data-es="Pon a tu equipo, los meses y tus gastos. Te decimos el total y cuántas copias necesitas vender para recuperarlo." data-en="Enter your team, the months and your expenses. We give you the total and how many copies you need to sell to earn it back.">Pon a tu equipo, los meses y tus gastos. Te decimos el total y cuántas copias necesitas vender para recuperarlo.</p>
+      </div>
+    </header>
+
+    <section class="wrap inner-section">
+      <form class="calc" data-calc novalidate>
+        <div class="calc__main">
+
+          <fieldset class="calc__block"><span data-moki="arriba" data-moki-id="gamedev-presupuesto-equipo" style="--moki-r:6%"></span>
+            <legend data-es="1. Equipo" data-en="1. Team">1. Equipo</legend>
+            <p class="calc__hint" data-es="Cuenta también tu tiempo. Si hoy no te pagas, pon lo que necesitarías cobrar para vivir." data-en="Count your own time too. If you don't pay yourself today, enter what you'd need to earn to live.">Cuenta también tu tiempo. Si hoy no te pagas, pon lo que necesitarías cobrar para vivir.</p>
+            <label class="calc__field calc__field--inline">
+              <span data-es="Moneda" data-en="Currency">Moneda</span>
+              <select name="moneda" data-cur>
+                <option value="MXN">MXN</option>
+                <option value="USD">USD</option>
+              </select>
+            </label>
+            <div class="calc__rows" data-rows></div>
+            <button type="button" class="btn btn--ghost" data-add-row data-es="Agregar rol" data-en="Add a role">Agregar rol</button>
+          </fieldset>
+
+          <fieldset class="calc__block">
+            <legend data-es="2. Otros gastos" data-en="2. Other expenses">2. Otros gastos</legend>
+            <div class="calc__grid">
+              <label class="calc__field"><span data-es="Herramientas y licencias, por mes" data-en="Tools and licenses, per month">Herramientas y licencias, por mes</span><input type="number" inputmode="decimal" min="0" step="any" name="tools" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Meses que dura el proyecto" data-en="Months the project runs">Meses que dura el proyecto</span><input type="number" inputmode="decimal" min="0" step="any" name="months" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Música y audio por encargo" data-en="Commissioned music and audio">Música y audio por encargo</span><input type="number" inputmode="decimal" min="0" step="any" name="audio" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Localización" data-en="Localization">Localización</span><input type="number" inputmode="decimal" min="0" step="any" name="loc" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Marketing y tráiler" data-en="Marketing and trailer">Marketing y tráiler</span><input type="number" inputmode="decimal" min="0" step="any" name="mkt" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Tienda, legal y contabilidad" data-en="Store fees, legal and accounting">Tienda, legal y contabilidad</span><input type="number" inputmode="decimal" min="0" step="any" name="legal" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Eventos y viajes" data-en="Events and travel">Eventos y viajes</span><input type="number" inputmode="decimal" min="0" step="any" name="events" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Colchón para imprevistos, %" data-en="Buffer for surprises, %">Colchón para imprevistos, %</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="buffer" value="20"></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="calc__block">
+            <legend data-es="3. Venta" data-en="3. Sales">3. Venta</legend>
+            <div class="calc__grid">
+              <label class="calc__field"><span data-es="Precio de tu juego" data-en="Your game's price">Precio de tu juego</span><input type="number" inputmode="decimal" min="0" step="any" name="price" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Comisión de la tienda, %" data-en="Store cut, %">Comisión de la tienda, %</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="cut" value="30"></label>
+              <label class="calc__field"><span data-es="Impuestos, descuentos y devoluciones, %" data-en="Taxes, discounts and refunds, %">Impuestos, descuentos y devoluciones, %</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="leak" value="0"></label>
+              <label class="calc__field"><span data-es="Parte del publisher, %" data-en="Publisher's share, %">Parte del publisher, %</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="pub" value="0"></label>
+            </div>
+            <p class="calc__hint" data-es="El 30% es la comisión de entrada de Steam. Cámbiala por la de tu tienda. Casi nadie vende todas sus copias a precio completo, así que no dejes en cero la casilla de descuentos." data-en="30% is Steam's starting cut. Change it to your store's. Almost nobody sells every copy at full price, so don't leave the discounts box at zero.">El 30% es la comisión de entrada de Steam. Cámbiala por la de tu tienda. Casi nadie vende todas sus copias a precio completo, así que no dejes en cero la casilla de descuentos.</p>
+          </fieldset>
+        </div>
+
+        <aside class="calc__out" aria-live="polite">
+          <p class="rv-ticket__kicker" data-es="Tu presupuesto" data-en="Your budget">Tu presupuesto</p>
+          <p class="calc__total" data-out="total">0</p>
+          <dl class="calc__dl">
+            <div><dt data-es="Equipo" data-en="Team">Equipo</dt><dd data-out="team">0</dd></div>
+            <div><dt data-es="Otros gastos" data-en="Other expenses">Otros gastos</dt><dd data-out="other">0</dd></div>
+            <div><dt data-es="Colchón" data-en="Buffer">Colchón</dt><dd data-out="buffer">0</dd></div>
+            <div><dt data-es="Te queda por copia" data-en="You keep per copy">Te queda por copia</dt><dd data-out="net">0</dd></div>
+          </dl>
+          <p class="calc__be"><span data-es="Copias para recuperarlo" data-en="Copies to earn it back">Copias para recuperarlo</span><b data-out="copies">0</b></p>
+          <p class="calc__msg" data-out="msg"></p>
+          <div class="calc__actions">
+            <button type="button" class="btn btn--ink" data-calc-copy data-es="Copiar resumen" data-en="Copy summary">Copiar resumen</button>
+            <button type="button" class="btn btn--paper-ghost" data-print data-es="Imprimir" data-en="Print">Imprimir</button>
+            <button type="button" class="btn btn--paper-ghost" data-calc-reset data-es="Empezar de cero" data-en="Start over">Empezar de cero</button>
+          </div>
+          <p class="rv-ticket__note" data-es="Se guarda solo en este navegador. Nadie más ve tus números." data-en="Saved only in this browser. Nobody else sees your numbers.">Se guarda solo en este navegador. Nadie más ve tus números.</p>
+        </aside>
+      </form>
+    </section>
+
+    <section class="wrap inner-section">
+      <div class="prose">
+        <h2 data-es="Cómo leer el resultado" data-en="How to read the result">Cómo leer el resultado</h2>
+        <p data-es="Es aritmética, no una predicción de ventas ni asesoría fiscal. Sirve para ver el tamaño real del proyecto antes de comprometerte." data-en="It's arithmetic, not a sales forecast or tax advice. It shows you the real size of the project before you commit.">Es aritmética, no una predicción de ventas ni asesoría fiscal. Sirve para ver el tamaño real del proyecto antes de comprometerte.</p>
+        <p data-es="Si el número de copias te asusta, tienes tres palancas: menos meses, menos alcance o más precio. Mueve una y vuelve a ver." data-en="If the number of copies scares you, you have three levers: fewer months, less scope or a higher price. Move one and look again.">Si el número de copias te asusta, tienes tres palancas: menos meses, menos alcance o más precio. Mueve una y vuelve a ver.</p>
+        <div class="inner-actions" style="justify-content:flex-start">
+          <a class="btn btn--primary" href="kit.html" data-es="Ir al kit de arranque" data-en="Go to the starter kit">Ir al kit de arranque</a>
+          <a class="btn btn--ghost" href="marketing.html" data-es="Cómo vender tu juego" data-en="How to sell your game">Cómo vender tu juego</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap papacito-footer" aria-label="Créditos" data-i18n-aria="footer.label"><span data-moki="saluda" data-moki-id="gamedev-presupuesto-footer" style="--moki-r:8%"></span>
+    <div class="papacito-footer__identity"><span data-moki="arriba" data-moki-id="gamedev-presupuesto-firma" style="right:auto;left:0"></span>
+      <a class="js-wordmark" href="https://jorgesuarez.com.mx/">JorgeSuarez<span>.com.mx</span></a>
+      <p data-es="Kaizen y Juego" data-en="Kaizen &amp; Play">Kaizen y Juego</p>
+    </div>
+    <ul class="ia-socials" aria-label="Redes" data-i18n-aria="footer.social">
+      <li><a href="https://linkedin.com/in/yorgenmeister" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://x.com/jorgefsb" target="_blank" rel="noopener">X / Twitter</a></li>
+      <li><a href="https://www.facebook.com/jorgesuarez.com.mx/" target="_blank" rel="noopener">Facebook</a></li>
+      <li><a href="https://github.com/jorgefsb" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://instagram.com/jorgefsb" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.youtube.com/@jorgefsb" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="https://tiktok.com/@jorgesuarez.com.mx" target="_blank" rel="noopener">TikTok</a></li>
+    </ul>
+    <p class="papacito-footer__signature"><span data-es="Hecho con amor ❤️🎮 por" data-en="Made with love ❤️🎮 by">Hecho con amor ❤️🎮 por</span> <a href="https://jorgesuarez.com.mx/">JorgeSuarez.com.mx</a> <a class="foot-back" href="https://jorgesuarez.com.mx/" data-i18n="nav.home">← JorgeSuarez<span>.com.mx</span></a></p>
+    <p class="papacito-footer__log" data-es="gamedev /presupuesto · build 10 nov 2026 · America/Mexico_City · Spark · juice 1.2.0 · brandkit 0.3" data-en="gamedev /presupuesto · build Nov 10 2026 · America/Mexico_City · Spark · juice 1.2.0 · brandkit 0.3">gamedev /presupuesto · build 10 nov 2026 · America/Mexico_City · Spark · juice 1.2.0 · brandkit 0.3</p>
+    <div class="papacito-footer__meta">
+      <p data-es="Jorge Suárez | © 2026 | Construido sobre nuestros valores de Kaizen y Juego." data-en="Jorge Suárez | © 2026 | Built on our values of Kaizen &amp; Play.">Jorge Suárez | © 2026 | Construido sobre nuestros valores de Kaizen y Juego.</p>
+      <p><a href="gracias.html" data-es="Fuentes y gracias" data-en="Sources and thanks">Fuentes y gracias</a> · <a href="llms.txt" data-i18n="footer.llms">Para ChatGPT, Claude y Grok</a></p>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="scripts/home.js"></script>
+  <script src="scripts/nav.js" defer></script>
+  <script src="scripts/presupuesto.js" defer></script>
+  <script src="juice/1.2.0/juice.js" defer></script>
+  <script src="juice/1.2.0/juice-menu.js" defer></script>
+  <script src="juice/1.2.0/hardcore/hardcore.js" defer></script>
+  <script src="juice/1.2.0/moki/moki.js" defer></script>
+  <script src="scripts/juice.bind.120.js" defer></script>
+  <script src="scripts/juice.sfx.js" defer></script>
+<!-- Barra común del ecosistema (1-nov-2026) -->
+<script src="https://moki.jorgesuarez.com.mx/eco/barra.js" defer></script>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://gamedev.jorgesuarez.com.mx/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
+  <url><loc>https://gamedev.jorgesuarez.com.mx/</loc><lastmod>2026-11-10</lastmod><priority>0.8</priority></url>
   <url><loc>https://gamedev.jorgesuarez.com.mx/ia/</loc><lastmod>2026-11-01</lastmod><priority>1.0</priority></url>
   <url><loc>https://gamedev.jorgesuarez.com.mx/ia/patrocina/</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
   <url><loc>https://gamedev.jorgesuarez.com.mx/ia/destacado-grok-bot/</loc><lastmod>2026-11-01</lastmod><priority>0.7</priority></url>
@@ -13,8 +13,9 @@
   <url><loc>https://gamedev.jorgesuarez.com.mx/industria</loc><lastmod>2026-10-24</lastmod><priority>0.7</priority></url>
   <url><loc>https://gamedev.jorgesuarez.com.mx/ecosistema</loc><lastmod>2026-10-24</lastmod><priority>0.7</priority></url>
   <url><loc>https://gamedev.jorgesuarez.com.mx/ciclo</loc><lastmod>2026-10-24</lastmod><priority>0.7</priority></url>
-  <url><loc>https://gamedev.jorgesuarez.com.mx/noticias/</loc><lastmod>2026-10-24</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gamedev.jorgesuarez.com.mx/noticias/</loc><lastmod>2026-11-09</lastmod><priority>0.7</priority></url>
   <url><loc>https://gamedev.jorgesuarez.com.mx/historico/2024-2025/</loc><lastmod>2026-10-24</lastmod><priority>0.4</priority></url>
-  <url><loc>https://gamedev.jorgesuarez.com.mx/kit.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://gamedev.jorgesuarez.com.mx/gracias.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://gamedev.jorgesuarez.com.mx/kit</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://gamedev.jorgesuarez.com.mx/gracias</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://gamedev.jorgesuarez.com.mx/presupuesto</loc><lastmod>2026-11-10</lastmod></url>
 </urlset>

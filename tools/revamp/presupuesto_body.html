@@ -1,0 +1,87 @@
+  <main id="main">
+    <header class="wrap inner-hero">
+      <div class="hero__content">
+        <span class="hero__badge" data-es="Herramienta · gratis y sin registro" data-en="Tool · free, no sign-up">Herramienta · gratis y sin registro</span>
+        <h1 class="hero__title" data-es="¿Cuánto cuesta tu juego?" data-en="What does your game cost?">¿Cuánto cuesta tu juego?</h1>
+        <p class="hero__subtitle lead" data-es="Pon a tu equipo, los meses y tus gastos. Te decimos el total y cuántas copias necesitas vender para recuperarlo." data-en="Enter your team, the months and your expenses. We give you the total and how many copies you need to sell to earn it back.">Pon a tu equipo, los meses y tus gastos. Te decimos el total y cuántas copias necesitas vender para recuperarlo.</p>
+      </div>
+    </header>
+
+    <section class="wrap inner-section">
+      <form class="calc" data-calc novalidate>
+        <div class="calc__main">
+
+          <fieldset class="calc__block"><span data-moki="arriba" data-moki-id="gamedev-presupuesto-equipo" style="--moki-r:6%"></span>
+            <legend data-es="1. Equipo" data-en="1. Team">1. Equipo</legend>
+            <p class="calc__hint" data-es="Cuenta también tu tiempo. Si hoy no te pagas, pon lo que necesitarías cobrar para vivir." data-en="Count your own time too. If you don't pay yourself today, enter what you'd need to earn to live.">Cuenta también tu tiempo. Si hoy no te pagas, pon lo que necesitarías cobrar para vivir.</p>
+            <label class="calc__field calc__field--inline">
+              <span data-es="Moneda" data-en="Currency">Moneda</span>
+              <select name="moneda" data-cur>
+                <option value="MXN">MXN</option>
+                <option value="USD">USD</option>
+              </select>
+            </label>
+            <div class="calc__rows" data-rows></div>
+            <button type="button" class="btn btn--ghost" data-add-row data-es="Agregar rol" data-en="Add a role">Agregar rol</button>
+          </fieldset>
+
+          <fieldset class="calc__block">
+            <legend data-es="2. Otros gastos" data-en="2. Other expenses">2. Otros gastos</legend>
+            <div class="calc__grid">
+              <label class="calc__field"><span data-es="Herramientas y licencias, por mes" data-en="Tools and licenses, per month">Herramientas y licencias, por mes</span><input type="number" inputmode="decimal" min="0" step="any" name="tools" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Meses que dura el proyecto" data-en="Months the project runs">Meses que dura el proyecto</span><input type="number" inputmode="decimal" min="0" step="any" name="months" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Música y audio por encargo" data-en="Commissioned music and audio">Música y audio por encargo</span><input type="number" inputmode="decimal" min="0" step="any" name="audio" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Localización" data-en="Localization">Localización</span><input type="number" inputmode="decimal" min="0" step="any" name="loc" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Marketing y tráiler" data-en="Marketing and trailer">Marketing y tráiler</span><input type="number" inputmode="decimal" min="0" step="any" name="mkt" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Tienda, legal y contabilidad" data-en="Store fees, legal and accounting">Tienda, legal y contabilidad</span><input type="number" inputmode="decimal" min="0" step="any" name="legal" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Eventos y viajes" data-en="Events and travel">Eventos y viajes</span><input type="number" inputmode="decimal" min="0" step="any" name="events" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Colchón para imprevistos, %" data-en="Buffer for surprises, %">Colchón para imprevistos, %</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="buffer" value="20"></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="calc__block">
+            <legend data-es="3. Venta" data-en="3. Sales">3. Venta</legend>
+            <div class="calc__grid">
+              <label class="calc__field"><span data-es="Precio de tu juego" data-en="Your game's price">Precio de tu juego</span><input type="number" inputmode="decimal" min="0" step="any" name="price" placeholder="0"></label>
+              <label class="calc__field"><span data-es="Comisión de la tienda, %" data-en="Store cut, %">Comisión de la tienda, %</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="cut" value="30"></label>
+              <label class="calc__field"><span data-es="Impuestos, descuentos y devoluciones, %" data-en="Taxes, discounts and refunds, %">Impuestos, descuentos y devoluciones, %</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="leak" value="0"></label>
+              <label class="calc__field"><span data-es="Parte del publisher, %" data-en="Publisher's share, %">Parte del publisher, %</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="pub" value="0"></label>
+            </div>
+            <p class="calc__hint" data-es="El 30% es la comisión de entrada de Steam. Cámbiala por la de tu tienda. Casi nadie vende todas sus copias a precio completo, así que no dejes en cero la casilla de descuentos." data-en="30% is Steam's starting cut. Change it to your store's. Almost nobody sells every copy at full price, so don't leave the discounts box at zero.">El 30% es la comisión de entrada de Steam. Cámbiala por la de tu tienda. Casi nadie vende todas sus copias a precio completo, así que no dejes en cero la casilla de descuentos.</p>
+          </fieldset>
+        </div>
+
+        <aside class="calc__out" aria-live="polite">
+          <p class="rv-ticket__kicker" data-es="Tu presupuesto" data-en="Your budget">Tu presupuesto</p>
+          <p class="calc__total" data-out="total">0</p>
+          <dl class="calc__dl">
+            <div><dt data-es="Equipo" data-en="Team">Equipo</dt><dd data-out="team">0</dd></div>
+            <div><dt data-es="Otros gastos" data-en="Other expenses">Otros gastos</dt><dd data-out="other">0</dd></div>
+            <div><dt data-es="Colchón" data-en="Buffer">Colchón</dt><dd data-out="buffer">0</dd></div>
+            <div><dt data-es="Te queda por copia" data-en="You keep per copy">Te queda por copia</dt><dd data-out="net">0</dd></div>
+          </dl>
+          <p class="calc__be"><span data-es="Copias para recuperarlo" data-en="Copies to earn it back">Copias para recuperarlo</span><b data-out="copies">0</b></p>
+          <p class="calc__msg" data-out="msg"></p>
+          <div class="calc__actions">
+            <button type="button" class="btn btn--ink" data-calc-copy data-es="Copiar resumen" data-en="Copy summary">Copiar resumen</button>
+            <button type="button" class="btn btn--paper-ghost" data-print data-es="Imprimir" data-en="Print">Imprimir</button>
+            <button type="button" class="btn btn--paper-ghost" data-calc-reset data-es="Empezar de cero" data-en="Start over">Empezar de cero</button>
+          </div>
+          <p class="rv-ticket__note" data-es="Se guarda solo en este navegador. Nadie más ve tus números." data-en="Saved only in this browser. Nobody else sees your numbers.">Se guarda solo en este navegador. Nadie más ve tus números.</p>
+        </aside>
+      </form>
+    </section>
+
+    <section class="wrap inner-section">
+      <div class="prose">
+        <h2 data-es="Cómo leer el resultado" data-en="How to read the result">Cómo leer el resultado</h2>
+        <p data-es="Es aritmética, no una predicción de ventas ni asesoría fiscal. Sirve para ver el tamaño real del proyecto antes de comprometerte." data-en="It's arithmetic, not a sales forecast or tax advice. It shows you the real size of the project before you commit.">Es aritmética, no una predicción de ventas ni asesoría fiscal. Sirve para ver el tamaño real del proyecto antes de comprometerte.</p>
+        <p data-es="Si el número de copias te asusta, tienes tres palancas: menos meses, menos alcance o más precio. Mueve una y vuelve a ver." data-en="If the number of copies scares you, you have three levers: fewer months, less scope or a higher price. Move one and look again.">Si el número de copias te asusta, tienes tres palancas: menos meses, menos alcance o más precio. Mueve una y vuelve a ver.</p>
+        <div class="inner-actions" style="justify-content:flex-start">
+          <a class="btn btn--primary" href="kit.html" data-es="Ir al kit de arranque" data-en="Go to the starter kit">Ir al kit de arranque</a>
+          <a class="btn btn--ghost" href="marketing.html" data-es="Cómo vender tu juego" data-en="How to sell your game">Cómo vender tu juego</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
