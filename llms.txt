@@ -13,6 +13,8 @@
 - Pulso de la industria MX (corte 2024-2025 de servicios, empleo y gaps del informe): https://gamedev.jorgesuarez.com.mx/industria
 - Ecosistema MX (estudios, comunidades, eventos y escuelas): https://gamedev.jorgesuarez.com.mx/ecosistema
 - Ciclo de producción (pre, producción y post: dónde encaja un gamedev de LATAM): https://gamedev.jorgesuarez.com.mx/ciclo
+- Kit de arranque (plantillas: GDD de una página, checklist de página de tienda y pitch en 10 láminas): https://gamedev.jorgesuarez.com.mx/kit.html
+- Fuentes y gracias (de dónde sale cada dato y a quién se le da crédito): https://gamedev.jorgesuarez.com.mx/gracias.html
 
 ## Directorio de herramientas de IA
 

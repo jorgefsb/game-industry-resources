@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="ia/ia.css">
   <link rel="stylesheet" href="styles/home.css">
   <link rel="stylesheet" href="styles/inner.css">
+  <link rel="stylesheet" href="styles/revamp.css">
   <link rel="stylesheet" href="styles/juice-120.css">
   <link rel="stylesheet" href="styles/juice-sfx.css">
   <link rel="stylesheet" href="juice/1.2.0/juice.css">
@@ -138,13 +139,47 @@
       <span class="js-wordmark">JorgeSuarez<span>.com.mx</span></span>
     </a>
     <nav class="hud__nav" id="hud-nav" aria-label="Principal" data-i18n-aria="nav.label">
-      <a href="index.html#resources" class="nav__link" data-i18n="nav.resources">Recursos</a>
-      <a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a>
-      <a href="industria.html" class="nav__link" data-i18n="nav.industry">Industria</a>
-      <a href="noticias/" class="nav__link" data-i18n="nav.news">Noticias</a>
-      <a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs &amp; Career</a>
-      <a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a>
-      <a href="https://club.uetc.mx" target="_blank" rel="noopener" class="nav__link" data-i18n="nav.community">Comunidad</a>
+      <div class="nav-group" data-group="empezar">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-empezar" data-es="Empezar" data-en="Start">Empezar</button>
+        <div class="nav-group__panel" id="nav-empezar">
+          <a href="entrar.html" aria-current="page"><span data-es="Cómo entrar" data-en="How to get in">Cómo entrar</span><small data-es="Primer juego, Steam y el error más común" data-en="First game, Steam and the most common mistake">Primer juego, Steam y el error más común</small></a>
+          <a href="ciclo.html"><span data-es="Dónde te metes" data-en="Where you fit">Dónde te metes</span><small data-es="Elige una etapa y ve tu lugar" data-en="Pick a stage and see your place">Elige una etapa y ve tu lugar</small></a>
+          <a href="guides/cv.html"><span data-es="El CV perfecto" data-en="The perfect CV">El CV perfecto</span><small data-es="Currículum para la industria" data-en="A résumé for the industry">Currículum para la industria</small></a>
+          <a href="kit.html"><span data-es="Kit de arranque" data-en="Starter kit">Kit de arranque</span><small data-es="Plantillas. Se paga con un post" data-en="Templates. You pay with a post">Plantillas. Se paga con un post</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-group="hacer">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-hacer" data-es="Hacer" data-en="Make">Hacer</button>
+        <div class="nav-group__panel" id="nav-hacer">
+          <a href="tools.html"><span data-es="Production Tools" data-en="Production Tools">Production Tools</span><small data-es="GDD, presupuestos y checklists" data-en="GDD, budgets and checklists">GDD, presupuestos y checklists</small></a>
+          <a href="ia/"><span data-es="Directorio IA" data-en="AI Directory">Directorio IA</span><small data-es="Herramientas con precio verificado" data-en="Tools with verified pricing">Herramientas con precio verificado</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-group="vender">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-vender" data-es="Vender" data-en="Sell">Vender</button>
+        <div class="nav-group__panel" id="nav-vender">
+          <a href="marketing.html"><span data-es="Marketing Playbook" data-en="Marketing Playbook">Marketing Playbook</span><small data-es="Cómo vender tu juego" data-en="How to sell your game">Cómo vender tu juego</small></a>
+          <a href="https://gamestory.jorgesuarez.com.mx/"><span data-es="GameStory" data-en="GameStory">GameStory</span><small data-es="Video de 20 segundos de tu juego" data-en="A 20-second video of your game">Video de 20 segundos de tu juego</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-group="chamba">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-chamba" data-es="Chamba" data-en="Work">Chamba</button>
+        <div class="nav-group__panel" id="nav-chamba">
+          <a href="jobs.html"><span data-es="Jobs &amp; Career" data-en="Jobs &amp; Career">Jobs &amp; Career</span><small data-es="Vacantes, portafolio y carrera" data-en="Openings, portfolio and career">Vacantes, portafolio y carrera</small></a>
+          <a href="database.html"><span data-es="Studios DB" data-en="Studios DB">Studios DB</span><small data-es="Estudios de Latinoamérica" data-en="Studios across Latin America">Estudios de Latinoamérica</small></a>
+          <a href="ecosistema.html"><span data-es="Ecosistema MX" data-en="Mexico Ecosystem">Ecosistema MX</span><small data-es="Comunidades, eventos y escuelas" data-en="Communities, events and schools">Comunidades, eventos y escuelas</small></a>
+          <a href="mexico-indie.html"><span data-es="INDI-ES" data-en="INDI-ES">INDI-ES</span><small data-es="Pista de estudios indie en México" data-en="Leads on indie studios in Mexico">Pista de estudios indie en México</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-group="industria">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-industria" data-es="Industria" data-en="Industry">Industria</button>
+        <div class="nav-group__panel" id="nav-industria">
+          <a href="industria.html"><span data-es="Pulso MX" data-en="Mexico pulse">Pulso MX</span><small data-es="Corte 2024-2025, ya histórico" data-en="2024-2025 snapshot, now historical">Corte 2024-2025, ya histórico</small></a>
+          <a href="noticias/"><span data-es="Noticias" data-en="News">Noticias</span><small data-es="Digest semanal de la región" data-en="Weekly digest of the region">Digest semanal de la región</small></a>
+          <a href="actividad.html"><span data-es="Actividad" data-en="Activity">Actividad</span><small data-es="Lanzamientos de referencia" data-en="Reference launches">Lanzamientos de referencia</small></a>
+          <a href="gracias.html"><span data-es="Fuentes y gracias" data-en="Sources and thanks">Fuentes y gracias</span><small data-es="A quién le debemos este mapa" data-en="Who we owe this map to">A quién le debemos este mapa</small></a>
+        </div>
+      </div>
       <a class="hud__nav-cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
     </nav>
     <div class="hud__right">
@@ -229,6 +264,7 @@
 
   <script src="i18n.js"></script>
   <script src="scripts/home.js"></script>
+  <script src="scripts/nav.js" defer></script>
   <script src="juice/1.2.0/juice.js" defer></script>
   <script src="juice/1.2.0/juice-menu.js" defer></script>
   <script src="juice/1.2.0/hardcore/hardcore.js" defer></script>

@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Game Industry Resources 🎮 | Recursos para Game Devs LATAM</title>
+  <title>Game Industry Resources 🎮 | Tu ruta para hacer videojuegos en LATAM</title>
   <meta name="description"
-    content="Guías, templates y herramientas gratuitas para desarrolladores de videojuegos en Latinoamérica.">
+    content="Elige tu ruta: entrar a la industria, hacer y vender tu juego o hacer crecer tu estudio. Guías, plantillas, estudios, chamba y herramientas de IA para gamedevs de Latinoamérica. Gratis.">
   <link rel="canonical" href="https://gamedev.jorgesuarez.com.mx/">
   <meta name="theme-color" content="#0A0A0A">
   <link rel="alternate" hreflang="es" href="https://gamedev.jorgesuarez.com.mx/">
@@ -15,8 +15,8 @@
   <meta property="og:locale" content="es_MX">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:site_name" content="JorgeSuarez.com.mx">
-  <meta property="og:title" content="Game Industry Resources 🎮 | Recursos para Game Devs LATAM">
-  <meta property="og:description" content="Guías, templates y herramientas gratuitas para desarrolladores de videojuegos en Latinoamérica.">
+  <meta property="og:title" content="Game Industry Resources 🎮 | Tu ruta para hacer videojuegos en LATAM">
+  <meta property="og:description" content="Elige tu ruta: entrar a la industria, hacer y vender tu juego o hacer crecer tu estudio. Guías, plantillas, estudios, chamba y herramientas de IA para gamedevs de Latinoamérica. Gratis.">
   <meta property="og:url" content="https://gamedev.jorgesuarez.com.mx/">
   <meta property="og:image" content="https://gamedev.jorgesuarez.com.mx/ia/assets/moki-parche-derecho.png">
   <meta property="og:image:alt" content="Moki, el astronauta de cartón de Jorge Suárez">
@@ -26,30 +26,67 @@
   <link rel="stylesheet" href="brand/0.3/tokens.css">
   <link rel="stylesheet" href="ia/ia.css">
   <link rel="stylesheet" href="styles/home.css">
+  <link rel="stylesheet" href="styles/revamp.css">
   <link rel="stylesheet" href="styles/juice-120.css">
   <link rel="stylesheet" href="styles/juice-sfx.css">
   <link rel="stylesheet" href="juice/1.2.0/juice.css">
   <link rel="stylesheet" href="juice/1.2.0/juice-menu.css">
   <link rel="stylesheet" href="juice/1.2.0/hardcore/hardcore.css">
   <link rel="stylesheet" href="juice/1.2.0/moki/moki.css">
-  <link rel="icon" href="ia/assets/moki-parche-derecho.png" type="image/png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 
 <body class="ia-page home-page">
-  <a class="ia-skip" href="#resources" data-i18n="ui.skip">Ir a recursos</a>
+  <a class="ia-skip" href="#rutas" data-i18n="ui.skip">Ir a recursos</a>
 
   <header class="hud" data-hud>
     <a class="hud__brand" href="https://jorgesuarez.com.mx/" aria-label="JorgeSuarez.com.mx">
       <span class="js-wordmark">JorgeSuarez<span>.com.mx</span></span>
     </a>
     <nav class="hud__nav" id="hud-nav" aria-label="Principal" data-i18n-aria="nav.label">
-      <a href="#resources" class="nav__link" aria-current="true" data-i18n="nav.resources">Recursos</a>
-      <a href="ia/" class="nav__link" data-i18n="nav.ia">IA</a>
-      <a href="industria.html" class="nav__link" data-i18n="nav.industry">Industria</a>
-      <a href="noticias/" class="nav__link" data-i18n="nav.news">Noticias</a>
-      <a href="jobs.html" class="nav__link" data-i18n="nav.jobs">Jobs &amp; Career</a>
-      <a href="database.html" class="nav__link" data-i18n="nav.studios">Studios DB</a>
-      <a href="https://club.uetc.mx" target="_blank" rel="noopener" class="nav__link" data-i18n="nav.community">Comunidad</a>
+      <div class="nav-group" data-group="empezar">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-empezar" data-es="Empezar" data-en="Start">Empezar</button>
+        <div class="nav-group__panel" id="nav-empezar">
+          <a href="entrar.html"><span data-es="Cómo entrar" data-en="How to get in">Cómo entrar</span><small data-es="Primer juego, Steam y el error más común" data-en="First game, Steam and the most common mistake">Primer juego, Steam y el error más común</small></a>
+          <a href="ciclo.html"><span data-es="Dónde te metes" data-en="Where you fit">Dónde te metes</span><small data-es="Elige una etapa y ve tu lugar" data-en="Pick a stage and see your place">Elige una etapa y ve tu lugar</small></a>
+          <a href="guides/cv.html"><span data-es="El CV perfecto" data-en="The perfect CV">El CV perfecto</span><small data-es="Currículum para la industria" data-en="A résumé for the industry">Currículum para la industria</small></a>
+          <a href="kit.html"><span data-es="Kit de arranque" data-en="Starter kit">Kit de arranque</span><small data-es="Plantillas. Se paga con un post" data-en="Templates. You pay with a post">Plantillas. Se paga con un post</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-group="hacer">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-hacer" data-es="Hacer" data-en="Make">Hacer</button>
+        <div class="nav-group__panel" id="nav-hacer">
+          <a href="tools.html"><span data-es="Production Tools" data-en="Production Tools">Production Tools</span><small data-es="GDD, presupuestos y checklists" data-en="GDD, budgets and checklists">GDD, presupuestos y checklists</small></a>
+          <a href="ia/"><span data-es="Directorio IA" data-en="AI Directory">Directorio IA</span><small data-es="Herramientas con precio verificado" data-en="Tools with verified pricing">Herramientas con precio verificado</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-group="vender">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-vender" data-es="Vender" data-en="Sell">Vender</button>
+        <div class="nav-group__panel" id="nav-vender">
+          <a href="marketing.html"><span data-es="Marketing Playbook" data-en="Marketing Playbook">Marketing Playbook</span><small data-es="Cómo vender tu juego" data-en="How to sell your game">Cómo vender tu juego</small></a>
+          <a href="https://gamestory.jorgesuarez.com.mx/"><span data-es="GameStory" data-en="GameStory">GameStory</span><small data-es="Video de 20 segundos de tu juego" data-en="A 20-second video of your game">Video de 20 segundos de tu juego</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-group="chamba">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-chamba" data-es="Chamba" data-en="Work">Chamba</button>
+        <div class="nav-group__panel" id="nav-chamba">
+          <a href="jobs.html"><span data-es="Jobs &amp; Career" data-en="Jobs &amp; Career">Jobs &amp; Career</span><small data-es="Vacantes, portafolio y carrera" data-en="Openings, portfolio and career">Vacantes, portafolio y carrera</small></a>
+          <a href="database.html"><span data-es="Studios DB" data-en="Studios DB">Studios DB</span><small data-es="Estudios de Latinoamérica" data-en="Studios across Latin America">Estudios de Latinoamérica</small></a>
+          <a href="ecosistema.html"><span data-es="Ecosistema MX" data-en="Mexico Ecosystem">Ecosistema MX</span><small data-es="Comunidades, eventos y escuelas" data-en="Communities, events and schools">Comunidades, eventos y escuelas</small></a>
+          <a href="mexico-indie.html"><span data-es="INDI-ES" data-en="INDI-ES">INDI-ES</span><small data-es="Pista de estudios indie en México" data-en="Leads on indie studios in Mexico">Pista de estudios indie en México</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-group="industria">
+        <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-industria" data-es="Industria" data-en="Industry">Industria</button>
+        <div class="nav-group__panel" id="nav-industria">
+          <a href="industria.html"><span data-es="Pulso MX" data-en="Mexico pulse">Pulso MX</span><small data-es="Corte 2024-2025, ya histórico" data-en="2024-2025 snapshot, now historical">Corte 2024-2025, ya histórico</small></a>
+          <a href="noticias/"><span data-es="Noticias" data-en="News">Noticias</span><small data-es="Digest semanal de la región" data-en="Weekly digest of the region">Digest semanal de la región</small></a>
+          <a href="actividad.html"><span data-es="Actividad" data-en="Activity">Actividad</span><small data-es="Lanzamientos de referencia" data-en="Reference launches">Lanzamientos de referencia</small></a>
+          <a href="gracias.html"><span data-es="Fuentes y gracias" data-en="Sources and thanks">Fuentes y gracias</span><small data-es="A quién le debemos este mapa" data-en="Who we owe this map to">A quién le debemos este mapa</small></a>
+        </div>
+      </div>
       <a class="hud__nav-cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
     </nav>
     <div class="hud__right">
@@ -65,23 +102,98 @@
   </header>
 
   <main id="main">
-    <header class="wrap home-hero">
-      <div class="hero__content"><span data-moki="arriba" data-moki-id="gamedev-home-hero" style="--moki-r:12%"></span>
-        <figure class="home-hero__moki">
-          <span class="ia-moki-live">
-            <img class="ia-moki" src="ia/assets/moki-parche-derecho.webp" width="220" height="234" fetchpriority="high" alt="Moki, el astronauta de cartón naranja, listo para explorar" data-i18n-alt="alt.mokiHome">
-          </span>
-          <p class="ia-bubble" data-i18n="hero.bubble.home">¿Listo para el<br>next level?</p>
-        </figure>
-        <span class="hero__badge hero__badge--historic"><span class="ia-badge" data-i18n="historic.badge">Histórico</span> <span data-i18n="hero.badge.historic">Pulso 2024-2025 · México y LATAM</span></span>
-        <h1 class="hero__title" data-i18n="hero.title.home">El mapa para hacer juegos en <span class="home-accent">LATAM</span></h1>
-        <p class="hero__subtitle lead" data-i18n="hero.subtitle.home">Cifras del sector, estudios, chamba y herramientas. Curado para quien ya está en esto o quiere entrar.</p>
-        <div class="hero__actions home-actions">
-          <a href="industria.html" class="btn btn--primary" data-i18n="hero.cta.industry">Ver el pulso</a>
-          <a href="ciclo.html" class="btn btn--ghost" data-i18n="hero.cta.cycle">Dónde te metes</a>
-        </div>
+    <header class="wrap rv-hero">
+      <div class="rv-hero__copy"><span data-moki="arriba" data-moki-id="gamedev-home-hero" style="--moki-r:4%"></span>
+        <p class="eyebrow" data-es="Recursos gratis para gamedevs de LATAM" data-en="Free resources for LATAM game devs">Recursos gratis para gamedevs de LATAM</p>
+        <h1 class="hero__title"><span data-es="¿Dónde estás" data-en="Where are you">¿Dónde estás</span> <span class="home-accent" data-es="hoy?" data-en="today?">hoy?</span></h1>
+        <p class="lead" data-es="Elige tu ruta. Cada una te deja en el siguiente paso para vivir de hacer videojuegos." data-en="Pick your route. Each one drops you at the next step toward making games for a living.">Elige tu ruta. Cada una te deja en el siguiente paso para vivir de hacer videojuegos.</p>
       </div>
+      <figure class="rv-hero__moki">
+        <span class="ia-moki-live">
+          <img class="ia-moki" src="ia/assets/moki-parche-derecho.webp" width="220" height="234" fetchpriority="high" alt="Moki, el astronauta de cartón naranja, listo para explorar" data-i18n-alt="alt.mokiHome">
+        </span>
+        <p class="ia-bubble" data-es="Elige una y te llevo." data-en="Pick one, I'll take you.">Elige una y te llevo.</p>
+      </figure>
     </header>
+
+    <section class="wrap rv-routes" id="rutas" aria-label="Rutas">
+      <div class="rv-routes__grid">
+        <article class="rv-route">
+          <div class="rv-route__head">
+            <span class="rv-route__n" aria-hidden="true">01</span>
+            <h2 data-es="Quiero entrar" data-en="I want in">Quiero entrar</h2>
+          </div>
+          <p class="rv-route__who" data-es="Estudias, vienes de otra industria o haces juegos por tu cuenta y quieres tu primera chamba." data-en="You study, come from another industry, or make games on your own and want your first job.">Estudias, vienes de otra industria o haces juegos por tu cuenta y quieres tu primera chamba.</p>
+          <ol>
+            <li><a href="entrar.html"><span><b data-es="Lee cómo entrar" data-en="Read how to get in">Lee cómo entrar</b><small data-es="Primer juego, Steam y el error más común" data-en="First game, Steam and the most common mistake">Primer juego, Steam y el error más común</small></span></a></li>
+            <li><a href="ciclo.html"><span><b data-es="Ve dónde te metes" data-en="See where you fit">Ve dónde te metes</b><small data-es="Elige una etapa del ciclo de producción" data-en="Pick a stage of the production cycle">Elige una etapa del ciclo de producción</small></span></a></li>
+            <li><a href="guides/cv.html"><span><b data-es="Arma tu CV" data-en="Build your CV">Arma tu CV</b><small data-es="Currículum pensado para la industria" data-en="A résumé built for the industry">Currículum pensado para la industria</small></span></a></li>
+            <li><a href="jobs.html"><span><b data-es="Busca chamba" data-en="Find work">Busca chamba</b><small data-es="Vacantes, portafolio y carrera" data-en="Openings, portfolio and career">Vacantes, portafolio y carrera</small></span></a></li>
+          </ol>
+        </article>
+
+        <article class="rv-route">
+          <div class="rv-route__head">
+            <span class="rv-route__n" aria-hidden="true">02</span>
+            <h2 data-es="Ya hago juegos" data-en="I already make games">Ya hago juegos</h2>
+          </div>
+          <p class="rv-route__who" data-es="Tienes un prototipo o un juego en camino y quieres terminarlo y venderlo." data-en="You have a prototype or a game underway and want to finish it and sell it.">Tienes un prototipo o un juego en camino y quieres terminarlo y venderlo.</p>
+          <ol>
+            <li><a href="kit.html"><span><b data-es="Llévate el kit de arranque" data-en="Grab the starter kit">Llévate el kit de arranque</b><small data-es="GDD de una página, tienda y pitch" data-en="One-page GDD, store page and pitch">GDD de una página, tienda y pitch</small></span></a></li>
+            <li><a href="tools.html"><span><b data-es="Ordena tu producción" data-en="Organize your production">Ordena tu producción</b><small data-es="Plantillas, presupuestos y checklists" data-en="Templates, budgets and checklists">Plantillas, presupuestos y checklists</small></span></a></li>
+            <li><a href="ia/"><span><b data-es="Súmale IA donde sí sirve" data-en="Add AI where it helps">Súmale IA donde sí sirve</b><small data-es="Directorio con precio verificado" data-en="Directory with verified pricing">Directorio con precio verificado</small></span></a></li>
+            <li><a href="marketing.html"><span><b data-es="Vende tu juego" data-en="Sell your game">Vende tu juego</b><small data-es="Visibilidad antes del lanzamiento" data-en="Visibility before launch">Visibilidad antes del lanzamiento</small></span></a></li>
+          </ol>
+        </article>
+
+        <article class="rv-route">
+          <div class="rv-route__head">
+            <span class="rv-route__n" aria-hidden="true">03</span>
+            <h2 data-es="Tengo un estudio" data-en="I run a studio">Tengo un estudio</h2>
+          </div>
+          <p class="rv-route__who" data-es="Ya facturas o estás por abrir, y necesitas ubicar al resto de la región." data-en="You already invoice or are about to open, and need to place yourself in the region.">Ya facturas o estás por abrir, y necesitas ubicar al resto de la región.</p>
+          <ol>
+            <li><a href="industria.html"><span><b data-es="Ubica el volumen" data-en="Size the market">Ubica el volumen</b><small data-es="Pulso MX, corte 2024-2025" data-en="Mexico pulse, 2024-2025 snapshot">Pulso MX, corte 2024-2025</small></span></a></li>
+            <li><a href="ecosistema.html"><span><b data-es="Conoce el ecosistema" data-en="Meet the ecosystem">Conoce el ecosistema</b><small data-es="Comunidades, eventos y escuelas" data-en="Communities, events and schools">Comunidades, eventos y escuelas</small></span></a></li>
+            <li><a href="database.html"><span><b data-es="Mira a otros estudios" data-en="Look at other studios">Mira a otros estudios</b><small data-es="Base de estudios de Latinoamérica" data-en="Database of Latin American studios">Base de estudios de Latinoamérica</small></span></a></li>
+            <li><a href="noticias/"><span><b data-es="Sigue lo que se mueve" data-en="Follow what moves">Sigue lo que se mueve</b><small data-es="Digest semanal con fuente" data-en="Weekly digest with sources">Digest semanal con fuente</small></span></a></li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap rv-section rv-new" id="nuevo" aria-labelledby="nuevo-title">
+      <div class="rv-head">
+        <h2 id="nuevo-title" data-es="Lo nuevo" data-en="What's new">Lo nuevo</h2>
+        <p><span data-es="Esto se mueve cada semana." data-en="This moves every week.">Esto se mueve cada semana.</span> <span class="rv-new__since" data-new-since hidden></span></p>
+      </div>
+      <ul class="rv-new__list" data-new-list>
+        <li data-date="2026-11-10"><a href="kit.html"><time datetime="2026-11-10" data-es="10 nov 2026" data-en="Nov 10, 2026">10 nov 2026</time><span><b data-es="Kit de arranque" data-en="Starter kit">Kit de arranque</b><small data-es="GDD de una página, checklist de tienda y pitch en 10 láminas. Se paga con un post." data-en="One-page GDD, store page checklist and a 10-slide pitch. You pay with a post.">GDD de una página, checklist de tienda y pitch en 10 láminas. Se paga con un post.</small></span><span class="ia-badge rv-new__flag" data-es="Nuevo" data-en="New">Nuevo</span></a></li>
+        <li data-date="2026-11-10"><a href="gracias.html"><time datetime="2026-11-10" data-es="10 nov 2026" data-en="Nov 10, 2026">10 nov 2026</time><span><b data-es="Fuentes y gracias" data-en="Sources and thanks">Fuentes y gracias</b><small data-es="A quién le debemos este mapa y de dónde sale cada dato." data-en="Who we owe this map to and where each fact comes from.">A quién le debemos este mapa y de dónde sale cada dato.</small></span><span class="ia-badge rv-new__flag" data-es="Nuevo" data-en="New">Nuevo</span></a></li>
+        <li data-date="2026-11-03"><a href="entrar.html"><time datetime="2026-11-03" data-es="3 nov 2026" data-en="Nov 3, 2026">3 nov 2026</time><span><b data-es="Cómo entrar a gamedev en LATAM" data-en="How to get into gamedev in LATAM">Cómo entrar a gamedev en LATAM</b><small data-es="Preguntas y respuestas para empezar, sin humo." data-en="Questions and answers to get started, no fluff.">Preguntas y respuestas para empezar, sin humo.</small></span><span class="ia-badge rv-new__flag" data-es="Nuevo" data-en="New">Nuevo</span></a></li>
+        <li data-date="2026-11-01"><a href="ia/"><time datetime="2026-11-01" data-es="1 nov 2026" data-en="Nov 1, 2026">1 nov 2026</time><span><b data-es="Directorio IA: 3 herramientas más" data-en="AI Directory: 3 more tools">Directorio IA: 3 herramientas más</b><small data-es="Entraron Atelico, PINOC y Aura Autopilot. Van 52." data-en="Atelico, PINOC and Aura Autopilot joined. 52 so far.">Entraron Atelico, PINOC y Aura Autopilot. Van 52.</small></span><span class="ia-badge rv-new__flag" data-es="Nuevo" data-en="New">Nuevo</span></a></li>
+      </ul>
+    </section>
+
+    <section class="wrap rv-section" id="kit" aria-labelledby="kit-title">
+      <article class="rv-ticket"><span data-moki="arriba" data-moki-id="gamedev-home-kit" style="--moki-r:34%"></span>
+        <div class="rv-ticket__main">
+          <p class="rv-ticket__kicker" data-es="Kit de arranque" data-en="Starter kit">Kit de arranque</p>
+          <h2 id="kit-title" data-es="Paga con un post" data-en="Pay with a post">Paga con un post</h2>
+          <p data-es="Tres plantillas para dejar de darle vueltas y avanzar tu juego. La primera es libre. Las otras se abren cuando compartes el mapa con alguien a quien le sirva." data-en="Three templates to stop circling and move your game forward. The first one is open. The others unlock when you share the map with someone who can use it.">Tres plantillas para dejar de darle vueltas y avanzar tu juego. La primera es libre. Las otras se abren cuando compartes el mapa con alguien a quien le sirva.</p>
+          <ul>
+            <li data-es="GDD de una página (libre)" data-en="One-page GDD (open)">GDD de una página (libre)</li>
+            <li data-es="Checklist de tu página de tienda" data-en="Store page checklist">Checklist de tu página de tienda</li>
+            <li data-es="Pitch en 10 láminas" data-en="Pitch in 10 slides">Pitch en 10 láminas</li>
+          </ul>
+        </div>
+        <div class="rv-ticket__stub">
+          <p class="rv-ticket__price"><span data-es="Precio" data-en="Price">Precio</span><b data-es="1 post" data-en="1 post">1 post</b></p>
+          <a class="btn btn--ink" href="kit.html" data-es="Abrir el kit" data-en="Open the kit">Abrir el kit</a>
+          <p class="rv-ticket__note" data-es="Cada semana entra una pieza nueva. Sin correo y sin registro." data-en="A new piece lands every week. No email, no sign-up.">Cada semana entra una pieza nueva. Sin correo y sin registro.</p>
+        </div>
+      </article>
+    </section>
 
     <section class="wrap home-ia" aria-labelledby="ia-band-title">
       <article class="ia-featured__card"><span data-moki="arriba" data-moki-id="gamedev-home-ia" style="--moki-r:10%"></span>
@@ -93,126 +205,76 @@
       </article>
     </section>
 
-    <section class="wrap home-pulse" id="pulse" aria-labelledby="pulse-title">
-      <div class="section__header">
-        <h2 id="pulse-title" class="section__title" data-i18n="section.pulse.kicker">Lo que se ve en el sector</h2>
-        <p class="section__description" data-i18n="section.pulse.historic.lead">Corte 2024-2025, ya histórico. Servicios y desarrollo externo en México.</p>
-      </div>
-      <aside class="historic-note" role="note">
-        <p>
+    <section class="wrap rv-section" id="pulse" aria-labelledby="pulse-title">
+      <div class="rv-pulse">
+        <article class="rv-pulse__card"><span data-moki="arriba" data-moki-id="gamedev-home-pulso" style="--moki-r:8%"></span>
           <span class="ia-badge" data-i18n="historic.badge">Histórico</span>
-          <span data-i18n="historic.banner.home">Estas cifras son del corte 2024-2025. No son el pulso vivo. Se quedan aquí hasta el siguiente corte trimestral.</span>
-          <a class="historic-note__link" href="historico/2024-2025/" data-i18n="historic.banner.cta">Ver el archivo 2024-2025</a>
-        </p>
-      </aside>
-      <div class="pulse-grid">
-        <article class="pulse-stat"><span data-moki="arriba" data-moki-id="gamedev-home-pulso" style="--moki-r:8%"></span>
-          <span class="pulse-stat__n" data-i18n="pulse.50.n">+50</span>
-          <span class="pulse-stat__l" data-i18n="pulse.50.l">Estudios de servicios</span>
-          <span class="pulse-stat__d" data-i18n="pulse.50.d">Desarrollo y apoyo externo en el país.</span>
+          <h2 id="pulse-title" data-es="Pulso MX, corte 2024-2025" data-en="Mexico pulse, 2024-2025 snapshot">Pulso MX, corte 2024-2025</h2>
+          <p class="rv-pulse__nums"><span>+50<small data-es="estudios de servicios" data-en="services studios">estudios de servicios</small></span><span>+2,900<small data-es="empleos directos" data-en="direct jobs">empleos directos</small></span></p>
+          <p data-es="Cifras de una encuesta pública de junio a octubre de 2025, con 292 respuestas. Sirven para ubicar volumen. El próximo corte entra en enero de 2027." data-en="Figures from a public survey run June to October 2025, with 292 responses. Good for sizing volume. The next snapshot lands in January 2027.">Cifras de una encuesta pública de junio a octubre de 2025, con 292 respuestas. Sirven para ubicar volumen. El próximo corte entra en enero de 2027.</p>
+          <div class="rv-links">
+            <a class="btn btn--ghost" href="industria.html" data-i18n="hero.cta.industry">Ver el pulso</a>
+          </div>
         </article>
-        <article class="pulse-stat">
-          <span class="pulse-stat__n" data-i18n="pulse.2900.n">+2,900</span>
-          <span class="pulse-stat__l" data-i18n="pulse.2900.l">Empleos directos</span>
-          <span class="pulse-stat__d" data-i18n="pulse.2900.d">Gente cobrando por hacer juegos en México.</span>
+        <article class="rv-pulse__card">
+          <h2 data-es="Este mapa se arma con trabajo de otros" data-en="This map is built on other people's work">Este mapa se arma con trabajo de otros</h2>
+          <p data-es="Motor de Juegos, DeVuego, INDI-ES y más gente de la región hicieron el trabajo pesado antes que nosotros. Aquí les damos crédito y te mandamos con ellos." data-en="Motor de Juegos, DeVuego, INDI-ES and more people in the region did the heavy lifting before us. Here we credit them and send you their way.">Motor de Juegos, DeVuego, INDI-ES y más gente de la región hicieron el trabajo pesado antes que nosotros. Aquí les damos crédito y te mandamos con ellos.</p>
+          <div class="rv-links">
+            <a class="btn btn--ghost" href="gracias.html" data-es="Ver fuentes y gracias" data-en="See sources and thanks">Ver fuentes y gracias</a>
+          </div>
         </article>
-        <article class="pulse-stat">
-          <span class="pulse-stat__n" data-i18n="pulse.79.n">79%</span>
-          <span class="pulse-stat__l" data-i18n="pulse.79.l">En desarrollo</span>
-          <span class="pulse-stat__d" data-i18n="pulse.79.d">Casi 8 de cada 10 puestos están en hacer el juego.</span>
-        </article>
-        <article class="pulse-stat">
-          <span class="pulse-stat__n" data-i18n="pulse.36.n">+USD 36 M</span>
-          <span class="pulse-stat__l" data-i18n="pulse.36.l">Facturación</span>
-          <span class="pulse-stat__d" data-i18n="pulse.36.d">Promedio anual del sector de servicios.</span>
-        </article>
-      </div>
-      <div class="home-prose">
-        <h2 data-i18n="outsource.title">Qué es desarrollo externo</h2>
-        <p data-i18n="outsource.aka">También le dicen servicios para la industria u outsourcing.</p>
-        <p data-i18n="outsource.p1">Es cuando un estudio o un publisher te encarga un trozo del juego.</p>
-        <p data-i18n="outsource.p2">México entra por talento, costo y huso horario con Estados Unidos.</p>
       </div>
     </section>
 
-    <section class="wrap home-section next-pulse" id="next-pulse" aria-labelledby="next-pulse-title">
-      <div class="section__header">
-        <h2 id="next-pulse-title" class="section__title" data-i18n="next.title">Próximo pulso</h2>
-        <p class="section__description" data-i18n="next.lead">Las cifras se actualizan cada trimestre: enero, abril, julio y octubre.</p>
+    <section class="wrap rv-section rv-map-wrap" id="resources" aria-labelledby="map-title">
+      <div class="rv-head">
+        <h2 id="map-title" data-es="Todo el mapa" data-en="The whole map">Todo el mapa</h2>
+        <p data-es="Si ya sabes qué buscas, entra directo." data-en="If you know what you're after, go straight in.">Si ya sabes qué buscas, entra directo.</p>
       </div>
-      <article class="ia-card next-pulse__card">
-        <span class="ia-badge" data-i18n="next.badge">Próximo</span>
-        <h3 class="card__title" data-i18n="next.when">Enero 2027</h3>
-        <p class="card__description" data-i18n="next.body">Ahí entra el siguiente corte de cifras. Hasta entonces no hay números nuevos publicados aquí: lo que ves arriba es el corte 2024-2025.</p>
-        <div class="card__actions">
-          <a class="btn btn--primary" href="noticias/" data-i18n="next.cta.news">Mientras, ve las noticias</a>
-          <a class="btn btn--ghost" href="historico/2024-2025/" data-i18n="historic.banner.cta">Ver el archivo 2024-2025</a>
+      <div class="rv-map">
+        <div>
+          <h3 data-es="Empezar" data-en="Start">Empezar</h3>
+          <ul>
+            <li><a href="entrar.html" data-i18n="card.entrar.title">Cómo entrar</a></li>
+            <li><a href="ciclo.html" data-es="Dónde te metes" data-en="Where you fit">Dónde te metes</a></li>
+            <li><a href="guides/cv.html" data-es="El CV perfecto" data-en="The perfect CV">El CV perfecto</a></li>
+            <li><a href="kit.html" data-es="Kit de arranque" data-en="Starter kit">Kit de arranque</a></li>
+          </ul>
         </div>
-      </article>
-    </section>
-
-    <section class="wrap home-section" id="resources">
-      <div class="section__header">
-        <h2 class="section__title" data-i18n="section.home.resources">Herramientas para cada etapa</h2>
+        <div>
+          <h3 data-es="Hacer" data-en="Make">Hacer</h3>
+          <ul>
+            <li><a href="tools.html" data-i18n="card.tools.title">Production Tools</a></li>
+            <li><a href="ia/" data-i18n="card.ia.title">Directorio IA</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-es="Vender" data-en="Sell">Vender</h3>
+          <ul>
+            <li><a href="marketing.html">Marketing Playbook</a></li>
+            <li><a href="https://gamestory.jorgesuarez.com.mx/">GameStory</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-es="Chamba" data-en="Work">Chamba</h3>
+          <ul>
+            <li><a href="jobs.html" data-i18n="card.jobs.title">Jobs &amp; Career</a></li>
+            <li><a href="database.html" data-i18n="card.studios.title">Studios DB</a></li>
+            <li><a href="ecosistema.html" data-i18n="card.eco.title">Ecosistema MX</a></li>
+            <li><a href="mexico-indie.html">INDI-ES</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-es="Industria" data-en="Industry">Industria</h3>
+          <ul>
+            <li><a href="industria.html" data-i18n="card.industry.title">Pulso de la industria</a></li>
+            <li><a href="noticias/" data-i18n="card.news.title">Noticias</a></li>
+            <li><a href="actividad.html" data-es="Actividad" data-en="Activity">Actividad</a></li>
+            <li><a href="gracias.html" data-es="Fuentes y gracias" data-en="Sources and thanks">Fuentes y gracias</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="home-grid">
-        <a href="https://gamestory.jorgesuarez.com.mx/" class="ia-card home-card">
-          <span class="card__icon">🎞️</span>
-          <h3 class="card__title" data-es="GameStory" data-en="GameStory">GameStory</h3>
-          <p class="card__description" data-es="Video de 20 segundos de tu juego. Pegas la página de Steam o de la tienda. 19 USD." data-en="A 20-second video of your game. Paste the Steam or store page. 19 USD.">Video de 20 segundos de tu juego. Pegas la página de Steam o de la tienda. 19 USD.</p>
-        </a>
-        <a href="actividad.html" class="ia-card home-card">
-          <span class="card__icon">📡</span>
-          <h3 class="card__title" data-es="Actividad" data-en="Activity">Actividad</h3>
-          <p class="card__description" data-es="Lanzamientos de referencia. El dato nuestro sale del sitio del estudio, no de un directorio." data-en="Reference launches. Our fact comes from the studio site, not a directory.">Lanzamientos de referencia. El dato nuestro sale del sitio del estudio, no de un directorio.</p>
-        </a>
-        <a href="mexico-indie.html" class="ia-card home-card">
-          <span class="card__icon">🇲🇽</span>
-          <h3 class="card__title" data-es="INDI-ES" data-en="INDI-ES">INDI-ES</h3>
-          <p class="card__description" data-es="Pista de estudios indie en México. No es nuestra base." data-en="A lead list of indie studios in Mexico. Not our database.">Pista de estudios indie en México. No es nuestra base.</p>
-        </a>
-        <a href="tools.html" class="ia-card home-card">
-          <span class="card__icon">🛠️</span>
-          <h3 class="card__title" data-i18n="card.tools.title">Production Tools</h3>
-          <p class="card__description" data-i18n="hero.subtitle.tools">Templates de GDD, presupuestos y checklists.</p>
-        </a>
-        <a href="jobs.html" class="ia-card home-card">
-          <span class="card__icon">💼</span>
-          <h3 class="card__title" data-i18n="card.jobs.title">Jobs &amp; Career</h3>
-          <p class="card__description" data-i18n="hero.subtitle.jobs">CVs, Portafolios y ofertas de empleo.</p>
-        </a>
-        <a href="database.html" class="ia-card home-card">
-          <span class="card__icon">🌎</span>
-          <h3 class="card__title" data-i18n="card.studios.title">Studios DB</h3>
-          <p class="card__description" data-i18n="hero.subtitle.database">Mapa de la industria en Latinoamérica.</p>
-        </a>
-        <a href="industria.html" class="ia-card home-card">
-          <span class="card__icon">📊</span>
-          <h3 class="card__title" data-i18n="card.industry.title">Pulso de la industria</h3>
-          <p class="card__description" data-i18n="card.industry.desc">Cifras 2024-2025 (histórico) y qué falta del informe.</p>
-        </a>
-        <a href="ecosistema.html" class="ia-card home-card">
-          <span class="card__icon">🗺️</span>
-          <h3 class="card__title" data-i18n="card.eco.title">Ecosistema MX</h3>
-          <p class="card__description" data-i18n="card.eco.desc">Estudios, comunidades, eventos y escuelas.</p>
-        </a>
-        <a href="ciclo.html" class="ia-card home-card">
-          <span class="card__icon">🔁</span>
-          <h3 class="card__title" data-i18n="card.cycle.title">Ciclo de producción</h3>
-          <p class="card__description" data-i18n="card.cycle.desc">Elige una etapa y ve dónde encajas.</p>
-        </a>
-        <a href="entrar.html" class="ia-card home-card">
-          <span class="card__icon">🚪</span>
-          <h3 class="card__title" data-i18n="card.entrar.title">Cómo entrar</h3>
-          <p class="card__description" data-i18n="card.entrar.desc">FAQ para empezar en LATAM: primer juego, Steam y el error más común.</p>
-        </a>
-        <a href="noticias/" class="ia-card home-card">
-          <span class="card__icon">📰</span>
-          <h3 class="card__title" data-i18n="card.news.title">Noticias</h3>
-          <p class="card__description" data-i18n="card.news.desc">Digest semanal de México y Latinoamérica.</p>
-        </a>
-        <span data-moki="asoma" data-moki-id="gamedev-home-recursos" style="--moki:60px;--moki-y:calc(100% - 68px)"></span>
-      </div>
+      <span data-moki="asoma" data-moki-id="gamedev-home-recursos" style="--moki:60px;--moki-y:8px"></span>
     </section>
   </main>
 
@@ -231,15 +293,17 @@
       <li><a href="https://tiktok.com/@jorgesuarez.com.mx" target="_blank" rel="noopener">TikTok</a></li>
     </ul>
     <p class="papacito-footer__signature"><span data-es="Hecho con amor ❤️🎮 por" data-en="Made with love ❤️🎮 by">Hecho con amor ❤️🎮 por</span> <a href="https://jorgesuarez.com.mx/">JorgeSuarez.com.mx</a> <a class="foot-back" href="https://jorgesuarez.com.mx/" data-i18n="nav.home">← JorgeSuarez<span>.com.mx</span></a></p>
-    <p class="papacito-footer__log" data-es="gamedev / · build 24 oct 2026 · America/Mexico_City · Spark · juice 1.2.0 · brandkit 0.3" data-en="gamedev / · build Oct 24 2026 · America/Mexico_City · Spark · juice 1.2.0 · brandkit 0.3">gamedev / · build 24 oct 2026 · America/Mexico_City · Spark · juice 1.2.0 · brandkit 0.3</p>
+    <p class="papacito-footer__log" data-es="gamedev / · build 10 nov 2026 · America/Mexico_City · Spark · juice 1.2.0 · brandkit 0.3" data-en="gamedev / · build Nov 10 2026 · America/Mexico_City · Spark · juice 1.2.0 · brandkit 0.3">gamedev / · build 10 nov 2026 · America/Mexico_City · Spark · juice 1.2.0 · brandkit 0.3</p>
     <div class="papacito-footer__meta">
       <p data-es="Jorge Suárez | © 2026 | Construido sobre nuestros valores de Kaizen y Juego." data-en="Jorge Suárez | © 2026 | Built on our values of Kaizen &amp; Play.">Jorge Suárez | © 2026 | Construido sobre nuestros valores de Kaizen y Juego.</p>
-      <p><a href="llms.txt" data-i18n="footer.llms">Para ChatGPT, Claude y Grok</a></p>
+      <p><a href="gracias.html" data-es="Fuentes y gracias" data-en="Sources and thanks">Fuentes y gracias</a> · <a href="llms.txt" data-i18n="footer.llms">Para ChatGPT, Claude y Grok</a></p>
     </div>
   </footer>
 
   <script src="i18n.js"></script>
   <script src="scripts/home.js"></script>
+  <script src="scripts/nav.js" defer></script>
+  <script src="scripts/novedades.js" defer></script>
   <script src="juice/1.2.0/juice.js" defer></script>
   <script src="juice/1.2.0/juice-menu.js" defer></script>
   <script src="juice/1.2.0/hardcore/hardcore.js" defer></script>
