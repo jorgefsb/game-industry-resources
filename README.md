@@ -1,76 +1,101 @@
 <div align="center">
 
-<img src="./assets/readme-banner.svg" width="1000" alt="Game Industry Resources: level up tu carrera en videojuegos en Latinoamérica." />
+<a href="https://gamedev.jorgesuarez.com.mx"><img src="docs/readme/banner-en.svg" width="1000" alt="Game Industry Resources: The map for making games in Latin America: numbers, studios, jobs and tools." /></a>
 
-[🚀 Explorar el sitio](https://gamedev.jorgesuarez.com.mx) · [🐙 Ver código](https://github.com/jorgefsb/game-industry-resources) · **Estado:** activo / trabajo en progreso
+<br />
 
-**Un hub abierto para compartir herramientas, guías y rutas de carrera con la comunidad de videojuegos en Latinoamérica.**
+<img src="docs/readme/lang-en-on.svg" height="44" alt="English, current language" />
+<a href="./README.es.md"><img src="docs/readme/lang-es.svg" height="44" alt="Leer en español" /></a>
+
+<br />
+
+**[▶ Open the site](https://gamedev.jorgesuarez.com.mx)** · More projects at [github.com/jorgefsb](https://github.com/jorgefsb)
 
 </div>
 
 ---
 
-## 🌟 ¿Qué es esto?
+<p align="center"><img src="docs/readme/tour.gif" width="720" alt="Walkthrough of Game Industry Resources"></p>
+<p align="center"><sub>Real walkthrough of the live site, recorded 10 Nov 2026 in Chromium (1280×720). No retouching. <a href="docs/readme/tour.mp4">Watch the MP4 video</a></sub></p>
 
-Una colección en crecimiento de recursos, templates, guías y herramientas para ayudar a **desarrolladores de videojuegos en LATAM** a:
+## What is it?
 
-- 🚀 **Fundar studios rentables** desde cero
-- 📋 **Acceder a templates profesionales** probados con publishers AAA
-- 🌎 **Conectar con el ecosistema** de publishers, grants y eventos
-- 🎓 **Aprender de profesionales** con experiencia real en la industria
+A free site with the map for making video games in Latin America: industry numbers, studios in the region, jobs and careers, production tools, marketing and a directory of AI tools. It is written in Spanish and has an English version.
 
----
+## Who is it for?
 
-## 📚 Contenido
+For people who already make games in the region or want to get in: students, indie devs, people looking for their first job in the industry and founders starting a studio.
 
-### ✅ Disponible Ahora
-- 🏠 Landing page con recursos principales
+## What pain does it solve?
 
-### 🚧 En Desarrollo
-| Recurso | Descripción | Status |
-|---------|-------------|--------|
-| 📋 **Studio Templates** | Pitch deck, GDD, finance tracker, publisher CRM | Próximamente |
-| 🤝 **Wizard de Fundadores** | Genera acuerdos entre co-fundadores | Próximamente |
-| 🌎 **LATAM Database** | Publishers, grants, eventos, studios | Próximamente |
-| 🚀 **Zero to Studio Guide** | Roadmap completo para crear un studio | Próximamente |
-| 📢 **Marketing Playbook** | Estrategias de launch e influencers | Próximamente |
-| ⚖️ **Legal Básico** | Contratos e IP para studios | Próximamente |
+The information you need to make a living making games in LATAM is scattered. Finding out which studios exist, where the jobs are, how to write a CV for the industry or which AI tool fits your game means collecting pieces from many places.
 
----
+## The proposal
 
-## 🔗 Ecosistema
+Put it on one map, curated from more than two decades of building games, studios and community in Mexico, and keep it open. Each section answers one question:
 
-Este proyecto es parte de un ecosistema más amplio para impulsar a game devs:
+| Section | The question it answers |
+|---|---|
+| [Production Tools](https://gamedev.jorgesuarez.com.mx/tools) | Which tools do you use to produce a game? |
+| [Jobs & Career](https://gamedev.jorgesuarez.com.mx/jobs) | Where are the jobs and how do I prepare? |
+| [The Perfect CV](https://gamedev.jorgesuarez.com.mx/guides/cv) | How do I write a CV for the industry? |
+| [Studios DB](https://gamedev.jorgesuarez.com.mx/database) | Which studios exist in Latin America? |
+| [Marketing Playbook](https://gamedev.jorgesuarez.com.mx/marketing) | How do I sell my game and get visibility? |
+| [Mexico industry pulse](https://gamedev.jorgesuarez.com.mx/industria) | What does the sector look like? 2024-2025 snapshot. |
+| [Mexico ecosystem](https://gamedev.jorgesuarez.com.mx/ecosistema) | Which studios, communities, events and schools exist in Mexico? |
+| [Production cycle](https://gamedev.jorgesuarez.com.mx/ciclo) | Where does a LATAM gamedev fit in pre-production, production and post? |
+| [AI directory](https://gamedev.jorgesuarez.com.mx/ia/) | Which AI tools help with art, code, audio, 3D, QA and marketing? |
 
-| Plataforma | Descripción |
-|------------|-------------|
-| [🎮 EGDC - Echo Gamedev Club](https://comunidad.uetc.mx) | Comunidad exclusiva de desarrolladores |
-| [🎓 Cursos VIP](https://vip.jorgesuarez.com.mx) | Masterclasses y mentorías premium |
-| [🏫 UETC](https://uetc.mx) | Formación profesional completa |
-| [🏢 Amber Studio](https://amberstudio.com) | Estudio de desarrollo profesional |
-| [🎯 PlayPitch](https://playpitch.com) | Conecta juegos con influencers |
+## How do I use it?
 
----
+1. Go to [gamedev.jorgesuarez.com.mx](https://gamedev.jorgesuarez.com.mx).
+2. Pick the section that answers your question.
+3. No sign-up and nothing to install.
 
-## 💡 ¿De dónde viene?
+## When it fits and when it doesn't
 
-El proyecto reúne aprendizajes de más de dos décadas construyendo videojuegos, estudios y comunidad desde México. No pretende tener la última palabra: es un mapa abierto que mejora con la experiencia de quienes hacen juegos en la región.
+It fits when you want to get oriented, find studios, prepare for a job opening or choose tools.
 
----
+It is not a census or a live pulse of the sector: the numbers are a historical 2024-2025 snapshot and the site labels them that way. It is not an official job board either.
 
-## 🤝 Contribuir
+## Where can I try it?
 
-¡Las contribuciones son bienvenidas! Si conoces un recurso que debería estar aquí:
+Live: **[gamedev.jorgesuarez.com.mx](https://gamedev.jorgesuarez.com.mx)**
 
-1. Abre un **Issue** describiendo el recurso
-2. O envía un **Pull Request** con tu adición
+<p align="center">
+  <img src="docs/readme/desktop.jpg" width="620" alt="Game Industry Resources on desktop">
+  <img src="docs/readme/mobile.jpg" width="190" alt="Game Industry Resources on mobile">
+</p>
+<p align="center"><sub>Real screenshots of the live site, 10 Nov 2026: desktop (1280×720) and mobile (390×780).</sub></p>
+
+## How far we got
+
+Live and growing. Today it has nine sections plus the AI directory.
+
+This repo also holds `juice`, the interaction package used by the brand's sites (the «Juega» menu, sound and hidden Moki), in versions 1.0.0 to 1.2.0.
+
+What is missing is more of the map. If you know a resource that belongs here, open an issue or send a pull request.
+
+## For builders
+
+Static site, no build step.
+
+```bash
+git clone https://github.com/jorgefsb/game-industry-resources.git
+cd game-industry-resources
+python3 -m http.server 3000
+```
+
+In production it is served as the static assets of a Cloudflare Worker; `.assetsignore` lists what is not uploaded. More context in [WALKTHROUGH.md](./WALKTHROUGH.md) and [BRAND-GUIDELINES.md](./BRAND-GUIDELINES.md) (both in Spanish).
+
+## License
+
+This repo has no license file, so all rights are reserved on the content. If you want to reuse something, write to [jorgefsb@gmail.com](mailto:jorgefsb@gmail.com).
 
 ---
 
 <div align="center">
 
-**Hecho con ❤️ para LATAM por [Jorge Suarez](https://jorgesuarez.com.mx)**
-
-[🎮 EGDC](https://comunidad.uetc.mx) • [🎓 VIP](https://vip.jorgesuarez.com.mx) • [🏫 UETC](https://uetc.mx) • [🏢 Amber](https://amberstudio.com)
+<sub>Made with love ❤️🎮 by <a href="https://jorgesuarez.com.mx">JorgeSuarez.com.mx</a> · <a href="https://github.com/jorgefsb">More projects</a> · <a href="./README.es.md">Leer en español</a><br />Documentation updated on 10 Nov 2026.</sub>
 
 </div>
