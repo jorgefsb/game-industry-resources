@@ -16,7 +16,7 @@
 ---
 
 <p align="center"><img src="docs/readme/tour.gif" width="720" alt="Recorrido de Game Industry Resources"></p>
-<p align="center"><sub>Recorrido real del sitio en vivo, grabado el 10 nov 2026 en Chromium (1280×720). Sin retoque. <a href="docs/readme/tour.mp4">Ver el video MP4</a></sub></p>
+<p align="center"><sub>Recorrido real del sitio en vivo, grabado el 10 nov 2026 en Chromium (1280×720). Sin retoque. Se reproduce una sola vez; recarga la página para verlo de nuevo. <a href="docs/readme/tour.mp4">Ver el video MP4</a></sub></p>
 
 ## ¿Qué es?
 
@@ -36,11 +36,11 @@ Juntarlo en un solo mapa, curado desde más de dos décadas de hacer videojuegos
 
 | Sección | Qué contesta |
 |---|---|
-| [Production Tools](https://gamedev.jorgesuarez.com.mx/tools) | ¿Con qué herramientas se produce un juego? |
+| [Production Tools](https://gamedev.jorgesuarez.com.mx/tools) | ¿Con qué se produce un juego? Hoy trae el ciclo de producción en corto y ligas a herramientas; las tres plantillas descargables siguen en construcción. |
 | [Jobs & Career](https://gamedev.jorgesuarez.com.mx/jobs) | ¿Dónde hay trabajo y cómo me preparo? |
 | [El CV Perfecto](https://gamedev.jorgesuarez.com.mx/guides/cv) | ¿Cómo armo un currículum para la industria? |
 | [Studios DB](https://gamedev.jorgesuarez.com.mx/database) | ¿Qué estudios hay en Latinoamérica? |
-| [Marketing Playbook](https://gamedev.jorgesuarez.com.mx/marketing) | ¿Cómo vendo mi juego y gano visibilidad? |
+| [Marketing Playbook](https://gamedev.jorgesuarez.com.mx/marketing) | ¿Cómo vendo mi juego y gano visibilidad? **En construcción:** hoy muestra el temario; las guías todavía no se pueden abrir. |
 | [Pulso de la industria MX](https://gamedev.jorgesuarez.com.mx/industria) | ¿Cómo se ve el sector? Corte 2024-2025. |
 | [Ecosistema MX](https://gamedev.jorgesuarez.com.mx/ecosistema) | ¿Qué estudios, comunidades, eventos y escuelas hay en México? |
 | [Ciclo de producción](https://gamedev.jorgesuarez.com.mx/ciclo) | ¿Dónde encaja un gamedev de LATAM en pre, producción y post? |
@@ -70,7 +70,9 @@ En vivo: **[gamedev.jorgesuarez.com.mx](https://gamedev.jorgesuarez.com.mx)**
 
 ## Hasta dónde llegamos
 
-En línea y en crecimiento. Hoy tiene nueve secciones y el directorio de IA.
+En línea y en crecimiento. Hoy tiene ocho secciones y el directorio de IA.
+
+Dos partes siguen en construcción y el sitio todavía no las entrega: las guías del Marketing Playbook y las tres plantillas descargables de Production Tools (GDD, presupuesto y checklist de lanzamiento). Sus botones aún no llevan a ningún lado.
 
 Este repo también guarda `juice`, el paquete de interacción que usan los sitios de la marca (menú «Juega», sonido y Moki escondido), en sus versiones 1.0.0 a 1.2.0.
 
