@@ -56,6 +56,19 @@ def nav(prefix, current):
     out.append('    </nav>')
     return "\n".join(out)
 
+PULSO_TAG = '<script src="https://pulso.jorgesuarez.com.mx/pulso.js" defer></script>'
+
+def pulso(path):
+    """Pone el contador anónimo de visitas (Pulso) antes de </body>. Idempotente."""
+    p = ROOT / path
+    s = p.read_text(encoding="utf-8")
+    if "pulso.jorgesuarez.com.mx/pulso.js" in s:
+        return
+    i = s.rindex("</body>")
+    s = s[:i] + "<!-- Pulso: conteo anónimo de visitas, sin cookies (10-nov-2026) -->\n" + PULSO_TAG + "\n" + s[i:]
+    p.write_text(s, encoding="utf-8")
+    print("pulso", path)
+
 NAV_RE = re.compile(r'<nav class="hud__nav".*?</nav>', re.S)
 
 def patch(path, prefix, current):
@@ -252,3 +265,8 @@ if __name__ == "__main__":
             creditos(path, prefix)
         else:
             print("sin <main>:", path)
+    for path in ["index.html", "kit.html", "gracias.html", "presupuesto.html", "entrar.html", "ciclo.html", "tools.html",
+                 "marketing.html", "jobs.html", "database.html", "ecosistema.html", "mexico-indie.html", "industria.html",
+                 "actividad.html", "noticias/index.html", "historico/2024-2025/index.html", "guides/cv.html",
+                 "ia/index.html", "ia/patrocina/index.html", "ia/destacado-grok-bot/index.html"]:
+        pulso(path)

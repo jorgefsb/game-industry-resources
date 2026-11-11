@@ -117,6 +117,7 @@
   });
   var copyBtn = form.querySelector('[data-calc-copy]');
   copyBtn.addEventListener('click', function () {
+    try { if (window.pulso) window.pulso('presupuesto_copia'); } catch (_) {}
     try { fetch('/api/evento', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ e: 'presupuesto_copia' }), keepalive: true }).catch(function () {}); } catch (_) {}
     var done = function () {
       copyBtn.textContent = L('Copiado', 'Copied');

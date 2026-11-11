@@ -10,6 +10,7 @@
 
   function en() { return document.documentElement.lang === 'en'; }
   function evento(name) {
+    try { if (window.pulso) window.pulso(name); } catch (_) {}
     try {
       fetch('/api/evento', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ e: name }), keepalive: true }).catch(function () {});
     } catch (_) {}
