@@ -7,6 +7,8 @@
  *   POST /ia/api/subscribe  { email, lang, company(honeypot) }            -> KV key: <email>
  *   POST /ia/api/featured   { name, site, email, lang, company(honeypot) } -> KV key: featured:<host>:<email>
  *   POST /ia/api/submit     { name, site, email, lang, company(honeypot) } -> KV key: submit:<host>:<email>
+ *   POST /api/evento        { e }  -> KV counter evento:<e>:<YYYY-MM-DD> (UTC). Allowlisted names only.
+ *                           No IP, no user data. Global cap of 200 counted events per day protects KV writes.
  *   GET  /ia/go/<slug>      302 to the catalog outbound URL (affiliate if set, else official).
  *                           Allowlist is built from /ia/tools.json. Never an open redirect.
  *
@@ -135,6 +137,36 @@ async function countClick(env, slug) {
   const n = parseInt((await env.IA_KV.get(key)) || '0', 10);
   const next = Number.isFinite(n) ? n + 1 : 1;
   await env.IA_KV.put(key, String(next));
+}
+
+// Conteo anónimo de uso del kit y la calculadora (10-nov-2026). Solo nombres de esta lista.
+const EVENTOS = new Set([
+  'kit_abierto_x', 'kit_abierto_linkedin', 'kit_abierto_whatsapp', 'kit_abierto_facebook',
+  'kit_abierto_copy', 'kit_abierto_manual',
+  'kit_copia_gdd', 'kit_copia_tienda', 'kit_copia_pitch',
+  'presupuesto_copia'
+]);
+const EVENTOS_MAX_DIA = 200;
+
+async function handleEvento(request, env) {
+  if (request.method !== 'POST') return json({ ok: false, error: 'method' }, 405);
+  const data = await readBody(request);
+  const name = data && typeof data.e === 'string' ? data.e : '';
+  if (!EVENTOS.has(name)) return json({ ok: false, error: 'evento' }, 400);
+  if (!env.IA_KV) return json({ ok: true, counted: false });
+  try {
+    const day = utcDay();
+    const totalKey = `evento:_total:${day}`;
+    const total = parseInt((await env.IA_KV.get(totalKey)) || '0', 10) || 0;
+    if (total >= EVENTOS_MAX_DIA) return json({ ok: true, counted: false });
+    const key = `evento:${name}:${day}`;
+    const n = parseInt((await env.IA_KV.get(key)) || '0', 10) || 0;
+    await env.IA_KV.put(key, String(n + 1));
+    await env.IA_KV.put(totalKey, String(total + 1), { expirationTtl: 172800 });
+  } catch (_) {
+    return json({ ok: true, counted: false });
+  }
+  return json({ ok: true, counted: true });
 }
 
 function notFound() {
@@ -270,6 +302,7 @@ export default {
     if (pathname === '/ia/api/subscribe') return handleForm('subscribe', request, env);
     if (pathname === '/ia/api/featured') return handleForm('featured', request, env);
     if (pathname === '/ia/api/submit') return handleForm('submit', request, env);
+    if (pathname === '/api/evento') return handleEvento(request, env);
     if (pathname === '/ia/go' || pathname.startsWith('/ia/go/')) return handleOutbound(request, env);
     if (pathname === '/tools.json') {
       return Response.redirect(new URL('/ia/tools.json', request.url).toString(), 301);

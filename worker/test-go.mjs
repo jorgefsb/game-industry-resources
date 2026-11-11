@@ -145,5 +145,24 @@ for (const [k, v] of kv.entries()) {
 }
 assert(!logs.some((line) => line.includes(TEST_IP)), `logs leaked IP: ${JSON.stringify(logs)}`);
 
+// /api/evento: cuenta solo nombres permitidos, sin IP
+const evOk = await worker.fetch(new Request('https://gamedev.jorgesuarez.com.mx/api/evento', {
+  method: 'POST', headers: { 'content-type': 'application/json', 'cf-connecting-ip': TEST_IP },
+  body: JSON.stringify({ e: 'kit_abierto_x' })
+}), env);
+assert(evOk.status === 200, `evento status ${evOk.status}`);
+const evKey = [...kv.keys()].find((k) => k.startsWith('evento:kit_abierto_x:'));
+assert(evKey && kv.get(evKey) === '1', 'evento debe contar 1');
+const evBad = await worker.fetch(new Request('https://gamedev.jorgesuarez.com.mx/api/evento', {
+  method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ e: 'otra_cosa' })
+}), env);
+assert(evBad.status === 400, `evento desconocido ${evBad.status}`);
+const evGet = await worker.fetch(new Request('https://gamedev.jorgesuarez.com.mx/api/evento'), env);
+assert(evGet.status === 405, `evento GET ${evGet.status}`);
+for (const [k, v] of kv.entries()) {
+  assert(!k.includes(TEST_IP) && !String(v).includes(TEST_IP), `evento filtró IP en ${k}`);
+}
+
 console.log = origLog;
+console.log('OK: /api/evento cuenta y rechaza');
 console.log('OK: /ia/go/meshy → affiliate 302, unknown 404, KV ' + key + '=' + kv.get(key));

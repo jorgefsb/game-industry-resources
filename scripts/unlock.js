@@ -9,6 +9,12 @@
   var pending = false;
 
   function en() { return document.documentElement.lang === 'en'; }
+  function evento(name) {
+    try {
+      fetch('/api/evento', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ e: name }), keepalive: true }).catch(function () {});
+    } catch (_) {}
+  }
+  var lastKind = 'manual';
   function say(es, enText) { if (status) status.textContent = en() ? enText : es; }
   function text() {
     return en()
@@ -37,6 +43,7 @@
     });
     try { localStorage.setItem(KEY, new Date().toISOString().slice(0, 10)); } catch (_) {}
     if (announce) {
+      evento('kit_abierto_' + lastKind);
       say('Gracias por compartirlo. Ya está abierto en este navegador.', 'Thanks for sharing. It is now unlocked in this browser.');
       var first = document.getElementById('tienda');
       if (first && first.scrollIntoView) {
@@ -55,6 +62,7 @@
   document.querySelectorAll('[data-share]').forEach(function (el) {
     el.addEventListener('click', function () {
       var kind = el.getAttribute('data-share');
+      lastKind = kind;
       if (kind === 'copy') {
         var done = function () { say('Liga copiada. Pégala donde quieras y vuelve.', 'Link copied. Paste it wherever you like and come back.'); unlock(true); };
         if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text() + ' ' + URL_KIT).then(done, done);
@@ -70,7 +78,7 @@
   document.addEventListener('visibilitychange', back);
 
   var manual = document.querySelector('[data-unlock-manual]');
-  if (manual) manual.addEventListener('click', function () { unlock(true); });
+  if (manual) manual.addEventListener('click', function () { lastKind = 'manual'; unlock(true); });
 
   // Copiar e imprimir
   function sheetText(node) {
@@ -89,6 +97,7 @@
     btn.addEventListener('click', function () {
       var src = document.querySelector('[data-copy-source="' + btn.getAttribute('data-copy') + '"]');
       if (!src) return;
+      evento('kit_copia_' + btn.getAttribute('data-copy'));
       var done = function () {
         var old = btn.textContent;
         btn.textContent = en() ? 'Copied' : 'Copiado';

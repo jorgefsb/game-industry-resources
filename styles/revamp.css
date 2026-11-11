@@ -328,3 +328,5 @@
 .shell-page .act, .shell-page .lane { padding-top: var(--sp-7); }
 .shell-page .act a:not(.shot), .shell-page .lane a { color: var(--accent); }
 .shell-page .feed a { color: var(--paper); }
+/* La etiqueta de región ya no tapa el título de la nota */
+#news .inner-card .ia-badge { position: static; align-self: flex-start; }
