@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://gamedev.jorgesuarez.com.mx"><img src="docs/readme/banner-en.svg" width="1000" alt="Game Industry Resources: The map for making games in Latin America: numbers, studios, jobs and tools." /></a>
+<a href="https://gamedev.jorgesuarez.com.mx/?lang=en"><img src="docs/readme/banner-en.svg" width="1000" alt="Game Industry Resources: The map for making games in Latin America: numbers, studios, jobs and tools." /></a>
 
 <br />
 
@@ -9,18 +9,18 @@
 
 <br />
 
-**[▶ Open the site](https://gamedev.jorgesuarez.com.mx)** · More projects at [github.com/jorgefsb](https://github.com/jorgefsb)
+**[▶ Open the site](https://gamedev.jorgesuarez.com.mx/?lang=en)** · More projects at [github.com/jorgefsb](https://github.com/jorgefsb)
 
 </div>
 
 ---
 
 <p align="center"><img src="docs/readme/tour.gif" width="720" alt="Walkthrough of Game Industry Resources"></p>
-<p align="center"><sub>Real walkthrough of the live site, recorded 10 Nov 2026 in Chromium (1280×720). No retouching. <a href="docs/readme/tour.mp4">Watch the MP4 video</a></sub></p>
+<p align="center"><sub>Real walkthrough of the live site, recorded 10 Nov 2026 in Chromium (1280×720). No retouching. It plays once; reload the page to watch it again. <a href="docs/readme/tour.mp4">Watch the MP4 video</a></sub></p>
 
 ## What is it?
 
-A free site with the map for making video games in Latin America: industry numbers, studios in the region, jobs and careers, production tools, marketing and a directory of AI tools. It is written in Spanish and has an English version.
+A free site with the map for making video games in Latin America: industry numbers, studios in the region, jobs and careers, production tools, marketing and a directory of AI tools. It is written in Spanish and has an English version; the links on this page open it in English.
 
 ## Who is it for?
 
@@ -36,19 +36,19 @@ Put it on one map, curated from more than two decades of building games, studios
 
 | Section | The question it answers |
 |---|---|
-| [Production Tools](https://gamedev.jorgesuarez.com.mx/tools) | Which tools do you use to produce a game? |
-| [Jobs & Career](https://gamedev.jorgesuarez.com.mx/jobs) | Where are the jobs and how do I prepare? |
-| [The Perfect CV](https://gamedev.jorgesuarez.com.mx/guides/cv) | How do I write a CV for the industry? |
-| [Studios DB](https://gamedev.jorgesuarez.com.mx/database) | Which studios exist in Latin America? |
-| [Marketing Playbook](https://gamedev.jorgesuarez.com.mx/marketing) | How do I sell my game and get visibility? |
-| [Mexico industry pulse](https://gamedev.jorgesuarez.com.mx/industria) | What does the sector look like? 2024-2025 snapshot. |
-| [Mexico ecosystem](https://gamedev.jorgesuarez.com.mx/ecosistema) | Which studios, communities, events and schools exist in Mexico? |
-| [Production cycle](https://gamedev.jorgesuarez.com.mx/ciclo) | Where does a LATAM gamedev fit in pre-production, production and post? |
-| [AI directory](https://gamedev.jorgesuarez.com.mx/ia/) | Which AI tools help with art, code, audio, 3D, QA and marketing? |
+| [Production Tools](https://gamedev.jorgesuarez.com.mx/tools?lang=en) | What does it take to produce a game? Today it has the production cycle in short and links to tools; the three downloadable templates are still in progress. |
+| [Jobs & Career](https://gamedev.jorgesuarez.com.mx/jobs?lang=en) | Where are the jobs and how do I prepare? |
+| [The Perfect CV](https://gamedev.jorgesuarez.com.mx/guides/cv?lang=en) | How do I write a CV for the industry? |
+| [Studios DB](https://gamedev.jorgesuarez.com.mx/database?lang=en) | Which studios exist in Latin America? |
+| [Marketing Playbook](https://gamedev.jorgesuarez.com.mx/marketing?lang=en) | How do I sell my game and get visibility? **In progress:** today it shows the outline; the guides cannot be opened yet. |
+| [Mexico industry pulse](https://gamedev.jorgesuarez.com.mx/industria?lang=en) | What does the sector look like? 2024-2025 snapshot. |
+| [Mexico ecosystem](https://gamedev.jorgesuarez.com.mx/ecosistema?lang=en) | Which studios, communities, events and schools exist in Mexico? |
+| [Production cycle](https://gamedev.jorgesuarez.com.mx/ciclo?lang=en) | Where does a LATAM gamedev fit in pre-production, production and post? |
+| [AI directory](https://gamedev.jorgesuarez.com.mx/ia/?lang=en) | Which AI tools help with art, code, audio, 3D, QA and marketing? |
 
 ## How do I use it?
 
-1. Go to [gamedev.jorgesuarez.com.mx](https://gamedev.jorgesuarez.com.mx).
+1. Go to [gamedev.jorgesuarez.com.mx](https://gamedev.jorgesuarez.com.mx/?lang=en).
 2. Pick the section that answers your question.
 3. No sign-up and nothing to install.
 
@@ -60,7 +60,7 @@ It is not a census or a live pulse of the sector: the numbers are a historical 2
 
 ## Where can I try it?
 
-Live: **[gamedev.jorgesuarez.com.mx](https://gamedev.jorgesuarez.com.mx)**
+Live: **[gamedev.jorgesuarez.com.mx](https://gamedev.jorgesuarez.com.mx/?lang=en)**
 
 <p align="center">
   <img src="docs/readme/desktop.jpg" width="620" alt="Game Industry Resources on desktop">
@@ -70,7 +70,9 @@ Live: **[gamedev.jorgesuarez.com.mx](https://gamedev.jorgesuarez.com.mx)**
 
 ## How far we got
 
-Live and growing. Today it has nine sections plus the AI directory.
+Live and growing. Today it has eight sections plus the AI directory.
+
+Two parts are still in progress and the site does not deliver them yet: the Marketing Playbook guides and the three downloadable templates in Production Tools (GDD, budget and release checklist). Their buttons do not lead anywhere yet.
 
 This repo also holds `juice`, the interaction package used by the brand's sites (the «Juega» menu, sound and hidden Moki), in versions 1.0.0 to 1.2.0.
 
