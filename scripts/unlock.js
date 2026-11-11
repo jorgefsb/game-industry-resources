@@ -54,6 +54,14 @@
     }
   }
 
+  /* Abrir con correo: boletin.js avisa cuando el registro salió bien. */
+  document.addEventListener('gamedev:boletin', function (ev) {
+    if (!ev.detail || ev.detail.src !== 'kit') return;
+    lastKind = 'correo';
+    unlock(true);
+    say('Gracias. Ya está abierto en este navegador y te llega el boletín.', 'Thanks. It is now unlocked in this browser and the newsletter is on its way.');
+  });
+
   var already = null;
   try { already = localStorage.getItem(KEY); } catch (_) {}
   setLinks();

@@ -56,6 +56,87 @@ def nav(prefix, current):
     out.append('    </nav>')
     return "\n".join(out)
 
+# ---------------------------------------------------------------------------
+# SEO (11-nov-2026): título con la búsqueda en español primero, canónica limpia (sin .html, igual que el sitemap)
+# y datos estructurados en la portada. Si cambias un título aquí, cámbialo también en i18n.js cuando la página lo traduzca.
+BASE = "https://gamedev.jorgesuarez.com.mx"
+SEO = {
+    # archivo: (título, descripción o None para dejar la que tiene, ruta canónica)
+    "index.html": ("Hacer videojuegos en LATAM: guías, plantillas y chamba | Jorge Suárez", None, "/"),
+    "kit.html": ("Plantillas gratis para tu videojuego: GDD, tienda y pitch | Jorge Suárez", None, "/kit"),
+    "presupuesto.html": ("¿Cuánto cuesta hacer un videojuego? Calculadora de presupuesto | Jorge Suárez", None, "/presupuesto"),
+    "gracias.html": ("Fuentes y créditos del mapa gamedev LATAM | Jorge Suárez", None, "/gracias"),
+    "entrar.html": ("Cómo entrar a la industria de videojuegos en LATAM | Jorge Suárez", None, "/entrar"),
+    "ciclo.html": ("Cómo se produce un videojuego: del concepto al lanzamiento | Jorge Suárez", None, "/ciclo"),
+    "tools.html": ("Herramientas y plantillas para producir videojuegos | Jorge Suárez",
+                   "Plantillas para tu documento de diseño, presupuesto y gestión de proyecto de videojuegos.", "/tools"),
+    "marketing.html": ("Marketing para videojuegos indie: cómo dar a conocer tu juego | Jorge Suárez",
+                       "Cómo dar a conocer y vender tu videojuego: visibilidad, página de tienda y comunidad.", "/marketing"),
+    "jobs.html": ("Trabajo en videojuegos en LATAM: vacantes, CV y carrera | Jorge Suárez",
+                  "Dónde buscar trabajo en la industria de videojuegos desde Latinoamérica, con guías de carrera y CV.", "/jobs"),
+    "database.html": ("Estudios de videojuegos en Latinoamérica | Jorge Suárez",
+                      "Estudios de videojuegos de Latinoamérica, con liga a su sitio.", "/database"),
+    "ecosistema.html": ("Videojuegos en México: comunidades, eventos y escuelas | Jorge Suárez", None, "/ecosistema"),
+    "mexico-indie.html": ("Estudios indie de México: la pista de INDI-ES | Jorge Suárez",
+                          "Estudios indie y eventos de México según INDI-ES. Es una pista para buscar, no un censo.", "/mexico-indie"),
+    "industria.html": ("Industria de videojuegos en México: cifras 2024-2025 | Jorge Suárez", None, "/industria"),
+    "actividad.html": ("Juegos y estudios en español: actividad reciente | Jorge Suárez", None, "/actividad"),
+    "noticias/index.html": ("Noticias de gamedev en México y Latinoamérica, cada semana | Jorge Suárez", None, "/noticias/"),
+    "guides/cv.html": ("Cómo hacer tu CV para trabajar en videojuegos | Jorge Suárez",
+                       "Cómo armar un currículum para la industria de videojuegos: qué poner, qué quitar y cómo enseñar tu trabajo.", "/guides/cv"),
+}
+LD_HOME = """  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"WebSite","@id":"https://gamedev.jorgesuarez.com.mx/#sitio","url":"https://gamedev.jorgesuarez.com.mx/","name":"Game Industry Resources","alternateName":"Mapa gamedev LATAM de Jorge Suárez","inLanguage":["es-MX","en"],"description":"Guías, plantillas, estudios, chamba y herramientas de IA para hacer videojuegos en Latinoamérica.","publisher":{"@id":"https://jorgesuarez.com.mx/#person"}},
+    {"@type":"Person","@id":"https://jorgesuarez.com.mx/#person","name":"Jorge Suárez","url":"https://jorgesuarez.com.mx","sameAs":["https://www.linkedin.com/in/yorgenmeister/","https://x.com/jorgefsb","https://www.youtube.com/@jorgefsb","https://github.com/jorgefsb","https://www.instagram.com/jorgefsb/"]}
+  ]}
+  </script>
+"""
+
+def _attr(v):
+    return v.replace("&", "&amp;").replace('"', "&quot;")
+
+def seo(path, title, desc, canon):
+    p = ROOT / path
+    s = p.read_text(encoding="utf-8")
+    url = BASE + canon
+    s = re.sub(r"<title([^>]*)>.*?</title>", lambda m: f"<title{m.group(1)}>{title}</title>", s, count=1, flags=re.S)
+    if desc:
+        s = re.sub(r'(<meta name="description"\s+content=")[^"]*(")', lambda m: m.group(1) + _attr(desc) + m.group(2), s, count=1, flags=re.S)
+    if 'rel="canonical"' in s:
+        s = re.sub(r'(<link rel="canonical" href=")[^"]*(")', lambda m: m.group(1) + url + m.group(2), s, count=1)
+    else:
+        s = s.replace("</title>", f'</title>\n<link rel="canonical" href="{url}">', 1)
+    for prop in ("og:title", "twitter:title"):
+        s = re.sub(r'(<meta (?:property|name)="%s" content=")[^"]*(")' % prop, lambda m: m.group(1) + _attr(title) + m.group(2), s, count=1)
+    s = re.sub(r'(<meta property="og:url" content=")[^"]*(")', lambda m: m.group(1) + url + m.group(2), s, count=1)
+    if path == "index.html" and "application/ld+json" not in s:
+        s = s.replace("</head>", LD_HOME + "</head>", 1)
+    p.write_text(s, encoding="utf-8")
+
+def sitemap():
+    """Reescribe sitemap.xml: las URLs que ya estaban más las de SEO, cada una con la fecha del último cambio de su archivo en git."""
+    import subprocess
+    p = ROOT / "sitemap.xml"
+    viejas = re.findall(r"<loc>([^<]+)</loc>", p.read_text(encoding="utf-8"))
+    urls = list(dict.fromkeys(viejas + [BASE + c for (_, _, c) in SEO.values()]))
+    def archivo(u):
+        r = u[len(BASE):].strip("/")
+        if r == "": return "index.html"
+        for cand in (r, r + ".html", r + "/index.html"):
+            if (ROOT / cand).is_file(): return cand
+        return None
+    out = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for u in urls:
+        f = archivo(u)
+        if not f: continue
+        d = subprocess.run(["git", "log", "-1", "--format=%cs", "--", f], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+        out.append(f"  <url><loc>{u}</loc>" + (f"<lastmod>{d}</lastmod>" if d else "") + "</url>")
+    out.append("</urlset>")
+    p.write_text("\n".join(out) + "\n", encoding="utf-8")
+    print("sitemap", len(out) - 3, "urls")
+
+
 PULSO_TAG = '<script src="https://pulso.jorgesuarez.com.mx/pulso.js" defer></script>'
 
 def pulso(path):
@@ -270,3 +351,6 @@ if __name__ == "__main__":
                  "actividad.html", "noticias/index.html", "historico/2024-2025/index.html", "guides/cv.html",
                  "ia/index.html", "ia/patrocina/index.html", "ia/destacado-grok-bot/index.html"]:
         pulso(path)
+    for _path, (_t, _d, _c) in SEO.items():
+        seo(_path, _t, _d, _c)
+    sitemap()

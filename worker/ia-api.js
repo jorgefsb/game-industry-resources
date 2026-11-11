@@ -142,7 +142,7 @@ async function countClick(env, slug) {
 // Conteo anónimo de uso del kit y la calculadora (10-nov-2026). Solo nombres de esta lista.
 const EVENTOS = new Set([
   'kit_abierto_x', 'kit_abierto_linkedin', 'kit_abierto_whatsapp', 'kit_abierto_facebook',
-  'kit_abierto_copy', 'kit_abierto_manual',
+  'kit_abierto_copy', 'kit_abierto_manual', 'kit_abierto_correo',
   'kit_copia_gdd', 'kit_copia_tienda', 'kit_copia_pitch',
   'presupuesto_copia'
 ]);
@@ -236,7 +236,8 @@ async function handleForm(kind, request, env) {
 
   if (kind === 'subscribe') {
     const existing = await env.IA_KV.get(email);
-    if (!existing) await env.IA_KV.put(email, JSON.stringify({ ts, lang }));
+    const src = data.src === 'home' || data.src === 'kit' ? data.src : 'ia';
+    if (!existing) await env.IA_KV.put(email, JSON.stringify({ ts, lang, src }));
     return json({ ok: true });
   }
 

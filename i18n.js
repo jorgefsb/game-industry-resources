@@ -279,7 +279,7 @@ const translations = {
         'hero.badge.entrar': 'Guía',
         'hero.title.entrar': 'Cómo entrar a gamedev en LATAM (sin humo)',
         'hero.subtitle.entrar': 'Primer juego, Steam, qué estudiar y el error más común. Sin humo.',
-        'entrar.page.title': 'Cómo entrar a gamedev en LATAM (sin humo) | Game Industry Resources',
+        'entrar.page.title': 'Cómo entrar a la industria de videojuegos en LATAM | Jorge Suárez',
         'entrar.byline': 'Por <a href="https://jorgesuarez.com.mx/">Jorge Suárez</a> · Actualizado el 28 de octubre de 2026',
         'entrar.intro': 'Llevo años metido en videojuegos y documentando lo que aprendo con mis proyectos. Esto es lo que le diría a alguien que hoy quiere entrar a la industria desde México o cualquier país de Latinoamérica.',
         'entrar.tldr.k': 'En corto',
