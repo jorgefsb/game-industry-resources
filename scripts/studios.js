@@ -33,7 +33,7 @@ const studios = [
         description: "El equipo detrás de 'Greak: Memories of Azur'. Arte dibujado a mano.",
         tags: ["Indie", "Hand-Drawn", "Unity"],
         hiring: false,
-        url: "https://navegante.games/"
+        url: "https://navegante.studio/"
     },
     {
         name: "Lienzo",
