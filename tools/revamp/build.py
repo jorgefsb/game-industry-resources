@@ -10,6 +10,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 GROUPS = [
   ("empezar", "Empezar", "Start", [
     ("entrar.html", "Cómo entrar", "How to get in", "Primer juego, Steam y el error más común", "First game, Steam and the most common mistake"),
+    ("guias/", "Guías", "Guides", "Una pregunta, contestada con fuente oficial", "One question, answered with official sources"),
     ("ciclo.html", "Dónde te metes", "Where you fit", "Elige una etapa y ve tu lugar", "Pick a stage and see your place"),
     ("guides/cv.html", "El CV perfecto", "The perfect CV", "Currículum para la industria", "A résumé for the industry"),
     ("kit.html", "Kit de arranque", "Starter kit", "Plantillas. Se paga con un post", "Templates. You pay with a post"),
@@ -220,6 +221,73 @@ def page(name, title, desc, body_file, extra_js="", og_type="website"):
     (ROOT / name).write_text(head + hud + body + foot, encoding="utf-8")
     print("page", name)
 
+def _prefijo(h, prefix):
+    """Vuelve relativas a la carpeta de la guía las rutas del cascarón (que están escritas desde la raíz)."""
+    return re.sub(r'(href|src)="(?!https?:|/|#|\?|mailto:|\.\./)', lambda m: f'{m.group(1)}="{prefix}', h)
+
+def guia_page(rel, title, desc, body, canon, ld="", og_type="article"):
+    """Arma una página dentro de guias/ con el cascarón del sitio. rel: ruta del archivo; canon: ruta limpia."""
+    head = (HERE / "_head.html").read_text(encoding="utf-8")
+    foot = (HERE / "_foot.html").read_text(encoding="utf-8")
+    url = BASE + canon
+    head = re.sub(r"<title>.*?</title>", lambda m: f"<title>{title}</title>", head, count=1, flags=re.S)
+    head = re.sub(r'<meta name="description"\s+content=".*?">', lambda m: f'<meta name="description" content="{esc(desc)}">', head, count=1, flags=re.S)
+    head = head.replace('href="https://gamedev.jorgesuarez.com.mx/"', f'href="{url}"')
+    head = head.replace('href="https://gamedev.jorgesuarez.com.mx/?lang=en"', f'href="{url}?lang=en"')
+    head = re.sub(r'<meta property="og:title" content=".*?">', lambda m: f'<meta property="og:title" content="{esc(title)}">', head, count=1)
+    head = re.sub(r'<meta property="og:description" content=".*?">', lambda m: f'<meta property="og:description" content="{esc(desc)}">', head, count=1)
+    head = head.replace('<meta property="og:url" content="https://gamedev.jorgesuarez.com.mx/">', f'<meta property="og:url" content="{url}">')
+    head = head.replace('<meta property="og:type" content="website">', f'<meta property="og:type" content="{og_type}">')
+    head = re.sub(r'<meta property="og:image:alt" content=".*?">', lambda m: f'<meta property="og:image:alt" content="{esc(title)}">', head, count=1)
+    head = head.replace('<link rel="stylesheet" href="styles/home.css">', '<link rel="stylesheet" href="styles/home.css">\n  <link rel="stylesheet" href="styles/inner.css">\n  <link rel="stylesheet" href="styles/revamp.css">')
+    head = head.replace("</head>", ld + "</head>", 1)
+    nombre = canon.strip("/").replace("/", "-")
+    foot = foot.replace("gamedev / ·", f"gamedev {canon} ·").replace("build 10 nov 2026", "build 13 nov 2026").replace("build Nov 10 2026", "build Nov 13 2026")
+    foot = foot.replace('gamedev-home-footer', f'gamedev-{nombre}-footer').replace('gamedev-home-firma', f'gamedev-{nombre}-firma')
+    foot = foot.replace('  <script src="scripts/novedades.js" defer></script>\n', '')
+    hud = '''<body class="ia-page home-page inner-page guia-page">
+  <a class="ia-skip" href="#main" data-i18n="ui.skip">Ir a recursos</a>
+
+  <header class="hud" data-hud>
+    <a class="hud__brand" href="https://jorgesuarez.com.mx/" aria-label="JorgeSuarez.com.mx">
+      <span class="js-wordmark">JorgeSuarez<span>.com.mx</span></span>
+    </a>
+    <nav class="hud__nav"></nav>
+    <div class="hud__right">
+      <div class="lang-switcher" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+        <a href="?lang=es" class="lang-btn" data-lang="es" lang="es">ES</a>
+        <span aria-hidden="true">|</span>
+        <a href="?lang=en" class="lang-btn" data-lang="en" lang="en">EN</a>
+      </div>
+      <a class="btn btn--primary btn--sm hud__cta" href="https://club.uetc.mx" target="_blank" rel="noopener" data-i18n="nav.cta">🎮 Unirme</a>
+      <button type="button" class="juice-sfx" aria-pressed="false" aria-label="Activar sonido"></button>
+      <button class="hud__burger" type="button" aria-expanded="false" aria-controls="hud-nav" aria-label="Menú" data-i18n-aria="nav.menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+'''
+    p = ROOT / rel
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(_prefijo(head, "../") + hud + body + _prefijo(foot, "../"), encoding="utf-8")
+    print("guía", rel)
+
+def guias():
+    """Guías propias: una página por guía más el índice. Devuelve [(archivo, título, ruta canónica)]."""
+    import sys
+    sys.path.insert(0, str(HERE))
+    import guias as G
+    out = []
+    for g in G.GUIAS:
+        rel = f'guias/{g["slug"]}.html'
+        guia_page(rel, g["title"], g["desc"], G.cuerpo(g), f'/guias/{g["slug"]}', ld=G.ld(g))
+        out.append((rel, g["title"], f'/guias/{g["slug"]}'))
+    t = "Guías para hacer y vender tu videojuego desde Latinoamérica | Jorge Suárez"
+    guia_page("guias/index.html", t,
+              "Guías en español para gamedevs de Latinoamérica: una pregunta por guía, con pasos, costos, tiempos y la fuente oficial de cada dato. Una nueva cada viernes.",
+              G.indice(G.GUIAS), "/guias/", og_type="website")
+    out.append(("guias/index.html", t, "/guias/"))
+    return out
+
 MESES_ES = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"]
 MESES_EN = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 def fecha(iso):
@@ -330,7 +398,10 @@ if __name__ == "__main__":
     page("gracias.html", "Fuentes y gracias | Game Industry Resources",
          "De quién aprendimos, de dónde sale cada dato y a dónde ir por el original: Motor de Juegos, DeVuego, INDI-ES y más.",
          "gracias_body.html")
-    for path, prefix, current in [
+    GUIAS_PAGS = guias()
+    for _rel, _t, _c in GUIAS_PAGS:
+        SEO[_rel] = (_t, None, _c)
+    for path, prefix, current in [(r, "../", "guias/") for r, _, _ in GUIAS_PAGS] + [
         ("index.html", "", ""), ("kit.html", "", "kit.html"), ("gracias.html", "", "gracias.html"), ("presupuesto.html", "", "presupuesto.html"),
         ("entrar.html", "", "entrar.html"), ("ciclo.html", "", "ciclo.html"), ("tools.html", "", "tools.html"),
         ("marketing.html", "", "marketing.html"), ("jobs.html", "", "jobs.html"), ("database.html", "", "database.html"),
@@ -349,7 +420,7 @@ if __name__ == "__main__":
     for path in ["index.html", "kit.html", "gracias.html", "presupuesto.html", "entrar.html", "ciclo.html", "tools.html",
                  "marketing.html", "jobs.html", "database.html", "ecosistema.html", "mexico-indie.html", "industria.html",
                  "actividad.html", "noticias/index.html", "historico/2024-2025/index.html", "guides/cv.html",
-                 "ia/index.html", "ia/patrocina/index.html", "ia/destacado-grok-bot/index.html"]:
+                 "ia/index.html", "ia/patrocina/index.html", "ia/destacado-grok-bot/index.html"] + [r for r, _, _ in GUIAS_PAGS]:
         pulso(path)
     for _path, (_t, _d, _c) in SEO.items():
         seo(_path, _t, _d, _c)

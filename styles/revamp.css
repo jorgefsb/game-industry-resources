@@ -350,3 +350,30 @@
 .kit-mail p { color: var(--text-secondary); max-width: 40rem; }
 .kit-mail .ia-form--inline { margin-top: var(--sp-2); }
 .kit-mail .ia-form__status { flex-basis: 100%; }
+
+/* Guías propias (13-nov-2026) */
+html:not([lang="en"]) [data-l="en"], html[lang="en"] [data-l="es"] { display: none !important; }
+.guia { gap: var(--sp-6); }
+.guia > section { display: grid; gap: var(--sp-4); min-width: 0; }
+.guia p, .guia li, .guia dd { overflow-wrap: anywhere; }
+.guia a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.guia a:hover, .guia a:focus-visible { color: var(--text); }
+.guia-list { display: grid; gap: var(--sp-3); padding-left: 1.2em; margin: 0; }
+.guia-list li { line-height: 1.55; }
+.guia-sources { list-style: none; padding-left: 0; }
+.guia-steps { list-style: none; counter-reset: paso; display: grid; gap: var(--sp-5); margin: 0; padding: 0; }
+.guia-steps > li { counter-increment: paso; display: grid; gap: var(--sp-3); padding: var(--sp-4) 0 0 3.25rem; position: relative; border-top: 1px dashed var(--border-strong); scroll-margin-top: 96px; }
+.guia-steps > li::before { content: counter(paso, decimal-leading-zero); position: absolute; left: 0; top: var(--sp-4); font-family: var(--font-display, "Outfit", sans-serif); font-weight: 700; font-size: 26px; line-height: 1; color: var(--accent); }
+.guia-steps h3 { font-size: 19px; line-height: 1.25; margin: 0; }
+.guia-facts { display: grid; gap: 0; margin: 0; }
+.guia-facts > div { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: var(--sp-2) var(--sp-4); padding: var(--sp-3) 0; border-top: 1px dashed var(--border-strong); }
+.guia-facts dt { font-weight: 700; color: var(--text); }
+.guia-facts dd { margin: 0; color: var(--text-secondary); line-height: 1.5; }
+.guia-src { font-size: 13px; white-space: nowrap; }
+.guia-src::before { content: "↗ "; }
+.guia-index li a { align-items: start; }
+@media (max-width: 640px) {
+  .guide-article.guia { padding: var(--sp-4); }
+  .guia-facts > div { grid-template-columns: 1fr; }
+  .guia-steps > li { padding-left: 0; padding-top: 3.25rem; }
+}
