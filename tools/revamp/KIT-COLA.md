@@ -14,13 +14,13 @@ Reglas de cada pieza:
 - 2026-11-10 · GDD de una página (libre)
 - 2026-11-10 · Checklist de tu página de tienda
 - 2026-11-10 · Pitch en 10 láminas
+- 2026-11-16 · Plan de 12 semanas antes del lanzamiento
 
 ## En cola
-1. Plan de 12 semanas antes del lanzamiento (qué se hace cada semana)
-2. Press kit en una página (qué lleva y en qué orden)
-3. Guion de tráiler de 30 segundos (plano por plano)
-4. Correo a un publisher o fondo (plantilla y qué adjuntar)
-5. Checklist de demo para festival o Next Fest
-6. Postmortem de una página (qué salió, qué no, qué cambia)
-7. Hoja de playtest (qué observar y qué preguntar)
-8. Contrato de trabajo por encargo: puntos que revisar antes de firmar (sin asesoría legal; liga a fuentes)
+1. Press kit en una página (qué lleva y en qué orden)
+2. Guion de tráiler de 30 segundos (plano por plano)
+3. Correo a un publisher o fondo (plantilla y qué adjuntar)
+4. Checklist de demo para festival o Next Fest
+5. Postmortem de una página (qué salió, qué no, qué cambia)
+6. Hoja de playtest (qué observar y qué preguntar)
+7. Contrato de trabajo por encargo: puntos que revisar antes de firmar (sin asesoría legal; liga a fuentes)
