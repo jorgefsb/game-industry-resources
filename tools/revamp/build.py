@@ -17,6 +17,7 @@ GROUPS = [
   ]),
   ("hacer", "Hacer", "Make", [
     ("presupuesto.html", "Calculadora de presupuesto", "Budget calculator", "Cuánto cuesta tu juego y cuántas copias vender", "What your game costs and how many copies to sell"),
+    ("convocatorias.html", "Fondos y convocatorias", "Funds and open calls", "Dinero, festivales y jams, con fecha de cierre", "Money, festivals and jams, with closing dates"),
     ("tools.html", "Production Tools", "Production Tools", "GDD, presupuestos y checklists", "GDD, budgets and checklists"),
     ("ia/", "Directorio IA", "AI Directory", "Herramientas con precio verificado", "Tools with verified pricing"),
   ]),
@@ -66,6 +67,7 @@ SEO = {
     "index.html": ("Hacer videojuegos en LATAM: guías, plantillas y chamba | Jorge Suárez", None, "/"),
     "kit.html": ("Plantillas gratis para tu videojuego: GDD, tienda y pitch | Jorge Suárez", None, "/kit"),
     "presupuesto.html": ("¿Cuánto cuesta hacer un videojuego? Calculadora de presupuesto | Jorge Suárez", None, "/presupuesto"),
+    "convocatorias.html": ("Fondos y convocatorias para hacer videojuegos en Latinoamérica | Jorge Suárez", None, "/convocatorias"),
     "gracias.html": ("Fuentes y créditos del mapa gamedev LATAM | Jorge Suárez", None, "/gracias"),
     "entrar.html": ("Cómo entrar a la industria de videojuegos en LATAM | Jorge Suárez", None, "/entrar"),
     "ciclo.html": ("Cómo se produce un videojuego: del concepto al lanzamiento | Jorge Suárez", None, "/ciclo"),
@@ -337,6 +339,158 @@ def creditos(path, prefix):
             f'    </section>')
     block(path, "creditos", html)
 
+
+# ---------------------------------------------------------------------------
+# Fondos, convocatorias y eventos (18-nov-2026). Sale de data/convocatorias.json; no se escribe a mano.
+CV_TIPOS = [("fondo", "Fondos", "Funds"), ("programa", "Programas", "Programs"), ("festival", "Festivales y premios", "Festivals and awards"),
+            ("evento", "Eventos", "Events"), ("jam", "Game jams", "Game jams")]
+CV_TIPO1 = {"fondo": ("Fondo", "Fund"), "programa": ("Programa", "Program"), "festival": ("Festival", "Festival"), "evento": ("Evento", "Event"), "jam": ("Jam", "Jam")}
+CV_PAISES = [("LATAM", "Toda la región", "Whole region"), ("MX", "México", "Mexico"), ("AR", "Argentina", "Argentina"), ("BR", "Brasil", "Brazil"),
+             ("CL", "Chile", "Chile"), ("CO", "Colombia", "Colombia"), ("PE", "Perú", "Peru"), ("UY", "Uruguay", "Uruguay")]
+CV_DESC = "Fondos, programas, festivales con inscripción, eventos y game jams que puede aprovechar hoy quien hace videojuegos en Latinoamérica, con fecha de cierre y liga oficial. Se revisa cada semana."
+
+def _t(tag, es, en, cls=""):
+    c = f' class="{cls}"' if cls else ""
+    return f'<{tag}{c} data-es="{esc(es)}" data-en="{esc(en)}">{esc(es)}</{tag}>'
+
+def _rango(a, b):
+    ae, an = fecha(a)
+    if not b or b == a: return ae, an
+    be, bn = fecha(b)
+    return f"{ae} a {be}", f"{an} to {bn}"
+
+def convocatorias():
+    """Arma convocatorias.html desde data/convocatorias.json. Devuelve (abiertas, próximas, permanentes, cerradas, la que cierra primero)."""
+    import json, datetime
+    d = json.loads((ROOT / "data" / "convocatorias.json").read_text(encoding="utf-8"))
+    hoy = datetime.date.fromisoformat(d["actualizado"])
+    ent = d["entradas"]
+    for e in ent:  # lo que ya cerró no se anuncia como abierto aunque el JSON no se haya tocado
+        if e.get("cierra") and datetime.date.fromisoformat(e["cierra"]) < hoy: e["estado"] = "cerrada"
+    viva = [e for e in ent if e["estado"] != "cerrada"]
+    cerr = [e for e in ent if e["estado"] == "cerrada" and (hoy - datetime.date.fromisoformat(e["cierra"])).days <= 30]
+    orden = lambda e: (e.get("cierra") or e.get("fecha_evento") or e.get("abre") or "9999")
+    pronto = sorted([e for e in viva if e.get("cierra") and (datetime.date.fromisoformat(e["cierra"]) - hoy).days <= 30], key=orden)
+    ae, an = fecha(d["actualizado"])
+    o = ['  <main id="main">',
+         '    <header class="wrap inner-hero">',
+         '      <div class="hero__content">',
+         '        ' + _t("span", f"Revisado el {ae} · se revisa cada miércoles", f"Checked {an} · reviewed every Wednesday", "hero__badge"),
+         '        ' + _t("h1", "Fondos, convocatorias y eventos", "Funds, open calls and events", "hero__title"),
+         '        ' + _t("p", "Dinero, programas, festivales con inscripción, eventos y game jams para quien hace videojuegos en Latinoamérica. Cada uno con su fecha de cierre y su página oficial.",
+                         "Money, programs, festivals with submissions, events and game jams for people making games in Latin America. Each one with its closing date and official page.", "hero__subtitle lead"),
+         '      </div>',
+         '    </header>', '']
+    if pronto:
+        o += ['    <section class="wrap inner-section" id="pronto" aria-labelledby="pronto-title">',
+              '      <div class="rv-head">',
+              '        ' + _t("h2", "Cierran pronto", "Closing soon").replace("<h2", '<h2 id="pronto-title"'),
+              '        ' + _t("p", "Lo que cierra en 30 días o menos.", "Everything closing within 30 days."),
+              '      </div>',
+              '      <ul class="rv-new__list cv-soon" data-cv-soon>']
+        for e in pronto:
+            ce, cn = fecha(e["cierra"])
+            te, tn = CV_TIPO1[e["tipo"]]
+            o.append(f'        <li data-cv-ref="{e["id"]}" data-cierra="{e["cierra"]}"><a href="#c-{e["id"]}"><time datetime="{e["cierra"]}" data-es="{ce}" data-en="{cn}">{ce}</time>'
+                     f'<span><b>{esc(e["nombre"])}</b>{_t("small", te + " · " + e["quien"], tn + " · " + e["quien"])}</span>'
+                     f'<span class="ia-badge cv-left" data-cv-left="{e["cierra"]}" data-es="cierra el {ce}" data-en="closes {cn}">cierra el {ce}</span></a></li>')
+        o += ['      </ul>', '    </section>', '']
+    usados = [c for c, _, _ in CV_PAISES if any(c in e["paises"] for e in viva)]
+    o += ['    <section class="wrap inner-section cv-tools" aria-label="Filtros">',
+          '      <div class="cv-filters" role="group" aria-label="Tipo" data-cv-filter="tipo">',
+          '        ' + _t("span", "Tipo", "Type", "cv-filters__label"),
+          '        <button type="button" class="cv-chip" aria-pressed="true" data-v="" data-es="Todo" data-en="All">Todo</button>']
+    for t, es, en in CV_TIPOS:
+        if any(e["tipo"] == t for e in viva):
+            o.append(f'        <button type="button" class="cv-chip" aria-pressed="false" data-v="{t}" data-es="{es}" data-en="{en}">{es}</button>')
+    o += ['      </div>',
+          '      <div class="cv-filters" role="group" aria-label="País" data-cv-filter="pais">',
+          '        ' + _t("span", "País", "Country", "cv-filters__label"),
+          '        <button type="button" class="cv-chip" aria-pressed="true" data-v="" data-es="Todos" data-en="All">Todos</button>']
+    for c, es, en in CV_PAISES:
+        if c in usados and c != "LATAM":
+            o.append(f'        <button type="button" class="cv-chip" aria-pressed="false" data-v="{c}" data-es="{es}" data-en="{en}">{es}</button>')
+    o += ['      </div>',
+          '      ' + _t("p", "Al elegir un país también salen las que aceptan a toda la región.", "Picking a country also shows the ones open to the whole region.", "cv-filters__note"),
+          '      <p class="cv-empty" data-cv-empty hidden data-es="Nada con ese filtro esta semana." data-en="Nothing under that filter this week.">Nada con ese filtro esta semana.</p>',
+          '    </section>', '']
+
+    def tarjeta(e, moki=""):
+        te, tn = CV_TIPO1[e["tipo"]]
+        est = {"abierta": ("Abierta", "Open"), "proxima": ("Próxima", "Upcoming"), "permanente": ("Todo el año", "All year"), "cerrada": ("Cerrada", "Closed")}[e["estado"]]
+        nombres = {c: (es, en) for c, es, en in CV_PAISES}
+        pe = ", ".join(nombres[c][0] for c in e["paises"]); pn = ", ".join(nombres[c][1] for c in e["paises"])
+        fe = fn = None
+        if e["estado"] == "cerrada":
+            x, y = fecha(e["cierra"]); fe, fn = f"Cerró el {x}", f"Closed {y}"
+        elif e.get("cierra"):
+            x, y = fecha(e["cierra"]); fe, fn = f"Cierra el {x}", f"Closes {y}"
+            if e.get("abre") and datetime.date.fromisoformat(e["abre"]) > hoy:
+                a, b = fecha(e["abre"]); fe, fn = f"Abre el {a} y cierra el {x}", f"Opens {b} and closes {y}"
+        elif e.get("fecha_evento"):
+            x, y = _rango(e["fecha_evento"], e.get("fecha_evento_fin")); fe, fn = f"Es el {x}" if not e.get("fecha_evento_fin") else f"Del {x}", f"On {y}" if not e.get("fecha_evento_fin") else f"From {y}"
+        elif e["estado"] == "permanente":
+            fe, fn = "Recibe solicitudes todo el año", "Takes applications all year"
+        else:
+            fe, fn = "Fecha por anunciar", "Date to be announced"
+        ve, vn = fecha(e["fuente_fecha"])
+        h = [f'        <article class="cv-card" id="c-{e["id"]}" data-tipo="{e["tipo"]}" data-paises="{" ".join(e["paises"])}" data-estado="{e["estado"]}"' + (f' data-cierra="{e["cierra"]}"' if e.get("cierra") else "") + f'>{moki}',
+             f'          <p class="cv-card__top">{_t("span", te, tn, "ia-badge")}{_t("span", est[0], est[1], "cv-card__estado")}'
+             + (f'<span class="cv-left" data-cv-left="{e["cierra"]}"></span>' if e.get("cierra") and e["estado"] != "cerrada" else "") + '</p>',
+             f'          <h3>{esc(e["nombre"])}</h3>',
+             f'          <p class="cv-card__quien">{esc(e["quien"])} · {_t("span", pe, pn)}</p>',
+             '          <dl>',
+             f'            <div>{_t("dt", "Para quién", "Who it is for")}{_t("dd", e["para_quien"], e["para_quien_en"])}</div>',
+             f'            <div>{_t("dt", "Qué da", "What you get")}{_t("dd", e["que_da"], e["que_da_en"])}</div>',
+             f'            <div>{_t("dt", "Fecha", "Date")}{_t("dd", fe + (". " + e["nota"] if e.get("nota") else ""), fn + (". " + e["nota_en"] if e.get("nota_en") else ""))}</div>',
+             '          </dl>',
+             f'          <p class="cv-card__foot"><a class="btn btn--ghost" href="{esc(e["liga"])}" target="_blank" rel="noopener" data-es="Página oficial ↗" data-en="Official page ↗">Página oficial ↗</a>'
+             f'{_t("small", f"Verificado el {ve}", f"Verified {vn}")}</p>',
+             '        </article>']
+        return "\n".join(h)
+
+    n = 0
+    for t, es, en in CV_TIPOS:
+        grupo = sorted([e for e in viva if e["tipo"] == t], key=lambda e: ({"abierta": 0, "proxima": 1, "permanente": 2}[e["estado"]], orden(e)))
+        if not grupo: continue
+        o += [f'    <section class="wrap inner-section cv-group" id="{t}" data-cv-group aria-labelledby="{t}-title">',
+              '      <div class="rv-head">', '        ' + _t("h2", es, en).replace("<h2", f'<h2 id="{t}-title"'), '      </div>',
+              '      <div class="cv-grid">']
+        for e in grupo:
+            n += 1
+            o.append(tarjeta(e, '<span data-moki="arriba" data-moki-id="gamedev-convocatorias-tarjeta" style="--moki-r:10%"></span>' if n == 5 else ""))
+        o += ['      </div>', '    </section>', '']
+    if cerr:
+        o += ['    <section class="wrap inner-section" id="cerradas" aria-labelledby="cerradas-title">',
+              '      <div class="rv-head">', '        ' + _t("h2", "Cerraron hace poco", "Recently closed").replace("<h2", '<h2 id="cerradas-title"'),
+              '        ' + _t("p", "Se quedan 30 días para que sepas qué buscar el próximo año.", "They stay for 30 days so you know what to look for next year."), '      </div>',
+              '      <div class="cv-grid">'] + [tarjeta(e) for e in sorted(cerr, key=orden, reverse=True)] + ['      </div>', '    </section>', '']
+    o += ['    <section class="wrap inner-section cv-how">',
+          '      ' + _t("p", "Cómo se arma esta lista: cada miércoles abrimos la página oficial de cada entrada y de ahí sale la fecha. Si la página oficial no da fecha, lo decimos. No tomamos fechas de notas de prensa. ¿Falta una? Escríbele a Jorge en sus redes.",
+                       "How this list is built: every Wednesday we open the official page of each entry and take the date from there. If the official page gives no date, we say so. We do not take dates from press notes. Missing one? Message Jorge on his socials."),
+          '    </section>', '']
+    mail = (HERE / "home_body.html").read_text(encoding="utf-8")
+    m = re.search(r'    <section class="wrap rv-section" id="boletin".*?</section>\n', mail, re.S)
+    o.append(m.group(0).replace("rv-section", "inner-section").rstrip("\n"))
+    o += ['', '    <section class="wrap inner-section">', '      <div class="rv-links">',
+          '        ' + _t("a", "Llévate el kit de arranque", "Grab the starter kit", "btn btn--primary").replace("<a", '<a href="kit.html"'),
+          '        ' + _t("a", "Calcula cuánto cuesta tu juego", "Work out what your game costs", "btn btn--ghost").replace("<a", '<a href="presupuesto.html"'),
+          '      </div>', '    </section>', '  </main>', '']
+    (HERE / "convocatorias_body.html").write_text("\n".join(o), encoding="utf-8")
+    page("convocatorias.html", "Fondos y convocatorias para hacer videojuegos en Latinoamérica | Jorge Suárez", CV_DESC,
+         "convocatorias_body.html", extra_js='<script src="scripts/convocatorias.js" defer></script>')
+    evs = [{"@type": "Event", "name": e["nombre"], "startDate": e["fecha_evento"], **({"endDate": e["fecha_evento_fin"]} if e.get("fecha_evento_fin") else {}),
+            "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": e["lugar"], "address": e["lugar"]},
+            "organizer": {"@type": "Organization", "name": e["quien"]}, "url": e["liga"], "description": e["que_da"]}
+           for e in viva if e["tipo"] == "evento" and e.get("fecha_evento") and e.get("lugar")]
+    f = ROOT / "convocatorias.html"; s = f.read_text(encoding="utf-8")
+    s = s.replace("build 10 nov 2026", "build " + ae).replace("build Nov 10 2026", "build " + an)
+    if evs:
+        s = s.replace("</head>", '  <script type="application/ld+json">\n  ' + json.dumps({"@context": "https://schema.org", "@graph": evs}, ensure_ascii=False) + '\n  </script>\n</head>', 1)
+    f.write_text(s, encoding="utf-8")
+    c = lambda st: sum(1 for e in ent if e["estado"] == st)
+    print("convocatorias", len(viva), "vivas ·", c("abierta"), "abiertas ·", c("proxima"), "próximas ·", c("permanente"), "permanentes ·", len(cerr), "cerradas · primero:", pronto[0]["nombre"] if pronto else "-")
+
 HUD_TMPL = """  <a class="ia-skip" href="#main" data-i18n="ui.skip">Ir a recursos</a>
 
   <header class="hud" data-hud>
@@ -398,11 +552,12 @@ if __name__ == "__main__":
     page("gracias.html", "Fuentes y gracias | Game Industry Resources",
          "De quién aprendimos, de dónde sale cada dato y a dónde ir por el original: Motor de Juegos, DeVuego, INDI-ES y más.",
          "gracias_body.html")
+    convocatorias()
     GUIAS_PAGS = guias()
     for _rel, _t, _c in GUIAS_PAGS:
         SEO[_rel] = (_t, None, _c)
     for path, prefix, current in [(r, "../", "guias/") for r, _, _ in GUIAS_PAGS] + [
-        ("index.html", "", ""), ("kit.html", "", "kit.html"), ("gracias.html", "", "gracias.html"), ("presupuesto.html", "", "presupuesto.html"),
+        ("index.html", "", ""), ("kit.html", "", "kit.html"), ("gracias.html", "", "gracias.html"), ("presupuesto.html", "", "presupuesto.html"), ("convocatorias.html", "", "convocatorias.html"),
         ("entrar.html", "", "entrar.html"), ("ciclo.html", "", "ciclo.html"), ("tools.html", "", "tools.html"),
         ("marketing.html", "", "marketing.html"), ("jobs.html", "", "jobs.html"), ("database.html", "", "database.html"),
         ("ecosistema.html", "", "ecosistema.html"), ("mexico-indie.html", "", "mexico-indie.html"),
@@ -417,7 +572,7 @@ if __name__ == "__main__":
             creditos(path, prefix)
         else:
             print("sin <main>:", path)
-    for path in ["index.html", "kit.html", "gracias.html", "presupuesto.html", "entrar.html", "ciclo.html", "tools.html",
+    for path in ["index.html", "kit.html", "gracias.html", "presupuesto.html", "convocatorias.html", "entrar.html", "ciclo.html", "tools.html",
                  "marketing.html", "jobs.html", "database.html", "ecosistema.html", "mexico-indie.html", "industria.html",
                  "actividad.html", "noticias/index.html", "historico/2024-2025/index.html", "guides/cv.html",
                  "ia/index.html", "ia/patrocina/index.html", "ia/destacado-grok-bot/index.html"] + [r for r, _, _ in GUIAS_PAGS]:

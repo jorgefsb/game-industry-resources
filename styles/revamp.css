@@ -377,3 +377,30 @@ html:not([lang="en"]) [data-l="en"], html[lang="en"] [data-l="es"] { display: no
   .guia-facts > div { grid-template-columns: 1fr; }
   .guia-steps > li { padding-left: 0; padding-top: 3.25rem; }
 }
+
+/* Fondos, convocatorias y eventos (18-nov-2026) */
+.cv-tools { display: grid; gap: var(--sp-3); }
+.cv-filters { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); }
+.cv-filters__label { min-width: 3.2rem; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-secondary); }
+.cv-chip { min-height: 44px; padding: 0 var(--sp-4); border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--text); font: 400 15px/1 var(--body); cursor: pointer; }
+.cv-chip:hover { border-color: var(--accent); }
+.cv-chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #0A0A0A; font-weight: 700; }
+.cv-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.cv-filters__note, .cv-empty, .cv-how p { font-size: 14px; line-height: 1.5; color: var(--text-secondary); max-width: 46rem; }
+.cv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: var(--sp-5); }
+.cv-card { position: relative; display: grid; gap: var(--sp-3); align-content: start; padding: var(--sp-5); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-card); scroll-margin-top: 96px; }
+.cv-card[hidden], .cv-group[hidden] { display: none; }
+.cv-card:target { border-color: var(--accent); }
+.cv-card.is-closed { opacity: .6; }
+.cv-card__top { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); font-size: 13px; color: var(--text-secondary); }
+.cv-card h3 { font: 700 20px/1.25 var(--display); }
+.cv-card__quien { font-size: 14px; color: var(--text-secondary); }
+.cv-card dl { display: grid; gap: var(--sp-3); margin: 0; }
+.cv-card dt { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-secondary); }
+.cv-card dd { margin: 2px 0 0; line-height: 1.5; overflow-wrap: anywhere; }
+.cv-card__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); margin-top: var(--sp-2); }
+.cv-card__foot small { font-size: 13px; color: var(--text-secondary); }
+.cv-card .cv-left { font-weight: 700; color: var(--text); }
+.cv-left:empty { display: none; }
+.cv-card .cv-left.is-urgent { color: var(--accent); }
+.cv-soon .cv-left { white-space: nowrap; }

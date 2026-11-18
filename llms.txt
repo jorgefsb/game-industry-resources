@@ -17,6 +17,7 @@
 - Guías con fuente oficial (una por semana): https://gamedev.jorgesuarez.com.mx/guias/
 - Guía: cómo publicar tu juego en Steam desde México (cuota, entrevista fiscal, plazos y pagos): https://gamedev.jorgesuarez.com.mx/guias/publicar-juego-en-steam-desde-mexico
 - Calculadora de presupuesto (costo de un juego y copias para recuperarlo): https://gamedev.jorgesuarez.com.mx/presupuesto
+- Fondos, convocatorias y eventos para gamedevs de Latinoamérica (fecha de cierre y liga oficial, se revisa cada miércoles): https://gamedev.jorgesuarez.com.mx/convocatorias
 - Fuentes y gracias (de dónde sale cada dato y a quién se le da crédito): https://gamedev.jorgesuarez.com.mx/gracias
 
 ## Directorio de herramientas de IA
