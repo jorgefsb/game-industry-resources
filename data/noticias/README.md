@@ -9,12 +9,12 @@ Fuente de datos del digest semanal LATAM de `/noticias/`.
 
 ## Formato
 
-Un archivo JSON por semana: `YYYY-Www.json` (ejemplo `2026-W47.json`).
+Un archivo JSON por semana: `YYYY-Www.json` (ejemplo `2026-W48.json`).
 
 ```json
 {
-  "week": "2026-W47",
-  "published_at": "2026-11-16",
+  "week": "2026-W48",
+  "published_at": "2026-11-23",
   "items": [
     {
       "title_es": "",
@@ -37,12 +37,14 @@ Un archivo JSON por semana: `YYYY-Www.json` (ejemplo `2026-W47.json`).
 - Copy bilingüe ES + EN siempre, igual que el resto del sitio.
 - Sin em dash en el copy de UI. Guion normal o punto.
 
-Estado actual: **publicado**. Último digest: `2026-W47.json` (semana 2026-W47, publicada el 16 nov 2026, 6 items: 2 MX y 4 LATAM).
+Estado actual: **publicado**. Último digest: `2026-W48.json` (semana 2026-W48, publicada el 23 nov 2026, 4 items: 1 MX y 3 LATAM).
 
-Historial: `2026-W46.json` (publicada el 9 nov 2026, 4 items), `2026-W45.json` (publicada el 2 nov 2026, 6 items), `2026-W44.json` (publicada el 26 oct 2026, 6 items) y `2026-W43.json` (publicada el 24 oct 2026, 4 items LATAM). La lista visible de `/noticias/` muestra solo el digest más reciente; las ediciones anteriores viven en este directorio.
+Historial: `2026-W47.json` (publicada el 16 nov 2026, 6 items), `2026-W46.json` (publicada el 9 nov 2026, 4 items), `2026-W45.json` (publicada el 2 nov 2026, 6 items), `2026-W44.json` (publicada el 26 oct 2026, 6 items) y `2026-W43.json` (publicada el 24 oct 2026, 4 items LATAM). La lista visible de `/noticias/` muestra solo el digest más reciente; las ediciones anteriores viven en este directorio y en el bloque Semanas anteriores.
 
 Los items `GLOBAL` solo entran cuando mueven a la región, y el `summary` lo dice de forma explícita.
 
-Gap conocido de 2026-W47: en la ventana 9 a 16 nov no se verificaron inversiones, cierres ni lanzamientos de estudios MX. Las notas mexicanas son el cierre de Pixelatl (palmarés y VMX Showroom), hechos nuevos frente al anuncio de W44 y al arranque de W46. Game Conference MX (13 y 14 nov, Guadalajara) no tenía resultados ni ganadores publicados y verificables al cierre. En la UI se marca el alcance de la búsqueda en `news.how.note`.
+Gap conocido de 2026-W48: en la ventana 16 a 23 nov no se verificaron inversiones, cierres ni lanzamientos de estudios MX. La nota mexicana es el balance de Game Conference MX publicado el 19 nov, con cifras y premios que no se habían confirmado en W47. El evento ocurrió el 13 y 14 nov; no se presenta como celebrado esta semana. Pixelatl y The War in Chiapas no se repiten sin un hecho nuevo frente a W47. En la UI se marca el alcance de la búsqueda en `news.how.note`.
 
-Criterio de fechas W47: `date` corresponde a la publicación del palmarés en Radix (16 nov) y a la nota de agencias sobre el VMX Showroom (14 nov; la misma nota salió en Proceso el 13 nov, pero ese sitio bloquea la verificación automática). Para Rulebound es el estreno en Steam (10 nov); que Garage Monke es un estudio argentino lo confirma Press Over, no la ficha de Steam. Que Templo es un estudio mexicano lo confirma su comunicado en Games Press; Radix solo lista "Hellbound Inc. (Templo)". Para los LAGS Awards es la cobertura de Press Over (13 nov; el anuncio es del 11 nov). Para GDV Festival es la nota previa de Agência Brasil (13 nov): ganadores de los GDV Awards y resultados del estudio de Sebrae quedan como `[SIN DATO]`. Para Gamescom Latam es la cobertura de The Gaming Era (12 nov).
+Criterio de fechas W48: `date` es la publicación del comunicado de GCMX (19 nov), la jornada LEVEL UY ESTE en Maldonado del programa oficial (23 nov), la entrevista previa sobre C3 Expo (17 nov) y el balance del LAIC en MeriStation (22 nov). La jornada de Maldonado es adicional a las fechas de Montevideo publicadas en W45; el sitio identifica a Camila Bentancur como Premio Sofía 2026, pero no fecha por separado la entrega. CONAVI 2026 queda como `[SIN DATO]`. C3 Expo se anunció para el 20 al 22 nov: 6 mil personas es expectativa, no asistencia observada; el cierre queda como `[SIN DATO]`. LAIC corresponde a la temporada competitiva 2027, aunque ocurre en noviembre de 2026.
+
+Descartados de W48: GDV Awards tiene ganadores oficiales, pero la ceremonia fue el 15 nov, fuera de ventana. Ancine, Marco Legal, Abragames, BIG Festival, ADVA/EVA y Super Indie Games no aportaron un hecho nuevo verificable en esta ventana. Chile Game Conference tiene fecha 17 nov, pero las fuentes revisadas devolvieron HTTP 403 a curl. No se incorporaron especulaciones sobre nominados LAGS, cifras generales de Buen Fin o Black Friday, ni noticias globales de Littlebird sin efecto regional confirmado.
