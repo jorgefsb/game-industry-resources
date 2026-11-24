@@ -143,7 +143,7 @@ async function countClick(env, slug) {
 const EVENTOS = new Set([
   'kit_abierto_x', 'kit_abierto_linkedin', 'kit_abierto_whatsapp', 'kit_abierto_facebook',
   'kit_abierto_copy', 'kit_abierto_manual', 'kit_abierto_correo',
-  'kit_copia_gdd', 'kit_copia_tienda', 'kit_copia_pitch', 'kit_copia_plan12',
+  'kit_copia_gdd', 'kit_copia_tienda', 'kit_copia_pitch', 'kit_copia_plan12', 'kit_copia_presskit',
   'presupuesto_copia'
 ]);
 const EVENTOS_MAX_DIA = 200;

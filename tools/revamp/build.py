@@ -544,7 +544,7 @@ if __name__ == "__main__":
     shell("actividad.html"); shell("mexico-indie.html")
     page("index.html", "", "", "home_body.html")
     page("kit.html", "Kit de arranque: paga con un post | Game Industry Resources",
-         "Plantillas para avanzar tu juego: GDD de una página, checklist de tu página de tienda, pitch en 10 láminas y plan de 12 semanas antes del lanzamiento. La primera es libre; las demás se abren al compartir.",
+         "Plantillas para avanzar tu juego: GDD de una página, checklist de tu página de tienda, pitch en 10 láminas, plan de 12 semanas antes del lanzamiento y press kit en una página. La primera es libre; las demás se abren al compartir.",
          "kit_body.html", extra_js='<script src="scripts/unlock.js" defer></script>')
     page("presupuesto.html", "¿Cuánto cuesta tu juego? Calculadora de presupuesto | Game Industry Resources",
          "Calculadora gratis para gamedevs: pon a tu equipo, los meses y tus gastos, y ve el total y cuántas copias necesitas vender para recuperarlo.",
