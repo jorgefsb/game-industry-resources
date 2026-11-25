@@ -346,7 +346,7 @@ CV_TIPOS = [("fondo", "Fondos", "Funds"), ("programa", "Programas", "Programs"),
             ("evento", "Eventos", "Events"), ("jam", "Game jams", "Game jams")]
 CV_TIPO1 = {"fondo": ("Fondo", "Fund"), "programa": ("Programa", "Program"), "festival": ("Festival", "Festival"), "evento": ("Evento", "Event"), "jam": ("Jam", "Jam")}
 CV_PAISES = [("LATAM", "Toda la región", "Whole region"), ("MX", "México", "Mexico"), ("AR", "Argentina", "Argentina"), ("BR", "Brasil", "Brazil"),
-             ("CL", "Chile", "Chile"), ("CO", "Colombia", "Colombia"), ("PE", "Perú", "Peru"), ("UY", "Uruguay", "Uruguay")]
+             ("CL", "Chile", "Chile"), ("CO", "Colombia", "Colombia"), ("PE", "Perú", "Peru"), ("UY", "Uruguay", "Uruguay"), ("BO", "Bolivia", "Bolivia")]
 CV_DESC = "Fondos, programas, festivales con inscripción, eventos y game jams que puede aprovechar hoy quien hace videojuegos en Latinoamérica, con fecha de cierre y liga oficial. Se revisa cada semana."
 
 def _t(tag, es, en, cls=""):
@@ -367,8 +367,10 @@ def convocatorias():
     ent = d["entradas"]
     for e in ent:  # lo que ya cerró no se anuncia como abierto aunque el JSON no se haya tocado
         if e.get("cierra") and datetime.date.fromisoformat(e["cierra"]) < hoy: e["estado"] = "cerrada"
+        if not e.get("cierra") and e.get("fecha_evento") and datetime.date.fromisoformat(e.get("fecha_evento_fin") or e["fecha_evento"]) < hoy: e["estado"] = "cerrada"  # evento que ya pasó
+    fin = lambda e: e.get("cierra") or e.get("fecha_evento_fin") or e.get("fecha_evento")
     viva = [e for e in ent if e["estado"] != "cerrada"]
-    cerr = [e for e in ent if e["estado"] == "cerrada" and (hoy - datetime.date.fromisoformat(e["cierra"])).days <= 30]
+    cerr = [e for e in ent if e["estado"] == "cerrada" and fin(e) and (hoy - datetime.date.fromisoformat(fin(e))).days <= 30]
     orden = lambda e: (e.get("cierra") or e.get("fecha_evento") or e.get("abre") or "9999")
     pronto = sorted([e for e in viva if e.get("cierra") and (datetime.date.fromisoformat(e["cierra"]) - hoy).days <= 30], key=orden)
     ae, an = fecha(d["actualizado"])
@@ -422,7 +424,7 @@ def convocatorias():
         pe = ", ".join(nombres[c][0] for c in e["paises"]); pn = ", ".join(nombres[c][1] for c in e["paises"])
         fe = fn = None
         if e["estado"] == "cerrada":
-            x, y = fecha(e["cierra"]); fe, fn = f"Cerró el {x}", f"Closed {y}"
+            x, y = fecha(fin(e)); fe, fn = (f"Cerró el {x}", f"Closed {y}") if e.get("cierra") else (f"Fue el {x}", f"Took place {y}")
         elif e.get("cierra"):
             x, y = fecha(e["cierra"]); fe, fn = f"Cierra el {x}", f"Closes {y}"
             if e.get("abre") and datetime.date.fromisoformat(e["abre"]) > hoy:
@@ -442,7 +444,7 @@ def convocatorias():
              '          <dl>',
              f'            <div>{_t("dt", "Para quién", "Who it is for")}{_t("dd", e["para_quien"], e["para_quien_en"])}</div>',
              f'            <div>{_t("dt", "Qué da", "What you get")}{_t("dd", e["que_da"], e["que_da_en"])}</div>',
-             f'            <div>{_t("dt", "Fecha", "Date")}{_t("dd", fe + (". " + e["nota"] if e.get("nota") else ""), fn + (". " + e["nota_en"] if e.get("nota_en") else ""))}</div>',
+             f'            <div>{_t("dt", "Fecha", "Date")}{_t("dd", fe + (". " + e["nota"] if e.get("nota") and e["estado"] != "cerrada" else ""), fn + (". " + e["nota_en"] if e.get("nota_en") and e["estado"] != "cerrada" else ""))}</div>',
              '          </dl>',
              f'          <p class="cv-card__foot"><a class="btn btn--ghost" href="{esc(e["liga"])}" target="_blank" rel="noopener" data-es="Página oficial ↗" data-en="Official page ↗">Página oficial ↗</a>'
              f'{_t("small", f"Verificado el {ve}", f"Verified {vn}")}</p>',
@@ -464,7 +466,7 @@ def convocatorias():
         o += ['    <section class="wrap inner-section" id="cerradas" aria-labelledby="cerradas-title">',
               '      <div class="rv-head">', '        ' + _t("h2", "Cerraron hace poco", "Recently closed").replace("<h2", '<h2 id="cerradas-title"'),
               '        ' + _t("p", "Se quedan 30 días para que sepas qué buscar el próximo año.", "They stay for 30 days so you know what to look for next year."), '      </div>',
-              '      <div class="cv-grid">'] + [tarjeta(e) for e in sorted(cerr, key=orden, reverse=True)] + ['      </div>', '    </section>', '']
+              '      <div class="cv-grid">'] + [tarjeta(e) for e in sorted(cerr, key=fin, reverse=True)] + ['      </div>', '    </section>', '']
     o += ['    <section class="wrap inner-section cv-how">',
           '      ' + _t("p", "Cómo se arma esta lista: cada miércoles abrimos la página oficial de cada entrada y de ahí sale la fecha. Si la página oficial no da fecha, lo decimos. No tomamos fechas de notas de prensa. ¿Falta una? Escríbele a Jorge en sus redes.",
                        "How this list is built: every Wednesday we open the official page of each entry and take the date from there. If the official page gives no date, we say so. We do not take dates from press notes. Missing one? Message Jorge on his socials."),
