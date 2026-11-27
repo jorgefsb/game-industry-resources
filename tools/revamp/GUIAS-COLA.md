@@ -15,17 +15,16 @@ Una guía por semana (tarea de los viernes). La meta: que cada búsqueda en espa
 
 ## En cola
 
-1. Cuánto cuesta hacer un videojuego indie en Latinoamérica (se apoya en /presupuesto).
-2. Cómo cobrar en dólares por tu juego o tu trabajo desde México.
-3. Cómo presentar tu juego a un publisher: qué piden y qué mandar (se apoya en el pitch del kit).
-4. Cómo conseguir tu primer trabajo en videojuegos desde Latinoamérica.
-5. Cuántas wishlists necesita tu juego antes de lanzar en Steam (con la fuente del dato y su fecha).
-6. Cómo publicar tu juego en Steam desde Argentina.
-7. Cómo publicar tu juego en Steam desde Colombia.
-8. Cómo abrir un estudio de videojuegos en México: figuras legales y facturación, según fuentes oficiales.
-9. Game jams en Latinoamérica: cuáles hay y cómo sacarles provecho.
-10. Qué motor usar para tu primer juego: Unity, Unreal, Godot o GameMaker.
-11. Cómo usar IA en tu juego sin meterte en problemas con las tiendas (reglas de Steam y otras, con liga).
+1. Cómo cobrar en dólares por tu juego o tu trabajo desde México.
+2. Cómo presentar tu juego a un publisher: qué piden y qué mandar (se apoya en el pitch del kit).
+3. Cómo conseguir tu primer trabajo en videojuegos desde Latinoamérica.
+4. Cuántas wishlists necesita tu juego antes de lanzar en Steam (con la fuente del dato y su fecha).
+5. Cómo publicar tu juego en Steam desde Argentina.
+6. Cómo publicar tu juego en Steam desde Colombia.
+7. Cómo abrir un estudio de videojuegos en México: figuras legales y facturación, según fuentes oficiales.
+8. Game jams en Latinoamérica: cuáles hay y cómo sacarles provecho.
+9. Qué motor usar para tu primer juego: Unity, Unreal, Godot o GameMaker.
+10. Cómo usar IA en tu juego sin meterte en problemas con las tiendas (reglas de Steam y otras, con liga).
 
 ## Reescrituras pendientes (una al mes, en lugar de la guía de esa semana)
 
@@ -41,7 +40,14 @@ Estas tres secciones nacieron de la estructura de otra fuente. Se rehacen con fo
    - Fuentes: documentación de Steamworks (incorporación, cuota, impuestos, pagos, precios), tabla 1 de tratados del IRS (rev. mayo 2023), W-8BEN del IRS y trámites del RFC del SAT. Todas en 200 el 13-nov-2026.
    - Ojo al revisar: la espera entre cuota y lanzamiento hoy es de 21 días (antes eran 30). El porcentaje de Steam no está en la documentación abierta; no se publicó cifra.
    - Sin «Lo que hemos visto»: EXPERIENCIA-JORGE.md no tiene nada sobre publicar en tienda todavía.
-   - Visitas (Pulso, 28 días): se mide desde el 20-nov.
+   - Visitas (Pulso, 28 días al 27-nov): 3 vistas. Pulso da los orígenes por sitio, no por página: gamedev tuvo 5 visitas de google.com en total. Lleva 2 semanas publicada; el aviso de «revisar título» toca el 11-dic si sigue sin visitas de buscador.
+2. 2026-11-27 · Cuánto cuesta hacer un videojuego indie en Latinoamérica · `guias/cuanto-cuesta-hacer-un-videojuego-indie.html` · https://gamedev.jorgesuarez.com.mx/guias/cuanto-cuesta-hacer-un-videojuego-indie
+   - Fuentes: cuota de Steam Direct y anuncio de reparto de 2018 (Valve), distribución de Epic Games Store, itch.io (FAQ y pagos), Play Console (alta y comisiones), Apple (programa y Small Business Program), licencias de Godot, Unity, Unreal, GameMaker y FMOD, FAQ de Nintendo y tipo de cambio de Banxico. Todas en 200 el 27-nov-2026; Epic y Unreal dan 403 a curl y 200 en navegador.
+   - Ojo al revisar: Unity Pro «desde 2,310 dólares al año» y el tope de 200,000 de Personal cambian seguido. El precio de GameMaker Enterprise no se publicó porque la página no deja claro si es mensual o anual. La comisión base de Steam sigue sin estar en documentación abierta.
+   - Sin cifras de sueldos ni rangos de presupuesto: no hay fuente pública con fecha y método para LATAM. El ejemplo de la cuenta usa números inventados y lo dice.
+   - Sin «Lo que hemos visto»: EXPERIENCIA-JORGE.md no tiene nada sobre presupuestos todavía (la pregunta abierta 2 lo resolvería).
+   - Visitas (Pulso, 28 días): se mide desde el 4-dic.
+   - La semana del 20-nov no hubo guía (la tarea no corrió).
 
 ## Cómo se arma una guía (técnico)
 

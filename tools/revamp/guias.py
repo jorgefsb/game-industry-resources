@@ -285,7 +285,7 @@ GUIAS = [
   ],
   "sig_es": "Antes de pagar la cuota, saca cuántas copias necesitas vender para recuperar tu juego. La calculadora ya trae la comisión de tienda como casilla: cámbiala por la de tu contrato.",
   "sig_en": "Before paying the fee, work out how many copies you need to sell to earn your game back. The calculator has the store cut as a field: change it to the one in your agreement.",
-  "siguiente": [("../presupuesto.html", "Abrir la calculadora", "Open the calculator"), ("../kit.html", "Checklist de página de tienda", "Store page checklist"), ("../marketing.html", "Cómo vender tu juego", "How to sell your game"), ("./", "Más guías", "More guides")],
+  "siguiente": [("../presupuesto.html", "Abrir la calculadora", "Open the calculator"), ("../kit.html", "Checklist de página de tienda", "Store page checklist"), ("cuanto-cuesta-hacer-un-videojuego-indie.html", "Cuánto cuesta hacer tu juego", "What your game costs"), ("./", "Más guías", "More guides")],
   "fuentes": [
     ("Steamworks: incorporación (pasos, plazos y qué no acepta Steam)", "Steamworks: onboarding (steps, waits and what Steam does not accept)", D_ONB),
     ("Steamworks: preguntas frecuentes de incorporación (nombre legal, entrevista fiscal)", "Steamworks: onboarding FAQ (legal name, tax interview)", D_FAQ),
@@ -301,3 +301,167 @@ GUIAS = [
   ],
 },
 ]
+
+# --- Guía 2 (27-nov-2026): cuánto cuesta hacer un videojuego indie en Latinoamérica ---
+D_SHARE = "https://steamcommunity.com/groups/steamworks/announcements/detail/1697191267930157838"
+APPLE_PROG = "https://developer.apple.com/programs/"
+APPLE_SBP = "https://developer.apple.com/app-store/small-business-program/"
+GP_ALTA = "https://support.google.com/googleplay/android-developer/answer/6112435?hl=es-419"
+GP_FEES = "https://support.google.com/googleplay/android-developer/answer/112622?hl=es-419"
+ITCH_FAQ = "https://itch.io/docs/creators/faq"
+ITCH_PAY = "https://itch.io/docs/creators/payments"
+EPIC_DIST = "https://store.epicgames.com/en-US/distribution"
+UNITY_PLANS = "https://unity.com/products/compare-plans"
+UE_LIC = "https://www.unrealengine.com/en-US/license"
+GODOT_LIC = "https://godotengine.org/license/"
+GM_GET = "https://gamemaker.io/en/get"
+FMOD_LIC = "https://www.fmod.com/licensing"
+NIN_FAQ = "https://developer.nintendo.com/faq"
+BANXICO = "https://www.banxico.org.mx/tipcamb/main.do?page=tip&idioma=sp"
+G_STEAM_MX = "publicar-juego-en-steam-desde-mexico.html"
+
+GUIAS.append({
+  "slug": "cuanto-cuesta-hacer-un-videojuego-indie",
+  "publicada": "2026-11-27", "revisada": "2026-11-27",
+  "title": "Cuánto cuesta hacer un videojuego indie en Latinoamérica | Jorge Suárez",
+  "desc": "Qué se paga de verdad para hacer y vender un juego indie desde Latinoamérica: cuotas de Steam, Apple, Google, Epic e itch.io, licencias de motor y cómo sacar tu número. Cada precio con su fuente oficial.",
+  "h1_es": "Cuánto cuesta hacer un videojuego indie en Latinoamérica",
+  "h1_en": "How much it costs to make an indie game in Latin America",
+  "sub_es": "Las cuotas y licencias que sí tienen precio público, lo que no lo tiene y la cuenta para sacar tu propio número.",
+  "sub_en": "The fees and licenses that do have a public price, the ones that do not, and the math to get your own number.",
+  "nuevo_es": "Cuotas de tienda y licencias de motor con su fuente oficial, y la cuenta en 8 pasos para sacar el número de tu juego.",
+  "nuevo_en": "Store fees and engine licenses with their official source, and the 8-step math to get your game's number.",
+  "respuesta": [
+    ("No existe una cifra única, y los rangos que circulan casi nunca dicen de dónde salen. Lo que sí tiene precio público son las cuotas y las licencias, y son la parte chica: poner un juego a la venta en Steam cuesta 100 dólares, en itch.io cero, y puedes hacerlo con un motor que no cobra nada (Godot) o que no cobra hasta que ganes dinero (Unity Personal, Unreal).",
+     "There is no single figure, and the ranges you see around almost never say where they come from. What does have a public price are the fees and licenses, and they are the small part: putting a game on sale costs 100 dollars on Steam and nothing on itch.io, and you can build it with an engine that charges nothing (Godot) or nothing until you make money (Unity Personal, Unreal)."),
+    ("Lo demás es tiempo de personas: los meses que dura el proyecto por lo que necesita cobrar cada quien, empezando por ti. Ese número cambia con cada equipo y cada ciudad, así que aquí no te damos un rango: te damos los precios que sí se pueden comprobar hoy y la cuenta para sacar el tuyo en diez minutos con la [calculadora](../presupuesto.html).",
+     "The rest is people's time: the months the project lasts times what each person needs to earn, starting with you. That number changes with every team and every city, so we do not give you a range here: we give you the prices you can check today and the math to get yours in ten minutes with the [calculator](../presupuesto.html)."),
+  ],
+  "secciones": [
+    ("pasos", "La cuenta, en orden", "The math, in order", [
+      ("pasos", [
+        ("Fija el alcance y los meses", "Fix the scope and the months",
+         ["Todo el presupuesto se multiplica por los meses. Antes de sumar nada, escribe qué lleva el juego y qué se queda fuera, y pon una fecha de salida.",
+          "Si todavía no lo tienes en papel, el [kit de arranque](../kit.html) trae un GDD de una página para dejarlo cerrado."],
+         ["The whole budget gets multiplied by the months. Before adding anything up, write down what goes into the game and what stays out, and set a release date.",
+          "If you do not have it on paper yet, the [starter kit](../kit.html) has a one-page GDD to lock it down."]),
+        ("Ponle precio al tiempo de cada persona, empezando por ti", "Put a price on each person's time, starting with yours",
+         ["Aunque hoy no te pagues, anota lo que necesitas cobrar al mes para vivir. Si lo dejas en cero, el presupuesto dice que tu juego es gratis y no lo es.",
+          "No encontramos una fuente pública, con fecha y método, de sueldos de desarrollo de videojuegos en Latinoamérica, así que no publicamos ninguna cifra. Usa números reales: lo que tú necesitas, lo que te pide cada persona del equipo y la cotización por escrito de quien contrates por proyecto."],
+         ["Even if you are not paying yourself today, write down what you need to earn per month to live. If you leave it at zero, the budget says your game is free, and it is not.",
+          "We did not find a public source, with a date and a method, for game development salaries in Latin America, so we publish no figure. Use real numbers: what you need, what each team member asks for, and a written quote from anyone you hire per project."]),
+        ("Elige motor y lee su licencia", "Pick an engine and read its license",
+         [f"Godot es gratis, de código abierto y no cobra regalías: el juego es tuyo ([licencia de Godot]({GODOT_LIC})). Unity Personal es gratis mientras tus ingresos y los fondos que hayas levantado en los últimos 12 meses no pasen de 200,000 dólares. Arriba de eso toca Unity Pro, desde 2,310 dólares al año ([planes de Unity]({UNITY_PLANS})).",
+          f"Unreal no cobra por usarlo para hacer juegos. Cobra 5% de regalía sobre lo que tu juego ingrese en bruto después del primer millón de dólares, y lo que vendas dentro de Epic Games Store no paga regalía ([licencia de Unreal]({UE_LIC})).",
+          f"GameMaker es gratis solo para uso no comercial. Para vender necesitas la licencia Professional, un pago único de 99.99 dólares que cubre escritorio, web y móvil. Exportar a consolas pide la suscripción Enterprise ([licencias de GameMaker]({GM_GET}))."],
+         [f"Godot is free, open source and charges no royalties: the game is yours ([Godot license]({GODOT_LIC})). Unity Personal is free as long as your revenue and the funds you raised in the last 12 months stay under 200,000 dollars. Above that you need Unity Pro, from 2,310 dollars a year ([Unity plans]({UNITY_PLANS})).",
+          f"Unreal does not charge you to use it for games. It charges a 5% royalty on your game's gross revenue past the first million dollars, and what you sell inside the Epic Games Store pays no royalty ([Unreal license]({UE_LIC})).",
+          f"GameMaker is free for non-commercial use only. To sell you need the Professional license, a one-time payment of 99.99 dollars that covers desktop, web and mobile. Console export requires the Enterprise subscription ([GameMaker licenses]({GM_GET}))."]),
+        ("Suma las herramientas, licencia por licencia", "Add the tools, license by license",
+         [f"Cada herramienta tiene su letra chica, y muchas traen un nivel gratis para proyectos chicos con un tope. Un ejemplo: el audio con FMOD es gratis si ganas menos de 200,000 dólares al año y tu presupuesto de desarrollo es menor a 600,000. Fuera de ese caso son 2,000 dólares por juego ([licencias de FMOD]({FMOD_LIC})).",
+          "Haz la lista de lo que usa tu equipo (arte, audio, control de versiones, gestión de tareas) y abre la página de precios de cada una. Anota el costo por mes y multiplícalo por los meses del paso 1. Si vas a usar herramientas de IA, el [directorio de IA](../ia/) dice cuáles tienen plan gratis."],
+         [f"Every tool has its fine print, and many have a free tier for small projects with a cap. One example: audio with FMOD is free if you make under 200,000 dollars a year and your development budget is under 600,000. Outside that case it is 2,000 dollars per game ([FMOD licensing]({FMOD_LIC})).",
+          "List what your team uses (art, audio, version control, task tracking) and open each pricing page. Write down the monthly cost and multiply it by the months from step 1. If you plan to use AI tools, the [AI directory](../ia/) says which ones have a free plan."]),
+        ("Suma la cuota de cada tienda donde vas a salir", "Add the fee of every store you will launch on",
+         [f"Steam cobra 100 dólares por juego y los regresa cuando el juego pasa de 1,000 dólares de ingreso bruto ajustado ([cuota de Steam Direct]({D_FEE})). Epic Games Store también cobra 100 dólares por juego, recuperables ([distribución en Epic]({EPIC_DIST})). Subir tu juego a itch.io no cuesta nada ([preguntas frecuentes de itch.io]({ITCH_FAQ})).",
+          f"En móvil, Google Play cobra 25 dólares una sola vez por la cuenta de desarrollador ([alta en Play Console]({GP_ALTA})) y Apple cobra 99 dólares cada año por su programa de desarrolladores ([Apple Developer Program]({APPLE_PROG})). Lo de Apple es un gasto que se repite mientras tu juego siga en la tienda.",
+          f"Si vas a Steam desde México, el trámite completo está en [la guía de Steam]({G_STEAM_MX})."],
+         [f"Steam charges 100 dollars per game and returns it once the game passes 1,000 dollars in adjusted gross revenue ([Steam Direct fee]({D_FEE})). The Epic Games Store also charges 100 dollars per game, recoupable ([Epic distribution]({EPIC_DIST})). Uploading your game to itch.io costs nothing ([itch.io creator FAQ]({ITCH_FAQ})).",
+          f"On mobile, Google Play charges 25 dollars once for the developer account ([Play Console signup]({GP_ALTA})) and Apple charges 99 dollars every year for its developer program ([Apple Developer Program]({APPLE_PROG})). Apple's is a cost that repeats for as long as your game stays on the store.",
+          f"If you are heading to Steam from Mexico, the full process is in [the Steam guide]({G_STEAM_MX})."]),
+        ("Cotiza lo que vas a encargar fuera", "Get quotes for what you will outsource",
+         ["Música, localización, tráiler, contabilidad, registro legal y viajes a eventos no tienen precio de lista. Pide dos o tres cotizaciones por escrito para cada cosa y anota la más probable, no la más barata.",
+          "Para eventos y viajes, revisa primero las [convocatorias abiertas](../convocatorias.html): hay becas y fondos que cubren parte de ese gasto."],
+         ["Music, localization, a trailer, accounting, legal registration and travel to events have no list price. Ask for two or three written quotes for each and write down the most likely one, not the cheapest.",
+          "For events and travel, check the [open calls](../convocatorias.html) first: some grants and funds cover part of that cost."]),
+        ("Pasa todo a una sola moneda y agrega un colchón", "Convert everything to one currency and add a cushion",
+         [f"Las cuotas y las licencias se cobran en dólares y tu equipo cobra en moneda local. Elige una moneda para todo el presupuesto y convierte con un tipo de cambio oficial, anotando la fecha. En México es el tipo de cambio FIX que publica el [Banco de México]({BANXICO}). En otros países, el del banco central.",
+          "Encima del total, agrega un porcentaje para imprevistos. La calculadora trae 20% de entrada y lo puedes mover."],
+         [f"Fees and licenses are charged in US dollars and your team is paid in local currency. Pick one currency for the whole budget and convert with an official exchange rate, noting the date. In Mexico that is the FIX rate published by [Banco de México]({BANXICO}). In other countries, the central bank's.",
+          "On top of the total, add a percentage for surprises. The calculator starts at 20% and you can change it."]),
+        ("Saca cuántas copias necesitas vender", "Work out how many copies you need to sell",
+         ["El presupuesto solo no dice nada hasta que lo comparas con lo que te queda por copia. Al precio de tu juego réstale la comisión de la tienda, la parte del publisher si hay, y los descuentos, impuestos y devoluciones. Divide el presupuesto entre eso.",
+          "La [calculadora](../presupuesto.html) hace esa división con tus números y se guarda solo en tu navegador."],
+         ["The budget alone says nothing until you compare it with what you keep per copy. From your game's price subtract the store's cut, the publisher's share if there is one, and discounts, taxes and refunds. Divide the budget by that.",
+          "The [calculator](../presupuesto.html) does that division with your numbers and saves only in your browser."]),
+      ]),
+    ]),
+    ("ejemplo", "Un ejemplo para ver la cuenta", "An example to see the math", [
+      ("nota", "Los números de este ejemplo son inventados para enseñar la operación. No son sueldos de referencia ni una predicción de ventas.", "The numbers in this example are made up to show the operation. They are not reference salaries or a sales forecast."),
+      ("ul", [
+        ("Equipo: 2 personas por 12 meses, cada una con 1,000 dólares al mes. Son 24,000 dólares.", "Team: 2 people for 12 months, each at 1,000 dollars a month. That is 24,000 dollars."),
+        ("Otros gastos: 100 dólares de la cuota de Steam más 1,900 de música y tráiler por encargo. Son 2,000 dólares.", "Other costs: 100 dollars for the Steam fee plus 1,900 for commissioned music and a trailer. That is 2,000 dollars."),
+        ("Colchón de 20% sobre 26,000: 5,200 dólares. Presupuesto total: 31,200 dólares.", "A 20% cushion on 26,000: 5,200 dollars. Total budget: 31,200 dollars."),
+        ("Venta: precio de 10 dólares, 20% menos por descuentos, impuestos y devoluciones, y 30% de comisión de tienda. Quedan 5.60 dólares por copia.", "Sales: a 10-dollar price, 20% off for discounts, taxes and refunds, and a 30% store cut. You keep 5.60 dollars per copy."),
+        ("31,200 entre 5.60 da 5,572 copias para recuperar el juego.", "31,200 divided by 5.60 gives 5,572 copies to earn the game back."),
+      ]),
+      ("p", "En este ejemplo, las cuotas y licencias con precio público suman 100 dólares de 31,200. El resto es tiempo de personas, y por eso los dos números que más mueven el resultado son los meses y el tamaño del equipo.",
+            "In this example, the fees and licenses with a public price add up to 100 dollars out of 31,200. The rest is people's time, which is why the two numbers that move the result the most are the months and the size of the team."),
+    ]),
+    ("costos", "Lo que sí tiene precio público", "What does have a public price", [
+      ("datos", [
+        ("Steam: cuota por juego", "Steam: fee per game", "100 dólares. Regresa cuando el juego pasa de 1,000 dólares de ingreso bruto ajustado.", "100 dollars. It comes back once the game passes 1,000 dollars in adjusted gross revenue.", "Steamworks", D_FEE),
+        ("Epic Games Store: cuota por juego", "Epic Games Store: fee per game", "100 dólares, recuperables. Epic no cobra comisión sobre el primer millón de dólares de ingreso neto por producto al año. Después se queda 12%.", "100 dollars, recoupable. Epic takes no cut on the first million dollars of net revenue per product per year. After that it keeps 12%.", "Epic Games Store", EPIC_DIST),
+        ("itch.io: subir y vender", "itch.io: uploading and selling", "Gratis. Tú eliges qué porcentaje de tus ventas le dejas a itch.io, de 0% a 100%. Viene en 10%. El procesador de pago cobra aparte, en la mayoría de los casos 0.30 dólares más 2.9% por venta.", "Free. You choose what percentage of your sales goes to itch.io, from 0% to 100%. It starts at 10%. The payment processor charges separately, in most cases 0.30 dollars plus 2.9% per sale.", "itch.io", ITCH_PAY),
+        ("Google Play: cuenta de desarrollador", "Google Play: developer account", "25 dólares, una sola vez. Las cuentas personales nuevas tienen que cumplir requisitos de prueba antes de publicar.", "25 dollars, one time. New personal accounts must meet testing requirements before publishing.", "Play Console", GP_ALTA),
+        ("Google Play: comisión", "Google Play: service fee", "15% sobre el primer millón de dólares al año si te inscribes en ese nivel, y 30% arriba de eso.", "15% on the first million dollars per year if you enroll in that tier, and 30% above it.", "Play Console", GP_FEES),
+        ("Apple: programa de desarrolladores", "Apple: developer program", "99 dólares al año.", "99 dollars per year.", "Apple Developer", APPLE_PROG),
+        ("Apple: comisión reducida", "Apple: reduced commission", "15% si te inscribes al App Store Small Business Program, para quienes ganan hasta un millón de dólares al año.", "15% if you enroll in the App Store Small Business Program, for those earning up to one million dollars a year.", "Apple Developer", APPLE_SBP),
+        ("Godot", "Godot", "Gratis, licencia MIT, sin regalías.", "Free, MIT license, no royalties.", "Godot Engine", GODOT_LIC),
+        ("Unity", "Unity", "Personal: gratis con menos de 200,000 dólares de ingresos o fondos en 12 meses. Pro: desde 2,310 dólares al año.", "Personal: free under 200,000 dollars in revenue or funding over 12 months. Pro: from 2,310 dollars a year.", "Unity", UNITY_PLANS),
+        ("Unreal Engine", "Unreal Engine", "Gratis para hacer juegos. 5% de regalía sobre el ingreso bruto del juego arriba de un millón de dólares. Lo vendido en Epic Games Store no paga regalía.", "Free for making games. A 5% royalty on the game's gross revenue above one million dollars. Sales on the Epic Games Store pay no royalty.", "Unreal Engine", UE_LIC),
+        ("GameMaker", "GameMaker", "Gratis para uso no comercial. Professional: 99.99 dólares, pago único. Consolas: suscripción Enterprise.", "Free for non-commercial use. Professional: 99.99 dollars, one-time. Consoles: Enterprise subscription.", "GameMaker", GM_GET),
+        ("FMOD (audio)", "FMOD (audio)", "Gratis con menos de 200,000 dólares de ingreso al año y presupuesto menor a 600,000. Si no, 2,000 dólares por juego en el nivel indie.", "Free under 200,000 dollars of revenue per year and a budget under 600,000. Otherwise 2,000 dollars per game at the indie tier.", "FMOD", FMOD_LIC),
+      ]),
+    ]),
+    ("sin-precio", "Lo que no tiene precio público", "What has no public price", [
+      ("ul", [
+        ("**Sueldos.** No hay una fuente pública con fecha y método para Latinoamérica que podamos enlazar. Si conoces una, mándala y la revisamos.", "**Salaries.** There is no public source with a date and a method for Latin America that we can link. If you know one, send it and we will review it."),
+        (f"**Kits de desarrollo de consola.** Registrarte en el portal de desarrolladores de Nintendo y bajar las herramientas es gratis. El costo del hardware de desarrollo solo se ve dentro del portal ([preguntas frecuentes de Nintendo]({NIN_FAQ})). Cuenta con un gasto ahí y pregunta antes de prometer una versión de consola.", f"**Console development kits.** Signing up for the Nintendo Developer Portal and downloading the tools is free. The cost of development hardware is only shown inside the portal ([Nintendo FAQ]({NIN_FAQ})). Expect a cost there and ask before you promise a console version."),
+        (f"**La comisión base de Steam.** La documentación abierta no la dice: viene en el Acuerdo de Distribución que firmas. Lo que Valve sí publicó en 2018 es que la comisión baja a 25% sobre lo que un juego gane arriba de 10 millones de dólares y a 20% arriba de 50 millones ([anuncio de Steamworks]({D_SHARE})). La calculadora trae 30% de entrada. Cámbialo por el de tu contrato.", f"**Steam's base cut.** The open documentation does not state it: it is in the Distribution Agreement you sign. What Valve did publish in 2018 is that the cut drops to 25% on what a game earns above 10 million dollars and to 20% above 50 million ([Steamworks announcement]({D_SHARE})). The calculator starts at 30%. Change it to the one in your agreement."),
+        ("**Música, localización, tráiler, legal y contabilidad.** Dependen de quién lo haga y de cuánto pidas. Se resuelven con cotizaciones.", "**Music, localization, a trailer, legal and accounting.** They depend on who does the work and how much you ask for. Quotes settle them."),
+      ]),
+    ]),
+    ("impuestos", "Lo que te descuentan antes de cobrar", "What gets taken out before you are paid", [
+      ("nota", "Esto no es asesoría fiscal ni legal. Aquí solo está lo que dicen las tiendas en sus páginas. Tu caso lo ve tu contador.", "This is not tax or legal advice. This only repeats what the stores say on their pages. Your case is for your accountant."),
+      ("p", f"Las tiendas de Estados Unidos retienen impuesto a quienes cobran desde otro país. En itch.io, si cobras con su sistema de pagos acumulados, la retención es de 30% y puede bajar si tu país tiene tratado fiscal con Estados Unidos y das tu número de identificación fiscal ([pagos en itch.io]({ITCH_PAY})). En Steam funciona parecido y lo explicamos en [la guía de Steam desde México]({G_STEAM_MX}#impuestos).",
+            f"US stores withhold tax from people who get paid from another country. On itch.io, if you use its collected payouts, the withholding is 30% and can go down if your country has a tax treaty with the United States and you provide your tax identification number ([itch.io payments]({ITCH_PAY})). Steam works in a similar way and we explain it in [the Steam from Mexico guide]({G_STEAM_MX}#impuestos)."),
+      ("p", "Para el presupuesto, esto va en la casilla de impuestos, descuentos y devoluciones de la calculadora. No la dejes en cero.",
+            "For the budget, this goes in the calculator's taxes, discounts and refunds field. Do not leave it at zero."),
+    ]),
+    ("errores", "Errores comunes", "Common mistakes", [
+      ("p", "Casi todos salen de la letra chica de las licencias y cuotas de arriba.", "Almost all of them come from the fine print of the licenses and fees above."),
+      ("ul", [
+        ("**Dejar tu tiempo en cero.** El presupuesto sale chico y el número de copias, también.", "**Leaving your own time at zero.** The budget comes out small, and so does the number of copies."),
+        ("**Creer que Unity Personal no tiene tope.** El límite de 200,000 dólares cuenta ingresos y también fondos levantados. Un premio o un adelanto grande puede pasarte a Pro.", "**Assuming Unity Personal has no cap.** The 200,000-dollar limit counts revenue and also funds raised. A big prize or advance can move you to Pro."),
+        ("**Vender un juego hecho con la licencia gratis de GameMaker.** Esa licencia es no comercial.", "**Selling a game made with GameMaker's free license.** That license is non-commercial."),
+        ("**Anotar la cuota de Apple una sola vez.** Son 99 dólares cada año.", "**Writing down Apple's fee only once.** It is 99 dollars every year."),
+        ("**Presupuestar en pesos lo que se cobra en dólares** y no anotar el tipo de cambio ni la fecha.", "**Budgeting in pesos for what is charged in dollars** without noting the exchange rate or the date."),
+        ("**Calcular las copias a precio completo,** sin comisión, descuentos ni retención.", "**Counting copies at full price,** with no store cut, discounts or withholding."),
+        ("**Usar el rango de un artículo como si fuera tu presupuesto.** Si no dice de dónde sale ni de qué año es, no te sirve para decidir.", "**Using a range from an article as if it were your budget.** If it does not say where it comes from or what year it is from, it cannot help you decide."),
+        ("**Prometer versión de consola sin saber cuánto cuesta el kit.** Ese precio solo lo ves ya registrado.", "**Promising a console version without knowing what the kit costs.** You only see that price once you are registered."),
+      ]),
+    ]),
+  ],
+  "sig_es": "Abre la calculadora y pon tus números: equipo, meses, gastos y precio. En diez minutos tienes tu presupuesto y cuántas copias necesitas vender. Si el número asusta, recorta meses o alcance y vuelve a ver.",
+  "sig_en": "Open the calculator and enter your numbers: team, months, costs and price. In ten minutes you have your budget and how many copies you need to sell. If the number is scary, cut months or scope and look again.",
+  "siguiente": [("../presupuesto.html", "Abrir la calculadora", "Open the calculator"), ("../convocatorias.html", "Fondos y convocatorias", "Funds and open calls"), ("../kit.html", "Kit de arranque", "Starter kit"), ("./", "Más guías", "More guides")],
+  "fuentes": [
+    ("Steamworks: cuota de Steam Direct", "Steamworks: Steam Direct fee", D_FEE),
+    ("Steamworks: anuncio de niveles de reparto de ingresos (30 de noviembre de 2018)", "Steamworks: revenue share tiers announcement (November 30, 2018)", D_SHARE),
+    ("Epic Games Store: distribución, cuota y reparto", "Epic Games Store: distribution, fee and revenue share", EPIC_DIST),
+    ("itch.io: preguntas frecuentes para creadores", "itch.io: creator FAQ", ITCH_FAQ),
+    ("itch.io: pagos, reparto abierto y retención", "itch.io: payments, open revenue sharing and withholding", ITCH_PAY),
+    ("Google Play Console: alta y cuota de registro", "Google Play Console: signup and registration fee", GP_ALTA),
+    ("Google Play Console: comisiones de servicio", "Google Play Console: service fees", GP_FEES),
+    ("Apple Developer Program: membresía anual", "Apple Developer Program: annual membership", APPLE_PROG),
+    ("Apple: App Store Small Business Program", "Apple: App Store Small Business Program", APPLE_SBP),
+    ("Godot Engine: licencia", "Godot Engine: license", GODOT_LIC),
+    ("Unity: planes y precios", "Unity: plans and pricing", UNITY_PLANS),
+    ("Unreal Engine: opciones de licencia", "Unreal Engine: licensing options", UE_LIC),
+    ("GameMaker: licencias de exportación", "GameMaker: export licences", GM_GET),
+    ("FMOD: licencias", "FMOD: licensing", FMOD_LIC),
+    ("Nintendo Developer Portal: preguntas frecuentes", "Nintendo Developer Portal: FAQ", NIN_FAQ),
+    ("Banco de México: tipo de cambio", "Banco de México: exchange rate", BANXICO),
+  ],
+})
